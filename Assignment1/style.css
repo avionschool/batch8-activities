@@ -1,0 +1,20 @@
+h1 {
+    color: darkslategray;
+    text-align: center;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    color: honeydew;
+    text-align: initial;
+}
+
+html {
+    background: url(https://www.desktopbackground.org/p/2015/10/30/1034338_zte-virgin-mobile-supreme-wallpaper-lorem-ipsum-mobile-android_720x1280_h.png) no-repeat center
+      fixed;
+    background-size: cover;
+  }
+
+a {
+  color: bisque;
+}
