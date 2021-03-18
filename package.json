@@ -1,3 +1,20 @@
 {
-    "homepage": "https://theIanMilan.github.io/avion"
+  "name": "avion",
+  "version": "1.0.0",
+  "description": "Live Preview: [theIanMilan.github.io/avion](https://theianmilan.github.io/avion/#first)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theIanMilan/avion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theIanMilan/avion/issues"
+  },
+  "homepage": "https://theIanMilan.github.io/avion"
 }
