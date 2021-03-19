@@ -8612,4 +8612,12 @@ input, select, textarea {
 .buttonLi {
 	font-size: 9px;
 	letter-spacing: 1px;
+	padding: 0 1em;
+	min-width: 67px;
+}
+
+.svgLi {
+	height:auto;
+	max-width: 15px;
+	vertical-align: text-bottom;
 }
