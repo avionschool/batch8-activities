@@ -1,0 +1,52 @@
+@font-face {
+    font-family: HKGrotesk-Medium;
+    src: url(assets/font/HKGrotesk-Medium.otf);
+}
+
+@font-face {
+    font-family: HKGrotesk-LightLegacy;
+    src: url(assets/font/HKGrotesk-LightLegacy.otf)
+}
+
+body {
+    background-image: url(assets/images/background.png);
+    background-repeat: no-repeat;
+    background-size: 70% 120%;
+    background-color: #e1e862;
+    background-position-x: right;
+    background-attachment: fixed;
+    font-family: HKGrotesk-Medium;
+}
+
+#title {
+    color: #615b1f;
+}
+
+#description {
+    font-family: HKGrotesk-LightLegacy;
+    color: #666235;
+}
+
+h1 + p {
+    margin-top: -20px;
+    position: relative;
+    left: 2px;
+}
+
+.flex-header {
+    position: relative;
+    left: 3vw;
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: column;
+    margin: 3.125rem auto 0 auto;
+    width: 100%;
+}
+
+.flex-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
