@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="surveystyles.css">
+</head>
+
+<body>
+<h1 id="title">Takam, Takaw, Tikim</h1>
+<h2>Survey Form</h2>
+<p id="description">A feedback survey about the event on coffee.</p>
+
+<form id="survey-form" action="results.html" method="get">
+    <label for="name-label">Name:</label>
+    <input type="text" id="name" name="name" required pattern="[A-Za-z]" placeholder="Enter your name">
+
+    <label for="email-label">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+    <label for="age-label">Age (optional)</label>
+    <input type="number" id="age" name="age" max="99" min="18" placeholder="Enter your Age in years">
+
+    <label for="education">Highest Education earned:</label>
+    <select id="dropdown" name="education">
+        <option value="highschool">Highschool</option>
+        <option value="bachelors">Bachelors</option>
+        <option value="masters">Masters</option>
+        <option value="doctorate">Doctorate</option>
+    </select>
+
+    <label for="male">Male</label>
+    <input type="radio" name="sex" id="male" value="male">
+    <label for="female">Female</label>
+    <input type="radio" name="sex" id="female" value="female">
+
+    <p>Kinds of coffee drinks you prefer:</p>
+    <label for="coffee1">Latte</label>
+        <input type="checkbox" id="coffee1" name="coffeeChoice" value="Latte">
+    <label for="coffee2">Cappuccino</label>
+        <input type="checkbox" id="coffee2" name="coffeeChoice" value="Cappuccino">
+    <label for="coffee3">Americano</label>
+        <input type="checkbox" id="coffee3" name="coffeeChoice" value="Americano">
+    <label for="coffee4">Mocha</label>
+        <input type="checkbox" id="coffee4" name="coffeeChoice" value="Mocha">
+    <label for="coffee5">Macchiato</label>
+        <input type="checkbox" id="coffee5" name="coffeeChoice" value="Macchiato">
+    <label for="coffee6">Cafe au Lait</label>
+        <input type="checkbox" id="coffee6" name="coffeeChoice" value="Cafe au Lait">
+    <br><br>
+
+    <label for="memory">Favorite memory with Coffee:</label>
+    <textarea id="memory" name="memory" row="5" column="100">
+    Tell us a favorite memory you have with Coffee!
+    </textarea>
+
+    <input type="submit" id="submit" value="submit">
+</form>
+
+</body>
+</html>
