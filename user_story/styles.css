@@ -1,0 +1,48 @@
+#main{
+ font-size: medium;
+ 
+}
+
+#title {
+  font-size: 90px;
+  color: #000000;
+  text-align: center;
+  background-color: rgb(231, 231, 231);
+  
+}
+
+#img-div {
+  display: absolute;
+  text-align: center;
+}
+
+#image {
+  width: 100%;
+  
+}
+
+#img-caption {
+  color: #000000;
+  align-content: center;
+}
+
+#tribute-info {
+  color: #000000;
+  text-align: center;
+}
+
+#tribute-link {
+  
+}
+
+* {
+  font-family: Helvetica, sans-serif;
+}
+
+q {
+  font-style: italic;
+}
+
+head, body {
+  background-color: rgb(245, 245, 245);
+}
