@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="icon" href="img/Car.png">
+    <style>
+
+        body{ background-image: url(https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        color: ghostwhite;
+        }
+        #background{ background-color: rgba(0, 0, 0, 0.8);
+        margin: auto;
+        width: 40%;
+        border: 3px solid #633b01;
+        padding: 10px;
+        }
+        textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        #name{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; 
+        }
+        #email{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        #number{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; 
+        }
+        #dropdown{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; 
+        }
+
+        #submit{
+        background: #B9DFFF;
+        color: #fff;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow:none;
+        }
+
+        #submit:hover{
+        background: #016ABC;
+        color: #fff;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow:none;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="background">
+    <h1 id="title">Car Chase Survey Form</h1> <!--#1-->
+        <p id="description">Thank you for taking the time to help us improve the platform.</p><!--#2-->
+            <form action="#" id="survery-form"><!--#3-->
+                <label for="Name">Name</label><!--#4--> <br>
+                    <input type="text" id="name" name="name" placeholder="Enter Name">
+                        <br>
+                <label for="email">Email</label><!--#5--> <br>
+                    <input type="email" id="email" name="email" placeholder="username@domain.com"> <!--#6-->
+                        <br>
+                <label for="number">Age</label><!--#7--> <br>
+                    <input type="number" id="number" name="number" min="1" max="120" placeholder="15">
+                <br>
+
+                <p>Choose engine transmission:</p>
+                        <input type="radio" id="" name="transmission">
+                        <label for="male">Automatic</label>
+                        <br>
+                        <input type="radio" id="" name="transmission">
+                        <label for="male">manual</label>
+                        <br><br>
+
+                <label for="cars">Choose a car:</label>
+                    <select name="cars" id="dropdown">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Honda</option>
+                        <option value="opel">Toyota</option>
+                        <option value="audi">Audi</option>
+                        <option value="audi">Mitsubishi</option>
+                        <option value="audi">Hot-wheels</option>
+                    </select>
+                        <br>
+
+                <p>Car type:</p>
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="sedan">
+                    <label for="vehicle1">Sedan</label>
+                    <br>
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="SportsCar">
+                    <label for="vehicle2">Sports Car</label>
+                    <br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="SUV">
+                    <label for="vehicle3">SUV</label>
+                    <br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Convertible">
+                    <label for="vehicle3">Convertible</label>
+                    <br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Coupe">
+                    <label for="vehicle3">Coupe</label>
+                    <br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Hatchback">
+                    <label for="vehicle3">Hatchback</label>
+                    <br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="VAN">
+                    <label for="vehicle3">VAN</label>
+                    <br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Wagon">
+                    <label for="vehicle3">Wagon</label>
+                    <br><br>
+
+                    <label for="Comments">Write your Comments and Suggestions below: </label>
+                    <br>
+                    <textarea id="Comments" name="Comments" rows="4" cols="50" placeholder="Comment here..."></textarea>
+                    <br>
+                <input type="submit" value="Submit" id="submit" onclick="myFunction()">
+            </form>
+        </div>
+        
+</body>
+</html>
