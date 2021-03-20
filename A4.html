@@ -1,61 +1,81 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-        </head>
-        <body>
-<form>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1 id="title">Avion School Survey Form</h1>
+            <p id="description">Thank you for taking the time to help us improve the platform</p>
+<form id="survey-form" action="A4PAGE2.html">
     <div>
-        <label>Name</label><br>
-            <input type="text" value="Enter your name"/>
+        <label id="name">Name</label><br>
+            <input id="name-label" type="text" value="Enter your name" required/>
     </div>
-
+<!-- Need to fix "required" -->
+<br>
     <div>
-        <label>Email</label><br>
-            <input type="email" value="Enter your Email"/>
+        <label id="email">Email</label><br>
+            <input id="email-label" type="email" value="Enter your Email"/>
     </div>
-
+<!-- Need to fix "required" -->
+<br>
     <div>
-        <label>Age (optional)</label><br>
-            <input type="text" value="Age"/>
+        <label id="number">Age (optional)</label><br>
+            <input id="number-label" value="Age" type="number" min="18" max="40"/>
     </div>
-
+<!-- No validation error if non-numeric & placeholder text not working -->
+<br>
     <div>
-        <label for="role">Which option best describes your current role?</label><br>
+        <label id="dropdown" for="role">Which option best describes your current role?</label><br>
             <select name="role" id="role">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select>
     </div>
-    <!-- value="Select current role" -->
-
+<!-- no value -->
+<br>
     <div>
         <label>Would you recommend Avion School to a friend?</label><br>
-            <input name="Definitely" type="radio"/>
-            <input name="Maybe" type="radio"/>
-            <input name="Not sure" type="radio"/>
+            <input type="radio" name="option"/>Definitely<br>
+            <input type="radio" name="option"/>Maybe<br>
+            <input type="radio" name="option"/>Not sure<br>
+    </div>
+<br>
+    <div>
+        <label id="dropdown" for="feature">What is your favorite feature of Avion School</label><br>
+            <select name="feature" id="feature">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+    </div>
+<!-- no value -->
+<br>
+    <div>
+        <label>What would you like to see improved? (Check all that apply)</label><br>
+            <input type="checkbox" name="Front-end Projects"/>Front-end Projects<br>
+            <input type="checkbox" name="Back-end Projects"/>Back-end Projects<br>
+            <input type="checkbox" name="Data Visualization"/>Data Visualization<br>
+            <input type="checkbox" name="Challenges"/>Challenges<br>
+            <input type="checkbox" name="Open Source Community"/>Open Source Community<br>
+            <input type="checkbox" name="Gitter help rooms"/>Gitter help rooms<br>
+            <input type="checkbox" name="Videos"/>Videos<br>
+            <input type="checkbox" name="City Meetups"/>City Meetups<br>
+            <input type="checkbox" name="Wiki"/>Wiki<br>
+            <input type="checkbox" name="Forum"/>Forum<br>
+            <input type="checkbox" name="Additional Courses"/>Additional Courses<br>
+    </div>
+<br>   
+    <div>
+        <label for="commentsAndSuggestions">Any comments or suggestions?</label><br>
+        <textarea name="commentsAndSuggestions" id="commentsAndSuggestions" rows="10" cols="10">
+            Enter your comment here..
+        </textarea>
+    </div>
+ <br>   
+    <div>
+        <input id="submit" type="submit" name="button" value="Submit">
     </div>
 </form>
-
-<!--
-<form action="result.html" method="GET">
-
-<div>
-    <label>Username</label>
-    <input type="text" value="Enter Your Username"/>
-</div>
-
-<div>
-    <input type="password" value="Enter Your Password"/>
-</div>
-
-<button>Submit</button>
-</form>
-
-type="date" type="email" type="range" type="file"
-type="checkbox" type="radio" type="submit"
-
-
--->
-        </body>
-    </html>
+    </body>
+</html>
