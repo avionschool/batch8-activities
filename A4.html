@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            body{
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        <h1 id="title">Avion School Survey Form</h1>
-            <p id="description">Thank you for taking the time to help us improve the platform</p>
+        <h1 id="title">Contract Tracing Form</h1>
+            <p id="description">Thank you for taking the time in filling up this form</p>
 <form id="survey-form" action="A4PAGE2.html">
     <div>
         <label id="name">Name</label><br>
@@ -23,51 +28,50 @@
             <input id="number-label" value="Age" type="number" min="18" max="40"/>
     </div>
 <!-- No validation error if non-numeric & placeholder text not working -->
-<br>
-    <div>
+<!-- <br>
+   <div>
         <label id="dropdown" for="role">Which option best describes your current role?</label><br>
             <select name="role" id="role">
                 <option value="1">role 1</option>
                 <option value="2">role 2</option>
                 <option value="3">role 3</option>
             </select>
-    </div>
+    </div> -->
 <!-- no value -->
 <br>
     <div>
-        <label>Would you recommend Avion School to a friend?</label><br>
+        <label>Have you been exposed to a potential COVID-19 patient?</label><br>
             <input type="radio" name="option"/>Definitely<br>
             <input type="radio" name="option"/>Maybe<br>
             <input type="radio" name="option"/>Not sure<br>
     </div>
 <br>
     <div>
-        <label id="dropdown" for="feature">What is your favorite feature of Avion School</label><br>
+        <label id="dropdown" for="feature">What barangay are you in?</label><br>
             <select name="feature" id="feature">
-                <option value="1">feature 1</option>
-                <option value="2">feature 1</option>
-                <option value="3">feature 1</option>
+                <option value="1">loc1</option>
+                <option value="2">loc2</option>
+                <option value="3">loc3</option>
             </select>
     </div>
 <!-- no value -->
 <br>
     <div>
-        <label>What would you like to see improved? (Check all that apply)</label><br>
-            <input type="checkbox" name="Front-end Projects"/>Front-end Projects<br>
-            <input type="checkbox" name="Back-end Projects"/>Back-end Projects<br>
-            <input type="checkbox" name="Data Visualization"/>Data Visualization<br>
-            <input type="checkbox" name="Challenges"/>Challenges<br>
-            <input type="checkbox" name="Open Source Community"/>Open Source Community<br>
-            <input type="checkbox" name="Gitter help rooms"/>Gitter help rooms<br>
-            <input type="checkbox" name="Videos"/>Videos<br>
-            <input type="checkbox" name="City Meetups"/>City Meetups<br>
-            <input type="checkbox" name="Wiki"/>Wiki<br>
-            <input type="checkbox" name="Forum"/>Forum<br>
-            <input type="checkbox" name="Additional Courses"/>Additional Courses<br>
+        <label>Have you been experiencing any of this symptoms? (Check all that apply)</label><br>
+            <input type="checkbox" name="Front-end Projects"/>Fever<br>
+            <input type="checkbox" name="Back-end Projects"/>Dry Cough<br>
+            <input type="checkbox" name="Data Visualization"/>Tiredness<br>
+            <input type="checkbox" name="Challenges"/>Aches and Pains<br>
+            <input type="checkbox" name="Open Source Community"/>Sore Throat<br>
+            <input type="checkbox" name="Gitter help rooms"/>Diarrhoea<br>
+            <input type="checkbox" name="Videos"/>Conjunctivitis<br>
+            <input type="checkbox" name="City Meetups"/>Headache<br>
+            <input type="checkbox" name="Wiki"/>Loss of taste or smell<br>
+            <input type="checkbox" name="Forum"/>A rash on skin, or discolouration of fingers or toes<br>
     </div>
 <br>   
     <div>
-        <label for="commentsAndSuggestions">Any comments or suggestions?</label><br>
+        <label for="commentsAndSuggestions">Any comments or suggestions to improve our contract tracing?</label><br>
         <textarea name="commentsAndSuggestions" id="commentsAndSuggestions" rows="10" cols="10">
             Enter your comment here..
         </textarea>
