@@ -46,6 +46,8 @@ h1 + p {
     width: 60%;
     background-color: #c8d1223b;
     padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px grey;
 }
 
 #comments {
