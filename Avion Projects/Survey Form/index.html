@@ -11,7 +11,7 @@
     </header>
 
     <div class="flex-form">
-        <form id="survey-form" action="#" method="get">
+        <form id="survey-form" action="received.html" method="get">
             <div><label for="name" id="name-label">Name:</label></div>
                 <div><input type="text" id="name" name="name" required placeholder="Enter your name"></div>
             <br>
@@ -21,6 +21,12 @@
             <div><label for="number" id="number-label">Age (optional)</label></div>
                 <div><input type="number" id="number" name="age" max="99" min="18" placeholder="Enter your age"></div>
             <br>
+            <div>Sex:</div>
+            <label for="male">Male</label>
+                <input type="radio" name="sex" id="male" value="male">
+            <label for="female">Female</label>
+                <input type="radio" name="sex" id="female" value="female">
+            <br><br>
             <div><label for="dropdown">Favorite Part of the Event:</label></div>
                 <div>
                     <select id="dropdown" name="faveEvent">
@@ -30,12 +36,6 @@
                     </select>
                 </div>
             <br>
-            <div>Sex:</div>
-            <label for="male">Male</label>
-                <input type="radio" name="sex" id="male" value="male">
-            <label for="female">Female</label>
-                <input type="radio" name="sex" id="female" value="female">
-            <br><br>
             <div>Kinds of coffee drinks you prefer:</div>
             <div>
                 <div>
@@ -68,7 +68,7 @@
             <div><label for="comments">Any comments or suggestions?</label></div>
                 <div><textarea id="comments" name="memory" placeholder="Enter your comment here..."></textarea></div>
             <br>
-            <input type="submit" id="submit" value="submit">
+            <input type="submit" id="submit" value="Submit">
         </form>
     </div>
 </body>
