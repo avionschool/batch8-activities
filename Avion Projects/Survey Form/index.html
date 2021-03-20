@@ -13,14 +13,14 @@
 
     <div class="flex-form">
         <form id="survey-form" action="received.html" method="get">
-            <div><label for="name" id="name-label">Name:</label></div>
-                <div><input type="text" id="name" name="name" required placeholder="Enter your name"></div>
+            <div><label for="name" id="name-label"><span class="required">*</span>Name:</label> </div>
+                <div><input type="text" id="name" name="name" class="textfield" required placeholder="Enter your name"></div>
             <br>
-            <div><label for="email" id="email-label">Email:</label></div>
-                <div><input type="email" id="email" name="email" required placeholder="Enter your email"></div>
+            <div><label for="email" id="email-label"><span class="required">*</span>Email:</label></div>
+                <div><input type="email" id="email" name="email"  class="textfield" required placeholder="Enter your email"></div>
             <br>
             <div><label for="number" id="number-label">Age (optional)</label></div>
-                <div><input type="number" id="number" name="age" max="99" min="18" placeholder="Enter your age"></div>
+                <div><input type="number" id="number" name="age" max="99" min="18"  class="textfield" placeholder="Enter your age"></div>
             <br>
             <div>Sex:</div>
             <label for="male">Male</label>
@@ -30,7 +30,8 @@
             <br><br>
             <div><label for="dropdown">Favorite Part of the Event:</label></div>
                 <div>
-                    <select id="dropdown" name="faveEvent">
+                    <select id="dropdown" name="faveEvent" class="textfield">
+                        <option disabled selected value> -- select an option -- </option>
                         <option value="day1">Day 1: Food as a Conservation Tool</option>
                         <option value="day2">Day 2: Food and Your Experience</option>
                         <option value="day3">Day 3: Food and the Appetite for Change</option>
