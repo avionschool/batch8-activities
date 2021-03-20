@@ -12,55 +12,73 @@
 
     <div class="flex-form">
         <form id="survey-form" action="#" method="get">
-            <label for="name" id="name-label">Name:</label>
-                <input type="text" id="name" name="name" required pattern="[A-Za-z]" placeholder="Enter your name">
-
-            <label for="email" id="email-label">Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-
-            <label for="number" id="number-label">Age (optional)</label>
-                <input type="number" id="number" name="age" max="99" min="18" placeholder="Enter your age">
-
-            <label for="dropdown">Favorite Part of the Event:</label>
-                <select id="dropdown" name="faveEvent">
-                    <option value="day1">Day 1: Food as a Conservation Tool</option>
-                    <option value="day2">Day 2: Food and Your Experience</option>
-                    <option value="day3">Day 3: Food and the Appetite for Change</option>
-                </select>
-
+            <div><label for="name" id="name-label">Name:</label></div>
+                <div><input type="text" id="name" name="name" required placeholder="Enter your name"></div>
+            <br>
+            <div><label for="email" id="email-label">Email:</label></div>
+                <div><input type="email" id="email" name="email" required placeholder="Enter your email"></div>
+            <br>
+            <div><label for="number" id="number-label">Age (optional)</label></div>
+                <div><input type="number" id="number" name="age" max="99" min="18" placeholder="Enter your age"></div>
+            <br>
+            <div><label for="dropdown">Favorite Part of the Event:</label></div>
+                <div>
+                    <select id="dropdown" name="faveEvent">
+                        <option value="day1">Day 1: Food as a Conservation Tool</option>
+                        <option value="day2">Day 2: Food and Your Experience</option>
+                        <option value="day3">Day 3: Food and the Appetite for Change</option>
+                    </select>
+                </div>
+            <br>
+            <div>Sex:</div>
             <label for="male">Male</label>
                 <input type="radio" name="sex" id="male" value="male">
             <label for="female">Female</label>
                 <input type="radio" name="sex" id="female" value="female">
-
-            <p>Kinds of coffee drinks you prefer:</p>
-            <label for="coffee1">Latte</label>
-                <input type="checkbox" id="coffee1" name="coffeeChoice" value="Latte">
-            <label for="coffee2">Cappuccino</label>
-                <input type="checkbox" id="coffee2" name="coffeeChoice" value="Cappuccino">
-            <label for="coffee3">Americano</label>
-                <input type="checkbox" id="coffee3" name="coffeeChoice" value="Americano">
-            <label for="coffee4">Mocha</label>
-                <input type="checkbox" id="coffee4" name="coffeeChoice" value="Mocha">
-            <label for="coffee5">Macchiato</label>
-                <input type="checkbox" id="coffee5" name="coffeeChoice" value="Macchiato">
-            <label for="coffee6">Cafe au Lait</label>
-                <input type="checkbox" id="coffee6" name="coffeeChoice" value="Cafe au Lait">
+            <br><br>
+            <div>Kinds of coffee drinks you prefer:</div>
+            <div>
+                <div>
+                    <input type="checkbox" id="coffee1" name="coffeeChoice" value="Latte">
+                    <label for="coffee1">Latte</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="coffee2" name="coffeeChoice" value="Cappuccino">
+                    <label for="coffee2">Cappuccino</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="coffee3" name="coffeeChoice" value="Americano">
+                    <label for="coffee3">Americano</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="coffee4" name="coffeeChoice" value="Mocha">
+                    <label for="coffee4">Mocha</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="coffee5" name="coffeeChoice" value="Macchiato">
+                    <label for="coffee5">Macchiato</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="coffee6" name="coffeeChoice" value="Cafe au Lait">
+                    <label for="coffee6">Cafe au Lait</label>
+                </div>
+            </div>
             <br><br>
 
-            <label for="memory">Any comments or suggestions?</label>
-                <textarea id="memory" name="memory" placeholder="Enter your comment here..."></textarea>
-
+            <div><label for="comments">Any comments or suggestions?</label></div>
+                <div><textarea id="comments" name="memory" placeholder="Enter your comment here..."></textarea></div>
+            <br>
             <input type="submit" id="submit" value="submit">
         </form>
     </div>
 </body>
 
 <footer class="flex-footer">
-    <div>Logo 1</div>
-    <div>Logo 2</div>
-    <div>Logo 3</div>
-    <div>Logo 4</div>
-    <div>Logo 5</div>
+    <p style="position: absolute; align-self: top; padding-bottom: 80px; font-size: small;">Brought to you by:</p>
+    <div><img src="assets/images/logo colored (4).png" alt="where to next logo" class="footer-img"></div>
+    <div><img src="assets/images/logo colored (5).png" alt="lifestories logo" class="footer-img"></div>
+    <div><img src="assets/images/logo colored (3).png" alt="forest foundation logo logo" class="footer-img"></div>
+    <div><img src="assets/images/logo colored (2).png" alt="yagam coffee logo" class="footer-img"></div>
+    <div><img src="assets/images/logo colored (1).png" alt="trails&traces coffee roasters logo" class="footer-img"></div>
 </footer>
 </html>
