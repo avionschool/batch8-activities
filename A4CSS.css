@@ -1,0 +1,39 @@
+h1, h2, p, ul, li{
+    text-align: center;
+}
+
+body{
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form{
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: center;
+    /*vertical*/
+    align-items: center;
+    /*horizontal*/
+    height: 1200px;
+}
+
+.main{
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question{
+    background-color: blue;
+    display: flex;
+    justify-content: center ;
+    /*horizontal*/
+    align-items: center;
+    /*vertical*/
+    margin: 10px;
+    padding: 10px;
+}
