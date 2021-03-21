@@ -1,0 +1,83 @@
+body {
+  width: 100%;
+  height: 100%;
+  background: #e6ead7;
+}
+
+.navBar {
+  width: 100%;
+  height: 72px;
+  background: #95a562;
+  position: fixed;
+}
+
+#mainHeader {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-style: 37px;
+  line-height: 119%;
+}
+
+#mainHeaderContainer {
+  position: absolute;
+  width: 498px;
+  height: 81px;
+  left: calc(50% - 498px / 2 - 1px);
+  top: calc(50% - 81px / 2 - 293.5px);  
+}
+
+#description,label {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-style: 12px;
+  line-height: 119%;
+  color: #050505;
+}
+
+#survey-form {
+position: absolute;
+width: 600px;
+height: 650px;
+left: calc(50% - 511px/2 - 0.5px);
+top: calc(50% - 569px/2 + 63.5px);
+
+background: #FFFFFF;
+box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+border-radius: 9px;
+
+}
+
+#survey-elements-container {
+  padding: 25px;
+}
+
+#submit-button {
+  font-style: normal;
+  background: #41935D;
+  border-radius: 10px;
+  width: 90px;
+  height: 33px;
+}
+
+.footer-box {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 53px;
+  background: #95A562;;
+  
+}
+
+/* survey answer form */
+
+#answer-elements {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-style: 12px;
+  line-height: 119%;
+  color: #050505;
+}
