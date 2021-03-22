@@ -61,6 +61,21 @@ h1 + p {
     color: red;
 }
 
+.textfield {
+    width: 100%;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid #739e10;
+	outline: none;
+	color: #364d02;
+	padding: 5px 8px 5px 8px;
+}
+
+#dropdown {
+    text-overflow: ellipsis;
+}
+
 #comments {
     resize: vertical;
     width: 100%;
@@ -79,17 +94,6 @@ h1 + p {
     justify-content: center;
     align-items: center;
     width: 100%;
-}
-
-.textfield {
-    width: 100%;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border: 1px solid #739e10;
-	outline: none;
-	color: #364d02;
-	padding: 5px 8px 5px 8px;
 }
 
 #submit {
@@ -130,7 +134,6 @@ a {
     text-decoration: none;
 }
 
-/* QTODO */
 /* Media query for mobile */
 @media only screen and (max-width : 992px) {
     :root {
@@ -159,6 +162,10 @@ a {
         padding: 20px;
         width: 95%;
         font-size: 1em;
+    }
+
+    #dropdown {
+        font-size: 0.8em;
     }
 
     #submit {
