@@ -1,0 +1,31 @@
+body {
+    background-color: burlywood;
+    font-size: 5vmin;
+}
+
+header {
+    text-align: center;
+}
+
+#chess-container {
+    width: 36vw;
+    height: 36vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.black {
+    background-color: lightgreen;
+    flex-basis: 12.5%;
+    height: 12.5%;
+    border-color: black;
+}
+
+.white {
+    background-color: white;
+    flex-basis: 12.5%;
+    height: 12.5%;
+    border-color: black;
+}
