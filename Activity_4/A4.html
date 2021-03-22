@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contract Tracing Form | April 10, 2021</title>
+        <link rel="stylesheet" href="A4.css">
+    <style>
+        body{
+            background-image: url(Pictures/background.jpg);
+            background-repeat: no-repeat;
+        }
+    </style>
+    </head>
+    <body>
+        
+        <h1 id="title">Contract Tracing Form</h1>
+            <h2>Janelle Brooke Siy & Alvin Casayuran's Wedding</h2>
+                <p id="description">Thank you for taking the time in filling up this form.</p>
+
+        <div class="main">
+        <form id="survey-form" action="A4PAGE2.html">
+            
+            <div class="question">
+                <label id="name">Full Name:</label><br>
+                    <input id="name-label" type="text" value="Enter your full name"/>
+            </div>
+<!--Need to be required-->
+
+    <br>
+            <div class="question">
+                <label>Contact Number:</label><br>
+                    <input type="number"/>
+            </div>
+
+    <br>
+            <div class="question">
+                <label id="email">E-mail Address:</label><br>
+                    <input id="email-label" type="email" value="Enter your e-mail address"/>
+            </div>
+<!--Need to be required-->
+
+    <br>
+            <div class="question">
+                <label id="number">Age:</label><br>
+                    <input id="number-label" type="number" min="18" max="65"/>
+            </div>
+<!--Need validation error if non-numeric
+    Need placeholder text-->
+    
+    <br>
+            <div class="question">
+                <label>Gender</label><br>
+                    <select>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+            </div>
+<!--No placeholder text-->            
+
+    <br>
+            <div class="question">
+                <label>Address</label><br>
+                    <textarea rows="5">
+                        Enter your complete address
+                    </textarea>
+            </div>
+<!--Need to fix infinite rows-->
+
+    <br>
+            <div class="question">
+                <label>Temperature:</label><br>
+                    <input type="number" min="30" max="40"/>
+            </div>
+
+    <br>
+            <div class="question">
+                <label>Have you been exposed to a potential COVID-19 patient?</label><br>
+                    <input type="radio" name="option"/>Yes, I was<br>
+                    <input type="radio" name="option"/>Maybe, I'm not entirely sure<br>
+                    <input type="radio" name="option"/>No, I was not
+            </div>
+
+    <br>
+            <div class="question">
+                <label>Have you been experiencing any of this symptoms? (Check all that apply)</label><br>
+                    <input type="checkbox"/>Fever<br>
+                    <input type="checkbox"/>Dry Cough<br>
+                    <input type="checkbox"/>Tiredness<br>
+                    <input type="checkbox"/>Aches and Pains<br>
+                    <input type="checkbox"/>Sore Throat<br>
+                    <input type="checkbox"/>Diarrhoea<br>
+                    <input type="checkbox"/>Conjunctivitis<br>
+                    <input type="checkbox"/>Headache<br>
+                    <input type="checkbox"/>Loss of taste or smell<br>
+                    <input type="checkbox"/>A rash on skin, or discolouration of fingers or toes<br>
+                    <input type="checkbox"/>None of the above
+            </div>
+
+    <br>
+            <div class="question">
+                <label>Any comments or suggestions to improve our contract tracing?</label><br>
+                    <textarea rows="10" cols="10">
+                        Enter your comment & suggestions here..
+                    </textarea>
+            </div>
+ 
+    <br>   
+            <div class="question">
+                <input id="submit" type="submit" value="Submit">
+            </div>
+        
+        </form>
+        </div>
+    </body>
+</html>
