@@ -8,8 +8,8 @@ header {
 }
 
 #chess-container {
-    width: 36vw;
-    height: 36vw;
+    width: 72vmin;
+    height: 72vmin;
     display: flex;
     flex-wrap: wrap;
     margin-left: auto;
