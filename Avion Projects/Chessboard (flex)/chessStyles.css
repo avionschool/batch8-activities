@@ -41,3 +41,8 @@ header {
     width: 100%;
     height: auto;
 }
+
+footer {
+    text-align: center;
+    font-size: 1.5vmin;
+}
