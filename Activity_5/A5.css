@@ -1,20 +1,25 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    /* search mo */
+    /* box-sizing: border-box;
+     search mo */
+}
+
+h1{
+    text-align: center;
+    margin-top: 3%;
 }
 
 .chessContainer{
-    background-color: yellow;
+    /* background-color: yellow;*/
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /*make your chessContainer your whole screen*/
+    /*make your container your whole screen*/
 }
 
-.row{
+.column{
     background-color: red;
     display: flex;
     flex-direction: column;
@@ -26,8 +31,9 @@
     display: flex;
     height: 5vw;
     width: 5vw;
-    /*vw adjust depending on screen*/
-    /*px size remains the same no matter the screen*/
+    /*vw content will not change whatsoever*/
+    /*px you can zoom in and out
+    regardless of screen size it will remain the same*/
 }
 
 .black{
