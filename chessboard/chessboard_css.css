@@ -1,0 +1,32 @@
+.flexbox-container, .flexbox-container-2, .flexbox-container-3,.flexbox-container-4, .flexbox-container-5, .flexbox-container-6,.flexbox-container-7, .flexbox-container-8 {
+  display: flex; 
+  justify-content: center;
+  flex-direction: row;
+  height: 100px;
+  width: 800px;
+  border: 1px solid #333;
+  
+}
+
+.flexbox-item-1st-row,.flexbox-item-2nd-row, .flexbox-item-3rd-row, .flexbox-item-4th-row, .flexbox-item-5th-row, .flexbox-item-6th-row, .flexbox-item-7th-row, .flexbox-item-8th-row   {
+  width: 100px;
+  height: 100px;
+  
+}
+
+.flexbox-item-1, .flexbox-item-3, .flexbox-item-5, .flexbox-item-7, .flexbox-item-10,.flexbox-item-12,.flexbox-item-14, .flexbox-item-16, .flexbox-item-17, .flexbox-item-19, .flexbox-item-21, .flexbox-item-23, .flexbox-item-26, .flexbox-item-28, .flexbox-item-30, .flexbox-item-32, .flexbox-item-33, .flexbox-item-35, .flexbox-item-37, .flexbox-item-39, .flexbox-item-42, .flexbox-item-44, .flexbox-item-46, .flexbox-item-48, .flexbox-item-49, .flexbox-item-51, .flexbox-item-53, .flexbox-item-55, .flexbox-item-58, .flexbox-item-60, .flexbox-item-62, .flexbox-item-64       {
+  background-color: white;
+  background-image: url(images/soil.png);
+}
+
+.flexbox-item-2, .flexbox-item-4, .flexbox-item-6, .flexbox-item-8,.flexbox-item-9,.flexbox-item-11, .flexbox-item-13, .flexbox-item-15,    .flexbox-item-18, .flexbox-item-20, .flexbox-item-22, .flexbox-item-24, .flexbox-item-25, .flexbox-item-27, .flexbox-item-29, .flexbox-item-31, .flexbox-item-34, .flexbox-item-36, .flexbox-item-38, .flexbox-item-40, .flexbox-item-41, .flexbox-item-43, .flexbox-item-45, .flexbox-item-47, .flexbox-item-50, .flexbox-item-52, .flexbox-item-54, .flexbox-item-56, .flexbox-item-57, .flexbox-item-59, .flexbox-item-61, .flexbox-item-63   {            
+  background-color: black;
+  background-image: url(images/grass.jpeg);
+}
+
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
