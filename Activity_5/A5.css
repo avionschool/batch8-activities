@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* search mo */
+}
+
+.chessContainer{
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*make your chessContainer your whole screen*/
+}
+
+.row{
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+}
+
+.white{
+    background-color: white;
+    display: flex;
+    height: 5vw;
+    width: 5vw;
+    /*vw adjust depending on screen*/
+    /*px size remains the same no matter the screen*/
+}
+
+.black{
+    background-color: black;
+    display: flex;
+    height: 5vw;
+    width: 5vw;
+}

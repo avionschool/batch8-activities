@@ -6,6 +6,10 @@ h1, h2, h3, p, ul, li{
     text-align: center;
 }
 
+textarea{
+    resize: none;
+}
+
 .main{
     /*background-color: yellow;*/
     display: flex;
