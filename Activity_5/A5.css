@@ -1,9 +1,8 @@
-/*test*/
 *{
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box;
-     search mo */
+    /*box-sizing: border-box;
+     search mo*/
 }
 
 h1{
@@ -11,17 +10,47 @@ h1{
     margin-top: 3%;
 }
 
-.chessContainer{
-    /* background-color: yellow;*/
+dt{
+    font-weight: bold;    
+}
+
+.mainContainer{
+    /*background-color: crimson;*/
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.instructionsContainer{
+    /*background-color: blue;*/
+    display: flex;
+    /*need to fix width and height*/
+    width: 40%;
+    height: 84%;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 20px;
+    border: solid;
+    border-radius: 25px;
+}   
+
+.chessContainer{
+    /*background-color: yellow;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh;*/
     /*make your container your whole screen*/
 }
 
 .column{
-    background-color: red;
+    /*background-color: red;*/
     display: flex;
     flex-direction: column;
     border-style: solid;
@@ -30,8 +59,8 @@ h1{
 .white{
     background-color: white;
     display: flex;
-    height: 5vw;
-    width: 5vw;
+    height: 5.3vw;
+    width: 5.3vw;
     /*vw content will not change whatsoever*/
     /*px you can zoom in and out
     regardless of screen size it will remain the same*/
@@ -40,6 +69,44 @@ h1{
 .black{
     background-color: black;
     display: flex;
-    height: 5vw;
-    width: 5vw;
+    height: 5.3vw;
+    width: 5.3vw;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-style: solid;
+    border-radius: 25px;
+    width: 50%;
+}
+
+.navContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /*background-color: red;*/
+}
+
+.footer{
+    /*background-color: red;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    /*background-color: blue;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    border-radius: 25px;
+    width: 100px;
+    border-style: solid;
 }

@@ -1,4 +1,3 @@
-<!--test-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,10 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
-    <h1>Chessboard Game</h1>
+    <h1>CHESSBOARD GAME</h1>
+    
+    <div class="navContainer">
+        <div class="nav">
+            <div>PLAY NOW</div>
+            <div>RESTART</div>
+            <div>INSTRUCTIONS</div>
+        </div>
+    </div>
+
+    <div class="mainContainer">
+    <div class="instructionsContainer">
+        <h2>Ready to Play Chess?</h2>
+            <br>
+            <dl>
+                <dt>Pawn Movement</dt>
+                    <dd>Pawns only move forward. On the first move a pawn can move one or two spaces, 
+                        every subsequent move can only be one space. Pawns move diagonally to take opponents.</dd>
+            <br>
+                <dt>Rook</dt>
+                    <dd>Rooks move in a continuous line forwards, backwards and side-to-side.</dd>
+            <br>
+                <dt>Knight</dt>
+                    <dd>Knights are the only pieces that "jump" off the board. Unlike other pieces they are not blocked if there are pieces between them and their destination square.<br>
+                        To make it easier to remember how a knight moves think of an L. Two spaces in a direction forward, backward or side-to-side, and one space at a right turn.</dd>
+            <br>
+                <dt>Bishop</dt>
+                    <dd>Bishops move in continuous diagonal lines in any direction.</dd>
+            <br>   
+                <dt>Queen</dt>
+                    <dd>The queen moves in continuous diagonal and straight lines. Forward, backward and side-to-side.</dd>
+            <br>    
+                <dt>King</dt>
+                    <dd>The king can move in any direction, one square at a time.<br>
+                    A king cannot move to a square that is under attack by the opponent.</dd>
+            </dl>
+    </div>
+
     <div class="chessContainer">
-        <div class="column">
 <!--left column 1-->
+        <div class="column">
             <div class="white">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Chess_rdt60.png" alt="rookB" height="100%" width="100%">
             </div>
@@ -159,6 +195,10 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Chess_rdt60.png" alt="rookB" height="100%" width="100%">
             </div>
         </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="button">Quit</div>
     </div>
 </body>
 </html>
