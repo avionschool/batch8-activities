@@ -30,3 +30,22 @@ img {
   height: 90px;
 }
 
+/* mobile phones - less than 450px width*/
+@media screen and (max-width: 450px) {
+  .flexbox-container, .flexbox-container-2, .flexbox-container-3,.flexbox-container-4, .flexbox-container-5, .flexbox-container-6,.flexbox-container-7, .flexbox-container-8 {
+    display: flex; 
+    justify-content: center;
+    flex-direction: row;
+    height: 40px;
+    width: 320px;
+    border: 1px solid #333;
+    
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* */
