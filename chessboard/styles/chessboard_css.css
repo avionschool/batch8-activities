@@ -5,8 +5,18 @@ body {
     rgba(133, 111, 173, 1) 0%,
     rgba(64, 37, 119, 1) 66%,
     rgba(64, 37, 119, 1) 100%
+    
+    
   );
   /*background-repeat: no-repeat;*/
+
+}
+
+.chessboard-border {
+  height: 820px;
+  width: 805px;
+  background: rgb(255, 255, 255);
+  padding: 10px;
 }
 
 .flexbox-container,
@@ -116,6 +126,12 @@ img {
 
 /* mobile phones - less than 450px width*/
 @media screen and (max-width: 450px) {
+  .chessboard-border {
+    height: 700px;
+    width: 320px;
+    background: rgb(255, 255, 255);
+  }
+
   .flexbox-container,
   .flexbox-container-2,
   .flexbox-container-3,
@@ -152,6 +168,12 @@ img {
 
 /* mobile phones - less than 400px width */
 @media screen and (max-width: 400px) {
+  .chessboard-border {
+    height: 230px;
+    width: 200px;
+    background: rgb(255, 255, 255);
+  }
+
   .flexbox-container,
   .flexbox-container-2,
   .flexbox-container-3,
@@ -167,6 +189,8 @@ img {
     width: 240px;
     border: 1px solid #333;
   }
+
+
 
   .flexbox-item-1st-row,
   .flexbox-item-2nd-row,
