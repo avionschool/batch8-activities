@@ -80,7 +80,7 @@ body {
 .flexbox-item-62,
 .flexbox-item-64 {
   background-color: white;
-  background-image: url(images/soil.png);
+  background-image: url(/images/soil.png);
 }
 
 .flexbox-item-2,
@@ -116,7 +116,7 @@ body {
 .flexbox-item-61,
 .flexbox-item-63 {
   background-color: black;
-  background-image: url(images/grass.jpeg);
+  background-image: url(/images/grass.jpeg);
 }
 
 img {
