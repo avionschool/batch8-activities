@@ -166,11 +166,20 @@ img {
   }
 }
 
+@media screen and (max-width: 420px) {
+  .chessboard-border {
+    height: 340px;
+    width: 320px;
+    background: rgb(255, 255, 255);
+  }
+
+}
+
 /* mobile phones - less than 400px width */
 @media screen and (max-width: 400px) {
   .chessboard-border {
-    height: 230px;
-    width: 200px;
+    height: 260px;
+    width: 242px;
     background: rgb(255, 255, 255);
   }
 
