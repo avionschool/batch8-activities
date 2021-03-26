@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: burlywood;
+    font-size: 5vmin;
+}
+
+header {
+    text-align: center;
+}
+
+#chess-container {
+    width: 72vmin;
+    height: 72vmin;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+.black {
+    background-color: #769656;
+    flex-basis: 12.5%;
+    height: 12.5%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.white {
+    background-color: #eeeed2;
+    width: 12.5%;
+    height: 12.5%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.chess-piece {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    font-size: 1.5vmin;
+}

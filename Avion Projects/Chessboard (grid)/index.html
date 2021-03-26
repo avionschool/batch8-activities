@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="chessStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA+Pj4AN3d3QCnp6cA/v7+AOPj4wDc3NwApqamAP39/QDHx8cABAQEAEBAQAD8/PwA7u7uAAMDAwAQEBAA+/v7AAICAgB0dHQAAQEBAN7e3gBKSkoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAEAAAAAAAAABwAAAAAAAAQMAAAAAAAAAAMAAAAAAAAEBBQGBgYCBgYIAAAAAAAABAQAAAAAAAAABAAAAAAAAAQEEQAAAAAAEQQAAAAAAAAEBAUAAAAAABMEAAAAAAAABAQEEQAAAAAAEAAAAAAAAAQEBBAAAAAAABEAAAAAAAAMCAgEEAAAAAATAAAAAAAADgAOCQAAAAAAAAAAAAAAABEAAAAAAAAAABMAAAAAAAAMDgAAAAAAAAAOAAAAAAAABAQKAAAAAAAKCAAAAAAAAAQECA8AAAARDQQAAAAAAAAEBAQMEhMVDAQEAAAAAAAABAQEBAwLBAQEBAAAAOAHAADgBwAA4AcAAOAHAADgBwAA4AcAAOAHAADgBwAA4AcAAOAHAADgBwAA4AcAAOAHAADgBwAA4AcAAOAHAAA=" rel="icon" type="image/x-icon" />
+
+    <title>Chessboard (Flexbox)</title>
+</head>
+
+<body>
+    <header><h1>Chessboard (Flexbox)</h1></header>
+
+    <div id="chess-container">
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Chess_rdt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Chess_ndt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Chess_bdt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Chess_qdt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Chess_bdt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Chess_ndt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Chess_rdt60.png" class="chess-piece"></div>
+        
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" class="chess-piece"></div>
+        
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        <div class="black"></div>
+        <div class="white"></div>
+        
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" class="chess-piece"></div>
+       
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chess_rlt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Chess_nlt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Chess_blt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Chess_qlt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Chess_klt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Chess_blt60.png" class="chess-piece"></div>
+        <div class="black"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Chess_nlt60.png" class="chess-piece"></div>
+        <div class="white"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chess_rlt60.png" class="chess-piece"></div>
+    </div>
+</body>
+
+<footer>
+    <p>Chess pieces by <a href="https://commons.wikimedia.org/wiki/File:Chess_klt45.svg">User:Cburnett</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via Wikimedia Commons</p>
+</footer>
+<!-- chess pieces
+♜♞♝♛♚♝♞♜
+♟♟♟♟♟♟♟♟
+♙♙♙♙♙♙♙♙
+♖♘♗♕♔♗♘♖ 
+-->
+
+</html>
