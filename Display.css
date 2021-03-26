@@ -1,0 +1,11 @@
+h1{
+    text-align: center;
+}
+
+.container{
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 50%;
+}
