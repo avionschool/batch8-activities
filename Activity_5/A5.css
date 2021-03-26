@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    background-image: url(background.jpg);
     /*box-sizing: border-box;
      search mo*/
 }
@@ -62,18 +61,16 @@ dt{
     display: flex;
     height: 5.3vw;
     width: 5.3vw;
-    border-style: solid;
     /*vw content will not change whatsoever*/
     /*px you can zoom in and out
     regardless of screen size it will remain the same*/
 }
 
 .black{
-    background-color: grey;
+    background-color: black;
     display: flex;
     height: 5.3vw;
     width: 5.3vw;
-    border-style: solid;
 }
 
 .nav{
