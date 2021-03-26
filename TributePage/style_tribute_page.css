@@ -1,0 +1,42 @@
+#tribute-info {
+    
+    background: lightgray;
+    border-style: inset;
+}
+#tribute-info p {
+    line-height: 2;
+}
+body {
+    background: whitesmoke;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+#title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Lucida Handwritting", cursive;
+}
+
+#subtitle {
+    text-align:center;
+    font-style: italic;
+}
+
+#img-caption {
+    font-style:italic;
+    margin-top: 0;
+    text-align: center;
+
+}
+
+#quote {
+    font-style: italic;
+    text-align:center;
+}

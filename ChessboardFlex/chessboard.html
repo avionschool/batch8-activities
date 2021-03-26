@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <title>Chessboard (Flex)</title>
+
+        <style type="text/css">
+            body {
+                background-image: url('https://i.postimg.cc/h4XkfyRy/chess-433071-1920.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            .chessboard{
+                border: 2px solid black;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                height: 50vw;
+                margin: 0 auto;
+                width: 50vw;
+             }
+            .row{
+                display: flex;
+                flex: 1;
+                flex-direction: row;
+            }
+            .white{
+                background-color: #f1d9b6;
+                flex: 1;
+                font-size:50px;
+                text-align:center;
+                display: table-cell;
+                vertical-align:middle;
+             }
+            .black{
+                background-color: #b58763;
+                flex: 1;
+                font-size:50px;
+                text-align:center;
+                display: table-cell;
+                vertical-align:middle;
+            }
+        </style>
+            
+    </head>
+<body>
+    <center><p style="color:white; font-size:30px;">Chessboard (Flex)</p></center>
+    <div class="chessboard">
+        <!-- 1st -->
+    <div class="row">
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9820;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9822;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9819;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9818;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9821;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9822;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9820;</div>
+    </div>
+        <!-- 2nd -->
+    <div class="row">
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9821;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9821;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9821;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9821;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+    </div>
+        <!-- 3th row -->
+    <div class="row">
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+    </div>
+        <!-- 4st row -->
+    <div class="row">
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+    </div>
+        <!-- 5th row -->
+    <div class="row">
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+    </div>
+        <!-- 6th row -->
+    <div class="row">
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');"></div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+    </div>
+        <!-- 7th row -->
+    <div class="row">
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9817;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9817;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9817;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9817;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9817;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9817;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9817;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9817;</div>
+    </div>
+        <!-- 8th row -->
+    <div class="row">
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9814;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9816;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9815;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9813;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9812;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9815;</div>
+        <div class="black" style="background-image: url('https://i.postimg.cc/ZKRLLRLV/gray.jpg');">&#9816;</div>
+        <div class="white" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9814;</div>
+    </div>
+  </div>
+</body>
+</html>

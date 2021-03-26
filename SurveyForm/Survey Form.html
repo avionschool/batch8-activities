@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="surveyform.css">
+        <h1 id="title">School Newsletter Survey</h1>
+        <p id="descrption">Please help us improve our newsletter by completing this survey.</p>
+    </head>
+<body>
+    <form id="survey-form" action="Survey Form.html" method="GET" enctype="multipart/form-data">
+        <label id="name-label" for="name"></label>
+        <input type="text" name="name" id="name" placeholder="Name" required><br>
+        <label id="email-label" for="email"></label>
+        <input type="email" name="email" id="email" placeholder="Email" required> @<br>
+        <label id="number-label" for="age"></label>
+        <input type="number" name="age" id="age" min="1" max="200" step="5" placeholder="Age"><br><br>
+        
+        <label for="radio">Gender</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br><br>
+
+        <label for="dropdown">How often do you read the school newsletter?</label><br>
+            <select name="dropdown" id="dropdown">
+                <option></option>
+                <option value="most_months">Most months</option>
+                <option value="every_month">Every month</option>
+                <option value="occasionally">Cccasionally</option>
+                <option value="not_at_all">Not at all</option>
+            </select>
+        
+        <br><br>
+
+        <label for="radio">Do you believe that the school newsletter is a valuable source of news and information?</label><br>
+        <input type="radio" id="extremely_valuable" name="ratings" value="extremely_valuable">
+        <label for="male">Extremely Valuable</label><br>
+        <input type="radio" id="moderately_valuable" name="ratings" value="moderately_valuable">
+        <label for="male">Moderately Valuable</label><br>
+        <input type="radio" id="slightly_valuable" name="ratings" value="slightly_valuable">
+        <label for="slightly_valuable">Slightly Valuable</label>
+
+        <br><br>
+        <label for="checkbox">Preferred contents?</label><br>
+        <input type="checkbox" id="sports" name="sports" value="sports">
+        <label for="sports">Sports</label><br>
+        <input type="checkbox" id="arts" name="arts" value="Arts">
+        <label for="arts">Arts</label><br>
+        <input type="checkbox" id="vehicle3" name="science" value="science">
+        <label for="science">Science</label>
+
+        <br><br>
+
+        <label for="textarea">Any suggestions?</label><br>
+        <textarea id="textarea" name="textarea" rows="4" cols="50"></textarea><br>
+        <button id="submit" type="submit" form="survey-form" value="Submit">Submit</button>
+    </form>
+</body>
+</html>
