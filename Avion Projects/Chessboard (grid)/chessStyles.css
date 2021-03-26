@@ -11,11 +11,10 @@ header {
     text-align: center;
 }
 
+
 #chess-container {
     width: 72vmin;
     height: 72vmin;
-    display: flex;
-    flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid black;
@@ -23,23 +22,26 @@ header {
 
 .black {
     background-color: #769656;
-    flex-basis: 12.5%;
-    height: 12.5%;
     text-align: center;
     border: 1px solid black;
 }
 
 .white {
     background-color: #eeeed2;
-    width: 12.5%;
-    height: 12.5%;
     text-align: center;
     border: 1px solid black;
 }
 
+.chess-grid {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
 .chess-piece {
-    width: 100%;
-    height: auto;
+    width: 90%;
+    height: 90%;
 }
 
 footer {
