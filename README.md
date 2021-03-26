@@ -1,3 +1,6 @@
 # batch8-activities
-
-test
+<html>
+  <body>
+    <a href="">Chess Board</a>
+  </body>
+</html>
