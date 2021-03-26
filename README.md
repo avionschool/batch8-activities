@@ -1,6 +1,10 @@
-# batch8-activities
 <html>
   <body>
-    <a href="A5.html">Chess Board</a>
+    <h1>Batch 8 Activities<h1>
+    <a href="">Best Practices</a>
+    <a href="">Email Page</a>
+    <a href="">Tribute Page</a>
+    <a href="">Survey Form</a>
+    <a href="">Chess Board</a>
   </body>
 </html>
