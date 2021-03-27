@@ -1,0 +1,40 @@
+.gridMain{
+    background-color: grey;
+    display: grid;
+    border-style: solid;
+    grid-template-columns: repeat(9, 5vw);    
+    grid-template-rows: repeat(10, 5vw);
+/*Adjust size to see what you are moving and counting*/
+    grid-template-areas:
+    "header header header header header header header header header";
+/*Find shortcut*/
+    height: 100vh;
+    justify-content: center;
+/*align-content: center;*/
+}
+
+.header{
+    background-color: red;
+    display: grid;
+    border-style: solid;
+    grid-area: header;
+}
+
+.gridItem{
+    background-color: blue;
+    display: grid;
+    border-style: solid;
+    margin-right: 3px;
+}
+
+.gridBoxBrown{
+    background-color: brown;
+    display: grid;
+    border-style: solid;
+}
+
+.gridBoxBurly{
+    background-color: burlywood;
+    display: grid;
+    border-style: solid;
+}
