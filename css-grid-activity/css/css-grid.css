@@ -1,0 +1,54 @@
+#chess-board-main-border {
+  border: 3vmin solid #595B65;
+  border-radius: 2vmin;
+  margin: auto;
+  width: 40vmin;
+}
+
+#chess-board-1st-border {
+  border-style: solid;
+  border-color: #969897;
+  width: 40vmin;
+  margin: auto; 
+  
+}
+
+.wrapper-1st-row,
+.wrapper-2nd-row,
+.wrapper-3rd-row,
+.wrapper-4th-row,
+.wrapper-5th-row,
+.wrapper-6th-row,
+.wrapper-7th-row,
+.wrapper-8th-row {
+  display: grid;
+  grid-template-columns: repeat(8, 5vmin);
+  justify-content: center;
+ 
+}
+
+.chess-box-1st-row:nth-child(even),
+.chess-box-2nd-row:nth-child(odd),
+.chess-box-3rd-row:nth-child(even),
+.chess-box-4th-row:nth-child(odd),
+.chess-box-5th-row:nth-child(even),
+.chess-box-6th-row:nth-child(odd),
+.chess-box-7th-row:nth-child(even),
+.chess-box-8th-row:nth-child(odd) {
+  background: #3d3d3d;
+  height: 5vmin;
+  width: 5vmin;
+}
+
+.chess-box-1st-row:nth-child(odd),
+.chess-box-2nd-row:nth-child(even),
+.chess-box-3rd-row:nth-child(odd),
+.chess-box-4th-row:nth-child(even),
+.chess-box-5th-row:nth-child(odd),
+.chess-box-6th-row:nth-child(even),
+.chess-box-7th-row:nth-child(odd),
+.chess-box-8th-row:nth-child(even) {
+  background: #eae9e5;
+  height: 5vmin;
+  width: 5vmin;
+}
