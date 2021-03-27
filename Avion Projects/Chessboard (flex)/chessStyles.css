@@ -4,7 +4,7 @@
 
 body {
     background-color: burlywood;
-    font-size: 5vmin;
+    font-size: 4.5vmin;
 }
 
 header {
@@ -18,7 +18,7 @@ header {
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
+    border: 0.001vmin solid black;
 }
 
 .black {
@@ -26,7 +26,7 @@ header {
     flex-basis: 12.5%;
     height: 12.5%;
     text-align: center;
-    border: 1px solid black;
+    border: 0.001vmin solid black;
 }
 
 .black:hover {
@@ -40,7 +40,7 @@ header {
     width: 12.5%;
     height: 12.5%;
     text-align: center;
-    border: 1px solid black;
+    border: 0.001vmin solid black;
 }
 
 .white:hover {
