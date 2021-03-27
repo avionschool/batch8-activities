@@ -7,29 +7,34 @@ body {
     font-size: 4.5vmin;
 }
 
+h1, h6 {
+    border: 0;
+    margin: 2vmin;
+    padding: 0;
+}
+
 header {
     text-align: center;
 }
-
 
 #chess-container {
     width: 72vmin;
     height: 72vmin;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
+    border: 0.001vmin solid black;
 }
 
 .black {
     background-color: #769656;
     text-align: center;
-    border: 1px solid black;
+    border: 0.001vmin solid black;
 }
 
 .white {
     background-color: #eeeed2;
     text-align: center;
-    border: 1px solid black;
+    border: 0.001vmin solid black;
 }
 
 .black:hover {
