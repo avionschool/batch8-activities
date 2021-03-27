@@ -29,6 +29,12 @@ header {
     border: 1px solid black;
 }
 
+.black:hover {
+    background-color: #7696568e;
+    border-color: #0000008e;
+    cursor: pointer;
+}
+
 .white {
     background-color: #eeeed2;
     width: 12.5%;
@@ -37,9 +43,15 @@ header {
     border: 1px solid black;
 }
 
+.white:hover {
+    background-color: #eeeed28e;
+    border-color: #0000008e;
+    cursor: pointer;
+}
+
 .chess-piece {
-    width: 100%;
-    height: auto;
+    width: 83%;
+    height: 83%;
 }
 
 footer {
