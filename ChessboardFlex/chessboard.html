@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <title>Chessboard (Flex)</title>
 
@@ -18,9 +18,10 @@
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
-                height: 50vw;
+                max-height: 100vw;
+                max-width: 100vw;
                 margin: 0 auto;
-                width: 50vw;
+                /* width: 100vh; */
              }
             .row{
                 display: flex;
@@ -28,20 +29,28 @@
                 flex-direction: row;
             }
             .white{
+                max-height: 100vw;
+                max-width: 100vw;
                 background-color: #f1d9b6;
                 flex: 1;
                 font-size:50px;
                 text-align:center;
                 display: table-cell;
                 vertical-align:middle;
+                height: 12.5%;
+                width: 12.5%;
              }
             .black{
+                max-height: 100vw;
+                max-width: 100vw;
                 background-color: #b58763;
                 flex: 1;
                 font-size:50px;
                 text-align:center;
                 display: table-cell;
                 vertical-align:middle;
+                height: 12.5%;
+                width: 12.5%;
             }
         </style>
             
