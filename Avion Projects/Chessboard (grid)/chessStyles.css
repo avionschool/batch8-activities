@@ -73,3 +73,26 @@ footer {
     text-align: center;
     font-size: 1.5vmin;
 }
+
+#king {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png);
+    background-size: 93% 93%;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+#knight:hover {
+    animation-name: winner;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    z-index: 1;
+}
+
+@keyframes winner {
+    40% {
+        transform: translateX(-18.55vmin);
+    }
+    100% {
+        transform: translate(-18.55vmin,-8.88vmin);
+    }
+}
