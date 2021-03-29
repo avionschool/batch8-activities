@@ -81,11 +81,19 @@ footer {
     background-position: center; 
 }
 
-#knight:hover {
+#knight {
     animation-name: winner;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
+    animation-delay: 3s;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
     z-index: 1;
+}
+
+#king {
+    animation-name: winner-2;
+    animation-delay: 3s;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
 }
 
 @keyframes winner {
@@ -94,5 +102,15 @@ footer {
     }
     100% {
         transform: translate(-18.55vmin,-8.88vmin);
+    }
+}
+
+@keyframes winner-2 {
+    90% {
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png);
+    }
+    
+    100% {
+        background-image: none;
     }
 }
