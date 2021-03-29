@@ -6,11 +6,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="gridMain">
-            <div class="header">HEADER</div>
+    <div class="mainGrid">
+        <div class="header">
+            <div class="flexHeader">
+                <h1>CHESSBOARD GAME</h1>
+                    <div>PLAY NOW</div>
+                    <div>RESTART</div>
+                    <div>INSTRUCTIONS</div>
+            </div>
+        </div>
+        <div class="instructionsGrid">
+            <div class="instructionsFlex">
+                <h2>Ready to Play Chess?</h2>
+                    <dl>
+                        <dt>Pawn Movement</dt>
+                            <dd>Pawns only move forward. On the first move a pawn can move one or two spaces, 
+                                every subsequent move can only be one space. Pawns move diagonally to take opponents.</dd>
+                    <br>
+                        <dt>Rook</dt>
+                            <dd>Rooks move in a continuous line forwards, backwards and side-to-side.</dd>
+                    <br>
+                        <dt>Knight</dt>
+                            <dd>Knights are the only pieces that "jump" off the board. Unlike other pieces they are not blocked if there are pieces between them and their destination square.<br>
+                                To make it easier to remember how a knight moves think of an L. Two spaces in a direction forward, backward or side-to-side, and one space at a right turn.</dd>
+                    <br>
+                        <dt>Bishop</dt>
+                            <dd>Bishops move in continuous diagonal lines in any direction.</dd>
+                    <br>   
+                        <dt>Queen</dt>
+                            <dd>The queen moves in continuous diagonal and straight lines. Forward, backward and side-to-side.</dd>
+                    <br>    
+                        <dt>King</dt>
+                            <dd>The king can move in any direction, one square at a time.<br>
+                            A king cannot move to a square that is under attack by the opponent.</dd>
+                    </dl>
+            </div>
+        </div>
+<!--START-->
+        <div class="gridChessBoard">
 <!--Grid One
 Displayed as rows-->
-            <div class="gridItem"></div>
             <div class="gridBoxBrown"><!--1-1-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Chess_rdt60.png" alt="rookB" height="100%" width="100%">
             </div>
@@ -32,7 +67,6 @@ Displayed as rows-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Chess_rdt60.png" alt="rookB" height="100%" width="100%">
             </div>      
 <!--Grid Two-->  
-            <div class="gridItem"></div>
             <div class="gridBoxBurly"><!--2-1-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" alt="pawnB" height="100%" width="100%">
             </div>
@@ -56,7 +90,6 @@ Displayed as rows-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" alt="pawnB" height="100%" width="100%">
             </div>
 <!--Grid Three-->  
-            <div class="gridItem"></div>
             <div class="gridBoxBrown"><!--3-1--></div>
             <div class="gridBoxBurly"><!--3-2--></div>
             <div class="gridBoxBrown"><!--3-3--></div>
@@ -66,7 +99,6 @@ Displayed as rows-->
             <div class="gridBoxBrown"><!--3-7--></div>
             <div class="gridBoxBurly"><!--3-8--></div>
 <!--Grid Four-->
-            <div class="gridItem"></div>
             <div class="gridBoxBurly"><!--4-1--></div>
             <div class="gridBoxBrown"><!--4-2--></div>
             <div class="gridBoxBurly"><!--4-3--></div>
@@ -80,7 +112,6 @@ Displayed as rows-->
             <div class="gridBoxBurly"><!--4-7--></div>
             <div class="gridBoxBrown"><!--4-8--></div>
 <!--Grid Five-->
-            <div class="gridItem"></div>
             <div class="gridBoxBrown"><!--5-1--></div>
             <div class="gridBoxBurly"><!--5-2--></div>
             <div class="gridBoxBrown"><!--5-3--></div>
@@ -92,7 +123,6 @@ Displayed as rows-->
             <div class="gridBoxBrown"><!--5-7--></div>
             <div class="gridBoxBurly"><!--5-8--></div>
 <!--Grid Six-->
-            <div class="gridItem"></div>
             <div class="gridBoxBurly"><!--6-1--></div>
             <div class="gridBoxBrown"><!--6-2--></div>
             <div class="gridBoxBurly"><!--6-3-->
@@ -106,7 +136,6 @@ Displayed as rows-->
             <div class="gridBoxBurly"><!--6-7--></div>
             <div class="gridBoxBrown"><!--6-8--></div>
 <!--Grid Seven-->
-            <div class="gridItem"></div>
             <div class="gridBoxBrown"><!--7-1-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" alt="pawnW" height="100%" width="100%">
             </div>
@@ -130,7 +159,6 @@ Displayed as rows-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" alt="pawnW" height="100%" width="100%">
             </div>
 <!--Grid Eight-->
-            <div class="gridItem"></div>
             <div class="gridBoxBurly"><!--8-1-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chess_rlt60.png" alt="rookW" height="100%" width="100%">
             </div>
@@ -152,5 +180,8 @@ Displayed as rows-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chess_rlt60.png" alt="rookW" height="100%" width="100%">
             </div>
         </div>
+<!--END-->
+<!--<div class="footer">FOOTER</div>-->
+    </div> 
     </body>
 </html>

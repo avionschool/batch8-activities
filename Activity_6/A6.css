@@ -1,40 +1,93 @@
-.gridMain{
-    background-color: grey;
-    display: grid;
-    border-style: solid;
-    grid-template-columns: repeat(9, 5vw);    
-    grid-template-rows: repeat(10, 5vw);
-/*Adjust size to see what you are moving and counting*/
-    grid-template-areas:
-    "header header header header header header header header header";
-/*Find shortcut*/
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.mainGrid{
+    /*background-color: grey;*/
     height: 100vh;
-    justify-content: center;
-/*align-content: center;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+/*You are only controlling blue and green since red is already a header*/    
+    grid-template-rows: 130px 400px 400px;
+/*You can control all your grid*/
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-areas:
+    "header header"
+    /*"footer footer";*/
 }
 
 .header{
-    background-color: red;
+    /*background-color: red;*/
+    /*border-style: solid;*/
+    margin: 10px;
     display: grid;
-    border-style: solid;
     grid-area: header;
+    justify-content: center;
+    align-content: center;
 }
 
-.gridItem{
-    background-color: blue;
-    display: grid;
+.flexHeader{
+    /*background-color: violet;*/
     border-style: solid;
-    margin-right: 3px;
+    border-radius: 25px;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*.footer{
+    background-color: yellow;
+    border-style: solid;
+    margin: 10px;
+    display: grid;
+    grid-area: footer;
+}*/
+
+.instructionsGrid{
+    /*background-color: blue;*/
+    border-style: solid;
+    border-radius: 25px;
+    margin-left: 100px;
+    display: grid;
+    overflow: auto;
+}
+
+.instructionsFlex{
+    /*background-color: brown;*/
+    /*border-style: solid;*/
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.gridChessBoard{
+    /*background-color: green;*/
+    /*border-style: solid;*/
+    margin-right: 100px;
+    display: grid;
+    grid-template-columns: repeat(8, 3.5vw);    
+    grid-template-rows: repeat(8, 3.5vw);
+/*Adjust size to see what you are moving and counting*/
+    justify-content: center;
+    align-content: center;
 }
 
 .gridBoxBrown{
     background-color: brown;
-    display: grid;
     border-style: solid;
+    display: grid;
 }
 
 .gridBoxBurly{
     background-color: burlywood;
-    display: grid;
     border-style: solid;
+    display: grid;
 }
