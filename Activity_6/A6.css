@@ -1,6 +1,20 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: cursive;
+}
+
+#particles-js
+{
+/*Don't touch*/
+    z-index: -1;
+    width: 100vw;
+    position: absolute;
+    background:white;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
 }
 
 .mainGrid{
@@ -21,7 +35,6 @@ body{
 .header{
     /*background-color: red;*/
     /*border-style: solid;*/
-    margin: 10px;
     display: grid;
     grid-area: header;
     justify-content: center;
@@ -29,7 +42,8 @@ body{
 }
 
 .flexHeader{
-    /*background-color: violet;*/
+    background-color: white;
+/*Need background color for it not to be transparent*/
     border-style: solid;
     border-radius: 25px;
     width: 700px;
@@ -37,6 +51,23 @@ body{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.button{
+    font-family: cursive;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    outline: none;
+/*to remove border outline after clicking*/
+    /*transition: background-color 1s;
+this is for another design*/
+}
+
+.button:hover{
+    /*background-color: lightskyblue;*/
+    color: grey;
+    font-weight: bold;
 }
 
 /*.footer{
@@ -52,8 +83,11 @@ body{
     border-style: solid;
     border-radius: 25px;
     margin-left: 100px;
+    background-color: white;
+/*Need background color for it not to be transparent*/
     display: grid;
     overflow: auto;
+/*I don't know why I need two overflow: auto for the slidebar to not spill*/
 }
 
 .instructionsFlex{
@@ -62,10 +96,12 @@ body{
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
+    padding-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: auto;
+/*I don't know why I need two overflow: auto for the slidebar to not spill*/
 }
 
 .gridChessBoard{
@@ -73,21 +109,21 @@ body{
     /*border-style: solid;*/
     margin-right: 100px;
     display: grid;
-    grid-template-columns: repeat(8, 3.5vw);    
-    grid-template-rows: repeat(8, 3.5vw);
+    grid-template-columns: repeat(8, 3.8vw);    
+    grid-template-rows: repeat(8, 3.8vw);
 /*Adjust size to see what you are moving and counting*/
     justify-content: center;
     align-content: center;
 }
 
-.gridBoxBrown{
-    background-color: brown;
+.gridBoxGrey{
+    background-color: grey;
     border-style: solid;
     display: grid;
 }
 
-.gridBoxBurly{
-    background-color: burlywood;
+.gridBoxWhite{
+    background-color: white;
     border-style: solid;
     display: grid;
 }
