@@ -30,12 +30,18 @@ header {
     background-color: #769656;
     text-align: center;
     border: 0.001vmin solid black;
+    background-size: 93% 93%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 .white {
     background-color: #eeeed2;
     text-align: center;
     border: 0.001vmin solid black;
+    background-size: 93% 93%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 .black:hover {
@@ -75,12 +81,21 @@ footer {
     font-size: 1.5vmin;
 }
 
-#D8 {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png);
-    background-size: 93% 93%;
-    background-repeat: no-repeat;
-    background-position: center; 
-}
+/*Set chess piece per coodinate*/
+/*King*/
+#D8 {background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg);}
+#F6 {background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg);}
+
+/*Pawn*/
+#B7, #A6, #D5, #F5 {background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg);}
+#B6, #E5 {background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg);}
+
+/*Bishop*/
+#C6 {background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg);}
+
+/*Rook*/
+#H4 {background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg);}
+#C7 {background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg);}
 
 /* Knight win  */
 
