@@ -82,6 +82,8 @@ footer {
     background-position: center; 
 }
 
+/* Knight win  */
+
 #knight {
     animation-name: winner;
     animation-delay: 3s;
@@ -91,7 +93,7 @@ footer {
 }
 
 #king {
-    animation-name: winner-2;
+    animation-name: disappear;
     animation-delay: 3s;
     animation-duration: 8s;
     animation-iteration-count: infinite;
@@ -99,17 +101,17 @@ footer {
 
 @keyframes winner {
     15% {
-        transform: translateX(-18.55vmin);
+        transform: translateX(calc(-76.5vmin/8.25*2));
     }
     50% {
-        transform: translate(-18.55vmin,-8.5vmin);
+        transform: translate(calc(-76.5vmin/8.25*2),calc(-76.5vmin/8.25*1));
     }
     100% {
-        transform: translate(-18.55vmin,-8.5vmin);
+        transform: translate(calc(-76.5vmin/8.25*2),calc(-76.5vmin/8.25*1));
     }
 }
 
-@keyframes winner-2 {
+@keyframes disappear {
     40% {
         background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png);
     }
