@@ -75,7 +75,7 @@ footer {
     font-size: 1.5vmin;
 }
 
-#king {
+#D8 {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png);
     background-size: 93% 93%;
     background-repeat: no-repeat;
@@ -85,21 +85,21 @@ footer {
 /* Knight win  */
 
 #knight {
-    animation-name: winner;
+    animation-name: knight-win;
     animation-delay: 3s;
     animation-duration: 8s;
     animation-iteration-count: infinite;
     z-index: 1;
 }
 
-#king {
+#D8 {
     animation-name: disappear;
     animation-delay: 3s;
     animation-duration: 8s;
     animation-iteration-count: infinite;
 }
 
-@keyframes winner {
+@keyframes knight-win {
     15% {
         transform: translateX(calc(-76.5vmin/8.25*2));
     }
@@ -112,10 +112,10 @@ footer {
 }
 
 @keyframes disappear {
-    40% {
+    0% {
         background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png);
     }
-    50% {
+    75% {
         background-image: none;
     }
     100% {
