@@ -2,170 +2,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Responsive Chess Board with CSS Grid</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard (Grid)</title>
 
-
-    <style>
-        :root {
-            --chess-bg-color: #000;
-            --chessman-color: #e34234;
-        }
-
-        body {
-            background-image: url('https://i.postimg.cc/yYjxpBSR/dice-1502706-1920.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            font-family: Helvetica, sans-serif;
-            text-align: center;
-        }
-
-        .grid {
-            display: grid;
-            grid-gap: 0;
-            grid-template-columns: repeat(8, [col] 5.5vw);
-            grid-template-rows: repeat(8, [row] 5.5vw);
-            width: 44vw;
-            border: 3px solid #000;
-            box-shadow: 0 5px 8px #777;
-            justify-content: center;
-            align-content: center;
-            margin: 0 auto;
-
-        }
-
-        .grid b {
-            font-size: calc(2vw);
-            padding-top: 1vw;
-            text-align: center;
-        }
-
-        .grid b span {
-            color: var(--chessman-color);
-        }
-
-        .grid b:nth-child(-n+8):nth-child(even) {
-            background: var(--chess-bg-color);
-        }
-
-        .grid b:nth-child(n+8):nth-child(-n+16):nth-child(odd) {
-            background: var(--chess-bg-color);
-        }
-
-        .grid b:nth-child(n+17):nth-child(-n+24):nth-child(even) {
-            background: var(--chess-bg-color);
-        }
-
-        .grid b:nth-child(n+25):nth-child(-n+32):nth-child(odd) {
-            background: var(--chess-bg-color);
-        }
-
-        .grid b:nth-child(n+33):nth-child(-n+40):nth-child(even) {
-            background: var(--chess-bg-color);
-        }
-
-        .grid b:nth-child(n+41):nth-child(-n+48):nth-child(odd) {
-            background: var(--chess-bg-color);
-        }
-
-        .grid b:nth-child(n+49):nth-child(-n+56):nth-child(even) {
-            background: var(--chess-bg-color);
-        }
-
-        .grid b:nth-child(n+57):nth-child(-n+64):nth-child(odd) {
-            background: var(--chess-bg-color);
-        }
-
-        @supports not ((background: var(--chess-bg-color)) or (display: grid)) {
-            .warning {
-                display: block !important;
-            }
-        }
-
-        .warning {
-            color: crimson;
-            display: none;
-        }
-
-    </style>
+<style>
+body {
+    background-image: url('https://i.postimg.cc/d3HzwbJ5/dice-1502706-1920.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+}
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(9, 5vw);
+    grid-template-rows: repeat(8, 5vw);
+    justify-content: center;
+    margin-left: 100px;
+    margin-bottom: 50px;
+    font-size: calc(2vw);
+}
+.chessboard div{
+    background-color: pink;
+    border:0px solid black;
+    box-shadow: 15px 15px 8px grey;  
+}
+</style>
 </head>
-<body>
 
+<body>
 <h1>Chessboard (Grid)</h1>
 
-<div class="grid">
-    <b><span>&#9820;</span></b>
-    <b><span>&#9822;</span></b>
-    <b><span>&#9821;</span></b>
-    <b><span>&#9819;</span></b>
-    <b><span>&#9818;</span></b>
-    <b><span>&#9821;</span></b>
-    <b><span>&#9822;</span></b>
-    <b><span>&#9820;</span></b>
-
-    <b><span>&#9823;</span></b>
-    <b><span>&#9823;</span></b>
-    <b><span>&#9823;</span></b>
-    <b><span>&#9823;</span></b>
-    <b><span>&#9823;</span></b>
-    <b><span>&#9823;</span></b>
-    <b><span>&#9823;</span></b>
-    <b><span>&#9823;</span></b>
-
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-    <b></b>
-
-    <b><span>&#9817;</span></b>
-    <b><span>&#9817;</span></b>
-    <b><span>&#9817;</span></b>
-    <b><span>&#9817;</span></b>
-    <b><span>&#9817;</span></b>
-    <b><span>&#9817;</span></b>
-    <b><span>&#9817;</span></b>
-    <b><span>&#9817;</span></b>
-
-    <b><span>&#9814;</span></b>
-    <b><span>&#9816;</span></b>
-    <b><span>&#9815;</span></b>
-    <b><span>&#9813;</span></b>
-    <b><span>&#9812;</span></b>
-    <b><span>&#9815;</span></b>
-    <b><span>&#9816;</span></b>
-    <b><span>&#9814;</span></b>
+<div class="chessboard">
+    <!-- 1st row -->
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9820;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9822;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9819;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9818;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9822;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9820;</div>
+  <br>
+  <!-- 2nd row -->
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9821;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9821;</div>
+  <br>
+  <!-- 3th row -->
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <br>
+  <!-- 4th row -->
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <br>
+  <!-- 5th row -->
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <br>
+  <!-- 6th row -->
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');"></div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');"></div>
+  <br>
+  <!-- 7th row -->
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9817;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9817;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9817;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9817;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9817;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9817;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9817;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9817;</div>
+  <br>
+  <!-- 8th row -->
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9814;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9816;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9815;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9813;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9812;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9815;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/bJHZCTqy/0038512-sidney.jpg');">&#9816;</div>
+  <div class="grid-item" style="background-image: url('https://i.postimg.cc/rwdsg6bB/white.jpg');">&#9814;</div>
 </div>
 
 </body>
