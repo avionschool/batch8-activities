@@ -141,7 +141,7 @@ dd:hover{
 }
 
 .flexHeaderTwo{
-    background-color: white;
+    background-color: transparent;
 /*Need background color for it not to be transparent*/
     border-style: solid;
     border-radius: 25px;
@@ -212,7 +212,7 @@ this is for another design*/
     border-radius: 25px;
     margin: 0px;
     padding: 10px;
-    background-color: white;
+    background-color: transparent;
     color: black;
     font-size: 12px;
     transition: background-color 1s, color 1s, font-size 1s;
@@ -225,12 +225,12 @@ this is for another design*/
 }
 
 .flexFooterTwo{
-    background-color: green;
-    border-style: solid;
+    background-color: transparent;
+    /*border-style: solid;*/
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     width: 400px;
     height: 150px;
     padding-right: 60px;
@@ -251,7 +251,7 @@ this is for another design*/
     border-style: solid;
     border-radius: 25px;
     margin-left: 200px;
-    background-color: white;
+    background-color: transparent;
 /*Need background color for it not to be transparent*/
     display: grid;
     overflow: auto;
