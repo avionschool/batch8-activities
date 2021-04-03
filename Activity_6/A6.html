@@ -1,4 +1,3 @@
-<!--test-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,11 +11,15 @@
 <script type="text/javascript" src="app.js"></script>
     <div class="mainGrid">
         <div class="header">
-            <div class="flexHeader">
-                <h1>CHESSBOARD GAME</h1>
+            <div class="mainHeaderFlex"> 
+                <div class="flexHeaderOne">
+                    <h1>CHESSBOARD GAME</h1>
+                </div>
+                <div class="flexHeaderTwo">
                     <button class="button">PLAY NOW</button>
                     <button class="button">RESTART</button>
                     <button class="button">INSTRUCTIONS</button>
+                </div>
             </div>
         </div>
         <div class="instructionsGrid">
@@ -25,30 +28,41 @@
                     <dl>
                         <dt>Pawn Movement</dt>
                     <br>
-                            <dd>Pawns only move forward. On the first move a pawn can move one or two spaces, 
-                                every subsequent move can only be one space. Pawns move diagonally to take opponents.</dd>
+                            <dd>Pawns only move forward. On the first move a pawn
+                                <br>can move one or two spaces, every subsequent move
+                                <br>can only be one space. Pawns move diagonally to take
+                                <br>opponents.</dd>
                     <br>
                         <dt>Rook</dt>
                     <br>
-                            <dd>Rooks move in a continuous line forwards, backwards and side-to-side.</dd>
+                            <dd>Rooks move in a continuous line forwards,
+                                <br>backwards and side-to-side.</dd>
                     <br>
                         <dt>Knight</dt>
                     <br>
-                            <dd>Knights are the only pieces that "jump" off the board. Unlike other pieces they are not blocked if there are pieces between them and their destination square.<br>
-                                To make it easier to remember how a knight moves think of an L. Two spaces in a direction forward, backward or side-to-side, and one space at a right turn.</dd>
+                            <dd>Knights are the only pieces that "jump" off the
+                                <br>board. Unlike other pieces they are not blocked
+                                <br>if there are pieces between them and their
+                                <br>destination square. To make it easier to remember
+                                <br>how a knight moves think of an L.
+                                <br>Two spaces in a direction forward, backward or
+                                <br>side-to-side, and one space at a right turn.</dd>
                     <br>
                         <dt>Bishop</dt>
                     <br>
-                            <dd>Bishops move in continuous diagonal lines in any direction.</dd>
+                            <dd>Bishops move in continuous diagonal lines
+                                <br>in any direction.</dd>
                     <br>   
                         <dt>Queen</dt>
                     <br>
-                            <dd>The queen moves in continuous diagonal and straight lines. Forward, backward and side-to-side.</dd>
+                            <dd>The queen moves in continuous diagonal and straight
+                                <br>lines. Forward, backward and side-to-side.</dd>
                     <br>    
                         <dt>King</dt>
                     <br>    
-                            <dd>The king can move in any direction, one square at a time.<br>
-                            A king cannot move to a square that is under attack by the opponent.</dd>
+                            <dd>The king can move in any direction, one square at a
+                                <br>time.A king cannot move to a square that is
+                                <br>under attack by the opponent.</dd>
                     </dl>
             </div>
         </div>
@@ -62,11 +76,15 @@ Displayed as rows-->
             <div class="gridBoxWhite"><!--1-2-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Chess_ndt60.png" alt="horseB" height="100%" width="100%">
             </div>
-            <div class="gridBoxGrey"><!--1-3--></div>
+            <div class="gridBoxGrey"><!--1-3-->
+                <img class="bMoveTwo" src="https://upload.wikimedia.org/wikipedia/commons/8/81/Chess_bdt60.png" alt="bishopB" height="100%" width="100%">
+            </div>
             <div class="gridBoxWhite"><!--1-4-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Chess_qdt60.png" alt="kingB" height="100%" width="100%">
             </div>
-            <div class="gridBoxGrey"><!--1-5--></div>
+            <div class="gridBoxGrey"><!--1-5-->
+                <img class="bMoveThree" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png" alt="queenB" height="100%" width="100%">
+            </div>
             <div class="gridBoxWhite"><!--1-6-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Chess_bdt60.png" alt="bishopB" height="100%" width="100%">
             </div>
@@ -86,7 +104,9 @@ Displayed as rows-->
             <div class="gridBoxWhite"><!--2-3-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" alt="pawnB" height="100%" width="100%">
             </div>
-            <div class="gridBoxGrey"><!--2-4--></div>
+            <div class="gridBoxGrey"><!--2-4-->
+                <img class="bMoveOne" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" alt="pawnB" height="100%" width="100%">
+            </div>
             <div class="gridBoxWhite"><!--2-5-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png" alt="pawnB" height="100%" width="100%">
             </div>
@@ -122,7 +142,9 @@ Displayed as rows-->
             <div class="gridBoxWhite"><!--4-7--></div>
             <div class="gridBoxGrey"><!--4-8--></div>
 <!--Grid Five-->
-            <div class="gridBoxGrey"><!--5-1--></div>
+            <div class="gridBoxGrey"><!--5-1-->
+                <img class="bMoveFour" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png" alt="queenB" height="100%" width="100%">
+            </div>
             <div class="gridBoxWhite"><!--5-2--></div>
             <div class="gridBoxGrey"><!--5-3--></div>
             <div class="gridBoxWhite"><!--5-4-->
@@ -155,8 +177,10 @@ Displayed as rows-->
             <div class="gridBoxGrey"><!--7-3-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png" alt="queenB" height="100%" width="100%">
             </div>
-            <div class="gridBoxWhite"><!--7-4--></div>
-            <div class="gridBoxGrey"><!--7-5-->
+            <div class="gridBoxWhite"><!--7-4-->
+                <img class="wMoveOne" src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" alt="pawnW" height="100%" width="100%">
+            </div>
+            <div class="gridBoxGrey"><!--7-5--> 
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png" alt="pawnW" height="100%" width="100%">
             </div>
             <div class="gridBoxWhite"><!--7-6-->
@@ -172,7 +196,9 @@ Displayed as rows-->
             <div class="gridBoxWhite"><!--8-1-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chess_rlt60.png" alt="rookW" height="100%" width="100%">
             </div>
-            <div class="gridBoxGrey"><!--8-2--></div>
+            <div class="gridBoxGrey"><!--8-2-->
+                <img class="wMoveTwo" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Chess_nlt60.png" alt="horseW" height="100%" width="100%">
+            </div>
             <div class="gridBoxWhite"><!--8-3-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Chess_blt60.png" alt="bishopW" height="100%" width="100%">
             </div>
@@ -185,7 +211,9 @@ Displayed as rows-->
             <div class="gridBoxGrey"><!--8-6-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Chess_blt60.png" alt="bishopW" height="100%" width="100%">
             </div>
-            <div class="gridBoxWhite"><!--8-7--></div>
+            <div class="gridBoxWhite"><!--8-7-->
+                <img class="wMoveThree" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Chess_nlt60.png" alt="horseW" height="100%" width="100%">
+            </div>
             <div class="gridBoxGrey"><!--8-8-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chess_rlt60.png" alt="rookW" height="100%" width="100%">
             </div>

@@ -1,8 +1,42 @@
-/*test*/
+*{
+    cursor: pointer;
+}
+
 body{
     margin: 0;
     padding: 0;
     font-family: cursive;
+}
+
+h1, h2{
+    font-size: 30px;
+    transition: font-size 1s;
+}
+
+h1:hover{
+    font-size: 35px;
+}
+
+h2:hover{
+    font-size: 35px;
+}
+
+dt{
+    font-size: 18px;
+    transition: font-size 1.5s;
+}
+
+dt:hover{
+    font-size: 21px;
+}
+
+dd{
+    font-size: 15px;
+    transition: font-size 1.5s;
+}
+
+dd:hover{
+    font-size: 16px;
 }
 
 #particles-js
@@ -42,12 +76,32 @@ body{
     align-content: center;
 }
 
-.flexHeader{
+.mainHeaderFlex{
+    background-color: transparent;
+    height: 110px;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flexHeaderOne{
+    background-color: transparent;
+    height: 50px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexHeaderTwo{
     background-color: white;
 /*Need background color for it not to be transparent*/
     border-style: solid;
     border-radius: 25px;
-    width: 700px;
+    width: 500px;
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -56,19 +110,23 @@ body{
 
 .button{
     font-family: cursive;
-    cursor: pointer;
-    background-color: white;
+    background-color: transparent;
     border: none;
     outline: none;
 /*to remove border outline after clicking*/
     /*transition: background-color 1s;
 this is for another design*/
+    font-size: 15px;
+    transition: /*color 1.5s,*/ font-weight 1.5s, font-size 1.5s, transform 1.5s;
+    /*ease ease-in ease-out*/
 }
 
 .button:hover{
     /*background-color: lightskyblue;*/
-    color: grey;
+    color: darkgray;
     font-weight: bold;
+    font-size: 20px;
+    transform: rotateZ(360deg);
 }
 
 /*.footer{
@@ -128,3 +186,129 @@ this is for another design*/
     border-style: solid;
     display: grid;
 }
+
+.bMoveOne{
+    animation-name: bMoveOne;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+/*to end at Y*/    
+    animation-delay: 2s;
+/*delay before the animation starts*/    
+    animation-iteration-count: infinite;
+/*inifinite looping*/    
+    animation-direction: alternate;
+/*play forwards then backwards*/    
+    animation-timing-function: linear;
+/*to maintain animation speed*/
+}
+
+@keyframes bMoveOne{
+    from{ transform: translate(0px)}
+    to{ transform: translateY(100px)}
+}
+
+.bMoveTwo{
+    animation-name: bMoveTwo;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;  
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes bMoveTwo{
+    from{ transform: translate(0px)}
+    to{ transform: translate(145px, 145px)}
+}
+
+.bMoveThree{
+    animation-name: bMoveThree;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;  
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes bMoveThree{
+    from{ transform: translate(0px)}
+    to{ transform: translate(-195px, 195px)}
+}
+
+.bMoveFour{
+    animation-name: bMoveFour;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;  
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes bMoveFour{
+    from{ transform: translate(0px)}
+    to{ transform: translate(97px, 97px)}
+}
+
+.wMoveOne{
+    animation-name: wMoveOne;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;  
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes wMoveOne{
+    from{ transform: translate(0px)}
+    to{ transform: translateY(-100px)}
+}
+
+.wMoveTwo{
+    animation-name: wMoveTwo;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;  
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes wMoveTwo{
+    from{ transform: translate(0px)}
+    to{ transform: translate(50px, -100px)}
+}
+
+.wMoveThree{
+    animation-name: wMoveThree;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;  
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes wMoveThree{
+    from{ transform: translate(0px)}
+    to{ transform: translate(-50px, -100px)}
+}
+
+/*  Moving items
+    transform: translateX(-0px);
+    transform: translateY(-0px);
+    transform: translate(-0px, 0px);
+
+    Making items bigger
+    transform: scaleX(0px);
+    transform: scaleY(0px);
+    transform: scale(0px 0px);
+
+    Rotating items
+    transform: rotateX(0deg);
+    transform: rotateY(0deg);
+    transform: rotateZ(0deg);
+*/
