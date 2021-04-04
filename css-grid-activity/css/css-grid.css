@@ -3,7 +3,14 @@ p {
   position: relative;
   text-align: center;
   top: 10vmin;
-  
+}
+
+h1 {
+  font: 3vmin Work Sans, Helvetica, sans-serif;
+}
+
+dt,dd{
+  font: 1.5vmin Work Sans, Helvetica, sans-serif;
 }
 
 #chess-board-main-border {
