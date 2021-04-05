@@ -16,6 +16,7 @@ dd {
 
 /* chesspieces animation */
 
+/* first row - dark chess pieces */
 #dark-rook-a8:hover {
   animation-name: darkrookMove1;
   animation-duration: 4s;
@@ -124,7 +125,6 @@ dd {
 }
 
 @keyframes darkqueenMove {
-  /* horizontal move */
   0%,20%,40%,60%,80%,100% {
     transform: translate(0,0);
   }
@@ -151,7 +151,6 @@ dd {
 }
 
 @keyframes darkkingMove {
-  /* horizontal move */
   0%,20%,40%,60%,80%,100% {
     transform: translate(0,0);
   }
@@ -171,6 +170,24 @@ dd {
     transform: translate(5vmin,5vmin);
   }
 }
+
+/* second row - dark chess pieces */
+
+.dark-pawn:hover {
+  animation-name: darkpawnMove;
+  animation-duration: 1.5s;
+}
+
+@keyframes darkpawnMove {
+  0%,100% {
+    transform: translate(0,0);
+  }
+  50% {
+    transform: translateY(5vmin);
+  }
+}
+
+
 
 /* main design */
 
