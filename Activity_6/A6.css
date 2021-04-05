@@ -68,6 +68,14 @@ dd:hover{
     font-size: 14px;
 }
 
+a:link{
+    text-decoration: none;
+}
+
+a:visited{
+    color: black;
+}
+
 #particles-js
 {
 /*Don't touch*/
@@ -384,7 +392,7 @@ dd:hover{
     100%{ top: 97px, 97px}
 }*/
 
-/*.bMoveFour{
+.bMoveFour{
     animation-name: bMoveFour;
     animation-duration: 2.5s;
     animation-fill-mode: forwards;
@@ -395,8 +403,8 @@ dd:hover{
 
 @keyframes bMoveFour{
     from{ transform: translate(0px)}
-    to{ transform: translate(97px, 97px)}
-}*/
+    to{ transform: translate(81px, 80px)}
+}
 
 .wMoveOne{
     animation-name: wMoveOne;
