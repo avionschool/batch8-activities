@@ -17,14 +17,14 @@
     <p class="animate__animated animate__pulse animate__infinite">
       Chessboard using CSS Grid
     </p>
-    <div class="animate__animated animate__rollIn animate__delay-1s">
+    <!-- <div class="animate__animated animate__rollIn animate__delay-1s"> -->
     <div id="chess-board-main-border">
       <div id="chess-board-1st-border">
         <div class="wrapper">
-          <div class="chess-box-1st-row dark-rook">
-            <img src="assets/dark-rook.png" alt="chess dark rook vector icon" />
-          </div>
           <div class="chess-box-1st-row">
+            <img id="dark-rook-a8" src="assets/dark-rook.png" alt="chess dark rook vector icon" />
+          </div>
+          <div class="chess-box-1st-row dark-horse-b8">
             <img
               src="assets/dark-horse.png"
               alt="chess dark horse vector icon"
@@ -61,28 +61,28 @@
             <img src="assets/dark-rook.png" alt="chess dark rook vector icon" />
           </div>
           <div class="chess-box-2nd-row">
-            <img src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
+            <img id="dark-pawn-a7" src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
           </div>
           <div class="chess-box-2nd-row">
-            <img src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
+            <img id="dark-pawn-b7" src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
           </div>
           <div class="chess-box-2nd-row">
-            <img src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
+            <img id="dark-pawn-c7" src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
           </div>
           <div class="chess-box-2nd-row">
-            <img src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
+            <img id ="dark-pawn-d7" src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
           </div>
           <div class="chess-box-2nd-row">
-            <img src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
+            <img id="dark-pawn-e7" src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
           </div>
           <div class="chess-box-2nd-row">
-            <img src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
+            <img id="dark-pawn-f7" src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
           </div>
           <div class="chess-box-2nd-row">
-            <img src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
+            <img id="dark-pawn-g7" src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
           </div>
           <div class="chess-box-2nd-row">
-            <img src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
+            <img id="dark-pawn-h7" src="assets/dark-pawn.png" alt="chess dark pawn vector icon" />
           </div>
           <div class="chess-box-3rd-row"></div>
           <div class="chess-box-3rd-row"></div>
@@ -127,15 +127,17 @@
               src="assets/light-pawn.png"
               alt="chess light pawn vector icon"
             />
-          </div>
+          </div>     
           <div class="chess-box-7th-row">
             <img
+              id="light-pawn-c4"
               src="assets/light-pawn.png"
               alt="chess light pawn vector icon"
             />
           </div>
           <div class="chess-box-7th-row">
             <img
+              id = "light-pawn-d4"
               src="assets/light-pawn.png"
               alt="chess light pawn vector icon"
             />
@@ -216,21 +218,5 @@
       </div>
     </div>
   </div>
-    
-    <h1>A common chess opening</h1>
-    <dl>
-      <dt>1. Queen's Gambit</dt>
-      <dd>
-        White players who prefer a quieter, more positional game tend to prefer
-        1. d4 to 1. e4, after which the c4 break is the best way to play for an
-        advantage either on the second move or soon after. The queen's gambit,
-        marked by the moves 1. d4, d5 and 2. c4 is one of the oldest chess
-        openings. This classical approach pretends to offer a pawn. In reality,
-        black cannot expect to hold onto the pawn if the player chooses to
-        capture it in exchange for a stronger center. Black has several options:
-        the queen's gambit accepted, queen's gambit declined, and the Slav
-        defense.
-      </dd>
-    </dl>
   </body>
 </html>

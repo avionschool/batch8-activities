@@ -9,34 +9,55 @@ h1 {
   font: 3vmin Work Sans, Helvetica, sans-serif;
 }
 
-dt,dd{
+dt,
+dd {
   font: 1.5vmin Work Sans, Helvetica, sans-serif;
 }
 
+/* chesspieces animation */
+#dark-rook-a8:hover {
+  animation-name: darkrookMove1;
+  animation-duration: 4s;
+  cursor: pointer;
+}
+
+@keyframes darkrookMove1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translateY(35vmin);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translateX(35vmin);
+  }
+}
+
+/* main design */
+
 #chess-board-main-border {
-  border: 3vmin solid #595B65;
+  border: 3vmin solid #595b65;
   border-radius: 2vmin;
   margin: auto;
   width: 40.5vmin;
   position: relative;
   top: 10vmin;
-  
 }
 
 #chess-board-1st-border {
   border-style: solid;
   border-color: #969897;
   width: 40vmin;
-  margin: auto; 
-  
+  margin: auto;
 }
-
 
 .wrapper {
   display: grid;
   grid-template-columns: repeat(8, 5vmin);
   justify-content: center;
- 
 }
 
 .chess-box-1st-row:nth-child(even),
@@ -71,7 +92,7 @@ dt,dd{
 
 img {
   height: 5vmin;
-  width:  5vmin;
+  width: 5vmin;
 }
 
 /* body {
@@ -80,6 +101,3 @@ img {
   height: auto;
   background: #000; 
 } */
-
-
-
