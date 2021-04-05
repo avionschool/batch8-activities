@@ -372,6 +372,7 @@ dd {
   width: 40vmin;
   position: relative;
   top: 10vmin;
+  box-shadow: 1.7vmin 2.5vmin 4.5vmin rgb(15, 15, 15);
 }
 
 #chess-board-1st-border {
