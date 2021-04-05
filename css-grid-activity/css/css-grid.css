@@ -187,6 +187,25 @@ dd {
   }
 }
 
+/* seventh row - light chess pieces */
+
+.light-pawn:hover {
+  animation-name: lightpawnMove;
+  animation-duration: 1.5s;
+}
+
+@keyframes lightpawnMove {
+  0%,100% {
+    transform: translate(0,0);
+  }
+  50% {
+    transform: translateY(-5vmin);
+  }
+}
+
+#light-rook-a1:hover{
+  cursor: pointer;
+}
 
 
 /* main design */
