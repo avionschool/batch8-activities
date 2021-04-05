@@ -46,11 +46,7 @@ h2:hover{
     font-size: 27px;
 }
 
-h3{
-    text-align: center;
-}
-
-p{
+h3, p{
     text-align: center;
 }
 
@@ -86,7 +82,7 @@ dd:hover{
 }
 
 .mainGrid{
-    /*background-color: grey;*/
+    /*background-color: red;*/
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -118,7 +114,7 @@ dd:hover{
 }
 
 .flexHeaderOne{
-    /*background-color: blue;*/
+    /*background-color: red;*/
     height: 100px;
     width: 600px;
     display: flex;
@@ -128,16 +124,16 @@ dd:hover{
 }
 
 .logo{
-    /*background: yellow;*/
+    /*background: red;*/
     border-style: solid;
     border-radius: 3px;
-    display: flex;
     height: 5vw;
     width: 5vw;
-    justify-content: center;
-    align-items: center;
     margin-left: 50px;
     margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flexHeaderTwo{
@@ -145,8 +141,8 @@ dd:hover{
 /*Need background color for it not to be transparent*/
     border-style: solid;
     border-radius: 25px;
-    width: 450px;
     height: 60px;
+    width: 450px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -154,23 +150,20 @@ dd:hover{
 }
 
 .buttonHeader{
-    font-family: cursive;
     background-color: transparent;
+    font-family: cursive;
+    font-size: 15px;
     border: none;
     outline: none;
 /*to remove border outline after clicking*/
-    /*transition: background-color 1s;
-this is for another design*/
-    font-size: 15px;
-    transition: /*color 1.5s,*/ font-weight 1.5s, font-size 1.5s, transform 1.5s;
+    transition: font-weight 1.5s, font-size 1.5s, transform 1.5s;
     /*ease ease-in ease-out*/
 }
 
 .buttonHeader:hover{
-    /*background-color: lightskyblue;*/
     color: darkgray;
-    font-weight: bold;
     font-size: 20px;
+    font-weight: bold;
     transform: rotateZ(360deg);
 }
 
@@ -183,12 +176,12 @@ this is for another design*/
 }
 
 .footerFlex{
-    margin: 0px;
-    padding: 0px;
-    width: 1200px;
-    height: 150px;
     background-color: transparent;
     /*border-style: solid;*/
+    height: 150px;
+    width: 1200px;
+    margin: 0px;
+    padding: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -198,95 +191,91 @@ this is for another design*/
 .flexFooterOne{
     background-color: transparent;
     /*border-style: solid;*/
+    height: 140px;
+    width: 500px;
+    padding-left: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
-    width: 500px;
-    height: 140px;
-    padding-left: 100px;
-  
 }
 
 .buttonFooterOne{
-   
+    background-color: transparent;
     border-style: solid;
     border-radius: 25px;
     margin: 0px;
     padding: 10px;
-    background-color: transparent;
-    color: black;
     font-size: 12px;
-    transition: background-color 1s, color 1s, font-size 1s;
+    color: black;
+    transition: background-color 1s, font-size 1s, color 1s;
 }
 
 .buttonFooterOne:hover{
     background-color: black;
-    color: white;
     font-size: 14px;
+    color: white;
 }
 
 .flexFooterTwo{
     background-color: transparent;
     /*border-style: solid;*/
+    height: 150px;
+    width: 400px;
+    padding-right: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
-    width: 400px;
-    height: 150px;
-    padding-right: 100px;
 }
 
 .buttonFooterTwo{
+    background-color: transparent;
     border-style: solid;
+    border-radius: 50%;
     height: 80px;
     width: 80px;
-    border-radius: 50%;
+    font-size: 13px;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    color: black;
-    font-size: 13px;
-    transition: background-color 1s, color 1s, font-size 1s;
+    transition: background-color 1s, font-size 1s, color 1s, transform 1s;
 }
 
 .buttonFooterTwo:hover{
     background-color: black;
-    color: white;
     font-size: 15px;
+    color: white;
+    transform: rotateZ(360deg);
 }
 
 .instructionsGrid{
-    /*background-color: blue;*/
+    background-color: transparent;
     border-style: solid;
     border-radius: 25px;
     margin-left: 200px;
-    background-color: transparent;
-/*Need background color for it not to be transparent*/
     display: grid;
     overflow: auto;
 /*I don't know why I need two overflow: auto for the slidebar to not spill*/
 }
 
 .instructionsFlex{
-    /*background-color: brown;*/
+    /*background-color: red;*/
     /*border-style: solid;*/
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 10px;
     padding-top: 0px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: auto;
-
 /*I don't know why I need two overflow: auto for the slidebar to not spill*/
 }
 
 .gridChessBoard{
-    /*background-color: green;*/
+    /*background-color: red;*/
     /*border-style: solid;*/
     margin-right: 100px;
     display: grid;
@@ -366,14 +355,11 @@ this is for another design*/
     100%{ top: 97px, 97px}
 }
 
-.bMoveFour{
+/*.bMoveFour{
     animation-name: bMoveFour;
     animation-duration: 2.5s;
     animation-fill-mode: forwards;
-    animation-delay: 17s;  
-
-/*animation-iteration-count: infinite;*/
-    
+    animation-delay: 17s;
     animation-direction: alternate;
     animation-timing-function: linear;
 }
@@ -381,8 +367,7 @@ this is for another design*/
 @keyframes bMoveFour{
     from{ transform: translate(0px)}
     to{ transform: translate(97px, 97px)}
-}
-
+}*/
 
 .wMoveOne{
     animation-name: wMoveOne;
