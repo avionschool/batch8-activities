@@ -15,43 +15,160 @@ dd {
 }
 
 /* chesspieces animation */
+
 #dark-rook-a8:hover {
   animation-name: darkrookMove1;
   animation-duration: 4s;
 }
 
 @keyframes darkrookMove1 {
-  0% {
+  0%,50%,100% {
     transform: translate(0, 0);
   }
   25% {
     transform: translateY(35vmin);
   }
-  50% {
-    transform: translate(0, 0);
-  }
-  100% {
+  75% {
     transform: translateX(35vmin);
   }
 }
 
-#dark-rook-h8:hover{
+#dark-rook-h8:hover {
   animation-name: darkrookMove2;
   animation-duration: 4s;
 }
 
 @keyframes darkrookMove2 {
-  0% {
+  0%,50%,100% {
     transform: translate(0, 0);
   }
   25% {
     transform: translateY(35vmin);
   }
-  50% {
+  75% {
+    transform: translateX(-35vmin);
+  }
+}
+
+#dark-horse-b8:hover {
+  animation-name: darkhorseMove1;
+  animation-duration: 1.5s;
+}
+
+@keyframes darkhorseMove1 {
+  0% {
     transform: translate(0, 0);
   }
+  50% {
+    transform: translateY(10vmin);
+  }
   100% {
-    transform: translateX(-35vmin);
+    transform: translate(5vmin,10vmin);
+  }
+}
+
+#dark-horse-g8:hover {
+  animation-name: darkhorseMove2;
+  animation-duration: 1.5s;
+}
+
+@keyframes darkhorseMove2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translateY(10vmin);
+  }
+  100% {
+    transform: translate(-5vmin,10vmin);
+  }
+}
+
+#dark-bishop-c8:hover {
+  animation-name: darkbishopMove1;
+  animation-duration: 4s;
+}
+
+@keyframes darkbishopMove1 {
+  0%,60%,100% {
+    transform: translate(0,0);
+  }
+  40% {
+    transform: translate(25vmin,25vmin);
+  }
+  85% {
+    transform: translate(-10vmin,10vmin);
+  }
+}
+
+#dark-bishop-f8:hover{
+  animation-name: darkbishopMove2;
+  animation-duration: 3s;
+}
+
+@keyframes darkbishopMove2 {
+  0%,45%,100% {
+    transform: translate(0,0);
+  }
+  25% {
+    transform: translate(10vmin,10vmin);
+  }
+  80% {
+    transform: translate(-25vmin,25vmin);
+  }
+}
+
+#dark-queen-d8:hover{
+  animation-name: darkqueenMove;
+  animation-duration: 10s;
+}
+
+@keyframes darkqueenMove {
+  /* horizontal move */
+  0%,20%,40%,60%,80%,100% {
+    transform: translate(0,0);
+  }
+  10% {
+    transform: translateX(-15vmin);
+  }
+  30% {
+    transform: translateX(20vmin);
+  }
+  50% {
+    transform: translateY(35vmin);
+  }
+  70% {
+    transform: translate(-15vmin,15vmin);
+  }
+  90% {
+    transform: translate(20vmin,20vmin);
+  }
+}
+
+#dark-king:hover{
+  animation-name: darkkingMove;
+  animation-duration: 8s;
+}
+
+@keyframes darkkingMove {
+  /* horizontal move */
+  0%,20%,40%,60%,80%,100% {
+    transform: translate(0,0);
+  }
+  10% {
+    transform: translateX(-5vmin);
+  }
+  30% {
+    transform: translateX(5vmin);
+  }
+  50% {
+    transform: translateY(5vmin);
+  }
+  70% {
+    transform: translate(-5vmin,5vmin);
+  }
+  90% {
+    transform: translate(5vmin,5vmin);
   }
 }
 
