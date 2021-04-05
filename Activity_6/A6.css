@@ -275,28 +275,57 @@ dd:hover{
 }
 
 .gridChessBoard{
-    /*background-color: red;*/
+    background-color: transparent;
     /*border-style: solid;*/
     margin-right: 100px;
     display: grid;
-    grid-template-columns: repeat(8, 3.8vw);    
-    grid-template-rows: repeat(8, 3.8vw);
+    grid-template-columns: repeat(9, 3vw);    
+    grid-template-rows: repeat(9, 3vw);
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
 /*Adjust size to see what you are moving and counting*/
     justify-content: center;
     align-content: center;
-
 }
 
 .gridBoxGrey{
     background-color: grey;
     border-style: solid;
+    border-radius: 5px;
     display: grid;
+    transition: background-color 2s;
+}
+
+.gridBoxGrey:hover{
+    background-color: lightgrey;
 }
 
 .gridBoxWhite{
     background-color: white;
     border-style: solid;
+    border-radius: 5px;
     display: grid;
+    transition: background-color 1s;
+}
+
+.gridBoxWhite:hover{
+    background-color: lightgrey;
+}
+
+.empty{
+    background-color: transparent;
+    border-style: solid;
+    border-radius: 5px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 1s, font-size 1s;
+}
+
+.empty:hover{
+    background-color: lightgrey;
+    font-size: 16px;
 }
 
 .bMoveOne{
@@ -316,7 +345,7 @@ dd:hover{
 
 @keyframes bMoveOne{
     from{ transform: translate(0px)}
-    to{ transform: translateY(97px)}
+    to{ transform: translateY(80px)}
 }
 
 .bMoveTwo{
@@ -331,7 +360,7 @@ dd:hover{
 
 @keyframes bMoveTwo{
     from{ transform: translate(0px)}
-    to{ transform: translate(146px, 145px)}
+    to{ transform: translate(162px, 162px)}
 }
 
 .bMoveThree{
@@ -346,7 +375,7 @@ dd:hover{
 
 @keyframes bMoveThree{
     from{ transform: translate(0px)}
-    to{ transform: translate(-194px, 195px)}
+    to{ transform: translate(-161px, 162px)}
 }
 
 /*@keyframes bMoveThree{
@@ -381,7 +410,7 @@ dd:hover{
 
 @keyframes wMoveOne{
     from{ transform: translate(0px)}
-    to{ transform: translateY(-98px)}
+    to{ transform: translateY(-81px)}
 }
 
 .wMoveTwo{
@@ -396,7 +425,7 @@ dd:hover{
 
 @keyframes wMoveTwo{
     from{ transform: translate(0px)}
-    to{ transform: translate(48px, -97px)}
+    to{ transform: translate(40px, -82px)}
 }
 
 .wMoveThree{
@@ -411,5 +440,5 @@ dd:hover{
 
 @keyframes wMoveThree{
     from{ transform: translate(0px)}
-    to{ transform: translate(-50px, -97px)}
+    to{ transform: translate(-41px, -81px)}
 }
