@@ -344,16 +344,16 @@ dd:hover{
     animation-timing-function: linear;
 }
 
-/*@keyframes bMoveThree{
+@keyframes bMoveThree{
     from{ transform: translate(0px)}
     to{ transform: translate(-194px, 195px)}
-}*/
+}
 
-@keyframes bMoveThree{
+/*@keyframes bMoveThree{
     0%{ top: 0px }
     50%{ top: -194px, 195px }
     100%{ top: 97px, 97px}
-}
+}*/
 
 /*.bMoveFour{
     animation-name: bMoveFour;
