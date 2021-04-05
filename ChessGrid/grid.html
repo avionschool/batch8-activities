@@ -54,6 +54,44 @@
             background-color: beige;
         }
 
+        .move1{
+            animation-name: firstMove;
+            animation-duration: 2s;
+        }
+
+        .move2{
+            animation-name: secondMove;
+            animation-duration: 2s;
+        }
+        .move3 {
+            animation-name: thirdMove;
+            animation-duration: 2s;
+        }
+        .move4 {
+            animation-name: fourthMove;
+            animation-duration: 2s;
+        }
+
+
+        @keyframes firstMove {
+            from{ transform: translateX(0);}
+            to{transform: translateX(-50px) translateY(50px)}
+        }
+
+        @keyframes secondMove {
+            from{ transform: translateX(0);}
+            to { transform: translateX(-50px) translateY(-50px)}
+        }
+        @keyframes thirdMove {
+            from { transform: translateX(0)}
+            to { transform: translateY(35px)}
+        }
+        @keyframes fourthMove {
+            from { transform: translateX(0);}
+            to { transform: translateX(35px) translateY(-15px)}
+        }
+
+
         
     </style>
 </head>
@@ -66,9 +104,13 @@
         <div class="gridWhite">&#9821</div>
         <div class="gridBlack"></div>
         <div class="gridWhite">&#9818</div>
-        <div class="gridBlack">&#9821</div>
+        <div class="gridBlack">
+            <div class="move1">&#9821</div>
+        </div>
         <div class="gridWhite">&#9822</div>
-        <div class="gridBlack">&#9820</div>
+        <div class="gridBlack">
+            <div class="move3">&#9820</div>
+        </div>
         <div class="gridBlack">&#9823</div>
         <div class="gridWhite">&#9823</div>
         <div class="gridBlack">&#9823</div>
@@ -102,7 +144,9 @@
         <div class="gridWhite"></div>
         <div class="gridBlack"></div>
         <div class="gridBlack"></div>
-        <div class="gridWhite">&#9816</div>
+        <div class="gridWhite">
+            <div class="move4">&#9816</div>
+        </div>
         <div class="gridBlack"></div>
         <div class="gridWhite"></div>
         <div class="gridBlack">&#9817</div>
@@ -122,7 +166,9 @@
         <div class="gridBlack">&#9815</div>
         <div class="gridWhite"></div>
         <div class="gridBlack">&#9818</div>
-        <div class="gridWhite">&#9815</div>
+        <div class="gridWhite">
+            <div class="move2">&#9815</div>
+        </div>
         <div class="gridBlack">&#9816</div>
         <div class="gridWhite">&#9814</div>
         
