@@ -203,8 +203,160 @@ dd {
   }
 }
 
+/* eight row - light chess pieces */
+
 #light-rook-a1:hover{
-  cursor: pointer;
+  animation-name: lightrookMove1;
+  animation-duration: 4s;
+}
+
+@keyframes lightrookMove1 {
+  0%,50%,100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translateY(-35vmin);
+  }
+  75% {
+    transform: translateX(35vmin);
+  }
+}
+
+#light-rook-h1:hover{
+  animation-name: lightrookMove2;
+  animation-duration: 4s;
+}
+
+@keyframes lightrookMove2 {
+  0%,50%,100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translateX(-35vmin);
+  }
+  75% {
+    transform: translateY(-35vmin);
+  }
+}
+
+#light-horse-b1:hover{
+  animation-name: lighthorseMove1;
+  animation-duration: 1.5s;
+}
+
+@keyframes lighthorseMove1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translateY(-10vmin);
+  }
+  100% {
+    transform: translate(5vmin,-10vmin);
+  }
+}
+
+#light-horse-g1:hover {
+  animation-name: lighthorseMove2;
+  animation-duration: 1.5s;
+}
+
+@keyframes lighthorseMove2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translateY(-10vmin);
+  }
+  100% {
+    transform: translate(-5vmin,-10vmin);
+  }
+}
+
+#light-bishop-c1:hover{
+  animation-name: lightbishopMove1;
+  animation-duration: 4s;
+}
+
+@keyframes lightbishopMove1 {
+  0%,40%,100% {
+    transform: translate(0,0);
+  }
+  20% {
+    transform: translate(-10vmin,-10vmin);
+  }
+  70% {
+    transform: translate(25vmin,-25vmin);
+  }
+}
+
+#light-bishop-f1:hover{
+  animation-name: lightbishopMove2;
+  animation-duration: 4s;
+}
+
+@keyframes lightbishopMove2 {
+  0%,45%,100% {
+    transform: translate(0,0);
+  }
+  25% {
+    transform: translate(10vmin,-10vmin);
+  }
+  80% {
+    transform: translate(-25vmin,-25vmin);
+  }
+}
+
+#light-king:hover{
+  animation-name: lightkingMove;
+  animation-duration: 8s;
+}
+
+@keyframes lightkingMove {
+  0%,20%,40%,60%,80%,100% {
+    transform: translate(0,0);
+  }
+  10% {
+    transform: translateX(-5vmin);
+  }
+  30% {
+    transform: translateX(5vmin);
+  }
+  50% {
+    transform: translateY(-5vmin);
+  }
+  70% {
+    transform: translate(-5vmin,-5vmin);
+  }
+  90% {
+    transform: translate(5vmin,-5vmin);
+  }
+}
+
+#light-queen:hover{
+  animation-name: lightqueenMove;
+  animation-duration: 10s;
+}
+
+@keyframes lightqueenMove {
+  0%,20%,40%,60%,80%,100% {
+    transform: translate(0,0);
+  }
+  10% {
+    transform: translateX(-15vmin);
+  }
+  30% {
+    transform: translateX(20vmin);
+  }
+  50% {
+    transform: translateY(-35vmin);
+  }
+  70% {
+    transform: translate(-15vmin,-15vmin);
+  }
+  90% {
+    transform: translate(20vmin,-20vmin);
+  }
 }
 
 
