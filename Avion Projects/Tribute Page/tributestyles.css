@@ -4,12 +4,21 @@ body {
 
 * {
     color: white;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+html {
     text-shadow: 0 1px black;
+    padding: 10px;
+    font-size: 2vmax;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #title {
     text-align: center;
-    font-size: 2em;
+    font-size: 4vmax;
     text-shadow: 1px 1px grey;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -23,7 +32,9 @@ body {
 
 #img-caption {
     text-align: center;
-    font-size: 0.75em;
+    font-size: 1.4vmax;
+    color: Linen;
+    text-shadow: none;
 }
 
 #img-div, #img-caption, #tribute-info {
@@ -31,7 +42,7 @@ body {
 }
 
 img {
-    width: 75%;
+    max-width: 75%;
     height: auto;
     display: block;
     margin-left: auto;
@@ -42,12 +53,15 @@ img {
     border-width: 2px;
 }
 
-p {
-    padding: 0;
-    line-height: normal;
+h1, h2, h4 {
+    padding-top: 4vmax;
 }
 
-h1, h2, h4 {
-    line-height: 10%;
-    padding-top: 40px;
+h1 + h2 {
+    padding-top: 5px;
+}
+
+p, #tribute-info {
+    text-align: justify;
+    width: 95%;
 }
