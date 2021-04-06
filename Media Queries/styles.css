@@ -20,3 +20,6 @@
     background: #ddd;
     color: black;
   }
+  .topnav-right {
+    float: right;
+  }
