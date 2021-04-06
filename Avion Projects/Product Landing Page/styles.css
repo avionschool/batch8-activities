@@ -5,20 +5,53 @@
 html {
     background-color: linen;
     font-family: 'Lato', sans-serif;
+    margin: 0;
 }
 
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
     background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
 }
 
 #header-img {
     height: 25px;
     width: 25px;
     border-radius: 80%;
+}
+
+#company {
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 10px;
+}
+
+#company > img {
+    float: left;
+}
+
+#nav-bar {
+    width: 70vw;
+    display: flex;
+    justify-content: space-around;
+    font-size: 10px;
+}
+
+body {
+    padding-top: 20px;
+    margin: 0;
+}
+
+.content {
+    margin: 0 25px 0 25px;
 }
 
 /* Video */
