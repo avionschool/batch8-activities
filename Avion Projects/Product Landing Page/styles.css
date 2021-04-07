@@ -5,6 +5,7 @@
 html {
     background-color: linen;
     font-family: 'Lato', sans-serif;
+    font-size: 15px;
 }
 
 /* Nav Bar */
@@ -16,6 +17,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     overflow: hidden;
     z-index: 1;
 }
@@ -27,22 +29,14 @@ header {
 }
 
 #company {
-    width: 25vw;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    font-size: 10px;
-}
-
-#company > img {
-    float: left;
 }
 
 #nav-bar {
-    width: 70vw;
     display: flex;
-    justify-content: space-around;
-    font-size: 10px;
+    justify-content: space-between;
 }
 
 #nav-bar > a {
@@ -77,6 +71,7 @@ body {
 h3 {
     font-weight: bold;
     margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 /* Specific Content */
@@ -149,3 +144,20 @@ footer {
 }
 
 /*Media Query */
+@media only screen and (min-width: 768px) {
+    header {
+        flex-direction: row;
+    }
+
+    #company {
+        width: 25vw;
+    }
+    
+    #company > img {
+        float: left;
+    }
+    
+    #nav-bar {
+        width: 70vw;
+    }
+}
