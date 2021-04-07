@@ -5,15 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>productLandingPage</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrap {
+            background: rgba(0,0,0,0.5) url(img/bg.jpg) no-repeat;
+            background-position: center;
+            background-size: cover;
+            min-height: 100vh;
+            overflow: hidden;
+            background-blend-mode: overlay;
+        }
+        .wave{
+            position: absolute;
+            width: 100vw;
+            bottom: -140px;
+            color: #fff;
+            opacity: 1;
+        }
+
+    </style>
 </head>
 <body>
-    <header id="header">
-        <nav class="nav-link">Home</nav>
-        <nav class="nav-link">About</nav>
-        <img src="img/logo.png" id="header-img">
-        <nav class="nav-link">Guitars</nav>
-        <nav class="nav-link">Support</nav>
-    </header>
-    
+    <section class="wrap"> <!--header-->
+        <header id="header">
+           <nav>
+            <img src="img/logo.png" id="header-img">
+               <ul class="nav-link">
+                   <li>Home</li>
+                   <li>About</li>
+                   <li>Books</li>
+                   <li>Support</li>
+               </ul>
+           </nav>
+        </header>
+        <div class="content">
+            <h1>Escape to read, or read to escape.</h1>
+            <p>I have always imagined that paradise will be a kind of library.
+                - Jorge Luis Barge</p>
+        </div>
+    </section>
+
+
+    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#fff" fill-opacity="1"
+            d="M0,160L288,128L576,256L864,288L1152,224L1440,192L1440,320L1152,320L864,320L576,320L288,320L0,320Z"></path>
+    </svg>
+
+    <section>
+        <!-- content here -->
+    </section>
 </body>
 </html>
+
+
