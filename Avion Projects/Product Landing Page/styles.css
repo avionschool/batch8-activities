@@ -13,6 +13,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    min-height: 10vh;
     background-color: aqua;
     display: flex;
     align-items: center;
@@ -51,14 +52,14 @@ h3 {
 
 h3 .nav {
     position: absolute;
-    top: -50px;
+    top: -12vh;
 }
 
 /* General Content */
 body {
-    padding-top: 35px;
-    /* background-image: url(assets/images/Beans\ by\ NordWood\ Themes\ on\ Unsplash\ .jpg); */
-    background-size: auto;
+    padding-top: 5vh;
+    background-image: url(assets/images/Wood\ by\ Diego\ Passadori\ on\ Unsplash\ \(L\).jpg);
+    background-size: cover;
 }
 
 h3 {
@@ -70,33 +71,40 @@ h3 {
 /* Specific Content */
 #home-container {
     background-color: transparent;
+    padding-top: 10vh;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 200px;
-    color: black;
+    padding-bottom: 82vh;
+    background-image: url(assets/images/Beans\ by\ Mike\ Kenneally\ on\ Unsplash.jpg);
+    background-size: cover;
+    color: azure;
 }
 
 #how-we-roast-container {
-    background-color: green;
+    background-color: transparent;
+    padding-top: 3vh;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 200px;
+    padding-bottom: 10vh;
 }
 
 #products-container {
-    background-color: pink;
+    background-color: transparent;
+    padding-top: 3vh;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 150px;
+    padding-bottom: 20vh;
     background-image: url(assets/images/Table\ by\ Suhyeon\ Choi\ on\ Unsplash.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #contact-container {
-    background-color: orchid;
+    background-color: lightslategray;
+    padding-top: 3vh;
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 3vh;
 }
 
 /* Video */
@@ -156,6 +164,7 @@ footer {
 @media only screen and (min-width: 768px) {
     header {
         flex-direction: row;
+        min-height: 6vh;
     }
 
     #company {
@@ -174,5 +183,9 @@ footer {
     #nav-bar > a:hover {
         color: yellow;
         transition: color .8s ease 0s;
+    }
+
+    #home-container {
+        padding-top: 5vh;
     }
 }
