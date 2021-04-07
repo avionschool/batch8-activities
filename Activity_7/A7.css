@@ -1,0 +1,134 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    font-family:monospace;
+    font-size: 1.3vw;
+}
+
+.container{
+    /*background-color: red;*/
+    /*border-style: solid;*/
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#header{
+    background-color: transparent;
+    /*border-style: solid;*/
+    height: 9vw;
+    width: 95vw;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-img{
+    /*border-style: solid;*/
+    height: 7.5vw;
+    width: 15vw;
+    margin-right: 10px;
+}
+
+#nav-bar{
+    /*background-color: green;*/
+    /*border-style: solid;*/
+    height: 8vw;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbarSub{
+    /*background-color: violet;*/
+    /*border-style: solid;*/
+    height: 5vw;
+    width: 35vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.nav-link{
+    /*background-color: yellow;*/
+    /*border-style: solid;*/
+    height: 3vw;
+    width: 8vw;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#self{
+    /*background-color: blue;*/
+    width: 6vw;
+}
+
+.searchNav{
+    /*background-color: palegreen;*/
+    /*border-style: solid;*/
+    height: 5vw;
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.searchImg{
+    /*border-style: solid;*/
+    height: 2.5vw;
+    width: 2.5vw;
+    margin-right: 6px;
+}
+
+.searchBar{
+    border-color: black;
+    border-radius: 10px;
+    border-width: 1.6px;
+    height: 0.7vw;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    padding: 3.5px;
+    font-style: italic;
+    font-size: 1.1vw;
+    outline: none;
+}
+
+.profileImg{
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 1.6px;
+    overflow: hidden;
+    height: 2.5vw;
+    width: 2.5vw;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.cartImg{
+    /*border-style: solid;*/
+    height: 2.6vw;
+    width: 2.9vw;
+}
+
+.features{
+    background-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    color: white;
+    margin-top: 9.5vw;
+    height: 1.8vw;
+    width: 46vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
