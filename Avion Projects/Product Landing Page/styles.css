@@ -45,6 +45,25 @@ header {
     font-size: 10px;
 }
 
+#nav-bar > a {
+    text-decoration: none;
+    color: red;
+}
+
+#nav-bar > a:hover {
+    color: yellow;
+    transition: color .8s ease 0s;
+}
+
+h3 {
+    position: relative;
+}
+
+h3 .nav {
+    position: absolute;
+    top: -30px;
+}
+
 /* General Content */
 body {
     padding-top: 30px;
@@ -61,19 +80,19 @@ h3 {
 }
 
 /* Specific Content */
-#quality-assurance {
+#quality-assurance-container {
     background-color: yellow;
 }
 
-#how-we-roast {
+#how-we-roast-container {
     background-color: green;
 }
 
-#products {
+#products-container {
     background-color: pink;
 }
 
-#contact {
+#contact-container {
     background-color: orchid;
 }
 
