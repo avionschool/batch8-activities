@@ -94,14 +94,16 @@ h4 {
     padding-right: 15px;
     padding-bottom: 10vh;
 }
+
+    #how-we-roast-container h3 {
+        margin-bottom: 20px;
+    }
+
     /* Video */
     #video-wrapper {
         position: relative;
         padding-bottom: 56.25%; /* 16:9 */
         height: 0;
-        margin-top: 20px;
-        margin-left: 1vw;
-        margin-right: 1vw;
     }
 
     #video-wrapper iframe {
@@ -212,7 +214,8 @@ footer {
     }
 
     #video-wrapper {
-        margin-left: 15vw;
-        margin-right: 15vw;
+        margin-left: 20vw;
+        margin-right: 20vw;
+        padding-bottom: 37.5%;
     }
 }
