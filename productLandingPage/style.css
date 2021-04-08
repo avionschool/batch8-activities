@@ -115,7 +115,13 @@ ul{
     background-size: cover;
 }
 .img4{
-    background-image: url(img/img4.jpg);
+    background-image: url(img/img3.jpg);
     min-height: 250px;
     background-size: cover;
+}
+.ebook{
+    display: flex;
+    width: 15%;
+    height: 15%;
+
 }
