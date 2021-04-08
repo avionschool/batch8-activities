@@ -13,6 +13,7 @@ header {
   height: 10%;
   width: 100%;
   top: 0;
+  /* left: 0; */
   background-color: #F3DF4C;
 }
 
@@ -34,13 +35,12 @@ header {
  cursor: pointer; 
 }
 
-/* .first-container {
+#first-container {
 
   display: flex;
   flex-direction: row;
-  position: relative;
-  top: 10vmin;
-} */
+  width: 100%;
+}
 
 .btn-download {
   width: 5vh;
