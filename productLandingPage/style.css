@@ -1,15 +1,57 @@
 body, html {
     height: 100%;
-    margin: 0;
     font-size: 16px;
     font-family: sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.8em;
     color: black;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#nav-bar{
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.5)
+    opacity: 0.70;
+    text-decoration: none;
+    padding: 20px 20px;
+    border-bottom: 1px solid #696969;
+}
+
+#nav-bar ul li a{
+    padding: 0 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(0,0,0,0.5);
+    font-weight: 750;
+}
+#nav-bar ul li:hover{
+    background-color: lemonchiffon;
+    color: lightcoral;
+    border-radius: 5px;
+}
+
+#header-img{
+    float: left;
+    padding-left: 40px;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    float: right;
+    width: 40%;
+}
+
+
 /* to all images */
-.wrap {
+.wrap, .img1, .img2, .img3, .img4{
     position: relative;
     opacity: 0.70;
     background-position: center;
@@ -21,9 +63,6 @@ body, html {
     background-image: url(img/bg.jpg);
     background-size: cover;
     min-height:  100%;
-    /* background-position: center; */
-    /* background-size: cover; */
-
 }
 
 .content {
@@ -35,13 +74,48 @@ body, html {
     top: 50%;
     width: 100%;
     text-align: center;
-    color: black;
+    color: rgba(0,0,0,0.5);
     font-size: 27px;
     letter-spacing: 8px;
     /* for background opacity effect */
     background: rgba(225,225,225,0.2);
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    padding: 50px;
-    
+    padding: 50px; 
 }
- 
+
+.p1text{
+    text-align: center;
+    padding-top: 5%;
+    font-weight: 400;
+    background-color: rgba(225,225,225,0.2);
+    box-shadow: rgba(225,225,225,0.2);
+}
+
+.section0, .section1, .section2, .section3, .section4{
+    text-align: center;
+    padding: 20px 80px;
+    background-color: #282e34;
+    color: #666;
+}
+.img1{
+    background-image: url(img/img1.jpg);
+    min-height: 250px;
+    background-size: cover;
+}
+
+.img2{
+    background-image: url(img/img2.jpg);
+    min-height: 250px;
+    background-size: cover;
+}
+
+.img3{
+    background-image: url(img/img3.jpg);
+    min-height: 250px;
+    background-size: cover;
+}
+.img4{
+    background-image: url(img/img4.jpg);
+    min-height: 250px;
+    background-size: cover;
+}
