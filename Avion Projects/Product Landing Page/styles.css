@@ -111,8 +111,8 @@ input:hover {
     }
 
     #home-container img {
-        max-width: 50%;
-        max-height: 100%;
+        max-width: 40%;
+        max-height: 40%;
         display: flex;
         justify-content: center;
     }
@@ -264,6 +264,11 @@ footer {
 
     #home-desc {
         margin-left: 22px;
+    }
+
+    #home-container img {
+        max-width: 50%;
+        max-height: 100%;
     }
 
     #video-wrapper {
