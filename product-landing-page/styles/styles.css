@@ -131,7 +131,7 @@ header {
 #android-box, #ios-box {
   width: 50%;
   padding: 2vmin;
-  border:  solid 1px;
+  /* border:  solid 1px; */
 }
 
 #android-phone-img {
@@ -140,6 +140,34 @@ header {
 
 #ios-phone-img {
   width: 60%;
+}
+
+.download-links-container {
+  display: flex;
+}
+
+.link-container {
+  width: 50%;
+  height: 5vh;
+  /* border: solid 1px; */
+  padding: 1vh;
+}
+
+.phone-os-icons {
+  height: 3vh;
+  width: 3vh;
+  display: in-line;
+}
+
+.link-container a {
+  font-size: 1.8vh;
+  color: #5FB1E8;
+  text-decoration: none;
+ 
+}
+
+.link-container a:hover {
+  cursor: pointer;
 }
 
 #pc-box {
