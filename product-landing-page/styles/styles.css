@@ -233,14 +233,25 @@ header {
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background: #C4C4C4 ;
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-front h1 {
+  font-size: 4vh;
 }
 
 .flip-card-back {
-  background-color: white;
+  /* background: #C4C4C4 ; */
+  background: white;
   color: black;
   transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* media query */
