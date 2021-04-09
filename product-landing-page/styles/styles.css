@@ -192,11 +192,55 @@ header {
   background: #C4C4C4 ;
 }
 
+.features-containers:nth-child(odd):hover {
+  cursor: pointer;
+}
+
 .features-containers{
   background-image: url(/assets/maxim-ilyahov-0aRycsfH57A-unsplash.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
 }
 
 /* media query */
