@@ -159,7 +159,7 @@ header {
   display: in-line;
 }
 
-.link-container a {
+.link-container a, #main-pc-box a {
   font-size: 1.8vh;
   color: #5FB1E8;
   text-decoration: none;
@@ -172,7 +172,7 @@ header {
 
 #pc-box {
   padding: 7vmin;
-  border:  solid 1px;
+  /* border:  solid 1px; */
 }
 
 #mac-img {
