@@ -34,6 +34,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        margin-bottom: 8px;
     }
 
     #nav-bar {
@@ -56,17 +57,12 @@ header {
             top: -12vh;
         }
 
-/* General Content */
-body {
-    padding-top: 5vh;
-}
-
 h3 {
     margin-top: 15px;
     margin-bottom: 10px;
     letter-spacing: 0.05em;
     font-weight: 500;
-    font-size: 26px;
+    font-size: 19px;
     font-family: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     text-transform: uppercase;
 }
@@ -96,15 +92,33 @@ input:hover {
 
 /* Specific Content */
 #home-container {
-    background-color: transparent;
-    padding-top: 10vh;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 82vh;
-    background-image: url(assets/images/Beans\ by\ Mike\ Kenneally\ on\ Unsplash.jpg);
-    background-size: cover;
+    font-size: 1em;
     color: azure;
+    background-color: rgb(56, 52, 52);
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    padding-top: 10vh;
 }
+    #home-desc {
+        margin-left: 12px;
+        width: 100vw;
+        background-color: rgb(56, 52, 52);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #home-img {
+        max-width: 50%;
+        max-height: 100%;
+    }
+
+    #home-img img {
+        max-width: 100%;
+        max-height: 100%;
+    }
 
 #how-we-roast-container {
     background-color: #f2f0eb;
@@ -213,6 +227,10 @@ footer {
 
 /*Media Query */
 @media only screen and (min-width: 768px) {
+    h3 {
+        font-size: 26px;
+    }
+    
     header {
         flex-direction: row;
         min-height: 6vh;
@@ -220,6 +238,7 @@ footer {
 
     #company {
         width: 25vw;
+        margin-bottom: 0;
     }
     
     #company > img {
@@ -242,6 +261,11 @@ footer {
 
     #home-container {
         padding-top: 5vh;
+        font-size: 1.5em;
+    }
+
+    #home-desc {
+        margin-left: 22px;
     }
 
     #video-wrapper {
@@ -255,4 +279,16 @@ footer {
         margin: 5px;
         padding: 8px 15px;
     }
+}
+
+@media only screen and (min-width: 1080px) {
+    #home-container {
+        padding-top: 5vh;
+        font-size: 3em;
+    }
+
+    #home-desc {
+        margin-left: 36px;
+    }
+
 }
