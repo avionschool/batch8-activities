@@ -127,7 +127,7 @@ input:hover {
     padding-top: 3vh;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 10vh;
+    padding-bottom: 12vh;
 }
 
     #how-we-roast-container h3 {
@@ -274,6 +274,10 @@ footer {
         margin-left: 20vw;
         margin-right: 20vw;
         padding-bottom: 37.5%;
+    }
+
+    #how-we-roast-container {
+        padding-bottom: 8vh;
     }
 
     input {
