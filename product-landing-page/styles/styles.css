@@ -16,7 +16,7 @@ body {
   height: 100%;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
 }
 
 section {
@@ -260,6 +260,21 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#privacy {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  display: flex;
+}
+
+.privacy-container {
+  width: 50%;
+}
+
+#privacy-img {
+  width: 100%;
 }
 
 /* media query */
