@@ -1,6 +1,7 @@
 #header-img {
   width: 4vh;
   height: 4vh;
+  
 }
 
 header {
@@ -36,7 +37,7 @@ header {
  cursor: pointer; 
 }
 
-#first-container {
+#home {
   position: relative;
   z-index: 99;
   top: 10vmin;
