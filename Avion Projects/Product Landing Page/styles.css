@@ -110,7 +110,7 @@ input:hover {
         flex-direction: column;
     }
 
-    img {
+    #home-container img {
         max-width: 50%;
         max-height: 100%;
         display: flex;
