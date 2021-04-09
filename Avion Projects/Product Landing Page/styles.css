@@ -113,6 +113,8 @@ input:hover {
     #home-img {
         max-width: 50%;
         max-height: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     #home-img img {
