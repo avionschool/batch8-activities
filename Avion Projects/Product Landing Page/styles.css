@@ -13,7 +13,9 @@ header {
     top: 0;
     width: 100%;
     min-height: 10vh;
-    background-color: aqua;
+    background-color: white;
+    box-shadow: 0 0 1px 1px gray;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,7 +44,7 @@ header {
 
         #nav-bar > a {
             text-decoration: none;
-            color: red;
+            color: #937031;
     }
 
         h3 {
@@ -73,6 +75,20 @@ h4 {
 .content {
     font-size: 20px;
     font-weight: 500;
+}
+
+
+input {
+    color: white;
+    background: #937031;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+}
+
+input:hover {
+    background-color: #9c7a3f;
 }
 
 /* Specific Content */
@@ -124,17 +140,12 @@ h4 {
         text-align: center;
     }
 
-    input {
-        color: saddlebrown;
-        background: #fff;
-        border-radius: 3px;
-        text-decoration: none;
-        font-weight: 500;
-        border: none;
+    #email { 
+        background-color: white;
     }
 
-    #submit:hover {
-        opacity: 0.8;
+    #email:hover {
+        opacity: initial;
     }
 
 #products-container {
@@ -218,7 +229,7 @@ footer {
 
 
     #nav-bar > a:hover {
-        color: yellow;
+        color: goldenrod;
         transition: color .8s ease 0s;
     }
 
