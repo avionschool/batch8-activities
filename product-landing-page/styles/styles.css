@@ -179,8 +179,18 @@ header {
   width: 80%;
 }
 
+/* Features sections */
+#features {
+  height: 100vh;
+  /* width: 100%; */
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);;
+}
 
-
+.features-containers:nth-child(odd) {
+  background: #C4C4C4 ;
+}
 
 /* media query */
 
