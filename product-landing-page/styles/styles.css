@@ -101,6 +101,8 @@ header {
   padding: 10vmin;
 }
 
+
+
 .product-desc h1,h4,p,#data-charges-text {
   padding: 1vh;
 }
@@ -241,7 +243,7 @@ header {
 }
 
 .flip-card-front {
-  background: #C4C4C4 ;
+  background: white;
   color: black;
   display: flex;
   justify-content: center;
@@ -264,19 +266,40 @@ header {
 
 #privacy {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background: white;
+  
+}
+
+#privacy-main-container {
   display: flex;
+  border: solid 1px;
 }
 
 .privacy-container {
   width: 50%;
+  padding: 10vmin;
 }
 
 #privacy-img {
   width: 100%;
 }
 
+.privacy-container p {
+  margin-top: 3vh;
+}
+
+.privacy-footer-container {
+  display: flex;
+}
+
+#about, #form {
+  width: 50%;
+}
+
+#about p {
+  opacity: 0.9;
+}
 /* media query */
 
 @media (orientation:landscape) {
