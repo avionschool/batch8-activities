@@ -26,12 +26,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 30px 10%; */
-  /* padding: 1vmin;  */
   height: 10%;
   width: 100%;
   top: 0;
-  /* left: 0; */
   background-color: #F3DF4C;
   z-index: 100;
 }
@@ -42,7 +39,7 @@ header {
 
 .nav-link li {
   display: inline-block; 
-  padding: 0px 20px; /*top 0px left/right 20px */
+  padding: 0px 20px; 
 }
 
 .nav-link li a, .nav-link li, #header-img, #header a {
@@ -62,10 +59,7 @@ header {
 
 #home {
   position: relative;
-  z-index: 99;
-  top: 10vmin;
   display: flex;
-  flex-direction: row;
   width: 100%;
   height: 100vh;
 }
@@ -106,15 +100,56 @@ header {
   font-size: 2vmin;
 }
 
-.product-vid {
-  /* padding: 10vmin; */
-}
-
 #download {
   height: 100vh;
   width: 100%;
   background: #4B4737;
+  padding: 15vmin;
 }
+
+.download-box {
+  background: #C4C4C4 ;
+  width: 100%;
+  height: 100%;
+  border-radius: 3vh;
+  display: flex;
+  padding: 5vmin;
+}
+
+#main-phones-box, #main-pc-box {
+  background: white;
+  width: 50%;
+  margin: 3.5vmin;
+  text-align: center;
+}
+
+#phones-box{
+ display: flex;
+}
+
+#android-box, #ios-box {
+  width: 50%;
+  padding: 2vmin;
+  border:  solid 1px;
+}
+
+#android-phone-img {
+  width: 70%;
+}
+
+#ios-phone-img {
+  width: 60%;
+}
+
+#pc-box {
+  padding: 7vmin;
+  border:  solid 1px;
+}
+
+#mac-img {
+  width: 80%;
+}
+
 
 
 
