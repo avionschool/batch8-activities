@@ -30,8 +30,10 @@ header {
 
 .nav-link li a, .nav-link li, #header-img, #header a {
   background-color: #F3DF4C;
-}
+  /* removes underline on nav bar texts  */
+  text-decoration: none; 
 
+}
 
 #header-img, li {
  cursor: pointer; 
