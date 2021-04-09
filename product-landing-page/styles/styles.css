@@ -192,6 +192,13 @@ header {
   background: #C4C4C4 ;
 }
 
+.features-containers{
+  background-image: url(/assets/maxim-ilyahov-0aRycsfH57A-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 /* media query */
 
 @media (orientation:landscape) {
