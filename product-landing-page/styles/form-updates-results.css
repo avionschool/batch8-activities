@@ -3,12 +3,7 @@
   margin: 0;
   padding: 0;
 }
-body {
-  /* background: -webkit-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-  background: -o-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-  background: -moz-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%); */
-  /* background-color: tomato; */
+body { 
   background-image: url(../assets/dan-nelson-ah-HeguOe9k-unsplash.jpg);
   background-size: cover;
 }
