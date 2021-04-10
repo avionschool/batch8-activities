@@ -108,6 +108,7 @@ input:hover, button:hover {
         display: flex;
         justify-content: center;
         flex-direction: column;
+        animation: 1.5s ease-out 0s 1 slide-in-from-left;
     }
 
     #button-products {
@@ -368,4 +369,13 @@ footer {
         width: 25%;
     }
 
+}
+
+@keyframes slide-in-from-left {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
