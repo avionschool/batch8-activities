@@ -92,17 +92,19 @@ input:hover, button:hover {
 
 /* Specific Content */
 #home-container {
-    font-size: 1em;
+    font-size: 0.95em;
     color: azure;
     background-color: rgb(56, 52, 52);
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
     width: auto;
     height: auto;
     padding-top: 10vh;
 }
     #home-desc {
-        margin-left: 12px;
+        margin-left: 25px;
         width: 100vw;
         background-color: rgb(56, 52, 52);
         display: flex;
@@ -116,12 +118,12 @@ input:hover, button:hover {
         margin-top: 15px;
         margin-bottom: 15px;
         padding: 10px;
-        width: 55%;
+        width: 30%;
     }
 
     #home-container img {
-        max-width: 40%;
-        max-height: 40%;
+        width: 100%;
+        height: auto;
         display: flex;
         justify-content: center;
     }
@@ -308,25 +310,26 @@ footer {
         top: -10vh;
     }
 
-    #home-container {
-        padding-top: 5vh;
-        font-size: 1.5em;
-    }
+        #home-container {
+            flex-direction: row;
+            padding-top: 5vh;
+            font-size: 1.5em;
+        }
 
-    #home-desc {
-        margin-left: 22px;
-    }
+        #home-desc {
+            margin-left: 22px;
+        }
 
-    #button-products {
-        font-size: 1rem;
-        margin-bottom: 0;
-        width: 40%;
-    }
+        #button-products {
+            font-size: 1rem;
+            margin-bottom: 0;
+            width: 40%;
+        }
 
-    #home-container img {
-        max-width: 50%;
-        max-height: 100%;
-    }
+        #home-container img {
+            max-width: 50%;
+            max-height: 100%;
+        }
 
     #video-wrapper {
         margin-left: 20vw;
