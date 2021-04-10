@@ -179,6 +179,7 @@ input:hover, button:hover {
     background-image: url(assets/images/Table\ by\ Suhyeon\ Choi\ on\ Unsplash.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: linen;
 }
 
     #products-container h3 {
