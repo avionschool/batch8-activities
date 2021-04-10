@@ -104,7 +104,7 @@ input:hover, button:hover {
     padding-top: 10vh;
 }
     #home-desc {
-        margin-left: 25px;
+        padding-left: 12px;
         width: 100vw;
         background-color: rgb(56, 52, 52);
         display: flex;
@@ -317,7 +317,7 @@ footer {
         }
 
         #home-desc {
-            margin-left: 22px;
+            padding-left: 17px;
         }
 
         #button-products {
