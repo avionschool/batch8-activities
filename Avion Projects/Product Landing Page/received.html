@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,10 +23,44 @@
 </head>
 
 <body>
-<p>We received your email. Thank you! We hope you enjoy our monthly newsletter.</p>
-</body>
+    <header id="header">
+        <div id="company">
+            <div class="container">
+                <img id="header-img" src="assets/images/coffee bean.jpg" alt="Logo">
+            </div>
+            <p>Kopi by Milan</p>
+        </div>
+        <nav id="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>  
+    
+    <div class="content" id="home-container" style="height: 100vh;"> 
+        <p id="home-desc" style="animation: none; font-size: 1.5rem;">
+            We received your email. Thank you! <br><br>We hope you enjoy our monthly newsletter.
+        </p>
+    </div>
+
+        
+        <div id="contact-container">
+            <h3><a id="contact" class="nav"></a>Contact Us</h3>
+            <p>Email: KopiBeans@theIanMilan.com</p>
+            <br>
+            <p>Mobile: +63 990 132 5466</p>
+            <br>
+            <p>Address: Coffee Roasters Hub, Narra St., Pine Nut Grove, Garcia Road, Sagada</p>
+            <hr></hr>
+            <h4> Follow Us </h4>
+            <br>
+            <a href="http://www.instagram.com/" class="fa" target="_blank"><img src="assets/icons/instagram.svg"></a>
+            <a href="http://www.facebook.com/" class="fa" target="_blank"><img src="assets/icons/facebook.svg"></a>
+        </div>
 
     <footer>
-        <div>©2021 Ian Mandap</div>
+        <div>©2021 Ian Mandap. All rights reserved.</div>
     </footer>
+
+    </div>
+</body>
 </html>
