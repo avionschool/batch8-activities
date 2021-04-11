@@ -1,562 +1,229 @@
 <!--
 As a user, when I click a .nav-link button in the nav element, I am taken to the corresponding section of the landing page.
-
 The #email input field uses HTML5 validation to confirm that the entered text is an email address.
-
-When I click the #submit element, the email is submitted to a static page.
-
 My product landing page should have at least one media query.
 -->
-<!DOCTYPE html><!---->
-<html><!---->
 
-<head><!---->
-    <title>Product Landing Page</title><!---->
-    <link rel="stylesheet" href="test.css"><!---->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!---->
-</head><!---->
-
-<body><!---->
-<div class="mainFlex"><!---->
-
-    <header id="header"><!---->
-        
-        <div class="mainLogoFlex">
-
-            <div class="logoFlex"><!---->
-                <img id="header-img" src="Pictures/funko3.png" alt="logo2" height="100%" width="100%">
-            </div><!---->
-    
-        <div class="logo2Flex"><!---->
-            <img id="header-img" src="Pictures/funko4.jpg" alt="logo" height="100%" width="100%"><!---->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Landing Page</title>
+    <link rel="stylesheet" href="A7.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<main class="mainFlex">
+    <header id="header">
+        <div class="logoFlex">
+            <div id="logoImg">
+                <img id="header-img" src="Pictures/Logo/funko1.png" alt="logo" height="100%" width="100%">
+            </div>
+            <div id="logoImgTwo">
+                <img id="header-img" src="Pictures/Logo/funko2.jpg" alt="logoTwo" height="100%" width="100%">
+            </div>
         </div>
-
-
-        </div>
-
-        <nav id="nav-bar"><!---->
-            
-            <div class="navFlexOne"><!---->
-                <div class="nav-linkSpec">HOME</div><!---->
-                <div class="nav-link">PRODUCTS</div><!---->
-                <div class="nav-link">FEATURED</div><!---->
-                <div class="nav-link">ABOUT US</div><!---->
-            </div><!---->
-
-            <div class="navFlexTwo"><!---->
-
-                <div class="searchFlex"><!---->
-                    <img src="Pictures/search.jpg" alt="search" height="100%" width="100%"><!---->
-                </div><!---->
-                
-                <form><!---->
-                    <input class="searchBar" type="text" placeholder="SEARCH.."><!---->
-                </form><!---->
-                
-                <div class="profFlex"><!---->
-                    <img src="Pictures/freddy.png" alt="jan" height="100%" width="100%"><!---->
-                </div><!---->
-                
-                <div class="cartFlex"><!---->
-                    <img src="Pictures/cart.png" alt="cart" height="100%" width="100%"><!---->
-                </div><!---->
-
-                <div class="logoutFlex"><!---->
-                    <img src="Pictures/logout.png" alt="logout" height="100%" width="100%"><!---->
-                </div><!---->
-
-            </div><!---->
-
-
-        </nav><!---->
-
-    </header><!---->
-
-
-
-    <div class="bodyFlex"><!---->
-        
-
+        <nav id="nav-bar">
+            <div class="navFlexOne">
+                <div id="nav-link">HOME</div>
+                <div id="nav-link">PRODUCTS</div>
+                <div id="nav-link">FEATURED</div>
+                <div id="nav-link">ABOUT US</div>
+            </div>
+            <div class="navFlexTwo">
+                <div id="searchImg">
+                    <img src="Pictures/Logo/search.jpg" alt="search" height="100%" width="100%">
+                </div>
+                <form>
+                    <input id="searchBar" type="text" placeholder="SEARCH..">
+                </form>
+                <div id="freddyImg">
+                    <img src="Pictures/Logo/freddy.png" alt="freedy" height="100%" width="100%">
+                </div>
+                <div id="cartImg">
+                    <img src="Pictures/Logo/cart.png" alt="cart" height="100%" width="100%">
+                </div>
+                <div id="logoutImg">
+                    <img src="Pictures/Logo/logout.png" alt="logout" height="100%" width="100%">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="bodyFlex">
         <div class="bodyOne">
-
-        <div class="features"><!---->
-            <img src="Pictures/feature.png" alt="feature" height="100%" width="100%">
-        </div><!---->
-
-        <div class="featuredef">
-            <h2 class="featuredeftitle">JUSTICE<br>LEAGUE</h2>
-            <p class="featuredefp">This series features a few members of the DC comics superhero & villain team.<br><br>
-            From the upcoming film Justice League releasing this 2021!<br><br>
-            Darkseid, Dessad, Superman (Black Suit) and Diana, some with metallic<br>
-            variants are now joining the Funko team!<br><br>
-            Collect them this Summer.</p>
+            <div class="bannerImg">
+                <img src="Pictures/Logo/banner.png" alt="banner" height="100%" width="100%">
+            </div>
+            <div class="defOne">
+                <h2 id="titleOne">JUSTICE<br>LEAGUE</h2>
+                <p id="pOne">This series features a few members of the DC comics superhero & villain team.<br><br>
+                                From the upcoming film Justice League releasing this 2021!<br><br>
+                                Darkseid, Dessad, Superman (Black Suit) and Diana, some with metallic<br>
+                                variants are now joining the Funko team!<br><br>
+                                Collect them this Summer.</p>
+            </div>
         </div>
-
-        </div>
-
-
-
-        <!--<div class="label">
-
-        <div class="labelOne">
-            <img src="Pictures/funko2.png" alt="funko2" height="100%" width="100%">
-        </div>
-
-        <div class="labelTwo">
-            <img src="Pictures/pop.png" alt="pop" height="100%" width="100%">
-        </div>
-
-        <div class="labelThree">
-            <img src="Pictures/list.png" alt="list" height="100%" width="100%">
-        </div>
-        
-        
-        </div>-->
-
-
-
-
-
-
-
-        <h1 id="ourProducts">FEATURED COLLECTIONS</h1>
+        <h1><span id="titleTwo">FEATURED<br></span>
+            <span id="titleThree">COLLECTIONS</span></h1>
         <br>
-        <p id="ourProductsdes">Check out the items that we have this season.</p>
-
-
+        <p id="pTwo">Check out the items that we have this season.</p>
         <div class="series">
-    
-                <div class="variant">
-            
-                <img src="Pictures/dorbz.png" alt="facebook" height="25%" width="70%">
-                
-  
-
+            <div id="variant">
+                <img src="Pictures/Collections/dorbz.png" alt="dorbz" height="100%" width="85%">
             </div>
-
-
-            <div class="variant">
-                                <img src="Pictures/jacket.png" alt="facebook" height="90%" width="95%">
+            <div id="variant">
+                <img src="Pictures/Collections/jacket.png" alt="jacket" height="100%" width="95%">
             </div>
-            <div class="variant">
-                <img src="Pictures/pins.png" alt="facebook" height="55%" width="80%">
+            <div id="variant">
+                <img src="Pictures/Collections/pins.png" alt="pins" height="100%" width="85%">
             </div>
-            <div class="variant">
-                <img src="Pictures/boardgame.png" alt="facebook" height="65%" width="65%">
+            <div id="variant">
+                <img src="Pictures/Collections/boardgame.png" alt="boardgame" height="100%" width="85%">
             </div>
-
         </div>
-
-       
-        <div class="shop">
-            <input id="shopbttn" type="submit" value="SHOP NOW">
-        </div>
-
-
-
-
-
-
-
-
-
+            <input id="shopButton" type="submit" value="SHOP NOW">
         <div class="bodyTwo">
-
             <div class="defTwo">
-                <h2 class="defTitleTwo"><span style="font-size:40px;">ABOUT</span><br>
-                    <span style="font-size:60px;">FUNKO</span></h2>
-                <p class="edit">Headquartered in downtown Everett, WA,
-                                Funko is one of the<br> leading creators
-                                and innovators of licensed pop culture
-                                products<br>to a diverse range of consumers.<br><br>
-                                Funko designs, sources and distributes highly
-                                collectible products<br>across multiple categories
-                                including vinyl figures, action toys,<br>plush, apparel,
-                                housewares and accessories.<br><br>
-                                Our aim is to provide consumers tangible ways to
-                                take their<br>fandom offline.</p>
+                <h2><span id="titleFour">ABOUT</span></h2>
+                <h3><span id="titleFive">FUNKO</span></h3>
+                <br>
+                <p id="pTwo">Headquartered in downtown Everett, WA, Funko is one of the<br>
+                            leading creators and innovators of licensed pop culture products<br>
+                            to a diverse range of consumers.<br><br>
+                            Funko designs, sources and distributes highly collectible products<br>
+                            across multiple categories including vinyl figures, action toys,<br>
+                            plush, apparel, housewares and accessories.<br><br>
+                            Our aim is to provide consumers tangible ways to take their<br>
+                            fandom offline.</p>
             </div>
-
-        <div class="productList">
-
-            <div class="productRowOne">
-                <div class="productOne">
-                    <img src="Pictures/dc.png" alt="DC" height="100%" width="100%">
+            <div class="Category">
+                <div class="productRowOne">
+                    <div id="productOne">
+                        <img src="Pictures/Category/dc.png" alt="DC" height="100%" width="100%">
+                    </div>
+                    <div id="productOne">
+                        <img src="Pictures/Category/marvel.png" alt="Marvel" height="100%" width="100%">
+                    </div>
                 </div>
-                <div class="productOne">
-                    <img src="Pictures/marvel.png" alt="Marvel" height="100%" width="100%">
+                <div class="productRowTwo">
+                    <div id="productTwo">
+                        <img src="Pictures/Category/starwars.png" alt="Star Wars" height="100%" width="100%">
+                    </div>
+                    <div id="productTwo">
+                        <img src="Pictures/Category/disney.png" alt="Disney" height="100%" width="100%">
+                    </div>
                 </div>
-
-                <!--<div class="product">
-                    <img src="Pictures/hp.png" alt="Harry Potter" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/theoffice.png" alt="The Office" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/myheroacademia.png" alt="My Hero Academia" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/modernfamily.png" alt="Modern Family" height="100%" width="100%">
-                </div>
-                -->
             </div>
-    
-            <div class="productRowTwo">
-                <div class="productTwo">
-                    <img src="Pictures/starwars.png" alt="StarWars" height="100%" width="100%">
-                </div>
-                <div class="productTwo">
-                    <img src="Pictures/disney.png" alt="Disney" height="100%" width="100%">
-                </div>
-                <!--<div class="product">
-                    <img src="Pictures/nba.png" alt="NBA" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/ps4.png" alt="PS4" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/naruto.png" alt="Naruto" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/pokemon.png" alt="Pokemon" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/looneytunes.png" alt="Looney Tunes" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/conan.png" alt="Conan" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/rickandmorty.png" alt="Rick and Morty" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/gameofthrones.png" alt="Game of Thrones" height="100%" width="100%">
-                </div>-->
-            </div>
-
-            <!--<div class="productRow">
-                <div class="product">
-                    <img src="Pictures/fantasticbeasts.png" alt="Fantastic Beasts" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/strangerthings.png" alt="Stranger Things" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/moneyheist.png" alt="Money Heist height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/theflash.png" alt="The Flash" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/arrow.png" alt="Arrow" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/thewalkingdead.png" alt="The Walking Dead" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/powerrangers.png" alt="Power Ranges" height="100%" width="100%">
-                </div>
-                <div class="product">
-                    <img src="Pictures/themandalorian.png" alt="The Mandalorian" height="100%" width="100%">
-                </div>
-            </div>-->
-
         </div>
-
-
-
-    </div>
-
-
-
-
-
-
         <div class="bodyThree">
-
-            
-
-        <div class="videoFlex">
-        <div id="video"><!---->
-            <video width="100%" height="100%" controls><!---->
-                <source src="Video/justiceLeague.mp4" type="video/mp4"><!---->
-            </video><!---->
-        </div><!---->
-        </div>
-
-
-        
-        <div class="defThree">
-            <div>
-                <p>
-                    <span class="loctitleOne">LEGION</span><br>
-                    <span class="loctitleTwo">OF</span><br>
-                    <span class="loctitleOne">COLLECTORS</span></p>
-            </div>
-                <!--
-                    class="locFlex"
-                    <img src="Pictures/loc.png" alt="loc" height="100%" width="100%">-->
-            <p class="locp">The Legion of Collectors borrows a bit of its name from DC’s spacefaring<br>
-                superteam of the future, but considering the Legion’s presence in the<br>
-                current DC catalog.<br><br>
-Legion of Collectors box will include a Pop figure, apparel of<br>
-some sort (usually a t-shirt), and other smaller accessories including<br> pins and patches.
-            </p>
-        </div>
-
-        </div>
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="mainFooter">
-
-            <div class="footerOne">
-
-
-                    <div class="funaticFlex">
-                        <img id="funaticImg" src="Pictures/funatic.png" alt="facebook" height="100%" width="100%">
-                    </div>
-
-                    <div class="funaticFlexTwo">
-                    <p class="funaticp">Be our <span class="funaticImpt">FEATURED</span><br>
-                        <br>
-                        <span class="funaticImpt">FUNATIC</span><br>
-                        <br>
-                        of the <span class="funaticImpt">MONTH</span></p>
-                    </div>
-
-          
-
- 
-
-            </div>
-
-            
-            <div class="footerTwo">
-
-                    <div id="video"><!---->
-                        <video width="100%" height="100%" controls><!---->
-                            <source src="Video/funkoHQ.mp4" type="video/mp4"><!---->
-                        </video><!---->
-            
-                    </div>
-            
-            </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="end">
-
-  
-
-        
-            <div class="top">
-            
-            
-            
-                  
-                <!--height="100%" width="100%"-->
-                <div class="icon">
-                        <img id="facebook" src="Pictures/facebook.png" alt="facebook" height="100%" width="100%">
-                    </div>   
-                    <div class="icon">
-                        <img id="twitter" src="Pictures/twitter.png" alt="twitter" height="100%" width="100%">
-                    </div>   
-                        <div class="icon">
-                        <img id="inst" src="Pictures/inst.jpg" alt="inst" height="100%" width="100%" >
-                    </div>   
-                        <div class="icon">
-                        <img id="pinterest" src="Pictures/pinterest.png" alt="pinterest" height="100%" width="100%">
-                    </div>   
-                        <div class="icon">
-                        <img id="reddit" src="Pictures/reddit.png" alt="reddit" height="100%" width="100%">
-                    </div>   
-                
-    
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-
-
-            <div class="bottom">
-
-            <div class="left">
-
-
-                    
-                    <div class="column"> 
-                    <span id="headname">ASSISTANCE</span><br>
-                    <span id="bodyname">Support Center<br>
-                    Returns Policy<br>
-                    Cancellation Policy<br>
-                    Replacement Policy<br>
-                    Accessibility Statement<br>
-                    Terms & Conditions<br>
-                    Privacy Policy<br>
-                    Resellers</span>
-                    </div>
-
-                    <div class="column">   
-                        <span id="headname">ACCOUNT</span><br>
-                        <span id="bodyname">Account<br>
-                        Order History<br>
-                        Pop Yourself<br>
-                        Funko Fan Club<br>
-                        Notification Settings</span>
-                        </div>
-                    
-                    <div class="column">
-                    <span id="headname">ABOUT FUNKO</span><br>
-                    <span id="bodyname">About Us<br>
-                    Blog<br>
-                    Locations<br>
-                    Funko Cares<br>
-                    News<br>
-                    Investors<br>
-                    Careers<br>
-                    Store Locator</span>
-                    </div>
-                    
-            </div>
-
-                <div class="middle">
-                <p><span class="funaticImpt">SUBSCRIBE</span><br>
-                    <span class="funaticp">to our</span><br>
-                    <span class="funaticImpt">NEWSLETTER</span></p>
+            <div class="videoFlex">
+                <div id="videoLine">
+                    <video width="100%" height="100%" controls>
+                        <source src="Videos/justiceLeague.mp4" type="video/mp4">
+                    </video>
                 </div>
-
-               
-
-                        <form id="form" action="submit.html"><!---->
-            
-                         <!--height="100%" width="100%"
-                                <img src="Pictures/email.png" alt="email" >
-                            </div>-->
-                 
-                      
-                            <!--<div class="emailImg">
-                                <img src="Pictures/email.png" alt="reddit" height="100%" width="100%">
-                            </div>-->
-
-                            <div class="emailFlex"><!---->
-                      
-                                <input id="emailInpt" type="email" value="EMAIL ADDRESS.."><!---->
-                            </div><!---->
-
-                     
-                            <p id="spam"><!---->
-                                Your email is safe with us, we don't spam.<!---->
-                            </p><!---->
-                            <br>
-
-                            <div class="submitBttnFlex">
-                                <input id="submitBtn" type="submit" name="submitbutton" value="SUBSCRIBE">
-                            </div>
-    
-                            
-                        </form><!---->
-                
-                    
             </div>
-
-
-
-
-
+            <div class="defThree">
+                <div>
+                    <span id="titleSix">LEGION</span><br>
+                    <span id="titleSeven">OF</span><br>
+                    <span id="titleSix">COLLECTORS</span>
+                </div>
+                <p id="pThree">The Legion of Collectors borrows a bit of its name from DC’s spacefaring<br>
+                            superteam of the future, but considering the Legion’s presence in the<br>
+                            current DC catalog.<br>
+                            <br>
+                            Legion of Collectors box will include a Pop figure, apparel of<br>
+                            some sort (usually a t-shirt), and other smaller accessories including<br>
+                            pins and patches.</p>
+            </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div><!---->
-
-</div><!---->
-</body><!---->
-
-</html><!---->
+        <div class="bodyFour">
+            <div class="defFour">
+                <div id="funaticImgFlex">
+                    <img id="funaticImg" src="Pictures/Logo/funatic.png" alt="funatic" height="100%" width="100%">
+                </div>
+                <div id="funaticDesFlex">
+                    <p><span id="titleNine">Be our</span>
+                        <span id="titleEight"> FEATURED</span><br><br>
+                        <span id="titleEight">FUNATIC</span><br><br>
+                        <span id="titleNine">of the</span>
+                        <span id="titleEight">MONTH</span></p>
+                </div>
+            </div>
+            <div class="videoFlexTwo">
+                    <div id="videoLine">
+                        <video width="100%" height="100%" controls>
+                            <source src="Videos/funkoHQ.mp4" type="video/mp4">
+                        </video>
+                    </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="top">
+                <div id="icon">
+                    <img id="facebook" src="Pictures/Icons/facebook.png" alt="facebook" height="100%" width="100%">
+                </div>   
+                <div id="icon">
+                    <img id="twitter" src="Pictures/Icons/twitter.png" alt="twitter" height="100%" width="100%">
+                </div>   
+                <div id="icon">
+                    <img id="instagram" src="Pictures/Icons/inst.jpg" alt="instagram" height="100%" width="100%" >
+                </div>   
+                <div id="icon">
+                    <img id="pinterest" src="Pictures/Icons/pinterest.png" alt="pinterest" height="100%" width="100%">
+                </div>   
+                <div id="icon">
+                    <img id="reddit" src="Pictures/Icons/reddit.png" alt="reddit" height="100%" width="100%">
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <div id="column"> 
+                        <span id="titleTen">ASSISTANCE</span>
+                        <span id="subTitle">Support Center</span>
+                        <span id="subTitle">Returns Policy</span>
+                        <span id="subTitle">Cancellation Policy</span>
+                        <span id="subTitle">Replacement Policy</span>
+                        <span id="subTitle">Terms & Conditions</span>
+                        <span id="subTitle">Privacy Policy</span>
+                    </div>
+                    <div id="column">   
+                        <span id="titleTen">ACCOUNT</span>
+                        <span id="subTitle">Account</span>
+                        <span id="subTitle">Order History</span>
+                        <span id="subTitle">Pop Yourself</span>
+                        <span id="subTitle">Funko Fan Club</span>
+                        <span id="subTitle">Notification Settings</span>
+                    </div>
+                    <div id="column">
+                        <span id="titleTen">ABOUT FUNKO</span>
+                        <span id="subTitle">About Us</span>
+                        <span id="subTitle">Blog</span>
+                        <span id="subTitle">Locations</span>
+                        <span id="subTitle">Funko Cares</span>
+                        <span id="subTitle">News</span>
+                        <span id="subTitle">Careers</span>
+                        <span id="subTitle">Store Locator</span>
+                    </div>
+                </div>
+                <div class="middle">
+                    <p><span id="titleEight">SUBSCRIBE</span><br>
+                        <span id="titleNine">to our monthly</span><br>
+                        <span id="titleEight">NEWSLETTER</span></p>
+                    <p id="pFour">Your email is safe with us, we don't spam.</p>
+                    <br>
+                </div>
+                <form id="form" action="submit.html">
+                    <div class="emailInptFlex">
+                        <input id="emailInpt" type="email" value="EMAIL ADDRESS..">
+                    </div>
+                    <div class="submitButtonFlex">
+                        <input id="submitButton" type="submit" name="submitbutton" value="SUBSCRIBE">
+                    </div>   
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
