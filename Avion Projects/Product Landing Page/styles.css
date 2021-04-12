@@ -348,7 +348,8 @@ footer {
     }
 
     .item {
-        width: 25vw;
+        height: 34vw;
+        width: 23vw;
         margin: 1vh 3vh 0;
     }
 
