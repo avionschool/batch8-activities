@@ -348,9 +348,9 @@ footer {
     }
 
     .item {
-        height: 34vw;
-        width: 23vw;
-        margin: 1vh 3vh 0;
+        height: 39vw;
+        width: 25vw;
+        margin: 3vh 3vh 0;
     }
 
     .item img {
@@ -372,6 +372,12 @@ footer {
     #button-products {
         font-size: 1rem;
         width: 25%;
+    }
+
+    .item {
+        height: 34vw;
+        width: 23vw;
+        margin: 1vh 3vh 0;
     }
 
 }
