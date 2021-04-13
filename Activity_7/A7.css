@@ -4,15 +4,22 @@
     font-family: "Inter", "Odoo Unicode Support Noto", sans-serif;
     cursor: pointer;
 }
+
+a:link{
+    text-decoration: none;
+}
+
+a:visited{
+    color: white;
+}
+
 .mainFlex{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
-    /*Don't put if your webite is more than the declared vh*/
 }
 
-/*HEADER*/
 #header{
     display: flex;
     justify-content: space-around;
@@ -28,21 +35,31 @@
     height: 5.5vw;
     width: 95vw;
 }
+
+@media only screen and (max-width: 375px){
+    #header{
+        display: none;
+    }
+}
+
 .logoFlex{
     display: flex;
     align-items: center;
     height: 5.5vw;
     width: 18vw;
 }
+
 #logoImg{
     height: 3.6vw;
     width: 4vw;
     margin-left: 20px;
 }
+
 #logoImgTwo{
     height: 5vw;
     width: 12vw;
 }
+
 #nav-bar{
     display: flex;
     flex-direction: row;
@@ -51,6 +68,7 @@
     height: 8vw;
     width: 75vw;
 }
+
 .navFlexOne{
     display: flex;
     justify-content: space-between;
@@ -60,6 +78,7 @@
     width: 30vw;
     color: black;
 }
+
 #nav-link{
     display: flex;
     justify-content: center;
@@ -73,6 +92,7 @@
     font-weight: bold;
     color: white;
 }
+
 .navFlexTwo{
     display: flex;
     justify-content: flex-end;
@@ -80,6 +100,7 @@
     height: 6vw;
     width: 35vw;
 }
+
 #searchBar{
     background-color: #EBF4FA; 
     border-color: #2B3856;
@@ -89,11 +110,13 @@
     font-weight: bold;
     outline: none;
 }
+
 #searchImg{
     height: 2.9vw;
     width: 2.9vw;
     margin-right: 5px; 
 }
+
 #freddyImg{
     border-radius: 50%;
     overflow: hidden;
@@ -101,17 +124,17 @@
     width: 3.5vw;
     margin-left: 50px;
 }
+
 #cartImg{
     height: 3vw;
     width: 4.2vw;
 }
+
 #logoutImg{
     height: 2.5vw;
     width: 3.5vw;
 }
-/*HEADER*/
 
-/*BODY*/
 .bodyFlex{
     display: flex;
     flex-direction: column;
@@ -122,11 +145,22 @@
 
 .bodyOne{
     display: flex;
+    align-items: center;
+    justify-content: center;
     height: 28vw;
     width: 90vw;
     margin-top: 8vw;
     margin-bottom: 4vw;
 }
+
+@media only screen and (max-width: 375px){
+    .bodyOne{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+}
+
 .bannerImg{
     display: flex;
     border-radius: 10px;
@@ -134,6 +168,14 @@
     height: 28vw;
     width: 55vw;
 }
+
+@media only screen and (max-width: 375px){
+    .bannerImg{
+        height: 50vw;
+        width: 100%;
+    }
+}
+
 .defOne{
     display: flex;
     flex-direction: column;
@@ -141,29 +183,66 @@
     justify-content: flex-start;
     margin-left: 20px;
 }
+
 #titleOne{
     font-size: 60px;
     color: #2B3856;
     margin-top: 30px;
 }
+
+@media only screen and (max-width: 375px){
+    #titleOne{
+        font-size: 40px;
+        margin-top: 10px;
+    }
+}
+
 #pOne{
     font-size: 13px;
     color: #737CA1; 
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 375px){
+    #pOne{
+        margin-top: 10px;
+    }
+}
+
 #titleTwo{
     font-size: 32px;
     color: #2B3856;
 }
+
+@media only screen and (max-width: 375px){
+    #titleTwo{
+        font-size: 25px;
+    }
+}
+
 #titleThree{   
     font-size: 50px;
-    color: #2B3856;
-    margin-left: 100px;
+    color: #2B3856;    
 }
+
+@media only screen and (max-width: 375px){
+    #titleThree{
+       font-size: 40px;
+       margin-right: 30px;
+    }
+}
+
 #pTwo{
     font-size: 15px;
     color:#737CA1;
 }
+
+@media only screen and (max-width: 375px){
+    #pTwo{
+        display: none;
+    }
+}
+
 .series{
     display: flex;
     justify-content: center;
@@ -171,6 +250,14 @@
     height: 20vw;
     width: 80vw;
 }
+
+@media only screen and (max-width: 375px){
+    .series{
+        flex-direction: column;
+        margin-top: 300px;
+    }
+}
+
 #variant{
     display: flex;
     justify-content: center;
@@ -178,6 +265,15 @@
     height: 80%;
     width: 25%;
 }
+
+@media only screen and (max-width: 375px){
+    #variant{
+        width: 60%;
+        height: 200%;
+        margin: 10px;
+    }
+}
+
 #shopButton{
     background-color:transparent;
     border-color: #2B3856;
@@ -191,6 +287,14 @@
     color: #2B3856;
 }
 
+@media only screen and (max-width: 375px){
+    #shopButton{
+        height: 7vw;
+        width: 23vw;
+        margin-top: 320px;
+    }
+}
+
 .bodyTwo{
     display: flex;
     justify-content: space-around;
@@ -199,6 +303,16 @@
     height: 30vw;
     width: 90vw;
 }
+
+@media only screen and (max-width: 375px){
+    .bodyTwo{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 180vw;
+    }
+}
+
 .defTwo{
     display: flex;
     flex-direction: column;
@@ -207,20 +321,48 @@
     height: 100%;
     width: 50%;
 }
+
+@media only screen and (max-width: 375px){
+    .defTwo{
+        align-items: center;
+    }
+}
+
 #titleFour{
     font-size: 40px;
     color: #2B3856;
     margin-right: 270px;
 }
+
+@media only screen and (max-width: 375px){
+    #titleFour{
+        margin-right: 0px;
+    }
+}
+
 #titleFive{
     font-size: 65px;
     color: #2B3856;
     margin-right: 150px;
 }
+
+@media only screen and (max-width: 375px){
+    #titleFive{
+        margin-right: 0px;
+    }
+}
+
 #pTwo{
     color: #737CA1;
     font-size: 14px;
 }
+
+@media only screen and (max-width: 375px){
+    #pTwo{
+      text-align: center;
+    }
+}
+
 .Category{
     display: flex;
     flex-direction: column;
@@ -229,6 +371,7 @@
     height: 100%;
     width: 50%;
 }
+
 .productRowOne{
     display: flex;
     justify-content: center;
@@ -236,6 +379,14 @@
     height: 100%;
     width: 100%;
 }
+
+@media only screen and (max-width: 375px){
+    .productRowOne{
+        height: 80%;
+        width: 300%;
+    }
+}
+
 .productRowTwo{
     display: flex;
     justify-content: center;
@@ -243,6 +394,14 @@
     height: 100%;
     width: 100%;
 }
+
+@media only screen and (max-width: 375px){
+    .productRowTwo{
+        height: 80%;
+        width: 300%;
+    }
+}
+
 #productOne{
     display: flex;
     border-color: #2B3856;
@@ -253,6 +412,7 @@
     margin-left: 15px;
     margin-bottom: 5px;
 }
+
 #productTwo{
     display: flex;
     border-color: #2B3856;
@@ -270,6 +430,15 @@
     width: 80vw;
     margin-bottom: 1vw;
 }
+
+@media only screen and (max-width: 375px){
+    .bodyThree{
+        flex-direction: column-reverse;
+        height: 50vw;
+        margin-bottom: 50px;
+    }
+}
+
 .videoFlex{
     display: flex;
     justify-content: flex-start;
@@ -277,10 +446,25 @@
     height: 100%;
     width: 50%;
 }
+
+@media only screen and (max-width: 375px){
+    .videoFlex{
+        display: none;
+    }
+}
+
 #videoLine{
     height: 19.5vw;
     width: 34.8vw;
 }
+
+@media only screen and (max-width: 375px){
+    #videoLine{
+        height: 50vw;
+        width: 100vw;
+    }
+}
+
 .defThree{
     display: flex;
     flex-direction: column;
@@ -288,20 +472,41 @@
     justify-content: center;
     align-items: flex-start;
 }
+
 #titleSix{
     font-size: 50px;
     font-weight: bold;
     color: #2B3856;
 }
+
+@media only screen and (max-width: 375px){
+    #titleSix{
+        font-size: 45px;
+    }
+}
+
 #titleSeven{
     font-size: 25px;
     font-weight: bold;
     color: #2B3856;
 }
+
+@media only screen and (max-width: 375px){
+    #titleSeven{
+        font-size: 18px;
+    }
+}
+
 #pThree{
     font-size: 13px;
     color:#737CA1;
     margin-top: 20px;
+}
+
+@media only screen and (max-width: 375px){
+    #pThree{
+        display: none;
+    }
 }
 
 .bodyFour{
@@ -312,12 +517,27 @@
     width: 90vw;
     margin-bottom: 5vw;
 }
+
+@media only screen and (max-width: 375px){
+    .bodyFour{
+        flex-direction: column;
+        height: 350%;
+    }
+}
+
 .defFour{
     display: flex;
     flex-direction: row;
     height: 100%;
     width: 50%;
 }
+
+@media only screen and (max-width: 375px){
+    .defFour{
+        flex-direction: column;
+    }
+}
+
 #funaticImgFlex{
     display: flex;
     justify-content: flex-end;
@@ -325,10 +545,28 @@
     height: 100%;
     width: 50%; 
 }
+
+@media only screen and (max-width: 375px){
+    #funaticImgFlex{
+        justify-content: center;
+  
+    }
+}
+
 #funaticImg{
     height: 10.5vw;
     width: 15vw;
 }
+
+@media only screen and (max-width: 375px){
+    #funaticImg{
+        height: 30vw;
+        width: 50vw;
+        margin-left: 250px;
+        padding-top: 10px;
+    }
+}
+
 #funaticDesFlex{
     display: flex;
     justify-content: flex-end;
@@ -336,30 +574,46 @@
     height: 100%;
     width: 50%;
 }
+
+@media only screen and (max-width: 375px){
+    #funaticDesFlex{
+        justify-content: center;
+        margin-left: 120px;
+        margin-top: 20px;
+    }
+}
+
 #titleEight{
     font-size: 40px;
     font-weight: bold;
     color: #2B3856;
 }
+
 #titleNine{
     font-size: 15px;
     color: #737CA1;
 }
+
 .videoFlexTwo{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     height: 100%;
     width: 50%;
-    margin-left: 20px;
+    margin-left: 20px;   
 }
 
-/*FOOTER*/
 .footer{
     display: flex;
     flex-direction: column;
     height: 20vw;
     width: 100vw;
+}
+
+@media only screen and (max-width: 375px){
+    .footer{
+      display: none;
+    }
 }
 
 .top{
@@ -371,6 +625,7 @@
     width: 100%;
     margin-bottom: 10px;
 }
+
 #icon{
     display: flex;
     justify-content: center;
@@ -378,22 +633,27 @@
     height: 50%;
     width: 10%;
 }
+
 #facebook{
     height: 3.7vw;
     width: 5.3vw;
 }
+
 #twitter{
     height: 3vw;
     width: 5.3vw;
 }
+
 #instagram{
     height: 3.3vw;
     width: 3.3vw;
 }
+
 #pinterest{
     height: 4.3vw;
     width: 4.5vw;
 }
+
 #reddit{
     height: 3.4vw;
     width: 3.4vw;
@@ -415,6 +675,7 @@
     width: 40%;
     padding-left: 50px;
 }
+
 #column{
     display: flex;
     flex-direction: column;
@@ -423,6 +684,7 @@
     height: 100%;
     width: 33.33%;
 }
+
 #titleTen{
     font-size:15.5px;
     font-weight: bold;
@@ -430,6 +692,7 @@
     margin-top: 12px;
     margin-bottom: 5px;
 }
+
 #subTitle{
     font-size:13px;
     font-style: italic;
@@ -448,6 +711,7 @@
     width: 30%;
     margin-top: 10px;
 }   
+
 #pFour{
     display: flex;
     justify-content: flex-end;
@@ -468,6 +732,7 @@
     margin-left: 30px;
     margin-top: 10px;
 }
+
 .emailInptFlex{
     display: flex;
     align-items: center;
@@ -475,6 +740,7 @@
     height: 20%;
     width: 100%;
 }
+
 #emailInpt{
     width: 14vw;
     border-color: #2B3856;
@@ -486,6 +752,7 @@
     color: #2B3856;
     margin-left: 5px;
 }
+
 .submitButtonFlex{
     display: flex;
     align-items: center;
@@ -493,6 +760,7 @@
     height: 20%;
     width: 100%;
 }
+
 #submitButton{
     background-color:transparent;
     border-color: #2B3856;
