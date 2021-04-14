@@ -220,7 +220,7 @@ input:hover, button:hover {
         margin-top: 1vh;
     }
 
-    #button-shop {
+    .button-shop {
         text-transform: uppercase;
         display: block;
         width: 100%;
