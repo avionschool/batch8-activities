@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=script, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var john_weight = 60;
+      var john_height = 1.2;
+      var vic_weight = 65;
+      var vic_height = 1.25;
+      var john_bmi,
+        vic_bmi = 0;
+      var bmi_temp = 1;
+
+      john_bmi = john_weight / (john_height * john_height);
+      vic_bmi = vic_weight / (vic_height * vic_height);
+
+      if (vic_bmi > john_bmi) {
+        bmi_temp = 1;
+      } else {
+        bmi_temp = 0;
+      }
+
+      console.log(
+        "Is Victor's BMI higher than John's?" + Boolean(bmi_temp).toString()
+      );
+    </script>
+  </body>
+</html>
