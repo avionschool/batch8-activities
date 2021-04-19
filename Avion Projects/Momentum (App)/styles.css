@@ -4,7 +4,6 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0;
-    border: 0;
     margin: 0;
 
   }
@@ -76,21 +75,20 @@ body, #container {
         align-items: center;
         justify-content: center;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.219);
+        text-align: center;
     }
-
-        #quotes-container > p {
-            text-align: center;
-        }
 
         #quotes-text {
             position: relative;
+            display: inline-block;
         }
 
-        #quotes-author {
-            position: absolute;
-            left: 0;
-            right: 0;
+        #quotes-container #quotes-addtl-container {
             display: none;
+        }
+
+        #quotes-container:hover #quotes-addtl-container {
+            display: block;
         }
 
     #toDo-container {
