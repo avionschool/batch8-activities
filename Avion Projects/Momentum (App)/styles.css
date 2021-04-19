@@ -39,11 +39,37 @@ body, #container {
 
 .center {
     height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.5rem;
 }
+
+    .time {
+        font-size: 9rem;
+        margin-left: 49%;
+        margin-right: 51%;
+    }
 
 .center-below {
     height: 26%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    padding-top: 3.5%;
 }
+
+    #focus-input {
+        display: block;
+        background: 0;
+        border: 0;
+        border-bottom: 2px solid #fff;
+        color: white;
+        font-size: 1.75rem;
+        text-align: center;
+        outline-style: none;
+    }
 
 .bottom-row {
     height: 9%;
@@ -111,4 +137,17 @@ body, #container {
 
     #toDo-container {
         width: 20%;
+        float:right;
     }
+
+        #ToDo {
+            float: right;
+            position: absolute;
+            padding-top: 3%;
+            padding-left: 1%;
+            padding-right: 1%;
+            bottom: 2%;
+            right: 2%;
+            height: 8%;
+            cursor: pointer;
+        }

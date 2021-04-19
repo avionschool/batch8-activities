@@ -19,14 +19,29 @@
 <body>
     <div id="container">
         <div class="top-row"></div>
+
         <div class="center-above"></div>
-        <div class="center"></div>
-        <div class="center-below"></div>
+
+        <div class="center">
+            <div class="time">18:00</div>
+            <div class="greeting-container">
+                <span class="message">Good Evening, </span>
+                <span class="name">John</span>
+                <span>.</span>
+            </div>
+        </div>
+
+        <div class="center-below">
+            <p id="focus-text">What is your main focus for today?</p>
+            <input id="focus-input">
+        </div>
+
         <div class="bottom-row">
             <div id="location-container">
                 <img src="assets/feather icons/map-pin.svg">
                 <p id="location">Pragser Wildsee, Italy</p>
             </div>
+
             <div id="quotes-container">
                 <p>
                     <span id="quotes-text"></span>
@@ -37,7 +52,10 @@
                     </span>
                 </p>
             </div>
-            <div id="toDo-container"></div>
+
+            <div id="toDo-container">
+                <div id="ToDo">ToDo</div>
+            </div>
         </div>
     </div>
 </body>
