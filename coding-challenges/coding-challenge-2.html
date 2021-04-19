@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [1,2];
+    const arr_1 = new Array(2); //length  = 2
+    const arr_2 = new Array("Hello"); //lenght = 1
+    const arr_3 = new Array(); //empty array - truthy value
+    
+    //insert element at end of array
+    // arr[arr.length] = "1";
+    //using push
+    arr.push("3");
+
+    //insert element at start of array
+    // arr.unshift("zero");
+    console.log(arr);
+
+    //removing specific index
+    arr.splice(1,1); //first argument - index, second - number of elements 
+    
+
+  </script>
+</body>
+</html>

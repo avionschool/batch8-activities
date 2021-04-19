@@ -8,26 +8,44 @@
   </head>
   <body>
     <script>
-      var john_weight = 60;
-      var john_height = 1.2;
-      var vic_weight = 65;
-      var vic_height = 1.25;
-      var john_bmi,
-        vic_bmi = 0;
-      var bmi_temp = 1;
+      function bmi() {
+        var john_weight = 60;
+        var john_height = 1.2;
+        var vic_weight = 65;
+        var vic_height = 1.25;
+        var john_bmi,
+          vic_bmi = 0;
+        var bmi_temp = 1;
 
-      john_bmi = john_weight / (john_height * john_height);
-      vic_bmi = vic_weight / (vic_height * vic_height);
+        john_bmi = john_weight / (john_height * john_height);
+        vic_bmi = vic_weight / (vic_height * vic_height);
 
-      if (vic_bmi > john_bmi) {
-        bmi_temp = 1;
-      } else {
-        bmi_temp = 0;
+        if (vic_bmi > john_bmi) {
+          bmi_temp = 1;
+        } else {
+          bmi_temp = 0;
+        }
+
+        console.log(
+          "Is Victor's BMI higher than John's?" + Boolean(bmi_temp).toString()
+        );
       }
 
-      console.log(
-        "Is Victor's BMI higher than John's?" + Boolean(bmi_temp).toString()
-      );
+      function switch_sample(){
+        var test = 1;
+
+        switch(temp) 
+        case 0:
+        temp = 1;
+        break;
+        default:
+
+
+      }
+
+      bmi();
+
+
     </script>
   </body>
 </html>
