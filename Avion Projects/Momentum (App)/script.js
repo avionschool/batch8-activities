@@ -14,21 +14,26 @@ var quotesList = [
     `“Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.” — Dale Carnegie`
 ];
 
-const docQuoteText = document.querySelector('#quotes-text');
-const docQuoteAuthor = document.querySelector('#quotes-author');
+    const docQuoteText = document.querySelector('#quotes-text');
+    const docQuoteAuthor = document.querySelector('#quotes-author');
 
-// Extract Quote
-var randomQuote = generateRandomQuote();
-var index = randomQuote.indexOf(`”`) + 1;
-var quoteText = randomQuote.slice(0, index);
-var quoteAuthor = randomQuote.slice(index+1);
+    // Extract Quote
+    var randomQuote = generateRandomQuote();
+    var index = randomQuote.indexOf(`”`) + 1;
+    var quoteText = randomQuote.slice(0, index);
+    var quoteAuthor = randomQuote.slice(index+1);
 
-// Append to HTML
-docQuoteText.textContent = quoteText;
-docQuoteAuthor.textContent = quoteAuthor;
+    // Append to HTML
+    docQuoteText.textContent = quoteText;
+    docQuoteAuthor.textContent = quoteAuthor;
 
-function generateRandomQuote() {
-    var index = Math.floor(Math.random()* (quotesList.length));
-    console.log(index);
-    return quotesList[index];
-}
+    // Add mouseenter event to Quote-Text [TO-DO]
+    docQuoteText.addEventListener('mouseenter', () => {
+        docQuoteAuthor.style.display = "initial";
+        docQuoteText.setAttribute('style', 'position: absolute; left: 0; right: 0');
+    })
+
+    function generateRandomQuote() {
+        var index = Math.floor(Math.random()* (quotesList.length));
+        return quotesList[index];
+    }
