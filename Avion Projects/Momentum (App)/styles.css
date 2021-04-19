@@ -11,7 +11,7 @@
 
 html {
     font-family: 'Lato', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: white;
     scroll-behavior: smooth;
@@ -76,6 +76,21 @@ body, #container {
         align-items: center;
         justify-content: center;
     }
+
+        #quotes-container > p {
+            text-align: center;
+        }
+
+        #quotes-text {
+            position: relative;
+        }
+
+        #quotes-author {
+            position: absolute;
+            left: 0;
+            right: 0;
+            display: none;
+        }
 
     #toDo-container {
         width: 20%;

@@ -1,5 +1,5 @@
 // Inspirational Quotes
-var quotes = [
+var quotesList = [
     `“The Best Way To Get Started Is To Quit Talking And Begin Doing.” – Walt Disney`,
     `“The Pessimist Sees Difficulty In Every Opportunity. The Optimist Sees Opportunity In Every Difficulty.” – Winston Churchill`,
     `“Don’t Let Yesterday Take Up Too Much Of Today.” – Will Rogers`,
@@ -17,3 +17,21 @@ var quotes = [
     `“The Man Who Has Confidence In Himself Gains The Confidence Of Others.” – Hasidic Proverb`,
     `“Creativity Is Intelligence Having Fun.” – Albert Einstein`
 ];
+
+const docQuoteText = document.querySelector('#quotes-text');
+const docQuoteAuthor = document.querySelector('#quotes-author');
+
+// Extract Quote
+var randomQuote = generateRandomQuote();
+var index = randomQuote.indexOf(`”`) + 1;
+var quoteText = randomQuote.slice(0, index);
+var quoteAuthor = randomQuote.slice(index+1);
+
+// Append to HTML
+docQuoteText.textContent = quoteText;
+docQuoteAuthor.textContent = quoteAuthor;
+
+function generateRandomQuote() {
+    var index = Math.floor(Math.random()* (quotesList.length));
+    return quotesList[index];
+}
