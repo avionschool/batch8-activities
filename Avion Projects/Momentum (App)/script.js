@@ -1,21 +1,17 @@
 // Inspirational Quotes
 var quotesList = [
-    `“The Best Way To Get Started Is To Quit Talking And Begin Doing.” – Walt Disney`,
-    `“The Pessimist Sees Difficulty In Every Opportunity. The Optimist Sees Opportunity In Every Difficulty.” – Winston Churchill`,
-    `“Don’t Let Yesterday Take Up Too Much Of Today.” – Will Rogers`,
-    `“You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character.” – Unknown`,
-    `“It’s Not Whether You Get Knocked Down, It’s Whether You Get Up.” – Inspirational Quote By Vince Lombardi`,
-    `“If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.” – Steve Jobs`,
-    `“People Who Are Crazy Enough To Think They Can Change The World, Are The Ones Who Do.” – Rob Siltanen`,
-    `“Failure Will Never Overtake Me If My Determination To Succeed Is Strong Enough.” – Og Mandino`,
-    `“Entrepreneurs Are Great At Dealing With Uncertainty And Also Very Good At Minimizing Risk. That’s The Classic Entrepreneur.” – Mohnish Pabrai`,
-    `“We May Encounter Many Defeats But We Must Not Be Defeated.” – Maya Angelou`,
-    `“Knowing Is Not Enough; We Must Apply. Wishing Is Not Enough; We Must Do.” – Johann Wolfgang Von Goethe`,
-    `“Imagine Your Life Is Perfect In Every Respect; What Would It Look Like?” – Brian Tracy`,
-    `“We Generate Fears While We Sit. We Overcome Them By Action.” – Dr. Henry Link`,
-    `“Whether You Think You Can Or Think You Can’t, You’re Right.” – Henry Ford`,
-    `“The Man Who Has Confidence In Himself Gains The Confidence Of Others.” – Hasidic Proverb`,
-    `“Creativity Is Intelligence Having Fun.” – Albert Einstein`
+    `“We cannot solve problems with the kind of thinking we employed when we came up with them.” — Albert Einstein`,
+    `“Learn as if you will live forever, live like you will die tomorrow.” — Mahatma Gandhi`,
+    `“Stay away from those people who try to disparage your ambitions. Small minds will always do that, but great minds will give you a feeling that you can become great too.” — Mark Twain`,
+    `“When you give joy to other people, you get more joy in return. You should give a good thought to happiness that you can give out.”— Eleanor Roosevelt`,
+    `“When you change your thoughts, remember to also change your world.”— Norman Vincent Peale`,
+    `“It is only when we take chances, when our lives improve. The initial and the most difficult risk that we need to take is to become honest. — Walter Anderson`,
+    `“Nature has given us all the pieces required to achieve exceptional wellness and health, but has left it to us to put these pieces together.”— Diane McLaren`,
+    `"Success is not final; failure is not fatal: It is the courage to continue that counts." — Winston S. Churchill`,
+    `"It is better to fail in originality than to succeed in imitation." — Herman Melville`,
+    `"The road to success and the road to failure are almost exactly the same." — Colin R. Davis`,
+    `“Success usually comes to those who are too busy looking for it.” — Henry David Thoreau`,
+    `“Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.” — Dale Carnegie`
 ];
 
 const docQuoteText = document.querySelector('#quotes-text');
