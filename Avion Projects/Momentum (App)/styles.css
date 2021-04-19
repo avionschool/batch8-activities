@@ -1,0 +1,19 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+html {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+    background-image: url(assets/Photo\ by\ Aditya\ Vyas\ on\ Unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+}
