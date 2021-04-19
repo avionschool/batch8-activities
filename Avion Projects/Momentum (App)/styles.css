@@ -87,22 +87,27 @@ body, #container {
         #quotes-addtl-container {
             display: flex;
             align-items: center;
-        }
-
-        #quotes-container #quotes-addtl-container {
             display: none;
         }
 
-        #quotes-container:hover #quotes-addtl-container {
-            display: block;
-        }
+            /* on hover */
+            #quotes-container:hover #quotes-addtl-container {
+                display: block;
+                opacity: 1;
+            }
 
-        #quotes-container img {
-            filter: invert();
-            height: 18px;
-            width: 18px;
-            vertical-align: middle;
-        }
+            #quotes-container img {
+                filter: invert();
+                height: 18px;
+                width: 18px;
+                vertical-align: middle;
+            }
+
+            #quotes-container img:hover {
+                opacity: 0.4;
+                filter: initial;
+                transform: scale(1.1);
+            }
 
     #toDo-container {
         width: 20%;
