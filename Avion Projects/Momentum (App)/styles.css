@@ -3,17 +3,65 @@
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+
   }
 
 html {
     font-family: 'Lato', sans-serif;
     font-size: 18px;
+    font-weight: 600;
+    color: white;
     scroll-behavior: smooth;
     height: 100%;
     width: 100%;
-    background-image: url(assets/Photo\ by\ Aditya\ Vyas\ on\ Unsplash.jpg);
+    background-image: url(assets/bg/Photo\ by\ Aditya\ Vyas\ on\ Unsplash.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: center;
 }
+
+body, #container {
+    height: 100%;
+    width: 100%;
+}
+
+/* Sections */
+.top-row {
+    height: 9%;
+}
+
+.center-above {
+    height: 26%;
+}
+
+.center {
+    height: 30%;
+}
+
+.center-below {
+    height: 26%;
+}
+
+.bottom-row {
+    height: 9%;
+    display: flex;
+}
+
+    #location-container {
+        width: 20%;
+    }
+
+    #quotes-container {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #toDo-container {
+        width: 20%;
+    }
