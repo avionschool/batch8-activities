@@ -8,23 +8,35 @@
 </head>
 <body>
     <script>
-        var suits = ['spade', 'clover', 'diamond', 'heart']
-        var values = ['A', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K',]
-        function getDeck(){
-            var deck = new Array();
-
-            for(var i = 0; i < suits.length; i++)
-            {
-                for(var x = 0; i < values.length; x++ )
-                {
-                    var card = { Value: values[x], Suit: suits[i] };
-                    deck.push(card);
-                }
+        const suits = ["♣", "♦", "♥", "♠"]
+        const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",]
+        
+        class Deck{
+            constructor(cards = getDeck()) {
+            this.cards = cards
             }
-            console.log(deck.card)
         }
+
+        class Card {
+            constructor(suit, value) {
+                this.suit = suit
+                this.value = value
+            }
+        }
+
+        function getDeck(){
+            return suits.flatMap(suit => {
+                return values.map( value => {
+                    return new Card (suit, value)
+                })
+            })
+        }
+        
+        const deck = new Deck()
+        console.log(deck.cards)
     
-    
+
+        // const suits = ["♣", "♦", "♥", "♠"]
     </script>
     
 </body>
