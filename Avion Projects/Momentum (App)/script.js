@@ -1,3 +1,9 @@
+// Load functions on window start
+window.onload = function() {
+    displayTime();
+    generateGreeting();
+}
+
 // Time
 const docTime = document.querySelector('.time');
 
@@ -20,10 +26,23 @@ function checkTime(i) {
     return i;
   }
 
-displayTime();
-
-
 // Greeting
+const docGreeting = document.querySelector('.greeting');
+
+function generateGreeting() {
+    var h = new Date().getHours();
+    var greeting = "Hello";
+
+    if (h < 12) {
+        greeting = "Good Morning, ";
+    } else if (h < 18) {
+        greeting = "Good Afternoon, ";
+    } else {
+        greeting = "Good Evening, "
+    }
+
+    docGreeting.textContent = greeting;
+}
 
 // Focus Text
 
