@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Momentum</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/main.js"></script>
+    <title>Momentum</title>
+  </head>
+  <body>
     <div class="main-container">
       <div class="top-row">Top row</div>
       <div class="center-above"></div>
-      <div class="center">  
+      <div class="center">
         <div class="clock-greeting-mantra">
-          <div id="clock">
-            10:00
-          </div>
-          <div id="mantra"
-            Live your truth, Lea.
+          <p>10:00</p>
+          <p>Live your truth, Lea.</p>
+          <!-- temporary position of textbox for name  -->
+          <div class="name-container">
+            <h1>Hello, what's your name?</h1>
+            <input type="text" id="textbox-name" class="search" onkeydown="search(this)" required />
           </div>
         </div>
       </div>
-      <div class="center-below"></div>  
+      <div class="center-below"></div>
       <div class="bottom-row">Time is gold -Unknown</div>
     </div>
-</body>
+  </body>
 </html>
