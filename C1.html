@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+//Challenge 1
+var janW = 80; //kg
+    var janH = 2.05; //meters
+
+    var nikkaW = 49;
+    var nikkaH = 1.30;
+
+    //BMI = kg/m2
+    var janBMI = janW / (janH * janH);
+    var nikkaBMI = nikkaW / (nikkaH * nikkaH);
+    
+    //console.log(janBMI, nikkaBMI);
+
+    if (janBMI > nikkaBMI) {
+        //console.log("Jan has a higher BMI than Nikka");
+    } else {
+        //console.log("Nikka has a higher BMI than Jan");
+    }
+
+//Challenge 2
+    var deck = [
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠',
+    'A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦'];
+    //console.log(deck);
+
+    function shuffled(deck) {
+
+        var newDeck = JSON.parse(JSON.stringify(deck));
+        //making it a string and reverting it back to the original, so you can reuse var=deck
+        
+        for (var i = 0; i < newDeck.length; i++) {
+        //start with first card = 0 and ends with the last card = 52
+        
+        var tempCard = newDeck[i];
+        //this means go through all of the values in the deck
+        
+        var randomIndex = Math.floor(Math.random() * 52);
+        //returns a random integer from 0 to 51
+        
+        newDeck[i] = newDeck[randomIndex];
+        //replace the tempCard with the new randomCard
+
+        newDeck[randomIndex] = tempCard;
+        //replace the randomCard with the tempCard
+        }
+    
+        return newDeck;
+        //return the deck that's shuffled
+    }
+
+    console.log(shuffled(deck));
+</script>
+</body>
+</html>

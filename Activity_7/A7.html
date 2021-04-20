@@ -3,7 +3,9 @@
 <head>
     <title>Funko Pop! Product Landing Page</title>
     <link rel="stylesheet" href="A7.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <!--<script src="A7.js"></script>
+    document.getElementById('nav-link').style.backgroundColor = 'red';-->  
 </head>
 <body>
 <main class="mainFlex">
@@ -74,7 +76,34 @@
                 <img src="Pictures/Collections/boardgame.png" alt="boardgame" height="100%" width="85%">
             </div>
         </div>
-            <input id="shopButton" type="submit" value="SHOP NOW">
+
+        <button type="button" id="shopButton" onclick="backgroundColor()">SHOP NOW</button>
+            <!--<script>
+                function color() {
+                    document.getElementById('bodyTwo').style.backgroundColor = 'red';
+                }
+            </script>-->
+            <script>
+                function backgroundColor() {
+                    document.querySelector('.bodyTwo').style.backgroundColor = 'white';
+                }
+            </script>
+
+            <script>
+                    var about = document.getElementById('about');
+                    var div = document.createElement('div');
+                    var newAlert = document.createElement('button');
+                    newAlert.textContent = 'test';
+                    newAlert.style.border = '1px';
+                    newAlert.style.color = 'red';
+                    newAlert.style.margin = '10px';
+                    newAlert.style.borderRadius = '15px';
+                    
+                    div.appendChild(newAlert)
+                    about.appendChild(div)
+            </script>
+
+
         <div class="bodyTwo">
             <div class="defTwo">
                 <h2><span id="titleFour">ABOUT</span></h2>

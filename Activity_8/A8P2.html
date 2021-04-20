@@ -1,0 +1,38 @@
+<!--Project
+MOMENTUM APP (3 DAYS)
+User Story #1: As a user I want to put my name on the homepage - Done
+User Story #2: As a user I want to see the current time on the homepage - Done
+User Story #3: As a user I want to see a greeting with my inputted name on the homepage - Done
+User Story #4: As a user I want to add my main focus for today on the homepage and display it also on the same page
+User Story #5: As a user I want to see a random quote on the homepage
+User Story #6: As a user I want to add a todo list on the homepage and is able to see the list on the same page
+User Story #7: As a user I want to add a new quote for my momentum app-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Momentum App</title>
+    <link rel="stylesheet" href="A8.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+</head>
+<body>
+    <p>Date & Time</p>
+    <p id="cdt"></p>
+    <p id="greetUser"></p> 
+
+    <label>Main Focus</label>
+    <input type="text" id="userInput" value=""/>
+    <button onclick="getValueMF()">Post</button>
+    <p id="userDisplay"></p>
+
+    <label>To Do List</label>
+    <input type="text" id="userInput2" value=""/>
+    <button onclick="getValueTDL()">Post</button>
+    <p id="userDisplay2"></p>
+
+    <p>The best way to finish an unpleasant task is to get started.</p>
+
+<script src="A8.js"></script>
+</body>
+</html>
