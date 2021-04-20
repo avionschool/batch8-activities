@@ -1,3 +1,34 @@
+// Time
+const docTime = document.querySelector('.time');
+
+function displayTime() {
+    // display 24:00 time
+
+    var time = new Date();
+    var h = time.getHours();
+    var m = time.getMinutes();
+    m = checkTime(m);
+
+    docTime.textContent = h + ":" + m;
+    var t = setTimeout(displayTime, 1000);
+}
+
+function checkTime(i) {
+    // add zero in front of numbers < 10
+
+    if (i < 10) {i = "0" + i};
+    return i;
+  }
+
+displayTime();
+
+
+// Greeting
+
+// Focus Text
+
+// Location
+
 // Inspirational Quotes
 var quotesList = [
     `“We cannot solve problems with the kind of thinking we employed when we came up with them.” — Albert Einstein`,
@@ -30,3 +61,5 @@ var quotesList = [
         var index = Math.floor(Math.random()* (quotesList.length));
         return quotesList[index];
     }
+
+// To Do
