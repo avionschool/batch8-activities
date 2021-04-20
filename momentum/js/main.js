@@ -1,5 +1,6 @@
 function search(name_inputted) {
   if (event.keyCode == 13) {
-    alert('Hi ' + name_inputted.value);
+    document.getElementById("greeting").style.display = "block";
+    document.getElementById("greeting").innerHTML = "Hello, " + name_inputted.value;
   }
 }

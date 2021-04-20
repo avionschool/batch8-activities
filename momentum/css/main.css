@@ -8,3 +8,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.name-container p {
+  /* visibility: hidden; */
+  display: none;
+}
