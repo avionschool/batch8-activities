@@ -65,7 +65,19 @@
                     <span id="quotes-addtl-container">
                         <span id="quotes-author"></span>
                         <span><img class="icon-small icon-hover" src="assets/feather icons/chevrons-right.svg" title="Next Quote"></span>
-                        <span><img class="icon-small icon-hover" src="assets/feather icons/plus.svg" title="Add Own Quote"></span>
+                        <span><img id="add-quote-icon" class="icon-small icon-hover" src="assets/feather icons/plus.svg" title="Add Own Quote"></span>
+                            
+                            <!-- Quotes Modal -->
+                            <div id="quotes-modal">
+                                <div class="modal-content">
+                                    <label for="quote-text">Quote Text:</label>
+                                    <textarea id="quote-text" name="quote-text" placeholder="Enter quote..."></textarea>
+                                    <label for="quote-author">Quote Author:</label>
+                                    <input type="text" id="quote-author" name="quote-author" Placeholder="Enter quote's author">
+                                    <button type="submit">Submit</button>
+                                    <button id="quote-cancel">Cancel</button>
+                                </div>
+                            </div>
                     </span>
                 </p>
             </div>

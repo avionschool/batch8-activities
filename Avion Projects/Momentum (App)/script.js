@@ -89,4 +89,20 @@ var quotesList = [
         return quotesList[index];
     }
 
+    // Quotes Modal
+    const docQuotesModal = document.querySelector('#quotes-modal');
+    const docAddQuoteIcon = document.querySelector('#add-quote-icon');
+    const docQuotesCancel = document.querySelector('#quote-cancel');
+
+        // Open/Close Modal
+        docAddQuoteIcon.onclick = () => {docQuotesModal.style.display = "block"};
+        docQuotesCancel.onclick = () => {docQuotesModal.style.display = "none"};
+        
+        // Exits upon clicking outside modal content
+        // window.addEventListener('click', (e) => {
+        //     if (e.target == docQuotesModal) {
+        //         docQuotesModal.style.display = "none";
+        //     }
+        // })
+
 // To Do
