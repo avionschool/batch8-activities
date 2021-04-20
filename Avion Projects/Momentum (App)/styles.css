@@ -75,8 +75,19 @@ body, #container {
 
     .time {
         font-size: 9rem;
-        margin-left: 49%;
-        margin-right: 51%;
+        margin-left: 50%;
+        margin-right: 50%;
+    }
+
+    .name {
+        background: 0;
+        border: 0;
+        color: white;
+        outline-style: none;
+    }
+
+    .name:focus-visible {
+        border-bottom: 2px solid #fff;
     }
 
     .greeting-container:hover .icon-large {
