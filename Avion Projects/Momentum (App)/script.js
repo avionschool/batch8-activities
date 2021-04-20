@@ -44,6 +44,14 @@ function generateGreeting() {
     docGreeting.textContent = greeting;
 }
 
+// Name
+const docIconName = document.querySelector('#icon-name');
+const docName = document.querySelector(".name");
+
+docIconName.addEventListener('click', () => {
+    docName.focus();
+})
+
 // Focus Text
 
 // Location
