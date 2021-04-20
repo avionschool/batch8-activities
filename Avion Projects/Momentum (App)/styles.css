@@ -129,7 +129,6 @@ body, #container {
             #quotes-container img:hover {
                 opacity: 0.4;
                 filter: initial;
-                transform: scale(1.1);
             }
 
     #toDo-container {
