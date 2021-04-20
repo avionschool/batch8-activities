@@ -25,7 +25,20 @@ body, #container {
     width: 100%;
 }
 
-.icon {
+.icon-large {
+    filter: invert();
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+    display: none;
+}
+
+.icon-large:hover {
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.icon-small {
     filter: invert();
     height: 18px;
     width: 18px;
@@ -35,6 +48,12 @@ body, #container {
 .icon-hover:hover {
     opacity: 0.4;
     filter: initial;
+}
+
+.checkbox {
+    height: 50px;
+    width: 50px;
+    display: none;
 }
 
 /* Sections */
@@ -58,6 +77,10 @@ body, #container {
         font-size: 9rem;
         margin-left: 49%;
         margin-right: 51%;
+    }
+
+    .greeting-container:hover .icon-large {
+        display: initial;
     }
 
 .center-below {
@@ -114,12 +137,12 @@ body, #container {
             align-items: center;
         }
 
-            #goal-checkbox {
-                height: 50px;
-                width: 50px;
-                background: 0;
-                border: 0;
-                color: white;
+            #goal-container:hover .checkbox {
+                display: initial;
+            }
+
+            #goal-container:hover .icon-large {
+                display: initial;
             }
 
             #goal-text {
