@@ -1,0 +1,197 @@
+@import "fonts/stylesheet.css";
+
+body {
+  font-family: 'Muli', 'Spoqa', Arial, Helvetica, sans-serif;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #363636;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form,
+.greetings {
+  display: none;
+
+  /* clock만 가운데 정렬하는 방법 몰라서 임시로 ㅠㅠ */
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30%;
+}
+
+.showing {
+  display: block;
+}
+
+h1, h3 {
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  animation: fadeIn 0.5s linear;
+}
+
+.bg-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
+  /* from wadiz.kr */
+  background-image: linear-gradient(180deg, rgba(0,0,0,.32), rgba(0,0,0,.64));
+}
+
+.js-weather {
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.js-clock {
+  color: white;
+  font-size: 40px;
+}
+
+.main-container {
+  display: flex;
+  width: 70%;
+  height: 80%;
+  justify-content: space-between;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+
+  /* clock만 가운데 정렬하는 방법 몰라서 임시로 ㅠㅠ */
+  position: relative;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+
+  /* background-color: #6e7bc8; */
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 4px;
+  box-shadow: 2px 8px 12px rgba(0,0,0,.4)
+}
+
+.toDoContainer {
+  width: 90%;
+}
+
+.toDoTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin: 16px;
+}
+
+.js-toDoList {
+  list-style: none;
+  padding: 0;
+  margin-top: 32px;
+}
+
+.delete-btn {
+  display: none;
+  color: #8f8f8f;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 2px;
+  font-size: 10px;
+  outline: none;
+  height: 18px;
+}
+
+.delete-btn:hover {
+  background-color: #d2d2d2;
+}
+
+.js-toDoList:hover .delete-btn{
+  display: inline-block;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 2px;
+  height: 32px;
+  margin: 3px 0;
+  box-shadow: 0px 2px 4px rgba(0,0,0, 0.15);
+
+  font-size: 10px;
+  font-weight: 300;
+  color: #363636;
+}
+
+li:hover {
+  box-shadow: 2px 2px 6px rgba(0,0,0, 0.4);
+  position: relative;
+  left: 0.5px;
+  bottom: 0.5px;
+  transition: all 0.1s ease;
+}
+
+.js-toDoForm {
+  width: 90%;
+}
+
+input[type="text"] {
+  background-color: rgba(0,0,0, 0.25);
+  border: none;
+  border-radius: 2px;
+  /* To prevent padding from affecting an element's width or height */
+  box-sizing: border-box;
+  width: 100%;
+  height: 32px;
+  margin: 0 0 12px 0;
+  padding-left: 12px;
+  
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+}

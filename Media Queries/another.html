@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>Document</title>
+    <title>Mad Burger</title>
     <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,13 +17,13 @@ div.slide-down {
   overflow:hidden;
 }
 div.slide-down p {
-  animation: 4s slide-down;
-  transition-delay: 0s;
+  animation: 3s slide-down;
+  transition-delay: 1s;
   margin-top:0%;
 }
 @keyframes slide-down {
   from {
-    margin-top: -600%;
+    margin-top: -400%;
     height: 300%; 
   }
 
@@ -34,6 +35,7 @@ div.slide-down p {
 body, html {
   height: 100%;
   margin: 0;
+  /* scroll-behavior: smooth; */
   /* font: 400 15px/1.8 "Oswald", sans-serif;
   color: #777; */
 }
@@ -53,10 +55,10 @@ body, html {
   background-image: url("https://i.postimg.cc/Y0NNDyc2/Background-1.png");
   min-height: 1000px;
 }
-.bgimg-3 {
+/* .bgimg-3 {
   background-image: url("https://i.postimg.cc/jqBFyqBh/texture-1504364-1920.jpg");
-  min-height: 400px;
-}
+  min-height: 400px; 
+}  */
 .caption {
   position: absolute;
   left: 0;
@@ -105,21 +107,56 @@ body, html {
   cursor: pointer;
 }
 .button4 {border-radius: 12px;}
-.button:hover {
-  background-color: black;
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
   color: white;
+  text-align: center;
+  background-image: url("https://i.postimg.cc/zBVftyzj/lights-2602785.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.nav-link:hover {
-    background-color: #111;
+
+@media all and (max-width: 500px){
+  .features{
+    min-width: 300px;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+  footer > div > nav{
+    width: 60%;
+  }
+  #header > div > nav{
+    width: 100%;
+  }
 }
+@media all and (max-width: 700px){
+  .features{
+    margin-top: 20px;
+  }
+  footer > div > nav{
+    width: 80%;
+  }
+}
+@media all and (max-width: 500px){
+  footer > div > nav{
+    width: 100%;
+  }  
+}
+
 
 </style>
 </head>
 
 <body>
+  <header id="header">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#nav1">
-            <img src="https://i.postimg.cc/8cM3mXTR/maxresdefault.png" width="120" height="50" class="d-inline-block align-top" alt="">
+            <img src="https://i.postimg.cc/2jbsS99t/unnamed-removebg-preview-1-removebg-preview.png" width="80px" height="80px" class="d-inline-block align-top" alt="">
           </a>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -134,7 +171,7 @@ body, html {
                 <a class="nav-link" href="#">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#info">Contact</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Location</a>
@@ -143,13 +180,14 @@ body, html {
                 <a class="nav-link" href="#">Newsletter</a>
               </li>
       </nav>
+    </header>
 
       <div class="bgimg-1">
         <p id="nav1"></p>
         <div class="caption">
         <!-- <span class="border">Mad Burger</span> -->
         <div class="slide-down">
-            <p style="font-family:Berkshire Swash; color: #fff; font-size: 100px;">Mad Burger</p>
+            <p style="font-family:Berkshire Swash; color: #fff; font-size: 150px;">Mad Burger</p>
             </div>
         </div>
       </div>
@@ -186,17 +224,29 @@ body, html {
       <p>&nbsp;</p>
       <p>&nbsp;</p>
       <div><center><img src="https://i.postimg.cc/664zz6D0/kisspng-hamburger.png"></center></div>
-      <center><p style="font-family:Berkshire Swash; font-size: 50px; color: black;">Sneak Peak</p></center>
+      <center><p style="font-family:Berkshire Swash; font-size: 50px; color: black;">Sneak Peek</p></center>
       <center><h3 style="font-family:Raleway, sans-serif; font-size: 30px; font-weight: lighter;">Quality Ingredients, Tasty Burgers</h3></center><br>
       <center><h3 style="font-size: 15px;">We got 21 Burgers to choose from, all 100% Beef handcrafted in freshly baked buns with our signature dressing & sauces. Made fresh daily<br>
-        Also available Chicken sandwiches, Nachos, Salads, Pica Pica & Big Scoop Ice Cream</h3></center><br>
+        Also available Chicken sandwiches, Nachos, Salads, Pica Pica & Big Scoop Ice Cream</h3></center>
+    </div>
+    <div class="video">
+      <center><iframe width="1100px" height="700px" src="https://www.youtube.com/embed/V5w1OGknhlc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
     </div>
 
-    <video width="320" height="240" autoplay>
-      <source src="movie.mp4" type="video/mp4">
-      <source src="movie.ogg" type="video/ogg">
-      Your browser does not support the video tag.
-    </video>
+    <div class="footer">
+      <p><div id="info">
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+        <p style="font-family:Berkshire Swash; font-size: 50px; color: white;">Get In Touch</p>
+        <form id="form" action="https://www.facebook.com/hotguyburgerandsalad/" method="get">
+          <label for="email" id="email-label"><input id="email" name="email" type="email" placeholder="Enter your email" size="30"></input></label>
+            <!-- <input type="submit" id="button" value="Submit"></input> -->
+            <br><button class="button button4">SUBMIT</button>
+        </form>
+      </div>
+    </div></p>
+    </div>
 
    
 
