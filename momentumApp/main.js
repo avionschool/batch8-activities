@@ -1,6 +1,3 @@
-// var today = new Date ();
-// var time = today.getHours () + ":" + today.getMinutes ();
-// document.getElementById("time").value = time;
 
 function currentTime() {
     var date = new Date(); /* creating object of Date class */
@@ -15,20 +12,15 @@ function currentTime() {
 
     midday = (hour >= 12) ? "PM" : "AM";
 
-    document.getElementById("time").innerHTML = hour + " : " + min + " : " + sec + midday; /* adding time to the div */
+    if (hour > 12) {
+      hour = hour - 12;
+    }
+
+    document.getElementById("time").innerHTML = hour + " : " + min + " " + midday; /* adding time to the div */
       var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
 
-    // if(hours < 12) {
-    //   var greeting = "Good Morning" + name;
-    // }
-    // if (hours >= 12 && hours <= 18) {
-    //   var greeting = "Good Afternoon" + name;
-    // }
-    // if (hours >= 18 && hours <= 24) {
-    //   var greeting = "Good Evening" + name;
-    // }
-
   }
+
 
   function updateTime(k) {
     if (k < 10) {
@@ -40,3 +32,21 @@ function currentTime() {
   }
 
   currentTime(); /* calling currentTime() function to initiate the process */
+
+
+  function greetings1(){
+    var name = prompt ("Enter your Name here.");
+
+    if(currentTime <= 12) {
+      var greeting1 = "Good Morning ";
+    }
+    else {
+      var greeting1 ="Good Evening ";
+    }
+
+    if (name != null) {
+      document.getElementById("greeting").innerHTML = greeting1 + name + ".";
+    }
+  }
+
+  greetings1();
