@@ -140,4 +140,12 @@ var quotesList = [
             }
         })
 
-// To Do
+// To Do Container
+// When user clicks on div, open the popup
+const toDo = document.querySelector("#ToDo");
+const popup = document.querySelector(".popup-menu-container");
+
+toDo.addEventListener('click', () => {
+    popup.classList.toggle("show");
+});
+

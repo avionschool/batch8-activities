@@ -176,8 +176,6 @@ body, #container {
         width: 20%;
         display: flex;
         flex-direction: column;
-        left: 0;
-        right: 0;
         justify-content: center;
         padding-left: 8px;
     }
@@ -297,17 +295,60 @@ body, #container {
 
     #toDo-container {
         width: 20%;
-        float:right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
     }
 
         #ToDo {
-            float: right;
-            position: absolute;
-            padding-top: 3%;
-            padding-left: 1%;
-            padding-right: 1%;
-            bottom: 2%;
-            right: 2%;
-            height: 8%;
+            padding: 20px 1vw 20px 20px;
+            margin-right: 1vw;
             cursor: pointer;
         }
+
+            /* The actual popup */
+            .popup-menu-container {
+                visibility: hidden;
+                display: block;
+                height: auto;
+                max-height: 90vh;
+                width: 300px;
+                background-color: rgba(250, 250, 250, 1);
+                color: black;
+                border-radius: 6px;
+                padding: 8px 0;
+                z-index: 1;
+                position: absolute;
+                bottom: 50px;
+                right: 1.5vw;
+            }
+            
+            /* Popup arrow */
+            .popup-menu-container::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 90%;
+                margin-left: -8px;
+                border-width: 8px;
+                border-style: solid;
+                border-color: rgba(250, 250, 250, 1) transparent transparent transparent;
+            }
+
+            /* Toggle this ID - hide and show the popup */
+            .show {
+                visibility: visible;
+                -webkit-animation: fadeIn 1s;
+                animation: fadeIn 1s;
+            }
+            
+            /* Add animation (fade in the popup) */
+            @-webkit-keyframes fadeIn {
+                from {opacity: 0;} 
+                to {opacity: 1;}
+            }
+            
+            @keyframes fadeIn {
+                from {opacity: 0;}
+                to {opacity:1 ;}
+            }
