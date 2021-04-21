@@ -106,7 +106,7 @@ var quotesList = [
         // })
 
         // On Modal Submit: Add quote to DOM and Array
-        const docQuotesCancel = document.querySelector('quote-submit');
+        const docQuotesSubmit = document.querySelector('quote-submit');
         
 
 // To Do
