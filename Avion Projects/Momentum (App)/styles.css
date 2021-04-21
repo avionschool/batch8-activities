@@ -200,11 +200,16 @@ body, #container {
             align-items: center;
             font-size: 0.75rem;
             padding-left: 20.5px;
-            display: none;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 0.1s ease-in 25ms;
         }
 
+        /* on hover */
         #location-container:hover #location-author-container {
-            display: initial;
+            opacity: 1;
+            height: auto;
         }
 
     #quotes-container {
@@ -224,13 +229,17 @@ body, #container {
         #quotes-addtl-container {
             display: flex;
             align-items: center;
-            display: none;
+            justify-content: center;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 0.1s ease-in 25ms;
         }
 
             /* on hover */
             #quotes-container:hover #quotes-addtl-container {
-                display: block;
                 opacity: 1;
+                height: auto;
             }
         
         /* Add Quotes Modal */
