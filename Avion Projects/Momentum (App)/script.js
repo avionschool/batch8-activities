@@ -48,9 +48,17 @@ function generateGreeting() {
 const docIconName = document.querySelector('#icon-name');
 const docName = document.querySelector(".name");
 
-docIconName.addEventListener('click', () => {
-    docName.focus();
-})
+    // Focus on name field
+    docIconName.addEventListener('click', () => {
+        docName.focus();
+    })
+
+    // Prevent newline char on name field
+    docName.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+        }
+    });
 
 // Focus Text
 
