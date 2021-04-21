@@ -114,7 +114,26 @@ var quotesList = [
         // })
 
         // On Modal Submit: Add quote to DOM and Array
-        const docQuotesSubmit = document.querySelector('quote-submit');
-        
+        const docQuotesSubmit = document.querySelector('#quote-submit');
+        const modalTextArea = document.querySelector('#quote-text');
+        const modalAuthor = document.querySelector('#quote-author');
+
+        docQuotesSubmit.addEventListener('click', (e) => {
+            var quote = `“` + modalTextArea.value + `”`;
+            var author = "— " + modalAuthor.value;
+
+            // Validate first
+            if (quote.length > 2 && author.length > 2) {
+                var wholeQuote = quote + author;
+                quotesList.push(wholeQuote);
+
+                docQuoteText.textContent = quote;
+                docQuoteAuthor.textContent = author;
+
+                docQuotesModal.style.display = "none"; // exit window
+            } else {
+                return; // Do nothing
+            }
+        })
 
 // To Do
