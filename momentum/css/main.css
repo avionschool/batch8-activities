@@ -9,7 +9,8 @@
   flex-direction: column;
 }
 
-.name-container p {
+.name-container p,
+#time {
   /* visibility: hidden; */
   display: none;
 }
