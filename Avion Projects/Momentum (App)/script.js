@@ -2,6 +2,7 @@
 window.onload = function() {
     displayTime();
     generateGreeting();
+    generateRandomQuote();
 }
 
 // Time
@@ -82,22 +83,25 @@ var quotesList = [
     const docQuoteText = document.querySelector('#quotes-text');
     const docQuoteAuthor = document.querySelector('#quotes-author');
 
-    // Extract Quote
-    var randomQuote = generateRandomQuote();
-    var index = randomQuote.indexOf(`”`) + 1;
-    var quoteText = randomQuote.slice(0, index);
-    var quoteAuthor = randomQuote.slice(index+1);
-
-    // Append to HTML
-    docQuoteText.textContent = quoteText;
-    docQuoteAuthor.textContent = quoteAuthor;
-
     function generateRandomQuote() {
-        var index = Math.floor(Math.random()* (quotesList.length));
-        return quotesList[index];
-    }
+        var i = Math.floor(Math.random()* (quotesList.length));
+        var randomQuote = quotesList[i];
 
-    // Quotes Modal
+        // Extract Quote
+        var index = randomQuote.indexOf(`”`) + 1;
+        var quoteRawText = randomQuote.slice(0, index);
+        var quoteRawAuthor = randomQuote.slice(index+1);
+
+        // Append to HTML
+        docQuoteText.textContent = quoteRawText;
+        docQuoteAuthor.textContent = quoteRawAuthor;
+    };
+
+    // Next quote
+    const docNextQuoteIcon = document.querySelector('#next-quote-icon');
+    docNextQuoteIcon.addEventListener('click', generateRandomQuote);
+
+    // Modal
     const docQuotesModal = document.querySelector('#quotes-modal');
     const docAddQuoteIcon = document.querySelector('#add-quote-icon');
     const docQuotesCancel = document.querySelector('#quote-cancel');
