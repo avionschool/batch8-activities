@@ -182,4 +182,14 @@ function addItem() {
         div.parentElement.removeChild(div);
         }
     }
+
+    // Add strikethrough when to text when checkbox is checked
+    var checkboxIcon = document.getElementsByClassName("item-checkbox");
+    var j;
+    for (j = 0; j < checkboxIcon.length; j++) {
+        checkboxIcon[j].onclick = function() {
+            var sib = this.nextElementSibling;
+            sib.classList.toggle('checked');
+        };
+    }
 };

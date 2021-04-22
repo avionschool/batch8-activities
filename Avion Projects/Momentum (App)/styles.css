@@ -362,6 +362,10 @@ body, #container {
                         padding-right: 3px;
                     }
 
+                    .checked {
+                        text-decoration: line-through;
+                    }
+
                     .item-title:focus-visible {
                         border-bottom: 1px solid #000;
                     }
