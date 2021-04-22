@@ -160,6 +160,7 @@ toDoInput.addEventListener('keydown', (e) => {
 
 function addItem() {
     var txt = toDoInput.value;
+    txt = txt.replace(/(<([^>]+)>)/gi, ""); // strip tags
     toDoInput.value = "";
 
     const newItem = document.createElement('div');
