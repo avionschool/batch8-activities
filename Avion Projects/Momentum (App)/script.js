@@ -126,7 +126,7 @@ var quotesList = [
             var quote = `“` + modalTextArea.value + `”`;
             var author = "— " + modalAuthor.value;
 
-            // Validate first
+            // Validate first and then add quote & author to Array and display in the HTML
             if (quote.length > 2 && author.length > 2) {
                 var wholeQuote = quote + author;
                 quotesList.push(wholeQuote);
@@ -158,6 +158,7 @@ toDoInput.addEventListener('keydown', (e) => {
     }
 });
 
+// addItem functionality
 function addItem() {
     var txt = toDoInput.value;
     txt = txt.replace(/(<([^>]+)>)/gi, ""); // strip tags
@@ -170,7 +171,15 @@ function addItem() {
     <span class="item-title" contenteditable="true">`+ txt +`</span>
     <img class="item-remove-icon" title="Remove item" src="assets/feather icons/plus.svg">
     `
-
     toDoList.append(newItem);
-}
 
+    // Add remove functionality to 'x' icon
+    var removeIcon = document.getElementsByClassName("item-remove-icon");
+    var i;
+    for (i = 0; i < removeIcon.length; i++) {
+        removeIcon[i].onclick = function() {
+        var div = this.parentElement;
+        div.parentElement.removeChild(div);
+        }
+    }
+};
