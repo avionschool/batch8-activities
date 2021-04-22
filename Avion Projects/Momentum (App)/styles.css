@@ -34,8 +34,12 @@ body, #container {
     cursor: pointer;
 }
 
-.icon-large:hover {
+.icon-large-hover:hover {
     border-radius: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.icon-square-hover:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
