@@ -31,6 +31,7 @@ body, #container {
     width: 30px;
     vertical-align: middle;
     display: none;
+    cursor: pointer;
 }
 
 .icon-large:hover {
@@ -43,6 +44,7 @@ body, #container {
     height: 18px;
     width: 18px;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .icon-hover:hover {
@@ -316,13 +318,79 @@ body, #container {
                 background-color: rgba(250, 250, 250, 1);
                 color: black;
                 border-radius: 6px;
-                padding: 8px 0;
+                padding: 0 10px 0 10px;
                 z-index: 1;
                 position: absolute;
                 bottom: 50px;
                 right: 1.5vw;
             }
-            
+
+                #toDo-title {
+                    font-size: 1.1rem;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    padding-top: 5px;
+                    padding-bottom: 8px;
+                }
+
+                .toDo-checkbox {
+                    margin: 0 2px 0 2px;
+                }
+                
+                .list-container div + div {
+                    padding-top: 3px;
+                    padding-bottom: 2px;
+                }
+
+                .item-wrapper {
+                    height: auto;
+                    display: flex;
+                    align-items: center;
+                }
+
+                    .item-title {
+                        height: auto;
+                        width: 87%;
+                        background: 0;
+                        border: 0;
+                        outline-style: none;
+                        padding-left: 3px;
+                        padding-right: 3px;
+                    }
+
+                    .item-title:focus-visible {
+                        border-bottom: 1px solid #000;
+                    }
+                    
+                    .item-wrapper:hover .item-remove-icon {
+                        display: initial;
+                    }
+
+                    .item-remove-icon {
+                        display: none;
+                        height: 16px;
+                        width: 16px;
+                        vertical-align: middle;
+                        transform: rotate(45deg);
+                        cursor: pointer;
+                    }
+
+                    .item-remove-icon:hover {
+                        border-radius: 100%;
+                        background: rgba(0, 0, 0, 0.075);
+                    }
+
+                #toDo-input {
+                    display: block;
+                    width: 100%;
+                    height: 30px;
+                    background: 0;
+                    border: 0;
+                    border-bottom: 2px solid #fff;
+                    outline-style: none;
+                    font-size: 1rem;
+                }
+
             /* Popup arrow */
             .popup-menu-container::after {
                 content: "";
