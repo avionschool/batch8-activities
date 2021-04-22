@@ -1,28 +1,29 @@
-function search(name_inputted) {
-  if (event.keyCode == 13) {
-    // displays hidden elements
-    document.getElementById("greeting").style.display = "block";
-    
-    document.getElementById("greeting").innerHTML = "Hello, " + name_inputted.value + ".";
+var d = new Date();
+var m = d.getMinutes();
+var name_for_greeting = "";
 
-    // hides hello greeting & name textbox 
-    document.getElementById("hello-greeting").style.display = "none";
-    document.getElementById("textbox-name").style.display = "none";
+function search(name_inputted) {
+  if (event.keyCode == 13) {    
+   name_for_greeting = name_inputted.value;
 
    displayTime();
+   displayElements();
+   hideElements();
+   updateGreeting();
   }
 }
 
 // gets hours and minutes of current time
 function displayTime() {
-  var d = new Date();
   var h = d.getHours();
-  var m = d.getMinutes();
   var amOrPm = "am";
+  let new_m = "";
 
   //if minutes is less than 10 will display zero before the minute value
-  if ( m < 10)  {
-    m = "0" + m;
+  // console.log(m);
+  if ( m < 10)  {    
+    new_m = "0" + m;
+
   }
 
   //returns AM if it's morning and PM if it's afternoon/evening & displays non 24-hr clocck
@@ -31,6 +32,33 @@ function displayTime() {
     amOrPm="pm";
   }
 
+  document.getElementById("time").innerHTML = h + ":" + new_m + amOrPm;
+}
+
+//changes greetings depending on the time of day
+function updateGreeting() {
+  displayTime();
+  var h_2 = d.getHours();
+  var greeting = "morning";
+
+  if (h_2 >= 12 && h_2 <= 5 && m <= 59) {
+    greeting = "afternoon";
+  } else {
+    greeting = "evening";
+  }
+
+  // console.log(h_2);
+  document.getElementById("greeting").innerHTML = "Good " + greeting + ", "+ name_for_greeting + ".";
+}
+
+//displays hidden elements and gets called when Enter is pressed
+function displayElements() {
+  document.getElementById("greeting").style.display = "block";
   document.getElementById("time").style.display = "block";
-  document.getElementById("time").innerHTML = h + ":" + m + amOrPm;
+}
+
+//hides elements after enter
+function hideElements() {
+  document.getElementById("hello-greeting").style.display = "none";
+  document.getElementById("textbox-name").style.display = "none";
 }
