@@ -20,13 +20,13 @@ function displayTime() {
   let new_m = "";
 
   //if minutes is less than 10 will display zero before the minute value
-  // console.log(m);
   if ( m < 10)  {    
     new_m = "0" + m;
-
+  } else {
+    new_m = m;
   }
 
-  //returns AM if it's morning and PM if it's afternoon/evening & displays non 24-hr clocck
+  //returns AM if it's morning and PM if it's afternoon/evening & displays non 24-hr clock
   if ( h > 12 ) {
     h -= 12;
     amOrPm="pm";
@@ -47,14 +47,17 @@ function updateGreeting() {
     greeting = "evening";
   }
 
-  // console.log(h_2);
   document.getElementById("greeting").innerHTML = "Good " + greeting + ", "+ name_for_greeting + ".";
 }
+
+
 
 //displays hidden elements and gets called when Enter is pressed
 function displayElements() {
   document.getElementById("greeting").style.display = "block";
   document.getElementById("time").style.display = "block";
+  document.getElementById("focus-header").style.display = "block";
+  document.getElementById("textbox-focus").style.display = "block";
 }
 
 //hides elements after enter

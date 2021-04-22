@@ -9,8 +9,11 @@
   flex-direction: column;
 }
 
+/* hides elements when page initially loads */
 .name-container p,
-#time {
+#time,
+#focus-header,
+#textbox-focus {
   /* visibility: hidden; */
   display: none;
 }

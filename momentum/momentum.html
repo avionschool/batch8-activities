@@ -12,9 +12,10 @@
     <div class="main-container">
       <div class="top-row">Top row</div>
       <div class="center-above"></div>
+      <!-- Center: contains clock, greeting and mantra  -->
       <div class="center">
         <div class="clock-greeting-mantra">
-          <p id="time">10:00</p>
+          <p id="time"></p>
           <p id="mantra">Live your truth, Lea.</p>
           <!-- temporary position of textbox for name  -->
           <div class="name-container">
@@ -24,7 +25,11 @@
           </div>
         </div>
       </div>
-      <div class="center-below"></div>
+      <!-- Center-below: contains focus  -->
+      <div class="center-below">
+        <h1 id="focus-header">What is your main focus for today?</h1>
+        <input type="text" id="textbox-focus" class="focus" onkeydown="focus(this)" required />
+      <div>
       <div class="bottom-row">Time is gold -Unknown</div>
     </div>
   </body>
