@@ -149,3 +149,27 @@ toDo.addEventListener('click', () => {
     popup.classList.toggle("show");
 });
 
+// Add item on ToDo input submit
+const toDoInput = document.querySelector('#toDo-input');
+const toDoList = document.querySelector('.list-container');
+toDoInput.addEventListener('keydown', (e) => {
+    if (e.keyCode === 13) { // Execute only on Enter
+        addItem();
+    }
+});
+
+function addItem() {
+    var txt = toDoInput.value;
+    toDoInput.value = "";
+
+    const newItem = document.createElement('div');
+    newItem.classList.add('item-wrapper');
+    newItem.innerHTML = `
+    <input type="checkbox" class="item-checkbox">
+    <span class="item-title" contenteditable="true">`+ txt +`</span>
+    <img class="item-remove-icon" title="Remove item" src="assets/feather icons/plus.svg">
+    `
+
+    toDoList.append(newItem);
+}
+
