@@ -39,7 +39,7 @@ function generateGreeting() {
     } else if (h < 18) {
         greeting = "Good Afternoon, ";
     } else {
-        greeting = "Good Evening, "
+        greeting = "Good Evening, ";
     }
 
     docGreeting.textContent = greeting;
@@ -55,7 +55,7 @@ const docName = document.querySelector(".name");
     })
 
     // Prevent newline char on name field
-    docName.addEventListener('keydown', (e) => {
+    docName.addEventListener('keydown', function(e) {
         if (e.keyCode === 13) {
             e.preventDefault();
         }
@@ -70,9 +70,13 @@ const docName = document.querySelector(".name");
     const focusContainer = document.querySelector('.focus-container');
     const goalContainer = document.querySelector('.goal-container');
 
-    focusInput.addEventListener('keydown', (e) => {
+    focusInput.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) { // Execute only on Enter
-        addGoal();
+        // validation 
+        if (this.value == "") {
+            alert("Input cannot be empty");
+            return false;
+            } else addGoal();
         }
     });
 
@@ -197,9 +201,13 @@ toDo.addEventListener('click', () => {
 // Add item on ToDo input submit
 const toDoInput = document.querySelector('#toDo-input');
 const toDoList = document.querySelector('.list-container');
-toDoInput.addEventListener('keydown', (e) => {
+toDoInput.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) { // Execute only on Enter
-        addItem();
+        // validation 
+        if (this.value == "") {
+            alert("Input cannot be empty");
+            return false;
+            } else addItem();
     }
 });
 
