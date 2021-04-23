@@ -3,6 +3,18 @@ var d = new Date();
 var m = d.getMinutes();
 var name_for_greeting = "";
 
+// events that will be executed when page initially loads
+function loadPage() {
+  displayTime();
+}
+
+// randomizes quote values
+function randomizeQuote() {
+  let quoteArr = ["Yo", "Hi", "Hello"];
+
+}
+
+// accepts focus input user
 function focusInput(focusEnter) {
   if ( event.keyCode == 13 ) {
     document.getElementById("text-focus").style.display = "block";
@@ -18,13 +30,13 @@ function focusInput(focusEnter) {
   }
 }
 
-function search(nameEntered) {
+// accepts name input from user
+function nameInput(nameEntered) {
   if ( event.keyCode == 13 ) {    
    name_for_greeting = nameEntered.value;
 
    updateGreeting();
    setTimeout(updateToMantra, 2000);
-   displayTime();
    displayElements();
    hideElements();
   }
@@ -32,6 +44,8 @@ function search(nameEntered) {
 
 // gets hours and minutes of current time
 function displayTime() {
+  document.getElementById("time").style.display = "block";
+
   var h = d.getHours();
   var amOrPm = "am";
   let new_m = "";
@@ -71,15 +85,14 @@ function updateToMantra() {
   document.getElementById("greeting-mantra-holder").innerHTML = "Sample mantra";
 }
 
-//displays hidden elements and gets called when Enter is pressed
+// displays hidden elements and gets called after inputting name
 function displayElements() {
   document.getElementById("greeting-mantra-holder").style.display = "block";
-  document.getElementById("time").style.display = "block";
   document.getElementById("header-focus").style.display = "block";
   document.getElementById("textbox-focus").style.display = "block";
 }
 
-//hides elements after enter
+// hides elements after inputting name
 function hideElements() {
   document.getElementById("hello-greeting").style.display = "none";
   document.getElementById("textbox-name").style.display = "none";

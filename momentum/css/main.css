@@ -10,12 +10,13 @@
 }
 
 /* hides elements when page initially loads */
-.name-container p,
+#greeting-mantra-holder,
 #time,
 #header-focus,
 #textbox-focus,
 #text-focus,
-#text-focus-remarks {
+#text-focus-remarks,
+#text-quotes {
   /* visibility: hidden; */
   display: none;
 }
