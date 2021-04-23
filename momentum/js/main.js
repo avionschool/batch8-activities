@@ -5,6 +5,31 @@ var toDoListsArr  = [];
 var ulText = "<ul>";
 var quoteArr = ["Hello","Hi"];
 
+// events that will be executed when page initially loads
+function loadPage() {
+  displayTime();
+
+  // updates time every minute
+  setInterval(displayTime, 1000);
+
+  // randomizes quotes every x milliseconds
+  setInterval(randomizeQuote, 2000);
+
+  // changes background every x milliseconds
+  setInterval(changeBackground,3000);
+}
+
+// change background
+function changeBackground() {
+  let bgUrlArr = ["../img/1st-bg.jpg","../img/2nd-bg.jpg"]
+
+  // generates random integer
+  function getRandInt(max) {
+    return Math.floor(Math.random() * max)
+  }
+
+  document.body.style.backgroundImage = "url(" + bgUrlArr[getRandInt(bgUrlArr.length)] + ")";
+}
 
 function toDoInput(toDoEntered) {
 
@@ -39,15 +64,6 @@ function closeformToDo() {
 
 function removeToDo() {
 
-}
-
-// events that will be executed when page initially loads
-function loadPage() {
-  displayTime();
-  // updates time every minute
-  setInterval(displayTime, 1000);
-  // randomizes quotes every x milliseconds
-  setInterval(randomizeQuote, 2000);
 }
 
 // adds new quotes on the quote array
