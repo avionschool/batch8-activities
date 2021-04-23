@@ -1,15 +1,18 @@
+// variables 
 var d = new Date();
 var m = d.getMinutes();
 var name_for_greeting = "";
+var greetingWillDisplay = true;
 
 function search(name_inputted) {
   if (event.keyCode == 13) {    
    name_for_greeting = name_inputted.value;
 
+   updateGreeting();
+   setTimeout(updateToMantra, 2000);
    displayTime();
    displayElements();
    hideElements();
-   updateGreeting();
   }
 }
 
@@ -30,8 +33,7 @@ function displayTime() {
   if ( h > 12 ) {
     h -= 12;
     amOrPm="pm";
-  }
-
+  } 
   document.getElementById("time").innerHTML = h + ":" + new_m + amOrPm;
 }
 
@@ -47,16 +49,19 @@ function updateGreeting() {
     greeting = "evening";
   }
 
-  document.getElementById("greeting").innerHTML = "Good " + greeting + ", "+ name_for_greeting + ".";
+  document.getElementById("greeting-mantra-holder").innerHTML = "Good " + greeting + ", "+ name_for_greeting + ".";
 }
 
-
+// updates content of greeting-mantra-holder to mantra
+function updateToMantra() {
+  document.getElementById("greeting-mantra-holder").innerHTML = "Sample mantra";
+}
 
 //displays hidden elements and gets called when Enter is pressed
 function displayElements() {
-  document.getElementById("greeting").style.display = "block";
+  document.getElementById("greeting-mantra-holder").style.display = "block";
   document.getElementById("time").style.display = "block";
-  document.getElementById("focus-header").style.display = "block";
+  document.getElementById("header-focus").style.display = "block";
   document.getElementById("textbox-focus").style.display = "block";
 }
 

@@ -12,7 +12,7 @@
 /* hides elements when page initially loads */
 .name-container p,
 #time,
-#focus-header,
+#header-focus,
 #textbox-focus {
   /* visibility: hidden; */
   display: none;

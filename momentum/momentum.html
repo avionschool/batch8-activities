@@ -10,27 +10,26 @@
   </head>
   <body>
     <div class="main-container">
-      <div class="top-row">Top row</div>
+      <div class="top-row"></div>
       <div class="center-above"></div>
       <!-- Center: contains clock, greeting and mantra  -->
       <div class="center">
         <div class="clock-greeting-mantra">
           <p id="time"></p>
-          <p id="mantra">Live your truth, Lea.</p>
-          <!-- temporary position of textbox for name  -->
           <div class="name-container">
             <h1 id="hello-greeting">Hello, what's your name?</h1>
             <input type="text" id="textbox-name" class="search" onkeydown="search(this)" required />
-            <p id="greeting"></p>
+            <!-- Note: Mantra & greeting interchange from time to time  -->
+            <p id="greeting-mantra-holder"></p>
           </div>
         </div>
       </div>
       <!-- Center-below: contains focus  -->
       <div class="center-below">
-        <h1 id="focus-header">What is your main focus for today?</h1>
+        <h1 id="header-focus">What is your main focus for today?</h1>
         <input type="text" id="textbox-focus" class="focus" onkeydown="focus(this)" required />
       <div>
-      <div class="bottom-row">Time is gold -Unknown</div>
+      <div class="bottom-row"></div>
     </div>
   </body>
 </html>
