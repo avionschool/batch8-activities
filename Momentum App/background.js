@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 
 function getImage(callbackFunc){
-  fetch("https://source.unsplash.com/1600x900/?nature")
+  fetch("https://i.postimg.cc/XYPLDZ2W/pexels-vincent-gerbouin-1174732.jpg")
     .then(function(response) {
       callbackFunc(response);
     });

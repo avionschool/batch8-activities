@@ -87,7 +87,7 @@ h1, h3 {
   align-items: center;
   width: 40%;
 
-  /* clock만 가운데 정렬하는 방법 몰라서 임시로 ㅠㅠ */
+  /* clock */
   position: relative;
 }
 
