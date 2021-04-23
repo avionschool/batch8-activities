@@ -126,11 +126,6 @@ body, #main-container, #question-container {
             outline-style: none;
         }
 
-    /* initial */
-    .goal-container {
-        display: none;
-    }
-
     /* On input submition */
     .goal-container {
         visibility: hidden;
@@ -423,6 +418,7 @@ body, #main-container, #question-container {
 
             .hide {
                 visibility: hidden;
+                height: 0;
                 -webkit-animation: fadeIn 1s;
                 animation: fadeIn 1s;
             }
@@ -444,9 +440,10 @@ body, #main-container, #question-container {
 #question-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: auto;
     max-height: 75vh;
-    width: 450px;
+    width: 50vw;
     background-color: rgba(250, 250, 250, 1);
     color: black;
     border-radius: 6px;
@@ -457,7 +454,7 @@ body, #main-container, #question-container {
     margin-right: auto;
     left: 0;
     right: 0;
-    top: 50%;
+    top: 40%;
     text-align: center;
     font-size: 1.35rem;
 }
@@ -468,7 +465,7 @@ body, #main-container, #question-container {
     }
 
     #question-input {
-        margin-bottom: 10px;
+        width: 60%;
         font-size: 1.35rem;
         display: block;
         background: 0;
@@ -480,17 +477,32 @@ body, #main-container, #question-container {
         outline-style: none;
         margin-left: 20px;
         margin-right: 20px;
+        margin-bottom: 10px;
     }
+
+@media only screen and (max-width: 1000px) {
+    html {
+        font-size: 15px;
+    }
+}
 
 @media only screen and (max-width: 800px) {
     html {
         font-size: 14px;
+    }
+
+    #question-container {
+        width: 62vw;
     }
 }
 
 @media only screen and (max-width: 600px) {
     html {
         font-size: 12px;
+    }
+
+    #question-container {
+        width: 80vw;
     }
 }
 
