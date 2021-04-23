@@ -383,6 +383,10 @@ body, #container {
                         cursor: pointer;
                     }
 
+                    .rotate {
+                        transform: rotate(45deg);
+                    }
+
                     .item-remove-icon:hover {
                         border-radius: 100%;
                         background: rgba(0, 0, 0, 0.075);

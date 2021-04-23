@@ -62,6 +62,14 @@ const docName = document.querySelector(".name");
     });
 
 // Focus Text
+// Add strikethrough text and rotate icon when checkbox is checked
+var checkboxGoal = document.querySelector("#checkbox");
+checkboxGoal.onclick = function() {
+        var sib = this.nextElementSibling;
+        sib.classList.toggle('checked');
+        var icon = sib.nextElementSibling;
+        icon.classList.toggle('rotate');
+    };
 
 // Location
 
@@ -183,7 +191,7 @@ function addItem() {
         }
     }
 
-    // Add strikethrough when to text when checkbox is checked
+    // Add strikethrough text when checkbox is checked
     var checkboxIcon = document.getElementsByClassName("item-checkbox");
     var j;
     for (j = 0; j < checkboxIcon.length; j++) {
