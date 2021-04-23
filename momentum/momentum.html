@@ -26,20 +26,21 @@
       <!-- Center-below: contains focus  -->
       <div class="center-below">
         <h3 id="header-focus">What is your main focus for today?</h3>
-        <input type="text" id="textbox-focus" class="focusInput" onkeydown="focusInput(this)"/>
+        <input type="text" id="textbox-focus" class="focusInput" onkeydown="focusInput(this)" />
         <p id="text-focus"></p>
         <p id="text-focus-remarks"></p>
-      <div>
+      </div>
+
       <div class="bottom-row">
         <p id="text-quotes"></p>
-        <input type="button" value="Todo" onclick="formToDo()">
+
+        <input type="button" value="Todo" onclick="formToDo()" />
       </div>
+
       <div id="form-todo">
         <p>Today</p>
-        <ul>
-          <li></li>
-        </ul>
-        <input type="text" name="textbox-todo" onkeydown="toDoInput(this)">
+        <p id="text-todo"></p>
+        <input type="text" name="textbox-todo" onkeydown="toDoInput(this)" />
       </div>
     </div>
   </body>

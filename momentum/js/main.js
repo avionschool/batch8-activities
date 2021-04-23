@@ -2,23 +2,32 @@
 var d = new Date();
 var m = d.getMinutes();
 var name_for_greeting = "";
+var toDoListsArr  = [];
+var ulText = "<ul>";
+
+function toDoInput(toDoEntered) {
+  if ( event.keyCode == 13 ) {
+    toDoListsArr.push(toDoEntered.value);
+
+    for ( let i = 0; i < toDoListsArr.length ; i++) {
+      ulText += "<li>" + toDoListsArr[i] + "</li>";
+    }
+    ulText += "</ul>";
+    document.getElementById("text-todo").innerHTML = ulText;
+
+    // document.getElementById("text-todo").innerHTML = toDoListsArr + "<br>";
+
+    // console.log(toDoListsArr);
+  }
+
+}
 
 function formToDo() {
   document.getElementById("form-todo").style.display = "block";
+  
+}
 
-  let toDoLists  = ["1","2"];
-  let ul = document.querySelector("ul");
-
-  for ( let i = 0; i < toDoLists.length; i++) {
-    let toDoList = toDoLists[i];
-
-    let listItem = document.createElement("li");
-    listItem.textContent = toDoList;
-
-    ul.appendChild(listItem);
-  }
-
-
+function removeToDo() {
 
 }
 
@@ -89,7 +98,7 @@ function displayTime() {
     h -= 12;
     amOrPm="pm";
   } 
-  document.getElementById("time").innerHTML = h + ":" + new_m + amOrPm;
+  document.getElementById("time").innerHTML = h + ":" + new_m;
 }
 
 //changes greetings depending on the time of day
@@ -109,7 +118,7 @@ function updateGreeting() {
 
 // updates content of greeting-mantra-holder to mantra
 function updateToMantra() {
-  document.getElementById("greeting-mantra-holder").innerHTML = "Sample mantra";
+  document.getElementById("greeting-mantra-holder").innerHTML = "Be still.";
 }
 
 // displays hidden elements and gets called after inputting name
