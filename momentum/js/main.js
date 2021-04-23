@@ -2,11 +2,25 @@
 var d = new Date();
 var m = d.getMinutes();
 var name_for_greeting = "";
-var greetingWillDisplay = true;
 
-function search(name_inputted) {
-  if (event.keyCode == 13) {    
-   name_for_greeting = name_inputted.value;
+function focusInput(focusEnter) {
+  if ( event.keyCode == 13 ) {
+    document.getElementById("text-focus").style.display = "block";
+    document.getElementById("text-focus").innerHTML = focusEnter.value;
+
+    // hides element/s after focus has been inputted 
+    document.getElementById("textbox-focus").style.display = "none";
+
+    // displays element/s after focus has been inputted 
+    document.getElementById("header-focus").innerHTML = "Today";
+    document.getElementById("text-focus-remarks").style.display = "block";
+    document.getElementById("text-focus-remarks").innerHTML = "Good job!";
+  }
+}
+
+function search(nameEntered) {
+  if ( event.keyCode == 13 ) {    
+   name_for_greeting = nameEntered.value;
 
    updateGreeting();
    setTimeout(updateToMantra, 2000);

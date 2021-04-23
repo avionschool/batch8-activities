@@ -13,7 +13,9 @@
 .name-container p,
 #time,
 #header-focus,
-#textbox-focus {
+#textbox-focus,
+#text-focus,
+#text-focus-remarks {
   /* visibility: hidden; */
   display: none;
 }

@@ -19,7 +19,6 @@
           <div class="name-container">
             <h1 id="hello-greeting">Hello, what's your name?</h1>
             <input type="text" id="textbox-name" class="search" onkeydown="search(this)" required />
-            <!-- Note: Mantra & greeting interchange from time to time  -->
             <p id="greeting-mantra-holder"></p>
           </div>
         </div>
@@ -27,7 +26,9 @@
       <!-- Center-below: contains focus  -->
       <div class="center-below">
         <h1 id="header-focus">What is your main focus for today?</h1>
-        <input type="text" id="textbox-focus" class="focus" onkeydown="focus(this)" required />
+        <input type="text" id="textbox-focus" class="focusInput" onkeydown="focusInput(this)" required />
+        <p id="text-focus"></p>
+        <p id="text-focus-remarks"></p>
       <div>
       <div class="bottom-row"></div>
     </div>
