@@ -5,6 +5,8 @@ var toDoListsArr  = [];
 var ulText = "<ul>";
 
 function toDoInput(toDoEntered) {
+
+  toDoListsArr.length = 0;
   if ( event.keyCode == 13 ) {
     toDoListsArr.push(toDoEntered.value);
 

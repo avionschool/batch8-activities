@@ -34,15 +34,15 @@
       </div>
 
       <div class="bottom-row">
+        <input type="button" id="button-quotes" value="Quotes" />
         <q id="text-quotes"></q>
-
         <input type="button" id="button-todo" value="Todo" onclick="formToDo()" />
       </div>
 
       <div id="form-todo">
         <p>Today</p>
         <p id="text-todo"></p>
-        <input type="text" name="textbox-todo" onkeydown="toDoInput(this)" />
+        <input type="text" id="textbox-todo" onkeydown="toDoInput(this)" placeholder="Add to do" />
       </div>
     </div>
   </body>

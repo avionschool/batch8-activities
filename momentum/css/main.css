@@ -13,12 +13,26 @@ body {
 }
 
 #form-todo {
+  /* background: rgba(255, 255, 255, 0.9); */
   position: absolute;
-  bottom: 1vh;
-  right: 20vh;
-  background-color: white;
-  height: 10vh;
-  width: 5vh;
+  bottom: 12vh;
+  right: 2vh;
+  background-color: #66b1df;
+  opacity: 0.9;
+  height: 40vh;
+  width: 30vh;
+  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 1vh;
+  color: black;
+  padding: 3vh;
+}
+
+#textbox-todo {
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  text-align: left;
 }
 
 .main-container {
@@ -126,6 +140,18 @@ h3,
   padding: 1vh;
 }
 
+#button-quotes {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: white;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 2vh;
+  bottom: 3vh;
+  padding: 1vh;
+}
+
 #text-quotes {
   position: absolute;
   padding: 3vh;
@@ -143,4 +169,8 @@ h3,
 #form-todo {
   /* visibility: hidden; */
   display: none;
+}
+
+li {
+  list-style-image: url('../img/blank-check-box.png');
 }
