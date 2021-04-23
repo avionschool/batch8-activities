@@ -12,6 +12,15 @@ body {
   color: white;
 }
 
+#form-todo {
+  position: absolute;
+  bottom: 1vh;
+  right: 20vh;
+  background-color: white;
+  height: 10vh;
+  width: 5vh;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -20,13 +29,11 @@ body {
 }
 
 .center {
-  /* width: 100%; */
-  /* height: 30vh; */
   text-align: center;
 }
 
 h1 {
-  font-size: 15vh;
+  font-size: 18vh;
 }
 
 h2 {
@@ -37,20 +44,35 @@ h3 {
   font-size: 3vh;
 }
 
+.bottom-row input {
+  font-size: 2.5vh;
+}
+
+.bottom-row p {
+  font-size: 3vh;
+}
+
 h1,
 h2,
-h3 {
+h3,
+#text-focus,
+#text-focus-remarks {
   text-shadow: 1.7vmin 2.5vmin 4.5vmin rgb(15, 15, 15);
 }
 
 #textbox-name,
 #textbox-focus {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0);
   border: none;
   border-bottom: 2px solid #fff;
   outline: none;
   text-align: center;
-  box-shadow: 1.7vmin 2.5vmin 4.5vmin rgb(15, 15, 15);
+  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.5);
+  height: 5vh;
+  width: 100%;
+  margin-top: 1.5vh;
+  color: white;
+  font-size: 3vh;
 }
 
 .center-above {
@@ -60,14 +82,9 @@ h3 {
 }
 
 .center-below {
-  width: 100%;
-  height: 30vh;
+  /* width: 100%; */
+  /* height: 30vh;  */
   text-align: center;
-}
-
-.center-below input {
-  position: relative;
-  left: 80vh;
 }
 
 .top-row {
@@ -81,6 +98,28 @@ h3 {
   width: 100%;
   position: fixed;
   bottom: 0px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.5);
+  bottom: 0vh;
+}
+
+#button-todo {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: white;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  right: 2vh;
+  bottom: 3vh;
+  padding: 1vh;
+}
+
+#text-quotes {
+  position: absolute;
+  padding: 3vh;
+  left: 70vh;
+  text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* hides elements when page initially loads */
@@ -93,21 +132,4 @@ h3 {
 #form-todo {
   /* visibility: hidden; */
   display: none;
-}
-
-#form-todo {
-  position: absolute;
-  bottom: 1vh;
-  right: 20vh;
-  background-color: white;
-  height: 10vh;
-  width: 5vh;
-}
-
-ul {
-  padding: 0;
-}
-
-li {
-  /* list-style: none; */
 }

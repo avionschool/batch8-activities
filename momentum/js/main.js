@@ -1,6 +1,5 @@
 // variables 
-var d = new Date();
-var m = d.getMinutes();
+
 var name_for_greeting = "";
 var toDoListsArr  = [];
 var ulText = "<ul>";
@@ -34,6 +33,8 @@ function removeToDo() {
 // events that will be executed when page initially loads
 function loadPage() {
   displayTime();
+  // updates time every minute
+  setInterval(displayTime, 1000);
   // randomizes quotes every x milliseconds
   setInterval(randomizeQuote, 2000);
 }
@@ -47,7 +48,7 @@ function randomizeQuote() {
     return Math.floor(Math.random() * max)
   }
 
-  document.getElementById("text-quotes").innerHTML =  quoteArr[getRandInt(quoteArr.length)];
+  document.getElementById("text-quotes").innerHTML =  "\"" + quoteArr[getRandInt(quoteArr.length)] + "\"";
 }
 
 // accepts focus input user
@@ -82,6 +83,8 @@ function nameInput(nameEntered) {
 function displayTime() {
   document.getElementById("time").style.display = "block";
 
+  var d = new Date();
+  var m = d.getMinutes();
   var h = d.getHours();
   var amOrPm = "am";
   let new_m = "";
@@ -103,7 +106,8 @@ function displayTime() {
 
 //changes greetings depending on the time of day
 function updateGreeting() {
-  displayTime();
+  // displayTime();
+  var d = new Date();
   var h_2 = d.getHours();
   var greeting = "morning";
 
