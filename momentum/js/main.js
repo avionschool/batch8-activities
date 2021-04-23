@@ -17,17 +17,24 @@ function toDoInput(toDoEntered) {
     }
     ulText += "</ul>";
     document.getElementById("text-todo").innerHTML = ulText;
-
-    // document.getElementById("text-todo").innerHTML = toDoListsArr + "<br>";
-
-    // console.log(toDoListsArr);
   }
 
 }
 
+// dipslays todo form
 function formToDo() {
   document.getElementById("form-todo").style.display = "block";
-  
+
+  document.getElementById("button-todo").style.display = "none";
+  document.getElementById("button-todo-close").style.display = "block";
+}
+
+// closes todo form and replaces close button with todo button
+function closeformToDo() {
+  document.getElementById("form-todo").style.display = "none";
+
+  document.getElementById("button-todo").style.display = "block";
+  document.getElementById("button-todo-close").style.display = "none";
 }
 
 function removeToDo() {

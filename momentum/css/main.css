@@ -52,7 +52,8 @@ body {
 
 #button-todo:hover,
 #button-quotes:hover,
-#button-quotes-close:hover {
+#button-quotes-close:hover,
+#button-todo-close:hover {
   color: #66b1df;
 }
 
@@ -67,14 +68,17 @@ body {
   text-align: center;
 }
 
+/* time  */
 h1 {
   font-size: 18vh;
 }
 
+/* hello greeting  */
 h2 {
   font-size: 7vh;
 }
 
+/* header focus  */
 h3 {
   font-size: 4vh;
 }
@@ -149,7 +153,8 @@ h3,
   bottom: 0vh;
 }
 
-#button-todo {
+#button-todo,
+#button-todo-close {
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -190,7 +195,8 @@ h3,
 #text-focus-remarks,
 #form-todo,
 #form-quotes,
-#button-quotes-close {
+#button-quotes-close,
+#button-todo-close {
   /* visibility: hidden; */
   display: none;
 }
@@ -202,4 +208,44 @@ li {
 ul {
   margin-top: 3vh;
   margin-left: 3vh;
+}
+
+/* Media queries */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* time  */
+  h1 {
+    font-size: 9vh;
+  }
+
+  /* hello greeting  */
+  h2 {
+    font-size: 4vh;
+  }
+
+  /* header focus  */
+  h3 {
+    font-size: 2vh;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../img/1193446.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    height: 100vh;
+  }
+
+  .bottom-row input,
+  .bottom-row q,
+  #text-quotes {
+    font-size: 1.7vh;
+  }
+
+  #text-quotes {
+    position: absolute;
+    padding: 4vh;
+    left: 25vh;
+    text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+  }
 }
