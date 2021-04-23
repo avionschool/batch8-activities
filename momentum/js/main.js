@@ -3,7 +3,7 @@
 var name_for_greeting = "";
 var toDoListsArr  = [];
 var ulText = "<ul>";
-var quoteArr = ["Hello"];
+var quoteArr = ["Hello","Hi"];
 
 
 function toDoInput(toDoEntered) {
@@ -43,17 +43,34 @@ function loadPage() {
   setInterval(randomizeQuote, 2000);
 }
 
+// adds new quotes on the quote array
 function quoteInput(quoteEnter) {
-  quoteArr.push(quoteEnter.value);
-  console.log(quoteArr);
-
+  if ( event.keyCode == 13 ) {
+    alert("Successfully added quotes!");
+    quoteArr.push(quoteEnter.value);
+  }
 }
 
 // show forms where user can add quotes
 function formQuotes() {
+  // show quotes form
   document.getElementById("form-quotes").style.display = "block";
+
+  // will hide Quotes button and display close button 
+  document.getElementById("button-quotes-close").style.display = "block";
+  document.getElementById("button-quotes").style.display = "none";
+  
 }
 
+// closes form quotes and brings back quote button 
+function closeFormQuotes() {
+  // show quotes form
+  document.getElementById("form-quotes").style.display = "none";
+
+  // will hide Quotes button and display close button 
+  document.getElementById("button-quotes-close").style.display = "none";
+  document.getElementById("button-quotes").style.display = "block";
+}
 
 // randomizes quote values
 function randomizeQuote() {

@@ -16,14 +16,14 @@ body {
   position: absolute;
   bottom: 12vh;
   left: 2vh;
-  background-color: #66b1df;
+  background-color: #b2ca58;
   opacity: 0.9;
-  height: 40vh;
-  width: 30vh;
+  height: 20vh;
+  width: 50vh;
   box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.5);
   border-radius: 1vh;
   color: black;
-  padding: 3vh;
+  padding: 6vh;
 }
 
 #form-todo {
@@ -31,7 +31,7 @@ body {
   position: absolute;
   bottom: 12vh;
   right: 2vh;
-  background-color: #66b1df;
+  background-color: #62c7f2;
   opacity: 0.9;
   height: 40vh;
   width: 30vh;
@@ -41,12 +41,19 @@ body {
   padding: 3vh;
 }
 
-#textbox-todo {
+#textbox-todo,
+#textbox-quotes {
   background: rgba(255, 255, 255, 0);
   border: none;
   border-bottom: 2px solid #fff;
   outline: none;
   text-align: left;
+}
+
+#button-todo:hover,
+#button-quotes:hover,
+#button-quotes-close:hover {
+  color: #66b1df;
 }
 
 .main-container {
@@ -154,7 +161,8 @@ h3,
   padding: 1vh;
 }
 
-#button-quotes {
+#button-quotes,
+#button-quotes-close {
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -181,7 +189,8 @@ h3,
 #text-focus,
 #text-focus-remarks,
 #form-todo,
-#form-quotes {
+#form-quotes,
+#button-quotes-close {
   /* visibility: hidden; */
   display: none;
 }

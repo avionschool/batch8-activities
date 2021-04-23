@@ -28,25 +28,28 @@
       <div class="center-below">
         <div class="focus-container">
           <h3 id="header-focus">What is your main focus for today?</h3>
-          <input type="text" id="textbox-focus" class="focusInput" onkeydown="focusInput(this)" />
+          <input type="text" id="textbox-focus" class="focusInput" onkeydown="focusInput(this)" required />
           <p id="text-focus" contenteditable="true"></p>
-          <p id="text-focus-remarks"></p>
+          <!-- <p id="text-focus-remarks"></p> -->
         </div>
       </div>
 
       <div class="bottom-row">
-        <div id="form-quotes">
-          <input type="text" id="textbox-quotes" onkeydown="quoteInput(this)" placeholder="Add quotes" />
-        </div>
         <input type="button" id="button-quotes" value="Quotes" onclick="formQuotes()" />
+        <input type="button" id="button-quotes-close" value="Close" onclick="closeFormQuotes()" />
+
         <q id="text-quotes"></q>
         <input type="button" id="button-todo" value="Todo" onclick="formToDo()" />
       </div>
 
+      <!-- Forms - hidden by default  -->
+      <div id="form-quotes">
+        <input type="text" id="textbox-quotes" onkeydown="quoteInput(this)" placeholder="Add quotes" required />
+      </div>
       <div id="form-todo">
         <p>Today</p>
         <p id="text-todo"></p>
-        <input type="text" id="textbox-todo" onkeydown="toDoInput(this)" placeholder="Add to do" />
+        <input type="text" id="textbox-todo" onkeydown="toDoInput(this)" placeholder="Add to do" required />
       </div>
     </div>
   </body>
