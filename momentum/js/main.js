@@ -6,11 +6,19 @@ var name_for_greeting = "";
 // events that will be executed when page initially loads
 function loadPage() {
   displayTime();
+  // randomizes quotes every x milliseconds
+  setInterval(randomizeQuote, 2000);
 }
 
 // randomizes quote values
 function randomizeQuote() {
   let quoteArr = ["Yo", "Hi", "Hello"];
+  function getRandInt(max) {
+    return Math.floor(Math.random() * max)
+  }
+
+  document.getElementById("text-quotes").innerHTML =  quoteArr[getRandInt(quoteArr.length)];
+
 
 }
 

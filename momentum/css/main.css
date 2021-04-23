@@ -15,8 +15,7 @@
 #header-focus,
 #textbox-focus,
 #text-focus,
-#text-focus-remarks,
-#text-quotes {
+#text-focus-remarks {
   /* visibility: hidden; */
   display: none;
 }
