@@ -67,8 +67,8 @@ const docName = document.querySelector(".name");
     const focusInput = document.querySelector('#focus-input');
     const goalText = document.querySelector('#goal-text');
     
-    const focusContainer = document.querySelector('#focus-container');
-    const goalContainer = document.querySelector('#goal-container');
+    const focusContainer = document.querySelector('.focus-container');
+    const goalContainer = document.querySelector('.goal-container');
 
     focusInput.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) { // Execute only on Enter
@@ -81,7 +81,7 @@ const docName = document.querySelector(".name");
         goalText.textContent = focusInput.value;
         focusInput.value = "";
 
-        focusContainer.classList.toggle('show');
+        focusContainer.classList.toggle('hide');
         goalContainer.classList.toggle('show');
     }
 
