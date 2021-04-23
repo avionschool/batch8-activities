@@ -148,9 +148,12 @@ function updateGreeting() {
   // displayTime();
   var d = new Date();
   var h_2 = d.getHours();
+  var m = d.getMinutes();
   var greeting = "morning";
 
-  if (h_2 >= 12 && h_2 <= 5 && m <= 59) {
+  if (h_2 >=0 && h_2 <= 11 && m <= 59) {
+    greeting = "morning";
+  }else if (h_2 >= 12 && h_2 <= 5 && m <= 59) {
     greeting = "afternoon";
   } else {
     greeting = "evening";
