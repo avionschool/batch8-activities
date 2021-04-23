@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
+
     <script src="js/main.js"></script>
     <title>Momentum</title>
   </head>
@@ -28,13 +29,16 @@
         <div class="focus-container">
           <h3 id="header-focus">What is your main focus for today?</h3>
           <input type="text" id="textbox-focus" class="focusInput" onkeydown="focusInput(this)" />
-          <p id="text-focus"></p>
+          <p id="text-focus" contenteditable="true"></p>
           <p id="text-focus-remarks"></p>
         </div>
       </div>
 
       <div class="bottom-row">
-        <input type="button" id="button-quotes" value="Quotes" />
+        <div id="form-quotes">
+          <input type="text" id="textbox-quotes" onkeydown="quoteInput(this)" placeholder="Add quotes" />
+        </div>
+        <input type="button" id="button-quotes" value="Quotes" onclick="formQuotes()" />
         <q id="text-quotes"></q>
         <input type="button" id="button-todo" value="Todo" onclick="formToDo()" />
       </div>

@@ -3,6 +3,8 @@
 var name_for_greeting = "";
 var toDoListsArr  = [];
 var ulText = "<ul>";
+var quoteArr = ["Hello"];
+
 
 function toDoInput(toDoEntered) {
 
@@ -41,9 +43,20 @@ function loadPage() {
   setInterval(randomizeQuote, 2000);
 }
 
+function quoteInput(quoteEnter) {
+  quoteArr.push(quoteEnter.value);
+  console.log(quoteArr);
+
+}
+
+// show forms where user can add quotes
+function formQuotes() {
+  document.getElementById("form-quotes").style.display = "block";
+}
+
+
 // randomizes quote values
 function randomizeQuote() {
-  let quoteArr = ["Yo", "Hi", "Hello"];
 
   // generates random integer which will be used as index for the quote array
   function getRandInt(max) {
