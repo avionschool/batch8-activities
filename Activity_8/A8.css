@@ -1,0 +1,15 @@
+#MFdisplay{
+    background-color: lightgrey;
+    height: 100px;
+    width: 300px;
+}
+
+.TDLcontainer{
+    background-color: lightgrey;
+    height: 100px;
+    width: 300px;
+}
+
+.TDLdisplayDesign{
+    background-color: red;
+}
