@@ -3,6 +3,25 @@ var d = new Date();
 var m = d.getMinutes();
 var name_for_greeting = "";
 
+function formToDo() {
+  document.getElementById("form-todo").style.display = "block";
+
+  let toDoLists  = ["1","2"];
+  let ul = document.querySelector("ul");
+
+  for ( let i = 0; i < toDoLists.length; i++) {
+    let toDoList = toDoLists[i];
+
+    let listItem = document.createElement("li");
+    listItem.textContent = toDoList;
+
+    ul.appendChild(listItem);
+  }
+
+
+
+}
+
 // events that will be executed when page initially loads
 function loadPage() {
   displayTime();
@@ -13,13 +32,13 @@ function loadPage() {
 // randomizes quote values
 function randomizeQuote() {
   let quoteArr = ["Yo", "Hi", "Hello"];
+
+  // generates random integer which will be used as index for the quote array
   function getRandInt(max) {
     return Math.floor(Math.random() * max)
   }
 
   document.getElementById("text-quotes").innerHTML =  quoteArr[getRandInt(quoteArr.length)];
-
-
 }
 
 // accepts focus input user

@@ -15,7 +15,25 @@
 #header-focus,
 #textbox-focus,
 #text-focus,
-#text-focus-remarks {
+#text-focus-remarks,
+#form-todo {
   /* visibility: hidden; */
   display: none;
+}
+
+#form-todo {
+  position: absolute;
+  bottom: 1vh;
+  right: 20vh;
+  background-color: white;
+  height: 10vh;
+  width: 5vh;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
