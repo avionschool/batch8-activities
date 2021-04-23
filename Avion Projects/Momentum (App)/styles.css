@@ -20,7 +20,7 @@ html {
     background-position-x: center;
 }
 
-body, #container {
+body, #main-container, #question-container {
     height: 100%;
     width: 100%;
 }
@@ -423,9 +423,12 @@ body, #container {
 
             .hide {
                 visibility: hidden;
-                height: 0;
                 -webkit-animation: fadeIn 1s;
                 animation: fadeIn 1s;
+            }
+
+            .none {
+                display: none;
             }
             
             @-webkit-keyframes fadeIn {
@@ -437,6 +440,47 @@ body, #container {
                 from {opacity: 0;}
                 to {opacity: 1;}
             }
+
+#question-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-height: 75vh;
+    width: 450px;
+    background-color: rgba(250, 250, 250, 1);
+    color: black;
+    border-radius: 6px;
+    padding: 0 10px 0 10px;
+    z-index: 1;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    text-align: center;
+    font-size: 1.35rem;
+}
+
+    #question-text {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #question-input {
+        margin-bottom: 10px;
+        font-size: 1.35rem;
+        display: block;
+        background: 0;
+        border: 0;
+        border-bottom: 2px solid #000;
+        color: black;
+        font-size: 1.75rem;
+        text-align: center;
+        outline-style: none;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 
 @media only screen and (max-width: 800px) {
     html {

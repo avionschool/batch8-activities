@@ -246,3 +246,23 @@ function addItem() {
         };
     }
 };
+
+// First Modal
+const questionInput = document.querySelector('#question-input');
+const questionContainer = document.querySelector('#question-container');
+const mainContainer = document.querySelector('#main-container');
+
+questionInput.addEventListener('keydown', function(e) {
+    if (e.keyCode === 13) { // Execute only on Enter
+        // validation 
+        if (this.value == "") {
+            alert("Input cannot be empty");
+            return false;
+            } else {
+                docName.textContent = questionInput.value;
+                
+                questionContainer.style.display = "none";
+                mainContainer.classList.toggle('none');
+            };
+    }
+});
