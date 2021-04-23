@@ -90,8 +90,22 @@ const docName = document.querySelector(".name");
     checkboxGoal.onclick = function() {
             var sib = this.nextElementSibling;
             sib.classList.toggle('checked');
-            var icon = sib.nextElementSibling;
-            icon.classList.toggle('rotate');
+        };
+
+    // Remove item on click of 'x'
+    const removeGoal = document.querySelector("#goal-remove");
+    removeGoal.onclick = function() {
+            // reset to initial
+            var sib = this.previousElementSibling;
+            sib.textContent = "";
+            if (sib.classList.contains('checked')) {
+                sib.classList.toggle('checked');
+            }
+            checkboxGoal.checked = false;
+
+            // Bring containers back
+            focusContainer.classList.toggle('hide');
+            goalContainer.classList.toggle('show');
         };
 
 // Location
