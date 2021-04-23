@@ -12,7 +12,8 @@
         <a href="https://jansonsiy.github.io/batch8-activities/Activity_4/A4.html">Survey Form</a>
         <a href="https://jansonsiy.github.io/batch8-activities/Activity_5/A5.html">Chessboard (Flexbox)</a>
         <a href="https://jansonsiy.github.io/batch8-activities/Activity_6/A6.html">Chessboard (Grid)</a>
-            <a href="https://jansonsiy.github.io/batch8-activities/Activity_7/A7.html">Product Landing Page</a>
+        <a href="https://jansonsiy.github.io/batch8-activities/Activity_7/A7.html">Product Landing Page</a>
+        <a href="https://jansonsiy.github.io/batch8-activities/Activity_8/A8.html">Momentum App</a>
       </p>
       </div>  
   </body>
