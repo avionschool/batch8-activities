@@ -435,5 +435,23 @@ body, #container {
             
             @keyframes fadeIn {
                 from {opacity: 0;}
-                to {opacity:1 ;}
+                to {opacity: 1;}
             }
+
+@media only screen and (max-width: 800px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    html {
+        font-size: 10px;
+    }
+}
