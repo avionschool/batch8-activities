@@ -37,26 +37,36 @@ h1 {
 }
 
 h2 {
-  font-size: 5vh;
+  font-size: 7vh;
 }
 
 h3 {
+  font-size: 4vh;
+}
+
+#text-focus {
+  padding-top: 0.5vh;
   font-size: 3vh;
+}
+
+#text-focus-remarks {
+  padding-top: 0.5vh;
 }
 
 .bottom-row input {
   font-size: 2.5vh;
 }
 
-.bottom-row p {
-  font-size: 3vh;
+.bottom-row q {
+  font-size: 3.7vh;
 }
 
 h1,
 h2,
 h3,
 #text-focus,
-#text-focus-remarks {
+#text-focus-remarks,
+.bottom-row q {
   text-shadow: 1.7vmin 2.5vmin 4.5vmin rgb(15, 15, 15);
 }
 
@@ -73,6 +83,7 @@ h3,
   margin-top: 1.5vh;
   color: white;
   font-size: 3vh;
+  margin-top: 1vh;
 }
 
 .center-above {

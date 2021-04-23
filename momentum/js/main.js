@@ -48,7 +48,7 @@ function randomizeQuote() {
     return Math.floor(Math.random() * max)
   }
 
-  document.getElementById("text-quotes").innerHTML =  "\"" + quoteArr[getRandInt(quoteArr.length)] + "\"";
+  document.getElementById("text-quotes").innerHTML =  quoteArr[getRandInt(quoteArr.length)];
 }
 
 // accepts focus input user
