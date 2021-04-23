@@ -62,14 +62,37 @@ const docName = document.querySelector(".name");
     });
 
 // Focus Text
-// Add strikethrough text and rotate icon when checkbox is checked
-var checkboxGoal = document.querySelector("#checkbox");
-checkboxGoal.onclick = function() {
-        var sib = this.nextElementSibling;
-        sib.classList.toggle('checked');
-        var icon = sib.nextElementSibling;
-        icon.classList.toggle('rotate');
-    };
+
+    // Transform focus input
+    const focusInput = document.querySelector('#focus-input');
+    const goalText = document.querySelector('#goal-text');
+    
+    const focusContainer = document.querySelector('#focus-container');
+    const goalContainer = document.querySelector('#goal-container');
+
+    focusInput.addEventListener('keydown', (e) => {
+    if (e.keyCode === 13) { // Execute only on Enter
+        addGoal();
+        }
+    });
+
+    // Goal function
+    function addGoal() {
+        goalText.textContent = focusInput.value;
+        focusInput.value = "";
+
+        focusContainer.classList.toggle('show');
+        goalContainer.classList.toggle('show');
+    }
+
+    // Add strikethrough text and rotate icon when checkbox is checked
+    const checkboxGoal = document.querySelector("#checkbox");
+    checkboxGoal.onclick = function() {
+            var sib = this.nextElementSibling;
+            sib.classList.toggle('checked');
+            var icon = sib.nextElementSibling;
+            icon.classList.toggle('rotate');
+        };
 
 // Location
 
