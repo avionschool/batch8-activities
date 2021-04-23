@@ -12,6 +12,32 @@ body {
   color: white;
 }
 
+/* animation  */
+#form-quotes,
+#form-todo {
+  animation: fadeInAnimation ease 0.7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+h1,
+#hello-greeting,
+#greeting-mantra-holder,
+#text-focus {
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #form-quotes {
   position: absolute;
   bottom: 12vh;
