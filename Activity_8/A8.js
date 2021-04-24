@@ -15,9 +15,8 @@ function greeting(){
     //console.log(fname);
     var lname = url.get('lname');
     //console.log(lname);
-  
-    var greet = "Hi " + fname + " " + lname + "!" + " How are you doing?";
 
+    var greet = "Good Morning " + fname + " " + lname + "!";
     return greet;
 }
 
@@ -82,8 +81,8 @@ newTDL.addEventListener('dblclick',function(){
 //Quotes
 var quoteList = [
     'HAPPINESS IS ...finally finishing an assignment. - Anonymous',
-    'If you spend too much time thinking about a thing, you`ll never get it done. - Bruce Lee',
-    'You don`t have to see the whole staircase. Just take the first step. - Martin Luther King, Jr.',
+    'If you spend too much time thinking about it, you`ll never get it done. - Bruce Lee',
+    'You don`t have to see the whole staircase. Just take the first step. - MLK, Jr.',
     'Just do it - Shia LeBeouf',
     'If you can`t stop thinking about it, don`t stop working on it. - Anonymous'];
 //console.log(quoteList);
@@ -94,4 +93,11 @@ function randomizeQuotes(){
 //you will be producing an index number randomlly from 0-4
     document.getElementById('quoteDisplay').innerHTML = quoteList[randomQuote];
 //put the random quotes from var=quotelist with the math solution of randomQuotes and display it in quoteDisplay
+}
+
+function pushQuote(){
+    var newinputQuote = document.getElementById('inputQuote').value;
+    var newquoteDisplay = document.getElementById('quoteDisplay');
+
+    newquoteDisplay.innerHTML = newinputQuote;
 }

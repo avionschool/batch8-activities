@@ -1,26 +1,27 @@
-<!--Project
-MOMENTUM APP (3 DAYS)
-User Story #1: As a user I want to put my name on the homepage - Done
-User Story #2: As a user I want to see the current time on the homepage - Done
-User Story #3: As a user I want to see a greeting with my inputted name on the homepage - Done
-User Story #4: As a user I want to add my main focus for today on the homepage and display it also on the same page - Done
-User Story #5: As a user I want to see a random quote on the homepage - Done
-User Story #6: As a user I want to add a todo list on the homepage and is able to see the list on the same page - Done
-User Story #7: As a user I want to add a new quote for my momentum app-->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Momentum App Login</title>
     <link rel="stylesheet" href="A8.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form action="A8P2.html">
-        First Name: <input type="text" name="fname">
-        Last Name: <input type="text" name="lname">
-        <input type="submit" value="Submit">
-        <!--if you use type="button" it won't push through the action-->
-    </form>
+    <main class="mainContainer">
+        <h1>Hey there!<br>How are you?</h1>
+        <form action="A8P2.html">
+            <div class="mobileDes">
+                <input class="text" type="text" name="fname" placeholder="first name">
+            </div>
+            <div class="mobileDes">
+                <input class="text" type="text" name="lname" placeholder="last name">
+            </div>
+            <div class="mobileDes">
+                <input class="button" type="submit" value="LOG IN">
+            </div>
+            <!--if you use type="button" it won't push through the action-->
+        </form>
+    </main>
 <script src="A8.js"></script>
 </body>
 </html>
