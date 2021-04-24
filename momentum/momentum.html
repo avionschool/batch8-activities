@@ -30,19 +30,15 @@
           <h3 id="header-focus">What is your main focus for today?</h3>
           <input type="text" id="textbox-focus" class="focusInput" onkeydown="focusInput(this)" required />
           <p id="text-focus" contenteditable="true"></p>
-          <!-- <p id="text-focus-remarks"></p> -->
         </div>
       </div>
-
       <div class="bottom-row">
         <input type="button" id="button-quotes" value="Quotes" onclick="formQuotes()" />
         <input type="button" id="button-quotes-close" value="Close" onclick="closeFormQuotes()" />
-
         <q id="text-quotes"></q>
         <input type="button" id="button-todo" value="Todo" onclick="formToDo()" />
         <input type="button" id="button-todo-close" value="Close" onclick="closeformToDo()" />
       </div>
-
       <!-- Forms - hidden by default  -->
       <div id="form-quotes">
         <input type="text" id="textbox-quotes" onkeydown="quoteInput(this)" placeholder="Add quotes" required />

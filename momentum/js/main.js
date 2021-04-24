@@ -152,11 +152,19 @@ function displayTime() {
     new_m = m;
   }
 
+ 
+
   //returns AM if it's morning and PM if it's afternoon/evening & displays non 24-hr clock
   if ( h > 12 ) {
     h -= 12;
+    if ( h = 0 ) {
+      h = 12;
+    }
     amOrPm="pm";
   } 
+
+ 
+
   document.getElementById("time").innerHTML = h + ":" + new_m;
 }
 
