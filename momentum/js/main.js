@@ -21,7 +21,7 @@ function loadPage() {
 
 // change background
 function changeBackground() {
-  let bgUrlArr = ["../img/1st-bg.jpg","../img/2nd-bg.jpg"]
+  let bgUrlArr = ["../img/1st-bg.jpg","../img/2nd-bg.jpg"];
 
   // generates random integer
   function getRandInt(max) {
