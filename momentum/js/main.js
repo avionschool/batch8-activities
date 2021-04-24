@@ -16,7 +16,7 @@ function loadPage() {
   setInterval(randomizeQuote, 2000);
 
   // changes background every x milliseconds
-  setInterval(changeBackground,3000);
+  // setInterval(changeBackground,3000);
 }
 
 // change background
@@ -28,6 +28,7 @@ function changeBackground() {
     return Math.floor(Math.random() * max)
   }
 
+  console.log("url(" + bgUrlArr[getRandInt(bgUrlArr.length)] + ")");
   document.body.style.backgroundImage = "url(" + bgUrlArr[getRandInt(bgUrlArr.length)] + ")";
 }
 
