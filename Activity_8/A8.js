@@ -16,7 +16,7 @@ function greeting(){
     var lname = url.get('lname');
     //console.log(lname);
 
-    var greet = "Good Morning " + fname + " " + lname + "!";
+    var greet = "Good day " + fname + " " + lname + "!";
     return greet;
 }
 
