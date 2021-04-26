@@ -12,16 +12,15 @@
 <body>
     <section>
         <div class="container1"> <!--container for links and search bar-->
-            <ul class="Links">
-                <li>Links
-                    <ul>
-                        <li>facebook</li>
-                        <li>youtube</li>
-                        <li>instagram</li>
-                        <li></li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="links"> 
+                <p>Links</p>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul> 
+            </div>
             <div class="search-box">
                 <input class="search-txt" type="text" name="" placeholder="Type to search..">
                 <a class="search-btn" href="#">
@@ -33,15 +32,33 @@
         <div>
             <h1 id="time"></h1>
             <!-- for name input -->
-            <!-- <input id="userinput" type="text"> -->
-            <h2 id="greeting"></h2>
+            <!-- <input id="greeting" type="text"> -->
+            <button onclick="greetings1()"></button>
+            <!-- <h2 id="name">What is your name?</h2> -->
+            <!-- <input class="inputName" type="text"></h2> -->
+            <h2 id="greeting" contenteditable="true"></h2>
+            <div id="mainFocus">
+                <h2>What is your main focus for today?</h2>
+                <h2>__________________________________</h2>
+            </div>
             <p></p>
         </div>
     <section>
-
+<!-- this is for main focus -->
     </section>
-    
-
+    <section class="container">
+        <div class="qoute">
+            <p class="qoute1">“The beginning is always today.”</p>
+            <p class="qoute2">― Mary Shelley</p>
+        </div>
+        <div class="todo" id="myModal">
+            <div class="to-do" id="toDoContainer">
+            </div>
+        </div>
+        <div class="floatToDo">
+            <button id="addToDo">ToDo</button><input id="inputField" type="text" placeholder="add ToDo">
+        </div>
+    </section>
     <script src="main.js"></script>
 </body>
 </html>
