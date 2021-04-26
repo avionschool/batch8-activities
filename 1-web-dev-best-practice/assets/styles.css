@@ -1,0 +1,46 @@
+/* typography */
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1,
+a:link,
+a:visited {
+  text-align: center;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+/* color / position  */
+body {
+  background-image: url(/assets/rodion-kutsaev-4k8xEFW4_3Q-unsplash.jpg);
+  background-size: cover;
+  color: #b5364b;
+}
+
+section {
+  background-color: #fff4f5;
+  height: 100vh;
+  width: 45%;
+}
+
+a:hover,
+a:active {
+  background-color: #b5364b;
+}
+
+a:link,
+a:visited {
+  background-color: #df445e;
+  padding: 1vh, 1.8vh;
+  color: white;
+}
+
+/* others  */
+* {
+  padding: 0;
+  margin: 0;
+}

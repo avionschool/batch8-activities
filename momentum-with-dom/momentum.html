@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="shortcut icon" href="img/m.png" type="image/x-icon" />
+    <!-- <script src="js/main.js"></script> -->
+    <script src="js/dom.js"></script>
+    <title>Momentum</title>
+  </head>
+  <body onload="loadPage()">
+    <div class="main-container">
+      <!-- For DOM activity -- will create top-row class then put contents inside them -->
+      <!-- <div class="top-row"></div> -->
+      <div class="center-above"></div>
+      <!-- Center: contains clock, greeting and mantra  -->
+      <div class="center">
+        <div class="clock-greeting-mantra">
+          <h1 id="time"></h1>
+          <div class="name-container">
+            <h2 id="hello-greeting">Hello, what's your name?</h2>
+            <!-- <input type="text" id="textbox-name" class="nameInput" onkeydown="nameInput(this)" required /> -->
+            <h2 id="greeting-mantra-holder"></h2>
+          </div>
+        </div>
+      </div>
+      <!-- Center-below: contains focus  -->
+      <div class="center-below">
+        <div class="focus-container">
+          <h3 id="header-focus">What is your main focus for today?</h3>
+          <!-- <input type="text" id="textbox-focus" class="focusInput" onkeydown="focusInput(this)" required /> -->
+          <p id="text-focus" contenteditable="true"></p>
+        </div>
+      </div>
+      <!-- <div class="bottom-row"> -->
+        <!-- <input type="button" id="button-quotes" value="Quotes" onclick="formQuotes()" /> -->
+        <!-- <input type="button" id="button-quotes-close" value="Close" onclick="closeFormQuotes()" /> -->
+        <q id="text-quotes"></q>
+        <!-- <input type="button" id="button-todo" value="Todo" onclick="formToDo()" /> -->
+        <!-- <input type="button" id="button-todo-close" value="Close" onclick="closeformToDo()" /> -->
+      </div>
+      <!-- Forms - hidden by default  -->
+      <div id="form-quotes">
+        <!-- <input type="text" id="textbox-quotes" onkeydown="quoteInput(this)" placeholder="Add quotes" required /> -->
+      </div>
+      <div id="form-todo">
+        <p>Today</p>
+        <p id="text-todo"></p>
+        <!-- <input type="text" id="textbox-todo" onkeydown="toDoInput(this)" placeholder="Add to do" required /> -->
+      </div>
+    </div>
+  </body>
+</html>
