@@ -55,6 +55,23 @@ var janW = 80; //kg
     }
 
     console.log(shuffled(deck));
+
+</script>
+
+<p id="myQuestion"></p>
+<script>
+    let questions = [
+    'Is Clark Kent Superman?\nYes\nNo',
+    'Is Bruce Wanye Batman?\nYes\nNo',
+    'Is Wonder Woman Princess Diana?\nYes\nNo'];
+
+    console.log(questions);
+    
+    function displayQuestions(){
+        let randomQuestions = Math.floor(Math.random()*(questions.length));
+    }
+    
+    document.getElementById('myQuestion').innerHTML =  questions[randomQuestions];
 </script>
 </body>
 </html>
