@@ -1,0 +1,75 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+html {
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    background-color: coral;
+}
+
+body, .content {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* General Content Containers */
+.content-top {
+    height: 15%;
+    width: 100%;
+    text-align: center;
+}
+
+.content-center {
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+    .center-left {
+        width: 20%;
+    }
+
+    .center-middle {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid red;
+    }
+
+        /* GRID BOARD */
+        .grid-container {
+            height: 64vmin;
+            width: 64vmin;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .grid-container div {
+            background-color: cornsilk;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+        }
+
+    .center-right {
+        width: 20%;
+    }
+
+.content-bottom {
+    height: 20%;
+    width: 100%;
+    text-align: center;
+}
