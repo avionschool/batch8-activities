@@ -25,8 +25,19 @@ body, .content {
 .content-top {
     height: 10%;
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .title-desc {
+        font-size: 0.9rem;
+    }
 
 /* content-center: phones on top */
 .content-center {
@@ -52,19 +63,30 @@ body, .content {
 
         /* GRID BOARD */
         .grid-container {
-            height: 64vmin;
-            width: 64vmin;
+            height: 63vmin;
+            width: 63vmin;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
         }
 
-        .grid-container div {
+        /* Grid Items */
+
+        .grid-item {
+            font-size: 13vmin;
             background-color: cornsilk;
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px solid black;
+        }
+        
+        .hover {
+            cursor: pointer;
+        }
+
+        .hover:hover {
+            opacity: 0.9;
         }
 
     .center-right {
@@ -77,6 +99,12 @@ body, .content {
     width: 100%;
     text-align: center;
 }
+
+    .content-buttons button {
+        font-size: 1.3rem;
+        padding: 5px;
+        margin: 10px;
+    }
 
 /* content-center: separate */
 @media screen and (min-width: 600px) {
