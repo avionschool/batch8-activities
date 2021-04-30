@@ -80,7 +80,7 @@ body, .content {
             justify-content: center;
             border: 1px solid black;
         }
-        
+
         .hover {
             cursor: pointer;
         }
@@ -92,6 +92,14 @@ body, .content {
     .center-right {
         width: 100%;
         height: 15%;
+    }
+
+    /* Avatars */
+    .content-avatar img {
+        height: 50px;
+        width: 50px;
+        background-color: blue;
+        border: 3px solid purple;
     }
 
 .content-bottom {
