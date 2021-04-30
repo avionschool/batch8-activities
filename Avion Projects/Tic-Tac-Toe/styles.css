@@ -9,7 +9,7 @@
   }
 
 html {
-    font-size: 30px;
+    font-size: 20px;
     height: 100%;
     width: 100%;
     background-color: coral;
@@ -23,24 +23,27 @@ body, .content {
 
 /* General Content Containers */
 .content-top {
-    height: 15%;
+    height: 10%;
     width: 100%;
     text-align: center;
 }
 
+/* content-center: phones on top */
 .content-center {
-    height: 65%;
+    height: 80%;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
 }
     .center-left {
-        width: 20%;
+        width: 100%;
+        height: 15%;
     }
 
     .center-middle {
-        width: 60%;
+        width: 100%;
+        height: 70%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -65,11 +68,55 @@ body, .content {
         }
 
     .center-right {
-        width: 20%;
+        width: 100%;
+        height: 15%;
     }
 
 .content-bottom {
-    height: 20%;
+    height: 10%;
     width: 100%;
     text-align: center;
+}
+
+/* content-center: separate */
+@media screen and (min-width: 600px) {
+    
+    .content-top {
+        height: 15%;
+        width: 100%;
+    }
+
+    .content-center {
+        height: 65%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
+    
+        .center-left {
+            height: 100%;
+            width: 20%;
+        }
+
+        .center-middle {
+            height: 100%;
+            width: 60%;
+        }
+
+            .grid-container {
+                height: 64vmin;
+                width: 64vmin;
+            }
+
+        .center-right {
+            height: 100%;
+            width: 20%;
+        }
+
+    .content-bottom {
+        height: 20%;
+        width: 100%;
+        text-align: center;
+    }
 }
