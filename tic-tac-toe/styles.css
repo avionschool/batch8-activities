@@ -1,4 +1,5 @@
 /* Misc. */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,6 +7,7 @@
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -14,9 +16,16 @@ body {
 
 /* Design and position */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .board {
   width: 100vw;
-  height: 100vh;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -27,10 +36,54 @@ body {
   width: var(--cell-size);
   height: var(--cell-size);
   border: 1px solid black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
-/* .cell:first-child,
+/* fixed background  */
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Images */
+body {
+  /* background-image: url(/assets/element5-digital-LTyDj7u_TU4-unsplash.jpg); */
+}
+
+/* removes border of board  */
+.cell:first-child,
 .cell:nth-child(2),
 .cell:nth-child(3) {
   border-top: none;
-} */
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+  border-bottom: none;
+}
+
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:last-child {
+  border-right: none;
+}
+
+/* typography  */
+body {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.cell {
+  font-size: 5em;
+}
