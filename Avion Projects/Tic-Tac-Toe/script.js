@@ -4,8 +4,15 @@ window.onload = function() {
 }
 
 // DOM Selectors
+const titleDesc = document.querySelector('.title-desc');
+
 const gridContainer = document.querySelector('.grid-container');
 const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
+
+const p1Title = document.querySelectorAll('.content-title.p1')[0];
+const p1Desc = document.querySelectorAll('.content-desc.p1')[0];
+const p2Title = document.querySelectorAll('.content-title.p2')[0];
+const p2Desc = document.querySelectorAll('.content-desc.p2')[0];
 
 const contentMessage = document.querySelector('.content-message');
 
@@ -20,6 +27,11 @@ let oInput = "O";
 let currentPlayer = xInput;
 let turnNo = 0;
 let gameActive = true;
+
+// Change text based on inputs
+titleDesc.textContent = `${xInput}'s and the ${oInput}'s`;
+p1Desc.textContent = `${xInput}'s`;
+p2Desc.textContent = `${oInput}'s`;
 
 // Add click event on grid items
 function addMainFunction() {
@@ -71,7 +83,7 @@ function stampMark() {
 }
 
 function checkWin(gridBoard) {
-    // checks if win and if so, disable board, reveal buttons
+    // checks if win and shows message
     let win1 = xInput+xInput+xInput; // 3 X's in a row
     let win2 = oInput+oInput+oInput; // 3 O's in a row
     let winningIndexes = [
@@ -103,7 +115,7 @@ function checkWin(gridBoard) {
 }
 
 function checkDraw() {
-    if (turnNo ===9) {
+    if (turnNo === 9) {
         contentMessage.textContent = `Game ended in a draw!`;
         gameActive = false;
         return true;
@@ -133,6 +145,7 @@ function resetBoard() {
     turnNo = 0;
     gameActive = true;
     addMainFunction();
+    contentMessage.textContent = `It's ${currentPlayer}'s turn`
 }
 
 // UNUSED
