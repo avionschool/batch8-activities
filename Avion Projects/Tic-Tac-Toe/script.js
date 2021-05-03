@@ -1,6 +1,6 @@
 // Load functions on window start
 window.onload = function() {
-    createGrid(3);
+    createGrid(gridSize);
     addMainFunction();
 }
 
@@ -22,15 +22,23 @@ const contentMessage = document.querySelector('.content-message');
     const resetBtn = document.querySelector('.reset');
 
 // Global variables
+let gridSize = 3;
 let xName = "Player 1";
 let oName = "Player 2";
 let xInput = "X";
 let oInput = "O";
 let currentMark = xInput;
 let currentPlayerMessage = `${xName} (${xInput})`;
-let turnNo = 0;
+let turnNo = 0; // used as index for board states saved in 2D array
+let turnFinished = gridSize**2; // max array index for prev/next buttons
 let gameActive = true;
-let gridSize = 3;
+let gridHistory = [
+    [
+    ["","",""],
+    ["","",""],
+    ["","",""]
+    ]
+];
 
 // Change text based on inputs
 titleDesc.textContent = `${xInput}'s and the ${oInput}'s`;
@@ -40,13 +48,16 @@ p2Desc.textContent = `${oInput}'s`;
 // Create Grid
 function createGrid(num) {
     gridContainer.innerHTML = createDivs(num);
-    gridContainer.style.cssText = "grid-template-columns: repeat(" + num + ", 1fr); grid-template-rows: repeat(" + num + ", 1fr);"
+    gridContainer.style.cssText = `grid-template-columns: repeat(${num}, 1fr); grid-template-rows: repeat(${num}, 1fr);`
 }
 
 function createDivs(num) {
-    var sq = num*num;
     var divHTML = "";
-    for (let i = 0; i < sq; i++) {divHTML += `<div class="grid-item hover"></div>`}
+    for (let i = 0; i < num; i++) {
+        for (let j = 0; j < num; j++) {
+            divHTML += `<div class="grid-item hover" data-row="${i}" data-col="${j}"></div>`;
+        }
+    }
     return divHTML;
 };
 
@@ -82,8 +93,10 @@ function stampMark() {
         this.classList.toggle('hover');
         turnNo++;
 
-        // get and save board state
+        // create and save board state in 2D array
         let gridBoard = createGridArrayInstance();
+        let grid2D = create2DArray(gridBoard);
+        gridHistory.push(grid2D);
 
         // check if draw
         checkDraw();
@@ -94,9 +107,14 @@ function stampMark() {
         // switch states
         switchStates();
 
-        // if gameStatus is false, disable clicks
+        // if game has ended, disable click events, set max prev/next index, show prev/next buttons, 
+        // and disable next button
         if (gameActive === false) {
             removeMainFunction();
+            turnFinished = turnNo; // set max array index for prev/next buttons
+            previousBtn.classList.remove('hide');
+            nextBtn.classList.remove('hide');
+            nextBtn.disabled = true;
         }
     }
 }
@@ -134,7 +152,7 @@ function checkWin(gridBoard) {
 }
 
 function checkDraw() {
-    if (turnNo === 9) {
+    if (turnNo === gridSize**2) {
         contentMessage.textContent = `Game ended in a draw!`;
         gameActive = false;
         return true;
@@ -159,27 +177,63 @@ function createGridArrayInstance() {
     })
 }
 
+function create2DArray(arr) {
+    // takes 1D array and turns into 2D array
+    let arrCopy = [...arr]; // shallow copy
+    let newArr = [];
+    while(arrCopy.length) {
+        newArr.push(arrCopy.splice(0,gridSize))
+    };
+    return newArr;
+}
+
+// Buttons: DOM and functions
+previousBtn.addEventListener('click', previousBoardState);
+nextBtn.addEventListener('click', nextBoardState);
 resetBtn.addEventListener('click', resetBoard);
+
+function previousBoardState() {
+    nextBtn.disabled = false;
+    turnNo--;
+    createGridFrom2DArray();
+    if (turnNo === 0) {
+        previousBtn.disabled = true;
+    }
+}
+
+function nextBoardState() {
+    previousBtn.disabled = false;
+    turnNo++
+    createBoardStateFrom2DArray();
+    if (turnNo === turnFinished) {
+        nextBtn.disabled = true;
+    }
+}
+
+function createBoardStateFrom2DArray() {
+    const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
+    let arr2D = gridHistory[turnNo];
+
+    gridItems.forEach(function(item) {
+        let row = item.getAttribute('data-row');
+        let col = item.getAttribute('data-col');
+        item.textContent = arr2D[row][col];
+    });
+}
 
 function resetBoard() {
     currentMark = xInput;
     turnNo = 0;
     gameActive = true;
+    gridHistory = [
+        [
+        ["","",""],
+        ["","",""],
+        ["","",""]
+        ]
+    ];
     addMainFunction();
     contentMessage.textContent = `Player 1 goes first`;
+    previousBtn.classList.add('hide');
+    nextBtn.classList.add('hide');
 }
-
-// UNUSED
-function createMultiArray(arr) {
-    // takes 1 array of 9 elements and turns into 1 array of 3 arrays with 3 items each
-    let newArr = [];
-    while(arr.length) {
-        newArr.push(arr.splice(0,gridSize))
-    };
-    return newArr;
-}
-
-// TESTING
-// let x = createGridArrayInstance();
-// console.log(x);
-// console.log(x[0]);
