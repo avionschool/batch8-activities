@@ -132,8 +132,6 @@ body, .content, .modal {
             height: 63vmin;
             width: 63vmin;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
         }
 
         /* Grid Items */
