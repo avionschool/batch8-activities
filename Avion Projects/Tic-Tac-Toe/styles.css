@@ -8,6 +8,10 @@
     border: 0;
   }
 
+:root {
+    --modal-font-size: 1.2rem;
+}
+
 html {
     font-size: 20px;
     height: 100%;
@@ -15,11 +19,73 @@ html {
     background-color: coral;
 }
 
-body, .content {
+body, .content, .modal {
     height: 100%;
     width: 100%;
 }
 
+
+.hide {
+    height: 0;
+    display: none;
+}
+/* General Modal Containers */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--modal-font-size);
+}
+
+.modal-container {
+    height: auto;
+    width: 90vw;
+}
+
+    .modal-title {
+        font-size: 2rem;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-item {
+        width: 100%;
+        display: flex;
+        margin-bottom: 5px;
+    }
+
+    .column {
+        flex-direction: column;
+    }
+
+    .form-container select {
+        font-size: var(--modal-font-size);
+        width: fit-content;
+        background-color: white;
+    }
+
+    .form-container input {
+        font-size: var(--modal-font-size);
+        width: 1.5rem;
+        text-align: center;
+    }
+
+    .form-container button {
+        font-size: var(--modal-font-size);
+        margin-top: 20px;
+        padding: 20px;
+        align-self: center;
+        background-color: white;
+    }
+
+    .form-footnote {
+        font-size: calc(var(--modal-font-size) - 0.4rem)
+    }
 
 /* General Content Containers */
 .content-top {
@@ -108,10 +174,15 @@ body, .content {
     text-align: center;
 }
 
+    .content-message {
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+    }
+
     .content-buttons button {
-        font-size: 1.3rem;
+        font-size: 1rem;
         padding: 5px;
-        margin: 10px;
+        margin: 5px;
     }
 
 /* content-center: separate */

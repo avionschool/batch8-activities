@@ -14,7 +14,57 @@
 </head>
 
 <body>
+    <div class="modal hide">
+        <div class="modal-container hide">
+            <div class="modal-title">Basic<br>Tic-Tac-Toe</div>
+
+            <div class="form-container">
+                <div class="form-item">
+                    <label for="form-grid-size">Grid Size:</label>
+                    <select id="form-grid-size" name="form-grid-size">
+                        <option value="3">3</option>
+                        <option disabled value="5">5</option>
+                        <option disabled value="7">7</option>
+                    </select>
+                </div>
+
+                <div class="form-item column">
+                    <label for="form-opponent-selection">Opponent Selection:</label>
+                    <select id="form-opponent-selection" name="form-opponent-selection">
+                        <option value="Player 2">Player 2</option>
+                        <option value="Computer (Easy)" disabled>Computer (Easy)</option>
+                        <option value="Computer (Expert)" disabled>Computer (Expert)</option>
+                    </select>
+                </div>
+
+                <div class="form-item">
+                    <label for="form-players-marks">Player 1's Marks*:</label>
+                    <input id="form-players-marks" 
+                           name="form-players-marks" 
+                           type="text" 
+                           maxlength="2" 
+                           value="X" 
+                           title="Default: X; You may change to any character, including emojis">
+                </div>
+
+                <div class="form-item">
+                    <label for="form-opponents-marks">Opponent's Marks*:</label for="form-opponent-marks">
+                    <input id="form-opponents-marks" 
+                           name="form-opponents-marks" 
+                           type="text" 
+                           maxlength="2" 
+                           value="O" 
+                           title="Default: O; You may change to any character, including emojis">
+                </div>
+
+                <div class="form-footnote">*Emojis are accepted!</div>
+                <button>Let's Play!</button>
+            </div>
+        </div>
+    </div>
+
     <div class="content">
+
         <div class="content-top">
             <div class="title">Tic-Tac-Toe</div>
             <div class="title-desc">X's and the O's</div>
@@ -42,18 +92,19 @@
             </div>
 
             <div class="center-right">
-                <div class="content-title p2">AI</div>
+                <div class="content-title p2">Player 2</div>
                 <div class="content-avatar p2 ai"><img src="assets/feathericons/monitor.svg" alt="AI Avatar"></div>
                 <div class="content-desc p2">O's</div>
             </div>
         </div>
 
         <div class="content-bottom">
-            <div class="content-message">Player 1's turn!</div>
+            <div class="content-message">Player 1 goes first</div>
             <div class="content-buttons">
                 <button class="previous">Previous</button>
                 <button class="next">Next</button>
-                <button class="reset">Reset</button>
+                <button class="reset">Reset Grid</button>
+                <br><button class="total-reset">Reset Game</button>
             </div>
         </div>
     </div>
