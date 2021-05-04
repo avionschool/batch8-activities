@@ -59,7 +59,8 @@ dt{
 .white{
     background-color: white;
     display: flex;
- 
+    height: 5.3vw;
+    width: 5.3vw;
     /*vw content will not change whatsoever*/
     /*px you can zoom in and out
     regardless of screen size it will remain the same*/

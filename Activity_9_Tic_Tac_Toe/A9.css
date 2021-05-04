@@ -1,0 +1,46 @@
+/*
+px - set value and will always be the value.
+vw & vw - 1vw = 1% of the total height or width. Your items/elements will adjust depending on the screen size.
+% - will take up the percentage of the parent.
+rem - based on the default font-size. 1rem is = to 16px.
+em - nesting on the parent element. (not recommended)
+*/
+
+/*Tic-Tac-Toe Flex*/
+.t3Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 20px;
+    height: 22vw;
+    width: 22vw;
+    /*18vw height & width total of t3Box plus 4vw = 2vw top and bottom for allowance*/
+}
+
+.t3Row{
+    display: flex;
+    /*need to flex so it dislays item in a row*/
+    /*no height and width because it adjusts to the t3Box*/
+}
+
+.t3Box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 6vw;
+    width: 6vw;
+    margin: 5px 5px 0px 0px;
+}
+
+#bGrey{
+    background-color: lightgrey;
+}
+
+#bWhite{
+    background-color: white;
+}
