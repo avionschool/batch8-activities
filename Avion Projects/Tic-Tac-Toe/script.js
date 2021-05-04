@@ -78,7 +78,9 @@ formSubmitBtn.addEventListener('click', function(e) {
 
 // Emoji Buttons
 const emojiBtns = [...document.querySelectorAll('.emoji-btn')];
-let emojis = ["😅", "🥳", "😎", "🥰", "🤡", "👻", "👽", "🤟", "🦶", "👨‍🏫", "👧", "👩‍🎤", "🎅", "🧞‍♂️", "🧟‍♂️", "🕺", "🎩", "👑", "🦹🏼‍♀️", "👵🏻", "🦉", "🦜", "💣", "📖", "🎲", "🍔", "🦡", "🌸", "🥶", "🤖"];
+let emojis = ["😅", "🥳", "😎", "🥰", "🤡", "👻", "👽", "🤟", "🦶", "👨‍🏫", 
+              "👧", "👩‍🎤", "🎅", "🧞‍♂️", "🧟‍♂️", "🕺", "🎩", "👑", "🦹🏼‍♀️", "👵🏻", 
+              "🦉", "🦜", "💣", "📖", "🎲", "🍔", "🦡", "🌸", "🥶", "🤖"];
 
 // Add randomize emoji to button
 emojiBtns.forEach(function(item) {
@@ -94,7 +96,6 @@ function randomEmoji() {
 // MAIN CONTENT //
 // Initialize content after modal submission
 function initializeContent() {
-
     // Change text based on inputs
     titleDesc.textContent = `${xInput}'s and the ${oInput}'s`;
     p1Desc.textContent = `${xInput}'s`;
@@ -116,9 +117,11 @@ function createGrid(num) {
     gridContainer.innerHTML = createDivs(num);
     let fontSize;
     if (parseInt(num) === 3) {fontSize = 13}
-    else if (parseInt(num) === 5) {fontSize = 9}
-    else {fontSize = 7};
-    gridContainer.style.cssText = `grid-template-columns: repeat(${num}, 1fr); grid-template-rows: repeat(${num}, 1fr); font-size: ${fontSize}vmin;`
+        else if (parseInt(num) === 5) {fontSize = 9}
+        else {fontSize = 7};
+    gridContainer.style.cssText = `grid-template-columns: repeat(${num}, 1fr); 
+                                   grid-template-rows: repeat(${num}, 1fr); 
+                                   font-size: ${fontSize}vmin;`
 }
 
 function createDivs(num) {
@@ -136,25 +139,23 @@ function addMainFunction() {
     const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
     gridItems.forEach(function(item) {
         item.textContent = "";
-        item.classList.add('hover');
-        item.addEventListener('click', stampMark);
+        item.classList.add('hover'); // add hover class
+        item.addEventListener('click', stampMark); // add clickEvent
     });
 }
 
-// Remove click event and hover class on grid items
+// Remove click event on grid items
 function removeMainFunction() {
     const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
     gridItems.forEach(function(item) {
-        // remove clickEvent
-        item.removeEventListener('click', stampMark);
-        // remove hover class
-        if (item.textContent === "") {
+        item.removeEventListener('click', stampMark); // remove clickEvent
+        if (item.textContent === "") { // remove hover class
             item.classList.remove('hover');
         }
     });
 }
 
-// main tictactoe function
+// Main function
 function stampMark() {
     // function will run only if textContent contains nothing 
     if (this.textContent === "") {
@@ -195,7 +196,6 @@ function createBoardInstance() {
 
 function checkWin(grid2D) {
     // checks if win using magic squares algorithm
-
     // Establish variables
     let xWinEquivalent = gridSize * xInput.codePointAt(0); // Value of X's in a row
     let oWinEquivalent = gridSize * oInput.codePointAt(0); // Value of O's in a row
@@ -261,13 +261,13 @@ function switchStates() {
     // changes currentMark global variable
     if (gameActive === true) {
         currentMark = (currentMark === xInput) ? oInput : xInput;
-        currentPlayerMessage = (currentMark === xInput) ? `${xName} (${xInput})` : `${oName} (${oInput})`;
+        currentPlayerMessage = (currentMark === xInput) ? `${xName} (${xInput})`:`${oName} (${oInput})`;
         contentMessage.textContent = `It's ${currentPlayerMessage}'s turn`
     }
 }
 
 function createGridArrayInstance() {
-    // takes current board and returns 1 array of 9 textContent of grid item
+    // takes current board and returns a 1D array
     // e.g. ["", "", "", "", "", "O", "X", "", ""]
     const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
     return gridItems.map(function(item) {
@@ -280,7 +280,7 @@ function create2DArray(arr) {
     let arrCopy = [...arr]; // shallow copy
     let newArr = [];
     while(arrCopy.length) {
-        newArr.push(arrCopy.splice(0,gridSize)); // splice 3 items at a time to create 1 array and push into 2D array
+        newArr.push(arrCopy.splice(0,gridSize)); // create 1D array by splicing 3 items at a time and push into 2D array
     };
     return newArr;
 }
