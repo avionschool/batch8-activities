@@ -170,12 +170,43 @@ body, .content, .modal {
         height: 15%;
     }
 
-    /* Avatars */
-    .content-avatar img {
-        height: 50px;
-        width: 50px;
+    /* Avatars and content */
+    .center-left, .center-right {
+        display: grid;
+        grid-template-columns: 1fr 75px 80px 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        '. avatar title .'
+        '. avatar mark .';
+    }
+
+    .center-right {
+        grid-template-areas: 
+        '. title avatar .'
+        '. mark avatar .';
+    }
+
+    .content-title {
+        grid-area: title;
+        align-self:flex-end;
+    }
+
+    .content-desc {
+        grid-area: mark;
+    }
+
+    .content-avatar {
+        grid-area: avatar;
+        height: 60px;
+        width: 60px;
         background-color: blue;
         border: 3px solid purple;
+        background-image: url(assets/feathericons/user.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
     }
 
 .content-bottom {
@@ -232,6 +263,18 @@ body, .content, .modal {
         .center-right {
             height: 100%;
             width: 20%;
+        }
+
+        /* Avatars and content */
+        .center-left, .center-right {
+            display: unset;
+        }
+
+        .content-avatar {
+            height: 75px;
+            width: 75px;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
 
     .content-bottom {
