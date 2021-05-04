@@ -14,6 +14,7 @@ const contentMessage = document.querySelector('.content-message');
 const previousBtn = document.querySelector('.previous');
 const nextBtn = document.querySelector('.next');
 const resetBtn = document.querySelector('.reset');
+const totalResetBtn = document.querySelector('.total-reset');
 
 // Global variables
 let gridSize;
@@ -289,6 +290,7 @@ function create2DArray(arr) {
 previousBtn.addEventListener('click', previousBoardState);
 nextBtn.addEventListener('click', nextBoardState);
 resetBtn.addEventListener('click', resetBoard);
+totalResetBtn.addEventListener('click', resetPage);
 
 function previousBoardState() {
     nextBtn.disabled = false;
@@ -330,4 +332,8 @@ function resetBoard() {
     contentMessage.textContent = `Player 1 goes first`;
     previousBtn.classList.add('hide');
     nextBtn.classList.add('hide');
+}
+
+function resetPage() {
+    window.location = window.location;
 }
