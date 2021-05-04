@@ -28,8 +28,8 @@
                     </select>
                 </div>
 
-                <div class="form-item column">
-                    <label for="form-opponent-selection">Opponent Selection:</label>
+                <div class="form-item">
+                    <label for="form-opponent-selection">Opponent:</label>
                     <select id="form-opponent-selection" name="form-opponent-selection">
                         <option value="Player 2">Player 2</option>
                         <option value="Computer (Easy)" disabled>Computer (Easy)</option>
@@ -45,6 +45,7 @@
                            maxlength="2" 
                            value="X" 
                            title="Default: X; You may change to any character, including emojis">
+                    <button>Random Emoji</button>
                 </div>
 
                 <div class="form-item">
@@ -73,7 +74,9 @@
         <div class="content-center">
             <div class="center-left">
                 <div class="content-title p1">Player 1</div>
-                <div class="content-avatar p1"><img src="assets/feathericons/user.svg" alt="Player Avatar"></div>
+                <div class="content-avatar p1">
+                    <img src="assets/feathericons/user.svg" alt="Player Avatar">
+                </div>
                 <div class="content-desc p1">X's</div>
             </div>
 
@@ -84,7 +87,9 @@
 
             <div class="center-right">
                 <div class="content-title p2">Player 2</div>
-                <div class="content-avatar p2 ai"><img src="assets/feathericons/monitor.svg" alt="AI Avatar"></div>
+                <div class="content-avatar p2 ai">
+                    <img src="assets/feathericons/monitor.svg" alt="AI Avatar">
+                </div>
                 <div class="content-desc p2">O's</div>
             </div>
         </div>

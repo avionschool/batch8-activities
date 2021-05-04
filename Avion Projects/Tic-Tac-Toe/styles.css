@@ -38,8 +38,9 @@ body, .content, .modal {
 }
 
 .modal-container {
-    height: auto;
-    width: 90vw;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
     .modal-title {
@@ -59,19 +60,21 @@ body, .content, .modal {
         margin-bottom: 5px;
     }
 
-    .column {
-        flex-direction: column;
+    .form-item label {
+        display:inline-block;
+        width: 200px;
+        vertical-align:bottom;
     }
 
     .form-container select {
         font-size: var(--modal-font-size);
-        width: fit-content;
+        width: 120px;
         background-color: white;
     }
 
-    .form-container input {
+    .form-container input, #form-grid-size {
         font-size: var(--modal-font-size);
-        width: 1.5rem;
+        width: 2rem;
         text-align: center;
     }
 
@@ -185,7 +188,10 @@ body, .content, .modal {
 
 /* content-center: separate */
 @media screen and (min-width: 600px) {
-    
+    #form-opponent-selection {
+        width: auto;
+    }
+    /* MAIN CONTENTS */
     .content-top {
         height: 15%;
         width: 100%;
