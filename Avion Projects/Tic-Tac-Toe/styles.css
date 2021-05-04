@@ -149,7 +149,6 @@ body, .content, .modal {
         /* Grid Items */
 
         .grid-item {
-            font-size: 13vmin;
             background-color: cornsilk;
             display: flex;
             align-items: center;

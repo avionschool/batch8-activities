@@ -64,7 +64,7 @@ formSubmitBtn.addEventListener('click', function(e) {
         e.preventDefault();
     }
     else if (!(validateCharOrEmoji(playersMarks) && validateCharOrEmoji(opponentsMarks))) {
-        alert('Please only choose 1 character');
+        alert('Please choose a valid character/emoji');
         e.preventDefault();
     } else {
         // Assign variables
@@ -117,7 +117,11 @@ function initializeContent() {
 // Create Grid
 function createGrid(num) {
     gridContainer.innerHTML = createDivs(num);
-    gridContainer.style.cssText = `grid-template-columns: repeat(${num}, 1fr); grid-template-rows: repeat(${num}, 1fr);`
+    let fontSize;
+    if (parseInt(num) === 3) {fontSize = 13}
+    else if (parseInt(num) === 5) {fontSize = 9}
+    else {fontSize = 7};
+    gridContainer.style.cssText = `grid-template-columns: repeat(${num}, 1fr); grid-template-rows: repeat(${num}, 1fr); font-size: ${fontSize}vmin;`
 }
 
 function createDivs(num) {
@@ -171,7 +175,7 @@ function stampMark() {
         checkDraw();
 
         // check if win
-        checkWin(gridBoard);
+        checkWin(grid2D);
 
         // switch states
         switchStates();
@@ -188,43 +192,59 @@ function stampMark() {
     }
 }
 
-// Establish win conditions
-let winningIndexes = [
-    [0,1,2],
-    [3,4,5],
-    [6,7,8],
-    [0,3,6],
-    [1,4,7],
-    [2,5,8],
-    [0,4,8],
-    [2,4,6]
-]
+function checkWin(grid2D) {
+    // checks if win using magic squares algorithm
 
-function checkWin(gridBoard) {
-    // checks if win and shows message
     // Establish variables
-    // xInput = "🎩";
-    // let xCodePoint = xInput.codePointAt(); // Value of 3 X's in a row
-    // let xCharCode = xInput.charCodeAt();
-    // console.log(xCodePoint, xCharCode);
-    // let oCodePoint = oInput.codePointAt(); // Value of 3 X's in a row
-    // let oCharCode = oInput.charCodeAt();
-    // console.log(oCodePoint,oCharCode);
-    let win1 = xInput+xInput+xInput; // 3 X's in a row
-    let win2 = oInput+oInput+oInput; // 3 O's in a row
-    for (let i of winningIndexes) {
-        // create 3char string to compare with winning condition 
-        let extractedGridItems = "";
-        for (let j = 0; j < gridSize; j++) {
-            let index = i[j];
-            extractedGridItems += gridBoard[index];
+    let xWinEquivalent = gridSize * xInput.codePointAt(0); // Value of X's in a row
+    let oWinEquivalent = gridSize * oInput.codePointAt(0); // Value of O's in a row
+    let extractedCharacters = 0;
+    // check rows
+    for (let rx = 0; rx < gridSize; rx++) {
+        extractedCharacters = 0;
+        for (let ry = 0; ry < gridSize; ry++) {
+            extractedCharacters += grid2D[rx][ry].codePointAt(0);
         }
-        // check for winning condition
-        if (extractedGridItems === win1 || extractedGridItems === win2) {
+        if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
             gameActive = false;
             contentMessage.textContent = `${currentPlayerMessage} Wins!`
             return true;
-        } 
+        }
+    }
+
+    // check cols
+    for (let cx = 0; cx < gridSize; cx++) {
+        extractedCharacters = 0;
+        for (let cy = 0; cy < gridSize; cy++) {
+            extractedCharacters += grid2D[cy][cx].codePointAt(0);
+        }
+        if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
+            gameActive = false;
+            contentMessage.textContent = `${currentPlayerMessage} Wins!`
+            return true;
+        }
+    }
+
+    // check first diag
+    extractedCharacters = 0;
+    for (let i = 0; i < gridSize; i++) {
+        extractedCharacters += grid2D[i][i].codePointAt(0);
+    }
+    if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
+        gameActive = false;
+        contentMessage.textContent = `${currentPlayerMessage} Wins!`
+        return true;
+    }
+
+    // check second diag
+    extractedCharacters = 0;
+    for (let j = 0; j < gridSize; j++) {
+        extractedCharacters += grid2D[(gridSize-1)-j][j].codePointAt(0);
+    }
+    if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
+        gameActive = false;
+        contentMessage.textContent = `${currentPlayerMessage} Wins!`
+        return true;
     }
 }
 
