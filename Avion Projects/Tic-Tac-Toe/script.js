@@ -26,13 +26,9 @@ let currentPlayerMessage; // used to display player turn
 let turnNo = 0; // used as index for gridHistory
 let turnFinished; // to be set later for max gridHistory index for prev/next buttons
 let gameActive = true;
-let gridHistory = [
-    [
-    ["","",""],
-    ["","",""],
-    ["","",""]
-    ]
-];
+let gridHistory = [];
+let gridBoard; // 1d array of grid
+let grid2D; // 2d array of grid
 
 // MODAL FORM CONTENT //
 // DOM Selectors //
@@ -74,7 +70,7 @@ formSubmitBtn.addEventListener('click', function(e) {
         oInput = opponentsMarks.value;
         currentMark = xInput;
         currentPlayerMessage = `${xName} (${xInput})`;
-
+        
         // create grid, hide/unhide content, change text
         initializeContent();
     }
@@ -112,6 +108,7 @@ function initializeContent() {
     // Creation
     createGrid(gridSize);
     addMainFunction();
+    createBoardInstance(); // push empty board to gridHistory
 }
 
 // Create Grid
@@ -167,9 +164,7 @@ function stampMark() {
         turnNo++;
 
         // create and save board state in 2D array
-        let gridBoard = createGridArrayInstance(); // get board instance
-        let grid2D = create2DArray(gridBoard); // create 2D array
-        gridHistory.push(grid2D); // push instance into gridHistory
+        createBoardInstance();
 
         // check if draw
         checkDraw();
@@ -190,6 +185,12 @@ function stampMark() {
             nextBtn.disabled = true;
         }
     }
+}
+function createBoardInstance() {
+    // create and save board state in 2D array
+    gridBoard = createGridArrayInstance(); // get board instance
+    grid2D = create2DArray(gridBoard); // create 2D array
+    gridHistory.push(grid2D); // push instance into gridHistory
 }
 
 function checkWin(grid2D) {
@@ -323,14 +324,9 @@ function resetBoard() {
     currentMark = xInput;
     turnNo = 0;
     gameActive = true;
-    gridHistory = [
-        [
-        ["","",""],
-        ["","",""],
-        ["","",""]
-        ]
-    ];
     addMainFunction();
+    gridHistory = []; // reset gridHistory
+    createBoardInstance(); // and push empty board as its first index
     contentMessage.textContent = `Player 1 goes first`;
     previousBtn.classList.add('hide');
     nextBtn.classList.add('hide');
