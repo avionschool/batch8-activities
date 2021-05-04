@@ -25,7 +25,7 @@ const cellClicked = (e) => {
   updatePlayerText();
   e.target.textContent = currentPlayer;
   prevMoveArr.push(cellId);
-  historyArr.push(cellId);
+  // historyArr.push(cellId);
   console.log(prevMoveArr);
 };
 
@@ -49,7 +49,8 @@ checkWinner = () => {
 
 // updates who's currently playing - dependent on switchPlayer function
 updatePlayerText = () => {
-  playerText.textContent = `${currentPlayer}'s turn`
+  currentPlayer === O ? nextPlayer = X : nextPlayer = 0;
+  playerText.textContent = `${nextPlayer}'s turn`
 }
 
 // iterate cells array, so individual cells can be accessed using forEach loop
