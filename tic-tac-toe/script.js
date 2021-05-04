@@ -1,22 +1,61 @@
-const cells  = Array.from(document.getElementsByClassName('cell'));
+// variables
+const cellsArr  = Array.from(document.getElementsByClassName('cell'));
 const O = "O";
 const X = "X";
-let currentPlayer = O;
+let currentPlayer,nextPlayer = X;
+let playerText = document.querySelector('h2');
+let cellId;
+const winningCombo = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
+let xArr = [0, 1, 2];
+let historyArr,prevMoveArr = [];
 
+// triggers when an individual cell gets clicked
 const cellClicked = (e) => {
-  const id = e.target.id; 
+  cellId = e.target.id; 
   switchPlayer();
-  e.target.innerText = currentPlayer;
+  updatePlayerText();
+  e.target.textContent = currentPlayer;
+  prevMoveArr.push(cellId);
+  historyArr.push(cellId);
+  console.log(prevMoveArr);
 };
 
+// displays previous move
+prevMove = () => {
+  let lastItem = prevMoveArr[prevMoveArr.length-1]
+  prevMoveArr.splice(-1,1);
+  // console.log(document.getElementById(`${lastItem}`));
+  document.getElementById(`${lastItem}`).innerText = null;
+  console.log(prevMoveArr); 
+};
+
+// switches X to O, vice-versa then updates value of variable currentPlayer
 switchPlayer = () => {
   currentPlayer = currentPlayer === O ? X : O;
 };
 
+checkWinner = () => {
+
+};
+
+// updates who's currently playing - dependent on switchPlayer function
+updatePlayerText = () => {
+  playerText.textContent = `${currentPlayer}'s turn`
+}
+
+// iterate cells array, so individual cells can be accessed using forEach loop
 drawBoard = () => {
-  cells.forEach((cell, index) => {
-    cell.addEventListener('click', cellClicked)
-    
+  cellsArr.forEach((cell, index) => {
+    cell.addEventListener('click', cellClicked, {once: true})
   });
 };
 

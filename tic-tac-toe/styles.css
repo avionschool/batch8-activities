@@ -43,6 +43,10 @@ body {
   align-items: center;
 }
 
+.buttons-section {
+  margin-top: 40px;
+}
+
 /* fixed background  */
 body {
   background-repeat: no-repeat;

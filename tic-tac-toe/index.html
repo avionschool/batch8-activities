@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Tic Tac Toe</title>
+    <link rel="shortcut icon" href="assets/xo.png" type="image/x-icon" />
+    <title>Tic-Tac-Toe</title>
   </head>
   <body>
     <div class="container">
@@ -21,7 +22,14 @@
         <div class="cell" id="7"></div>
         <div class="cell" id="8"></div>
       </div>
-      <h2 id="winning-message">Player</h2>
+
+      <section class="buttons-section">
+        <input type="button" value="<<" onclick="prevMove();" />
+        <input type="button" value="Restart" onclick="restartBoard();" />
+        <input type="button" value=">>" onclick="nextMove();" />
+      </section>
+      <!-- will display who's playing and who won -->
+      <h2 id="player-text"></h2>
     </div>
     <script src="script.js"></script>
   </body>
