@@ -10,10 +10,10 @@ const p2Desc = document.querySelectorAll('.content-desc.p2')[0];
 
 const contentMessage = document.querySelector('.content-message');
 
-    // buttons
-    const previousBtn = document.querySelector('.previous');
-    const nextBtn = document.querySelector('.next');
-    const resetBtn = document.querySelector('.reset');
+// buttons
+const previousBtn = document.querySelector('.previous');
+const nextBtn = document.querySelector('.next');
+const resetBtn = document.querySelector('.reset');
 
 // Global variables
 let gridSize;
@@ -21,10 +21,10 @@ let xName = "Player 1";
 let oName;
 let xInput;
 let oInput;
-let currentMark;
-let currentPlayerMessage;
-let turnNo = 0; // used as index for board states saved in 2D array
-let turnFinished; // max array index for prev/next buttons
+let currentMark; // whether it's X or O's turn
+let currentPlayerMessage; // used to display player turn
+let turnNo = 0; // used as index for gridHistory
+let turnFinished; // to be set later for max gridHistory index for prev/next buttons
 let gameActive = true;
 let gridHistory = [
     [
@@ -51,7 +51,7 @@ function validateCharOrEmoji(node) {
     if (char.length === 1) {
         return true;
     } else if (/\p{Extended_Pictographic}/u.test(char)) {
-        return true; // tests if emoji and return true is so
+        return true; // tests if emoji and return true if so
     } else {
         return false;
     }
@@ -74,12 +74,26 @@ formSubmitBtn.addEventListener('click', function(e) {
         oInput = opponentsMarks.value;
         currentMark = xInput;
         currentPlayerMessage = `${xName} (${xInput})`;
+
+        // create grid, hide/unhide content, change text
         initializeContent();
     }
 });
 
+// Emoji Buttons
+const emojiBtns = [...document.querySelectorAll('.emoji-btn')];
+let emojis = ["😅", "🥳", "😎", "🥰", "🤡", "👻", "👽", "🤟", "🦶", "👨‍🏫", "👧", "👩‍🎤", "🎅", "🧞‍♂️", "🧟‍♂️", "🕺", "🎩", "👑", "🦹🏼‍♀️", "👵🏻", "🦉", "🦜", "💣", "📖", "🎲", "🍔", "🦡", "🌸", "🥶", "🤖"];
 
-let emojis = ["😅", "🥳", "😎", "🥰", "🤡", "👻", "👽", "🤟", "🦶", "👨‍🏫", "👧", "👩‍🎤", "🎅", "🧞‍♂️", "🧟‍♂️", "🕺", "🎩", "👑", "🦹🏼‍♀️", "👵🏻", "🦉", "🦜", "💣", "📖", "🎲", "🍔", "🦡", "🌸"];
+// Add randomize emoji to button
+emojiBtns.forEach(function(item) {
+    item.addEventListener('click', randomEmoji)
+});
+
+function randomEmoji() {
+    let i = Math.floor(Math.random()*emojis.length);
+    let sib = this.previousElementSibling;
+    sib.value = emojis[i];
+}
 
 // MAIN CONTENT //
 // Initialize content after modal submission
@@ -149,9 +163,9 @@ function stampMark() {
         turnNo++;
 
         // create and save board state in 2D array
-        let gridBoard = createGridArrayInstance();
-        let grid2D = create2DArray(gridBoard);
-        gridHistory.push(grid2D);
+        let gridBoard = createGridArrayInstance(); // get board instance
+        let grid2D = create2DArray(gridBoard); // create 2D array
+        gridHistory.push(grid2D); // push instance into gridHistory
 
         // check if draw
         checkDraw();
@@ -245,7 +259,7 @@ function create2DArray(arr) {
     let arrCopy = [...arr]; // shallow copy
     let newArr = [];
     while(arrCopy.length) {
-        newArr.push(arrCopy.splice(0,gridSize))
+        newArr.push(arrCopy.splice(0,gridSize)); // splice 3 items at a time to create 1 array and push into 2D array
     };
     return newArr;
 }
@@ -266,7 +280,7 @@ function previousBoardState() {
 
 function nextBoardState() {
     previousBtn.disabled = false;
-    turnNo++
+    turnNo++;
     createBoardStateFrom2DArray();
     if (turnNo === turnFinished) {
         nextBtn.disabled = true;
@@ -275,8 +289,9 @@ function nextBoardState() {
 
 function createBoardStateFrom2DArray() {
     const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
-    let arr2D = gridHistory[turnNo];
+    let arr2D = gridHistory[turnNo]; // access board state based on turnNo(acting as index)
 
+    // modify DOM based on saved board state
     gridItems.forEach(function(item) {
         let row = item.getAttribute('data-row');
         let col = item.getAttribute('data-col');

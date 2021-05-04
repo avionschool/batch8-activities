@@ -78,16 +78,25 @@ body, .content, .modal {
         text-align: center;
     }
 
-    .form-container button {
-        font-size: var(--modal-font-size);
-        margin-top: 20px;
-        padding: 20px;
+    .emoji-btn {
+        margin-left: 5px;
+        padding-left: 2px;
+        padding-right: 2px;
+        font-size: calc(var(--modal-font-size) - 0.5rem);
         align-self: center;
         background-color: white;
     }
 
     .form-footnote {
-        font-size: calc(var(--modal-font-size) - 0.4rem)
+        font-size: calc(var(--modal-font-size) - 0.4rem);
+    }
+
+    .form-submit {
+        font-size: var(--modal-font-size);
+        margin-top: 20px;
+        padding: 20px;
+        align-self: center;
+        background-color: white;
     }
 
 /* General Content Containers */
