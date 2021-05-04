@@ -1,9 +1,3 @@
-// Load functions on window start
-window.onload = function() {
-    createGrid(gridSize);
-    addMainFunction();
-}
-
 // DOM Selectors
 const titleDesc = document.querySelector('.title-desc');
 
@@ -22,15 +16,15 @@ const contentMessage = document.querySelector('.content-message');
     const resetBtn = document.querySelector('.reset');
 
 // Global variables
-let gridSize = 3;
+let gridSize;
 let xName = "Player 1";
-let oName = "Player 2";
-let xInput = "X";
-let oInput = "O";
-let currentMark = xInput;
-let currentPlayerMessage = `${xName} (${xInput})`;
+let oName;
+let xInput;
+let oInput;
+let currentMark;
+let currentPlayerMessage;
 let turnNo = 0; // used as index for board states saved in 2D array
-let turnFinished = gridSize**2; // max array index for prev/next buttons
+let turnFinished; // max array index for prev/next buttons
 let gameActive = true;
 let gridHistory = [
     [
@@ -40,10 +34,71 @@ let gridHistory = [
     ]
 ];
 
-// Change text based on inputs
-titleDesc.textContent = `${xInput}'s and the ${oInput}'s`;
-p1Desc.textContent = `${xInput}'s`;
-p2Desc.textContent = `${oInput}'s`;
+// MODAL FORM CONTENT //
+// DOM Selectors //
+const modal = document.querySelector('.modal');
+const modalContainer = document.querySelector('.modal-container');
+const content = document.querySelector('.content');
+const formGridSize = document.querySelector('#form-grid-size');
+const formOpponentSelection = document.querySelector('#form-opponent-selection');
+const playersMarks = document.querySelector('#form-players-marks');
+const opponentsMarks = document.querySelector('#form-opponents-marks');
+const formSubmitBtn = document.querySelector('.form-submit');
+
+// Validate if 1 character or an Emoji
+function validateCharOrEmoji(node) {
+    let char = node.value;
+    if (char.length === 1) {
+        return true;
+    } else if (/\p{Extended_Pictographic}/u.test(char)) {
+        return true; // tests if emoji and return true is so
+    } else {
+        return false;
+    }
+}
+
+// Button on submit
+formSubmitBtn.addEventListener('click', function(e) {
+    if (playersMarks.value === opponentsMarks.value) {
+        alert('Player 1 and Opponent Marks must be different');
+        e.preventDefault();
+    }
+    else if (!(validateCharOrEmoji(playersMarks) && validateCharOrEmoji(opponentsMarks))) {
+        alert('Please only choose 1 character');
+        e.preventDefault();
+    } else {
+        // Assign variables
+        gridSize = formGridSize.value; 
+        oName = formOpponentSelection.value;
+        xInput = playersMarks.value;
+        oInput = opponentsMarks.value;
+        currentMark = xInput;
+        currentPlayerMessage = `${xName} (${xInput})`;
+        initializeContent();
+    }
+});
+
+
+let emojis = ["😅", "🥳", "😎", "🥰", "🤡", "👻", "👽", "🤟", "🦶", "👨‍🏫", "👧", "👩‍🎤", "🎅", "🧞‍♂️", "🧟‍♂️", "🕺", "🎩", "👑", "🦹🏼‍♀️", "👵🏻", "🦉", "🦜", "💣", "📖", "🎲", "🍔", "🦡", "🌸"];
+
+// MAIN CONTENT //
+// Initialize content after modal submission
+function initializeContent() {
+
+    // Change text based on inputs
+    titleDesc.textContent = `${xInput}'s and the ${oInput}'s`;
+    p1Desc.textContent = `${xInput}'s`;
+    p2Desc.textContent = `${oInput}'s`;
+
+    // Hide/Unhide
+    modal.classList.add('hide');
+    modalContainer.classList.add('hide');
+    content.classList.remove('hide');
+
+    // Creation
+    createGrid(gridSize);
+    addMainFunction();
+}
 
 // Create Grid
 function createGrid(num) {
@@ -120,8 +175,6 @@ function stampMark() {
 }
 
 // Establish win conditions
-let win1 = xInput+xInput+xInput; // 3 X's in a row
-let win2 = oInput+oInput+oInput; // 3 O's in a row
 let winningIndexes = [
     [0,1,2],
     [3,4,5],
@@ -135,6 +188,16 @@ let winningIndexes = [
 
 function checkWin(gridBoard) {
     // checks if win and shows message
+    // Establish variables
+    // xInput = "🎩";
+    // let xCodePoint = xInput.codePointAt(); // Value of 3 X's in a row
+    // let xCharCode = xInput.charCodeAt();
+    // console.log(xCodePoint, xCharCode);
+    // let oCodePoint = oInput.codePointAt(); // Value of 3 X's in a row
+    // let oCharCode = oInput.charCodeAt();
+    // console.log(oCodePoint,oCharCode);
+    let win1 = xInput+xInput+xInput; // 3 X's in a row
+    let win2 = oInput+oInput+oInput; // 3 O's in a row
     for (let i of winningIndexes) {
         // create 3char string to compare with winning condition 
         let extractedGridItems = "";
@@ -195,7 +258,7 @@ resetBtn.addEventListener('click', resetBoard);
 function previousBoardState() {
     nextBtn.disabled = false;
     turnNo--;
-    createGridFrom2DArray();
+    createBoardStateFrom2DArray();
     if (turnNo === 0) {
         previousBtn.disabled = true;
     }
