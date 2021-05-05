@@ -30,6 +30,24 @@ const cellClicked = (e) => {
   historyArr.push(cellId);
 };
 
+// hide and shows previous button
+showHidePrev = () => {
+
+
+
+  prevMoveArr.length != 0 ?  document.querySelector(".buttons").style.display = "inline" : document.querySelector(".buttons").style.display = "none" ;
+};
+
+showHideNext = () => {
+  nextMoveArr.length != 1 ?  document.getElementById("next-button").style.display = "inline" : document.getElementById("next-button").style.display = "none";
+};
+
+showHideButton = () => {
+  prevMoveArr.length != 0 ?  document.querySelector(".buttons").style.display = "inline" : document.querySelector(".buttons").style.display = "none" ;
+  nextMoveArr.length != 1 ?  document.getElementById("next-button").style.display = "inline" : document.getElementById("next-button").style.display = "none";
+
+};
+
 // displays previous move
 prevMove = () => {
   // gets index of previous move array's last item
@@ -37,12 +55,16 @@ prevMove = () => {
 
   // removes last item from previous move array 
   // Syntax: (index,howMany) -1 index for last item
+  // console.log('lastItem: ' + lastItem);
   prevMoveArr.splice(-1,1);
 
   // empties the content of individual based on which was the last item of previous array
   document.getElementById(`${lastItem}`).textContent = null;
+  showHideButton();
   nextMoveArr.push(lastItem);
   console.log("prevMoveArr:" + prevMoveArr);
+ 
+
 };
 
 // displays next move
@@ -62,16 +84,20 @@ nextMove = () => {
 
   // console.log(historyArr[nextItem]);
   // document.getElementById(`${nextItem}`).textContent = "Z";
-  console.log("nextMoveArr:" + nextMoveArr);
+  // console.log("nextMoveArr:" + nextMoveArr);
  
   // get last item of next move array
   let nextItem = nextMoveArr[nextMoveArr.length-1];
-  console.log(nextItem);
+  // console.log("lastItem: " + nextItem);
+  prevMoveArr.push(nextItem);
+  // console.log("prevMoveArr: " + prevMoveArr);
+  showHideButton();
 
   nextMoveArr.splice(-1,1);
-  console.log(currentPlayer);
-  document.getElementById(`${nextItem}`).textContent = currentPlayer;
-  switchPlayer();
+  // console.log(currentPlayer);
+  document.getElementById(`${nextItem}`).textContent = "N";
+  
+ 
 
 };
 
@@ -83,6 +109,8 @@ switchPlayer = () => {
 checkWinner = () => {
 
 };
+
+
 
 // updates who's currently playing
 updatePlayerText = () => {
