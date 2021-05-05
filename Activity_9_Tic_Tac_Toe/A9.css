@@ -1,46 +1,138 @@
-/*
-px - set value and will always be the value.
-vw & vw - 1vw = 1% of the total height or width. Your items/elements will adjust depending on the screen size.
+/*px - set value and will always be the value.
+vh & vw - 1vw = 1% of the total height or width. Your items/elements will adjust depending on the screen size.
 % - will take up the percentage of the parent.
 rem - based on the default font-size. 1rem is = to 16px.
-em - nesting on the parent element. (not recommended)
-*/
+em - nesting on the parent element.(not recommended)*/
 
-/*Tic-Tac-Toe Flex*/
-.t3Container{
+/*Body*/
+*{
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.mainContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: white;
-    border: 5px solid black;
-    border-radius: 20px;
-    height: 22vw;
-    width: 22vw;
-    /*18vw height & width total of t3Box plus 4vw = 2vw top and bottom for allowance*/
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100vw;
+    /*so we can control the entire screen and center the elements/items.*/
 }
 
-.t3Row{
-    display: flex;
-    /*need to flex so it dislays item in a row*/
-    /*no height and width because it adjusts to the t3Box*/
+/*Tic-Tac-Toe Board*/
+.tContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    /*how many columns you want and what size horizontally.*/
+    grid-template-rows: repeat(3, 100px);
+    /*how many rows you want and what size vertically.*/
 }
 
-.t3Box{
+/*top right bottom left*/
+#rightLine{
+    border-style: none solid none none;
+}
+#topRightLine{
+    border-style: solid solid none none;
+}
+#topLine{
+    border-style: solid none none none;
+}
+
+.tBox{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid black;
-    border-radius: 20px;
-    height: 6vw;
-    width: 6vw;
-    margin: 5px 5px 0px 0px;
+    background-color: white;
+    border: 5px none #435b1e;
+    position: relative;
 }
 
-#bGrey{
+/*::before selector inserts something before the content of each selected element(s).
+use the ::after selector to insert something after the content.
+- need to use pseudo elemets ::before ::after to create X and O.
+
+relative = allows you to move the element top right bottom left.
+absolute = like relative but the element is removed from the flow of the document and other elements will behave as if it’s not even there.
+fixed = won't move the element even if you scroll.*/
+
+.tBox.x,
+.tBox.o {
+    cursor: not-allowed;
+}
+
+/*x symbol*/
+.tBox.x::before,
+.tBox.x::after,
+.tContainer.x .tBox:not(.x):not(.o):hover::before,
+.tContainer.x .tBox:not(.x):not(.o):hover::after {
+/*whenever this "tContainer.x" id is declared, everytime you hover to any id=tBox, it will add the below
+you need ":not(.x):not(.o)" to tell them to not excute the below code if it runs through this id*/
+    content: '';
+    /*put the content if empty.*/
+    width: 9px;
+    height: 80px;
+    background-color: #6bad37;
+    position: absolute;
+    /*we remove the before and after red rectangles from the flow so it overlaps each other.
+    the parent should always be in position-relative*/
+}
+.tBox.x::before,
+.tContainer.x .tBox:not(.x):not(.o):hover::before {
+/*You need to place hover here because it needs to follow the transform*/
+    transform: rotate(45deg);
+}
+.tBox.x::after,
+.tContainer.x .tBox:not(.x):not(.o):hover::after {
+    transform: rotate(-45deg);
+}
+
+/*you need to redeclare this and declare hover code*/
+.tBox.x::before,
+.tBox.x::after {
+    background-color: #6bad37;
+}
+.tContainer.x .tBox:not(.x):not(.o):hover::before,
+.tContainer.x .tBox:not(.x):not(.o):hover::after {
+    background-color: #97979c;
+}
+
+/*o symbol*/
+.tBox.o::before,
+.tBox.o::after,
+.tContainer.o .tBox:not(.x):not(.o):hover::before,
+.tContainer.o .tBox:not(.x):not(.o):hover::after {
+    content: '';
+}
+.tBox.o::before,
+.tContainer.o .tBox:not(.x):not(.o):hover::before {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #9a5e26;
+    position: absolute;
+}
+.tBox.o::after,
+.tContainer.o .tBox:not(.x):not(.o):hover::after {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+}
+
+/*you need to redeclare this and declare hover code*/
+.tBox.o::before{
+    background-color: #9a5e26;
+}
+.tBox.o::after{
+    background-color: white;
+}
+.tContainer.o .tBox:not(.x):not(.o):hover::before{
     background-color: lightgrey;
 }
-
-#bWhite{
+.tContainer.o .tBox:not(.x):not(.o):hover::after {
     background-color: white;
 }
