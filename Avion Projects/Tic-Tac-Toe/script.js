@@ -22,6 +22,7 @@ let xName = "Player 1";
 let oName;
 let xInput;
 let oInput;
+let isComputerActive = true; ///////////////////////////////////////////////////////// TESTING
 let currentMark; // whether it's X or O's turn
 let currentPlayerMessage; // used to display player turn
 let turnNo = 0; // used as index for gridHistory
@@ -165,17 +166,10 @@ function stampMark() {
         this.classList.toggle('hover');
         turnNo++;
 
-        // create and save board state in 2D array
-        createBoardInstance();
-
-        // check if draw
-        checkDraw();
-
-        // check if win
-        checkWin(grid2D);
-
-        // switch states
-        switchStates();
+        createBoardInstance(); // create and save board state in 2D array
+        checkDraw(); // check if draw
+        checkWin(grid2D); // check if win        
+        switchStates(); // switch states
 
         // if game has ended, disable click events, set max prev/next index, show prev/next buttons, 
         // and disable next button
@@ -186,8 +180,43 @@ function stampMark() {
             nextBtn.classList.remove('hide');
             nextBtn.disabled = true;
         }
+
+        if (gameActive === true && isComputerActive === true) {
+            contentMessage.textContent = `Computer is thinking`;
+            setTimeout(computerMarkEasy, 200);
+        }
     }
 }
+
+function computerMarkEasy() {
+    // computer chooses a grid to mark randomly
+    const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
+    let indexes = Array.from(Array(gridItems.length).keys()); // convert gridItems to an array of its index equiv
+    let emptyIndexes = indexes.filter(index => gridItems[index].textContent === ""); // create new array of indexes that pass the test
+    let selectedIndex = emptyIndexes[Math.floor(Math.random()*emptyIndexes.length)]; // get a random no text gridItem
+    let randomGridItem = gridItems[selectedIndex];
+
+    // modify board
+    randomGridItem.textContent = currentMark;
+    randomGridItem.classList.toggle('hover');
+    turnNo++;
+
+    createBoardInstance(); // create and save board state in 2D array
+    checkDraw(); // check if draw
+    checkWin(grid2D); // check if win        
+    switchStates(); // switch states
+
+    // if game has ended, disable click events, set max prev/next index, show prev/next buttons, 
+    // and disable next button
+    if (gameActive === false) {
+        removeMainFunction();
+        turnFinished = turnNo; // set max array index for prev/next buttons
+        previousBtn.classList.remove('hide');
+        nextBtn.classList.remove('hide');
+        nextBtn.disabled = true;
+    }
+}
+
 function createBoardInstance() {
     // create and save board state in 2D array
     gridBoard = createGridArrayInstance(); // get board instance

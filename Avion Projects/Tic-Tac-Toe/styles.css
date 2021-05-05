@@ -29,6 +29,11 @@ body, .content, .modal {
     height: 0;
     display: none;
 }
+
+button {
+    cursor: pointer;
+}
+
 /* General Modal Containers */
 .modal {
     display: flex;
