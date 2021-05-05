@@ -8,4 +8,4 @@
 6. [Chessboard CSS Grid](https://lea927.github.io/batch8-activities/css-grid-activity/chessboard-css-grid.html)
 7. [Product Landing Page](https://lea927.github.io/batch8-activities/product-landing-page/main-page.html)
 8. [Momentum App](https://lea927.github.io/batch8-activities/momentum/momentum.html)
-9. [Tic-Tac-Toe] (https://lea927.github.io/batch8-activities/tic-tac-toe/)
+9. [Tic-Tac-Toe](https://lea927.github.io/batch8-activities/tic-tac-toe/)
