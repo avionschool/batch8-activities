@@ -3,9 +3,9 @@ const titleDesc = document.querySelector('.title-desc');
 
 const gridContainer = document.querySelector('.grid-container');
 
-const p1Title = document.querySelectorAll('.content-title.p1')[0];
 const p1Desc = document.querySelectorAll('.content-desc.p1')[0];
 const p2Title = document.querySelectorAll('.content-title.p2')[0];
+const p2Avatar = document.querySelectorAll('.content-avatar.p2')[0];
 const p2Desc = document.querySelectorAll('.content-desc.p2')[0];
 
 const contentMessage = document.querySelector('.content-message');
@@ -22,7 +22,7 @@ let xName = "Player 1";
 let oName;
 let xInput;
 let oInput;
-let isComputerActive = true; ///////////////////////////////////////////////////////// TESTING
+let isComputerActive;
 let currentMark; // whether it's X or O's turn
 let currentPlayerMessage; // used to display player turn
 let turnNo = 0; // used as index for gridHistory
@@ -65,14 +65,6 @@ formSubmitBtn.addEventListener('click', function(e) {
         alert('Please choose a valid character/emoji');
         e.preventDefault();
     } else {
-        // Assign variables
-        gridSize = formGridSize.value; 
-        oName = formOpponentSelection.value;
-        xInput = playersMarks.value;
-        oInput = opponentsMarks.value;
-        currentMark = xInput;
-        currentPlayerMessage = `${xName} (${xInput})`;
-        
         // create grid, hide/unhide content, change text
         initializeContent();
     }
@@ -98,10 +90,23 @@ function randomEmoji() {
 // MAIN CONTENT //
 // Initialize content after modal submission
 function initializeContent() {
+    // Assign variables
+    gridSize = formGridSize.value; 
+    oName = formOpponentSelection.value;
+    xInput = playersMarks.value;
+    oInput = opponentsMarks.value;
+    currentMark = xInput;
+    if (oName === "Player 2") {
+        isComputerActive = false;
+    } else isComputerActive = true;
+
     // Change text based on inputs
     titleDesc.textContent = `${xInput}'s and the ${oInput}'s`;
+    p2Title.textContent = oName;
     p1Desc.textContent = `${xInput}'s`;
+    if (isComputerActive) {p2Avatar.style.backgroundImage = "url(assets/feathericons/monitor.svg)"};
     p2Desc.textContent = `${oInput}'s`;
+    currentPlayerMessage = `${xName} (${xInput})`;
 
     // Hide/Unhide
     modal.classList.add('hide');
@@ -183,7 +188,7 @@ function stampMark() {
 
         if (gameActive === true && isComputerActive === true) {
             contentMessage.textContent = `Computer is thinking`;
-            setTimeout(computerMarkEasy, 200);
+            setTimeout(computerMarkEasy, 100);
         }
     }
 }

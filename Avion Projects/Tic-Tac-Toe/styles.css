@@ -177,7 +177,7 @@ button {
     /* Avatars and content */
     .center-left, .center-right {
         display: grid;
-        grid-template-columns: 1fr 75px 80px 1fr;
+        grid-template-columns: 1fr auto 80px 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: 
         '. avatar title .'
