@@ -1,4 +1,5 @@
 // DOM Selectors
+const title = document.querySelector('.title');
 const titleDesc = document.querySelector('.title-desc');
 
 const gridContainer = document.querySelector('.grid-container');
@@ -100,11 +101,10 @@ function initializeContent() {
     xInput = playersMarks.value;
     oInput = opponentsMarks.value;
     currentMark = xInput;
-    if (oName === "Player 2") {
-        isComputerActive = false;
-    } else isComputerActive = true;
+    (oName === "Player 2") ? isComputerActive = false : isComputerActive = true;
 
     // Change text based on inputs
+    if (parseInt(gridSize) !== 3) {title.textContent = `Tic-Tac-Toe ${gridSize}x${gridSize}`};
     titleDesc.textContent = `${xInput}'s and the ${oInput}'s`;
     p2Title.textContent = oName;
     p1Desc.textContent = `${xInput}'s`;
@@ -340,18 +340,14 @@ function previousBoardState() {
     nextBtn.disabled = false;
     turnNo--;
     createBoardStateFrom2DArray();
-    if (turnNo === 0) {
-        previousBtn.disabled = true;
-    }
+    if (turnNo === 0) {previousBtn.disabled = true;}
 }
 
 function nextBoardState() {
     previousBtn.disabled = false;
     turnNo++;
     createBoardStateFrom2DArray();
-    if (turnNo === turnFinished) {
-        nextBtn.disabled = true;
-    }
+    if (turnNo === turnFinished) {nextBtn.disabled = true;}
 }
 
 function createBoardStateFrom2DArray() {
