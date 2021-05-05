@@ -1,25 +1,57 @@
+<!--
+TIC TAC TOE (5 DAYS)
+Phase 1
+• Create a game of tic tac toe.
+• The design, representation and responsiveness of the tic tac toe board in the DOM is up to your creativity and imagination.
+• The rule of whose turn it is (X or O) must be observed. You can choose whether X or O will play first.
+• The "state" of the board should strictly come from a two-dimensional array (In JS, that's array within an array).
+• You may use array built-in methods.
+
+Phase 2
+• When a player wins, you must show the history of the game.
+• To do that, every move should be "saved".
+• Implement two buttons, "Previous" and "Next", that will show up when a game is done/finished.
+• When clicking previous or next, the board should show the current move at that moment/turn.
+• If there's no "next move", the next button must be disabled. And if there's no "previous move", the previous button must be disabled.
+• Also, implement a reset button, that:
+    a. restarts the game
+    b. hides the next and prev buttons
+    c. clears move history
+• Yes. Refreshing the page clears the history of the game.
+• No. You cannot use any library like React etc. (You can check them as references though.)
+• No. You cannot use class(objects). Let's be "functional" for now!
+-->
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="A9.css">
+        <script src="A9.js" defer></script>
+        <!--use defer so the script loads after the body of our html.-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic Tac Toe Project</title>
     </head>
 <body>
-    <main class="t3Container">
-        <div class="t3Row">
-            <div class="t3Box" id="bWhite"></div>
-            <div class="t3Box" id="bGrey"></div>
-            <div class="t3Box" id="bWhite"></div>
+    <main class="mainContainer">
+    <!--Tic-Tac-Toe Board
+        • class specifically for designs
+        • id specifically for Javascript
+        • use " " to put more than one classes-->
+        <div class="tContainer x" id="t3Container">
+            <div class="tBox x" id="rightLine"></div>
+            <div class="tBox o" id="rightLine"></div>
+            <div class="tBox"></div>
+            <div class="tBox" id="topRightLine"></div>
+            <div class="tBox" id="topRightLine"></div>
+            <div class="tBox" id="topLine"></div>
+            <div class="tBox" id="topRightLine"></div>
+            <div class="tBox" id="topRightLine"></div>
+            <div class="tBox" id="topLine"></div>
         </div>
-        <div class="t3Row">
-            <div class="t3Box" id="bGrey"></div>
-            <div class="t3Box" id="bWhite"></div>
-            <div class="t3Box" id="bGrey"></div>
-        </div>
-        <div class="t3Row">
-            <div class="t3Box" id="bWhite"></div>
-            <div class="t3Box" id="bGrey"></div>
-            <div class="t3Box" id="bWhite"></div>
+    <!--button pop-up when the game's finshed.-->
+        <div class="gameFinishedContainerC" id="gameFinishedContainerI">
+            <p id="gameFinishedDeclaration">Win!</p>
+            <button id="gameFinishedButtons">Finished</button>
+            <button id="gameFinishedButtons">Next</button>
         </div>
     </main>
 </body>
