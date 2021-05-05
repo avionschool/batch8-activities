@@ -18,7 +18,9 @@ const winningCombo = [
 let xArr = [0, 1, 2];
 let prevMoveArr = [];
 let nextMoveArr = [];
-// let historyArr = [];
+let charsArrPrev = [];
+let charsArrNext = [];
+let lastChar;
 
 // triggers when an individual cell gets clicked
 const cellClicked = (e) => {
@@ -27,7 +29,7 @@ const cellClicked = (e) => {
   updatePlayerText();
   e.target.textContent = currentPlayer;
   prevMoveArr.push(cellId);
-  // historyArr.push(cellId);
+  charsArrPrev.push(currentPlayer);
 };
 
 // hide and shows previous and next button
@@ -46,32 +48,44 @@ prevMove = () => {
   // console.log('lastItem: ' + lastItem);
   prevMoveArr.splice(-1,1);
 
+
+  // get last item of characters previous array to be used by show next move function
+  lastChar = charsArrPrev[charsArrPrev.length-1];
+
+  // adds last item to characters next array
+  charsArrNext.push(lastChar);
+
   // empties the content of individual based on which was the last item of previous array
   document.getElementById(`${lastItem}`).textContent = null;
-  showHideButton();
-  nextMoveArr.push(lastItem);
-  // console.log("prevMoveArr:" + prevMoveArr);
-  switchPlayer();
-  
 
+  // showHideButton();
+  nextMoveArr.push(lastItem);
+  
+  // removes last item of characters previous array 
+  charsArrPrev.splice(-1,1);
 };
 
 // displays next move
 
-nextMove = () => {
-  // console.log("nextMoveArr:" + nextMoveArr);
- 
+nextMove = () => { 
   // get last item of next move array
   let nextItem = nextMoveArr[nextMoveArr.length-1];
-  // console.log("lastItem: " + nextItem);
+
+  // adds the last item to previous move array
   prevMoveArr.push(nextItem);
-  // console.log("prevMoveArr: " + prevMoveArr);
-  showHideButton();
-  console.log(nextMoveArr);
+
+  // gets last item of characters next array
+  lastChar = charsArrNext[charsArrNext.length-1];
+
+  // adds the last item of characters next array to characters previous array
+  charsArrPrev.push(lastChar);
+  
+  // showHideButton();
   nextMoveArr.splice(-1,1);
-  // console.log(currentPlayer);
-  document.getElementById(`${nextItem}`).textContent = currentPlayer;
-  switchPlayer();
+  document.getElementById(`${nextItem}`).textContent = lastChar;
+
+  // removes last item of characters next array
+  charsArrNext.splice(-1,1);
   
 };
 
