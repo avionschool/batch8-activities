@@ -18,7 +18,7 @@ const winningCombo = [
 let xArr = [0, 1, 2];
 let prevMoveArr = [];
 let nextMoveArr = [];
-let historyArr = [];
+// let historyArr = [];
 
 // triggers when an individual cell gets clicked
 const cellClicked = (e) => {
@@ -27,25 +27,13 @@ const cellClicked = (e) => {
   updatePlayerText();
   e.target.textContent = currentPlayer;
   prevMoveArr.push(cellId);
-  historyArr.push(cellId);
+  // historyArr.push(cellId);
 };
 
-// hide and shows previous button
-showHidePrev = () => {
-
-
-
-  prevMoveArr.length != 0 ?  document.querySelector(".buttons").style.display = "inline" : document.querySelector(".buttons").style.display = "none" ;
-};
-
-showHideNext = () => {
-  nextMoveArr.length != 1 ?  document.getElementById("next-button").style.display = "inline" : document.getElementById("next-button").style.display = "none";
-};
-
+// hide and shows previous and next button
 showHideButton = () => {
   prevMoveArr.length != 0 ?  document.querySelector(".buttons").style.display = "inline" : document.querySelector(".buttons").style.display = "none" ;
   nextMoveArr.length != 1 ?  document.getElementById("next-button").style.display = "inline" : document.getElementById("next-button").style.display = "none";
-
 };
 
 // displays previous move
@@ -62,28 +50,15 @@ prevMove = () => {
   document.getElementById(`${lastItem}`).textContent = null;
   showHideButton();
   nextMoveArr.push(lastItem);
-  console.log("prevMoveArr:" + prevMoveArr);
- 
+  // console.log("prevMoveArr:" + prevMoveArr);
+  switchPlayer();
+  
 
 };
 
 // displays next move
 
 nextMove = () => {
-  // console.log("history: " + historyArr);
-
-  // let nextItem = prevMoveArr.length;
-
-  // nextItem ++;
-  // for-loop to iterate items of history array
-  // for (let i = nextItem ; i < historyArr.length; i++) {
-    // const element = array[index];
-    // console.log(nextItem);
-    
-  // }
-
-  // console.log(historyArr[nextItem]);
-  // document.getElementById(`${nextItem}`).textContent = "Z";
   // console.log("nextMoveArr:" + nextMoveArr);
  
   // get last item of next move array
@@ -92,13 +67,12 @@ nextMove = () => {
   prevMoveArr.push(nextItem);
   // console.log("prevMoveArr: " + prevMoveArr);
   showHideButton();
-
+  console.log(nextMoveArr);
   nextMoveArr.splice(-1,1);
   // console.log(currentPlayer);
-  document.getElementById(`${nextItem}`).textContent = "N";
+  document.getElementById(`${nextItem}`).textContent = currentPlayer;
+  switchPlayer();
   
- 
-
 };
 
 // switches X to O, vice-versa then updates value of variable currentPlayer
@@ -109,8 +83,6 @@ switchPlayer = () => {
 checkWinner = () => {
 
 };
-
-
 
 // updates who's currently playing
 updatePlayerText = () => {
