@@ -4,9 +4,11 @@ const titleDesc = document.querySelector('.title-desc');
 const gridContainer = document.querySelector('.grid-container');
 
 const p1Desc = document.querySelectorAll('.content-desc.p1')[0];
+const p1Wins = document.querySelectorAll('.content-wins-text.p1')[0];
 const p2Title = document.querySelectorAll('.content-title.p2')[0];
 const p2Avatar = document.querySelectorAll('.content-avatar.p2')[0];
 const p2Desc = document.querySelectorAll('.content-desc.p2')[0];
+const p2Wins = document.querySelectorAll('.content-wins-text.p2')[0];
 
 const contentMessage = document.querySelector('.content-message');
 
@@ -23,6 +25,8 @@ let oName;
 let xInput;
 let oInput;
 let isComputerActive;
+let xWins = 0;
+let oWins = 0;
 let currentMark; // whether it's X or O's turn
 let currentPlayerMessage; // used to display player turn
 let turnNo = 0; // used as index for gridHistory
@@ -242,8 +246,7 @@ function checkWin(grid2D) {
             extractedCharacters += grid2D[rx][ry].codePointAt(0);
         }
         if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
-            gameActive = false;
-            contentMessage.textContent = `${currentPlayerMessage} Wins!`
+            endGameOnWin();
             return true;
         }
     }
@@ -255,8 +258,7 @@ function checkWin(grid2D) {
             extractedCharacters += grid2D[cy][cx].codePointAt(0);
         }
         if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
-            gameActive = false;
-            contentMessage.textContent = `${currentPlayerMessage} Wins!`
+            endGameOnWin();
             return true;
         }
     }
@@ -267,8 +269,7 @@ function checkWin(grid2D) {
         extractedCharacters += grid2D[i][i].codePointAt(0);
     }
     if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
-        gameActive = false;
-        contentMessage.textContent = `${currentPlayerMessage} Wins!`
+        endGameOnWin();
         return true;
     }
 
@@ -278,10 +279,19 @@ function checkWin(grid2D) {
         extractedCharacters += grid2D[(gridSize-1)-j][j].codePointAt(0);
     }
     if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
-        gameActive = false;
-        contentMessage.textContent = `${currentPlayerMessage} Wins!`
+        endGameOnWin();
         return true;
     }
+}
+
+function endGameOnWin() {
+    // modifies message and win counter
+    gameActive = false;
+    contentMessage.textContent = `${currentPlayerMessage} Wins!`;
+    (currentMark === xInput) ? xWins++ : oWins++;
+    console.log(currentMark);
+    p1Wins.textContent = xWins;
+    p2Wins.textContent = oWins;
 }
 
 function checkDraw() {

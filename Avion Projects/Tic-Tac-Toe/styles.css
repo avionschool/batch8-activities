@@ -178,16 +178,18 @@ button {
     .center-left, .center-right {
         display: grid;
         grid-template-columns: 1fr auto 80px 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: 
         '. avatar title .'
-        '. avatar mark .';
+        '. avatar mark .'
+        '. avatar wins .';
     }
 
     .center-right {
         grid-template-areas: 
         '. title avatar .'
-        '. mark avatar .';
+        '. mark avatar .'
+        '. wins avatar .';
     }
 
     .content-title {
@@ -211,6 +213,11 @@ button {
         margin-left: auto;
         margin-right: auto;
         align-self: center;
+    }
+
+    .content-wins {
+        grid-area: wins;
+        font-size: 0.85rem;
     }
 
 .content-bottom {
