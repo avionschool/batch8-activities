@@ -128,8 +128,8 @@ function createGrid(num) {
     gridContainer.innerHTML = createDivs(num);
     let fontSize;
     if (parseInt(num) === 3) {fontSize = 13}
-        else if (parseInt(num) === 5) {fontSize = 9}
-        else {fontSize = 7};
+        else if (parseInt(num) === 5) {fontSize = 8}
+        else {fontSize = 6};
     gridContainer.style.cssText = `grid-template-columns: repeat(${num}, 1fr); 
                                    grid-template-rows: repeat(${num}, 1fr); 
                                    font-size: ${fontSize}vmin;`
