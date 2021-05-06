@@ -1,19 +1,70 @@
+// MODAL FORM CONTENT //
+// DOM Selectors //
+const modal = document.querySelector('.modal');
+const modalContainer = document.querySelector('.modal-container');
+const content = document.querySelector('.content');
+const formGridSize = document.querySelector('#form-grid-size');
+const formOpponentSelection = document.querySelector('#form-opponent-selection');
+const playersMarks = document.querySelector('#form-players-marks');
+const opponentsMarks = document.querySelector('#form-opponents-marks');
+const formSubmitBtn = document.querySelector('.form-submit');
+
+// Emoji Buttons
+const emojiBtns = [...document.querySelectorAll('.emoji-btn')];
+let emojis = ["😅", "🥳", "😎", "🥰", "🤡", "👻", "👽", "🤟", "🦶", "👨‍🏫", 
+              "👧", "👩‍🎤", "🎅", "🧞‍♂️", "🧟‍♂️", "🕺", "🎩", "👑", "🦹🏼‍♀️", "👵🏻", 
+              "🦉", "🦜", "💣", "📖", "🎲", "🍔", "🦡", "🌸", "🥶", "🤖"];
+
+// Add randomize emoji to button
+emojiBtns.forEach(function(item) {
+    item.addEventListener('click', randomEmoji)
+});
+
+function randomEmoji() {
+    let i = Math.floor(Math.random()*emojis.length);
+    let sib = this.previousElementSibling;
+    sib.value = emojis[i];
+}
+
+// Before Modal Submission: Validate if inputs are 1 character or an Emoji
+function validateCharOrEmoji(node) {
+    let char = node.value;
+    if (char.length === 1) {
+        return true;
+    } else if (/\p{Extended_Pictographic}/u.test(char)) {
+        return true; // tests if emoji and return true if so
+    } else {
+        return false;
+    }
+}
+
+// Button on submit
+formSubmitBtn.addEventListener('click', function(e) {
+    if (playersMarks.value === opponentsMarks.value) {
+        alert('Player 1 and Opponent Marks must be different.');
+        e.preventDefault();
+    }
+    else if (!(validateCharOrEmoji(playersMarks) && validateCharOrEmoji(opponentsMarks))) {
+        alert('Please choose one valid character/emoji.');
+        e.preventDefault();
+    } else {
+        // create grid, hide/unhide content, change text
+        initializeContent();
+    }
+});
+
+// MAIN CONTENT //
 // DOM Selectors
 const title = document.querySelector('.title');
 const titleDesc = document.querySelector('.title-desc');
-
 const gridContainer = document.querySelector('.grid-container');
-
 const p1Desc = document.querySelectorAll('.content-desc.p1')[0];
 const p1Wins = document.querySelectorAll('.content-wins-text.p1')[0];
 const p2Title = document.querySelectorAll('.content-title.p2')[0];
 const p2Avatar = document.querySelectorAll('.content-avatar.p2')[0];
 const p2Desc = document.querySelectorAll('.content-desc.p2')[0];
 const p2Wins = document.querySelectorAll('.content-wins-text.p2')[0];
-
 const contentMessage = document.querySelector('.content-message');
-
-// buttons
 const previousBtn = document.querySelector('.previous');
 const nextBtn = document.querySelector('.next');
 const resetBtn = document.querySelector('.reset');
@@ -37,62 +88,6 @@ let gridHistory = [];
 let gridBoard; // 1d array of grid
 let grid2D; // 2d array of grid
 
-// MODAL FORM CONTENT //
-// DOM Selectors //
-const modal = document.querySelector('.modal');
-const modalContainer = document.querySelector('.modal-container');
-const content = document.querySelector('.content');
-const formGridSize = document.querySelector('#form-grid-size');
-const formOpponentSelection = document.querySelector('#form-opponent-selection');
-const playersMarks = document.querySelector('#form-players-marks');
-const opponentsMarks = document.querySelector('#form-opponents-marks');
-const formSubmitBtn = document.querySelector('.form-submit');
-
-// Validate if 1 character or an Emoji
-function validateCharOrEmoji(node) {
-    let char = node.value;
-    if (char.length === 1) {
-        return true;
-    } else if (/\p{Extended_Pictographic}/u.test(char)) {
-        return true; // tests if emoji and return true if so
-    } else {
-        return false;
-    }
-}
-
-// Button on submit
-formSubmitBtn.addEventListener('click', function(e) {
-    if (playersMarks.value === opponentsMarks.value) {
-        alert('Player 1 and Opponent Marks must be different');
-        e.preventDefault();
-    }
-    else if (!(validateCharOrEmoji(playersMarks) && validateCharOrEmoji(opponentsMarks))) {
-        alert('Please choose a valid character/emoji');
-        e.preventDefault();
-    } else {
-        // create grid, hide/unhide content, change text
-        initializeContent();
-    }
-});
-
-// Emoji Buttons
-const emojiBtns = [...document.querySelectorAll('.emoji-btn')];
-let emojis = ["😅", "🥳", "😎", "🥰", "🤡", "👻", "👽", "🤟", "🦶", "👨‍🏫", 
-              "👧", "👩‍🎤", "🎅", "🧞‍♂️", "🧟‍♂️", "🕺", "🎩", "👑", "🦹🏼‍♀️", "👵🏻", 
-              "🦉", "🦜", "💣", "📖", "🎲", "🍔", "🦡", "🌸", "🥶", "🤖"];
-
-// Add randomize emoji to button
-emojiBtns.forEach(function(item) {
-    item.addEventListener('click', randomEmoji)
-});
-
-function randomEmoji() {
-    let i = Math.floor(Math.random()*emojis.length);
-    let sib = this.previousElementSibling;
-    sib.value = emojis[i];
-}
-
-// MAIN CONTENT //
 // Initialize content after modal submission
 function initializeContent() {
     // Assign variables
@@ -123,8 +118,8 @@ function initializeContent() {
     createBoardInstance(); // push empty board to gridHistory
 }
 
-// Create Grid
 function createGrid(num) {
+    // Creates grid board
     gridContainer.innerHTML = createDivs(num);
     let fontSize;
     if (parseInt(num) === 3) {fontSize = 13}
@@ -145,8 +140,8 @@ function createDivs(num) {
     return divHTML;
 };
 
-// Add click event on grid items
 function addMainFunction() {
+    // Add click event and hover class on grid items
     const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
     gridItems.forEach(function(item) {
         item.textContent = "";
@@ -155,8 +150,8 @@ function addMainFunction() {
     });
 }
 
-// Remove click event on grid items
 function removeMainFunction() {
+    // Remove click event and hover class on grid items
     const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
     gridItems.forEach(function(item) {
         item.removeEventListener('click', stampMark); // remove clickEvent
@@ -190,6 +185,7 @@ function stampMark() {
             nextBtn.disabled = true;
         }
 
+        // If opponent is a computer, do computer's turn
         if (gameActive === true && isComputerActive === true) {
             contentMessage.textContent = `Computer is thinking`;
             setTimeout(computerMarkEasy, 100);
@@ -236,8 +232,8 @@ function createBoardInstance() {
 function checkWin(grid2D) {
     // checks if win using magic squares algorithm
     // Establish variables
-    let xWinEquivalent = gridSize * xInput.codePointAt(0); // Value of X's in a row
-    let oWinEquivalent = gridSize * oInput.codePointAt(0); // Value of O's in a row
+    let xWinEquivalent = gridSize * xInput.codePointAt(0); // Value of n X's in a row
+    let oWinEquivalent = gridSize * oInput.codePointAt(0); // Value of n O's in a row
     let extractedCharacters = 0;
     // check rows
     for (let rx = 0; rx < gridSize; rx++) {
@@ -285,7 +281,7 @@ function checkWin(grid2D) {
 }
 
 function endGameOnWin() {
-    // modifies message and win counter
+    // ends game and modifies message and win counter
     gameActive = false;
     contentMessage.textContent = `${currentPlayerMessage} Wins!`;
     (currentMark === xInput) ? xWins++ : oWins++;
@@ -294,6 +290,7 @@ function endGameOnWin() {
 }
 
 function checkDraw() {
+    // ends game if turnNo reaches max gridSize
     if (turnNo === gridSize**2) {
         contentMessage.textContent = `Game ended in a draw!`;
         gameActive = false;
@@ -329,7 +326,7 @@ function create2DArray(arr) {
     return newArr;
 }
 
-// Buttons: DOM and functions
+// Content buttons: DOM and functions
 previousBtn.addEventListener('click', previousBoardState);
 nextBtn.addEventListener('click', nextBoardState);
 resetBtn.addEventListener('click', resetBoard);
