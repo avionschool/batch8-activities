@@ -9,16 +9,17 @@
   }
 
 :root {
-    --modal-font-size: 1.2rem;
+    --modal-font-size: 1.1rem;
     --modal-moving-color: #535aa2;
     --modal-moving-color2: #6068bd;
 }
 
 html {
-    font-size: 20px;
+    font-size: 16px;
     height: 100%;
     width: 100%;
     font-family: "Questrial", sans-serif;
+    background-color: #6384c9;
 }
 
 body, .content, .modal {
@@ -28,8 +29,9 @@ body, .content, .modal {
 
 
 .hide {
-    height: 0;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
 }
 
 button {
@@ -42,6 +44,7 @@ button {
     justify-content: center;
     align-items: center;
     font-size: var(--modal-font-size);
+    transition: all 1s ease-in-out; 
 
     /* Moving Background: designed by rémi and coded by Thibaud Goiffon */
     background-color: var(--modal-moving-color2);
@@ -68,9 +71,9 @@ button {
 
 .modal-container {
     width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1.2rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
     background-color: white;
     border: 3px solid black;
 }
@@ -94,7 +97,7 @@ button {
 
     .form-item label {
         display:inline-block;
-        width: 220px;
+        width: 170px;
         vertical-align:bottom;
     }
 
@@ -108,7 +111,7 @@ button {
 
     .form-container input, #form-grid-size {
         font-size: var(--modal-font-size);
-        width: 2rem;
+        width: 2.2rem;
         text-align: center;
         border: 2px solid black;
         border-radius: 15%;
@@ -173,6 +176,8 @@ button {
     .title {
         margin-top: 10htmlpx;
         font-size: 1.8rem;
+        font-weight: bolder;
+        text-shadow: 1px 3px 3px var(--modal-moving-color2);
     }
 
     .title-desc {
@@ -180,7 +185,7 @@ button {
         display: none;
     }
 
-/* content-center: phones on top */
+/* content-center: players top and bottom */
 .content-center {
     height: auto;
     width: 100%;
@@ -199,7 +204,6 @@ button {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid red;
     }
 
         /* GRID BOARD */
@@ -207,12 +211,14 @@ button {
             height: 95vmin;
             width: 95vmin;
             display: grid;
+            border: 2px solid black;
         }
 
         /* Grid Items */
 
         .grid-item {
-            background-color: cornsilk;
+            font-weight: bold;
+            background-color: whitesmoke;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -234,7 +240,8 @@ button {
 
     /* Avatars and content */
     .center-left, .center-right {
-        padding-top: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         display: grid;
         grid-template-columns: 1fr auto 80px 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -254,6 +261,7 @@ button {
     .content-title {
         grid-area: title;
         align-self:flex-end;
+        font-weight: bold;
     }
 
     .content-desc {
@@ -264,8 +272,8 @@ button {
         grid-area: avatar;
         height: 60px;
         width: 60px;
-        background-color: blue;
-        border: 3px solid purple;
+        background-color: white;
+        border: 3px solid black;
         background-image: url(assets/feathericons/user.svg);
         background-size: cover;
         background-repeat: no-repeat;
@@ -287,25 +295,61 @@ button {
 
     .content-message {
         font-size: 1.5rem;
+        font-weight: bold;
+        padding-top: 5px;
         padding-bottom: 10px;
     }
 
     .content-buttons button {
-        font-size: 1rem;
+        font-size: inherit;
+        font-family: inherit;
         padding: 5px;
-        margin: 5px;
+        margin: 3px;
+        background-color: white;
+        border: 2px solid black;
     }
 
-/* content-center: separate */
-@media screen and (min-width: 380px) {
+    .content-buttons button:hover {
+        box-shadow: 0.05rem 0.05rem 0 black;
+        transform: translate(-0.05rem, -0.05rem);
+    }
+
+    .content-buttons button:active {
+        box-shadow: 0 0 0 black;
+        transform: translate(0, 0);
+    }
+
+@media screen and (min-width: 360px) {
+
+    html {
+        font-size: 20px
+    }
+
+    .modal-container {
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-bottom: 15px;
+    }
+
+    .form-item label {
+        width: 210px;
+    }
+
     .grid-container {
         height: 52vmax;
         width: 52vmax;
     }
 }
 
-/* content-center: separate */
+/* content-center: players left and right */
 @media screen and (min-width: 600px) {
+    
+    .modal-container {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 25px;
+    }
+
     #form-opponent-selection {
         width: auto;
     }
