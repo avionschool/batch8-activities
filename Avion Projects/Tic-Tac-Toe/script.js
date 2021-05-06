@@ -185,6 +185,7 @@ function stampMark() {
             previousBtn.classList.remove('hide');
             nextBtn.classList.remove('hide');
             nextBtn.disabled = true;
+            nextBtn.classList.add('disabled');
         }
 
         // If opponent is a computer, do computer's turn
@@ -225,6 +226,7 @@ function computerMarkEasy() {
         previousBtn.classList.remove('hide');
         nextBtn.classList.remove('hide');
         nextBtn.disabled = true;
+        nextBtn.classList.add('disabled');
     }
 }
 
@@ -340,16 +342,25 @@ totalResetBtn.addEventListener('click', resetPage);
 
 function previousBoardState() {
     nextBtn.disabled = false;
+    nextBtn.classList.remove('disabled');
+    previousBtn.classList.remove('disabled');
     turnNo--;
     createBoardStateFrom2DArray();
-    if (turnNo === 0) {previousBtn.disabled = true;}
+    if (turnNo === 0) {
+        previousBtn.disabled = true;
+        previousBtn.classList.add('disabled');
+    }
 }
 
 function nextBoardState() {
     previousBtn.disabled = false;
+    previousBtn.classList.remove('disabled');
+    nextBtn.classList.remove('disabled');
     turnNo++;
     createBoardStateFrom2DArray();
-    if (turnNo === turnFinished) {nextBtn.disabled = true;}
+    if (turnNo === turnFinished) {
+        nextBtn.disabled = true;
+        nextBtn.classList.add('disabled');}
 }
 
 function createBoardStateFrom2DArray() {

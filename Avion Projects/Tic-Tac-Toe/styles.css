@@ -299,7 +299,7 @@ button {
         padding-bottom: 10px;
     }
 
-    .content-buttons button {
+    .controls {
         font-size: inherit;
         font-family: inherit;
         padding: 5px;
@@ -308,14 +308,30 @@ button {
         border: 2px solid black;
     }
 
-    .content-buttons button:hover {
+    .controls:hover {
         box-shadow: 0.05rem 0.05rem 0 black;
         transform: translate(-0.05rem, -0.05rem);
     }
 
-    .content-buttons button:active {
+    .controls:active {
         box-shadow: 0 0 0 black;
         transform: translate(0, 0);
+    }
+
+    .disabled {
+        cursor: initial;
+        opacity: 0.9;
+        border: 2px solid grey;
+    }
+
+    .disabled:hover {
+        box-shadow: unset;
+        transform: unset;
+    }
+
+    .disabled:active {
+        box-shadow: unset;
+        transform: unset;
     }
 
 @media screen and (min-width: 360px) {
