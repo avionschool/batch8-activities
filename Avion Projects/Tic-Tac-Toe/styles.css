@@ -10,13 +10,15 @@
 
 :root {
     --modal-font-size: 1.2rem;
+    --modal-moving-color: #535aa2;
+    --modal-moving-color2: #6068bd;
 }
 
 html {
     font-size: 20px;
     height: 100%;
     width: 100%;
-    background-color: coral;
+    font-family: "Questrial", sans-serif;
 }
 
 body, .content, .modal {
@@ -40,12 +42,37 @@ button {
     justify-content: center;
     align-items: center;
     font-size: var(--modal-font-size);
+
+    /* Moving Background: designed by rémi and coded by Thibaud Goiffon */
+    background-color: var(--modal-moving-color2);
+    background-image: linear-gradient(
+        45deg,
+        var(--modal-moving-color) 25%,
+        transparent 25%,
+        transparent 75%,
+        var(--modal-moving-color) 75%,
+        var(--modal-moving-color)
+        ),
+        linear-gradient(
+        -45deg,
+        var(--modal-moving-color) 25%,
+        transparent 25%,
+        transparent 75%,
+        var(--modal-moving-color) 75%,
+        var(--modal-moving-color)
+        );
+    background-size: 60px 60px;
+    background-position: 0 0;
+    animation: slide 4s infinite linear;
 }
 
 .modal-container {
     width: auto;
     margin-left: auto;
     margin-right: auto;
+    padding: 1.2rem;
+    background-color: white;
+    border: 3px solid black;
 }
 
     .modal-title {
@@ -67,7 +94,7 @@ button {
 
     .form-item label {
         display:inline-block;
-        width: 200px;
+        width: 220px;
         vertical-align:bottom;
     }
 
@@ -75,21 +102,37 @@ button {
         font-size: var(--modal-font-size);
         width: 120px;
         background-color: white;
+        border: 2px solid black;
+        border-radius: 5%;
     }
 
     .form-container input, #form-grid-size {
         font-size: var(--modal-font-size);
         width: 2rem;
         text-align: center;
+        border: 2px solid black;
+        border-radius: 15%;
     }
 
     .emoji-btn {
-        margin-left: 5px;
-        padding-left: 2px;
-        padding-right: 2px;
+        margin-left: 7px;
+        padding-left: 3px;
+        padding-right: 3px;
         font-size: calc(var(--modal-font-size) - 0.5rem);
+        font-family: inherit;
         align-self: center;
         background-color: white;
+        border: 2px solid black;
+    }
+
+    .emoji-btn:hover {
+        box-shadow: 0.05rem 0.05rem 0 black;
+        transform: translate(-0.05rem, -0.05rem);
+    }
+
+    .emoji-btn:active {
+        box-shadow: 0 0 0 black;
+        transform: translate(0, 0);
     }
 
     .form-footnote {
@@ -98,10 +141,23 @@ button {
 
     .form-submit {
         font-size: var(--modal-font-size);
+        font-family: inherit;
         margin-top: 20px;
         padding: 20px;
         align-self: center;
         background-color: white;
+        border: 3px solid black;
+        transition: all 0.1s;
+    }
+
+    .form-submit:hover {
+        box-shadow: 0.3rem 0.3rem 0 black;
+        transform: translate(-0.2rem, -0.2rem);
+    }
+
+    .form-submit:active {
+        box-shadow: 0 0 0 black;
+        transform: translate(0, 0);
     }
 
 /* General Content Containers */
@@ -253,6 +309,10 @@ button {
     #form-opponent-selection {
         width: auto;
     }
+
+    .form-item label {
+        width: 230px;
+    }
     /* MAIN CONTENTS */
     .content-top {
         height: 15%;
@@ -309,3 +369,14 @@ button {
         text-align: center;
     }
 }
+
+/* ANIMATION */
+@keyframes slide {
+    from {
+      background-position: 0 0;
+    }
+  
+    to {
+      background-position: -120px 60px;
+    }
+  }
