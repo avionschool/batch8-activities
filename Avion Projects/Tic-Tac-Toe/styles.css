@@ -29,9 +29,8 @@ body, .content, .modal {
 
 
 .hide {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
+    height: 0;
+    display: none;
 }
 
 button {
@@ -44,7 +43,7 @@ button {
     justify-content: center;
     align-items: center;
     font-size: var(--modal-font-size);
-    transition: all 1s ease-in-out; 
+    transition: all 1s ease;
 
     /* Moving Background: designed by rémi and coded by Thibaud Goiffon */
     background-color: var(--modal-moving-color2);
