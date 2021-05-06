@@ -200,7 +200,7 @@ function stampMark() {
 function computerMarkEasy() {
     // computer chooses a grid to mark randomly
     const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
-    let indexes = Array.from(Array(gridItems.length).keys()); // convert gridItems to an array of its index equiv
+    let indexes = [...gridItems.keys()]; // convert gridItems to an array of its index equiv
     let emptyIndexes = indexes.filter(index => gridItems[index].textContent === ""); // create new array of indexes that pass the test
     let selectedIndex = emptyIndexes[Math.floor(Math.random()*emptyIndexes.length)]; // get a random no text gridItem
     let randomGridItem = gridItems[selectedIndex];
@@ -289,7 +289,6 @@ function endGameOnWin() {
     gameActive = false;
     contentMessage.textContent = `${currentPlayerMessage} Wins!`;
     (currentMark === xInput) ? xWins++ : oWins++;
-    console.log(currentMark);
     p1Wins.textContent = xWins;
     p2Wins.textContent = oWins;
 }
