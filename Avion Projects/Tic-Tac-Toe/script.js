@@ -77,6 +77,7 @@ let oName;
 let xInput;
 let oInput;
 let isComputerActive;
+let lockGrid = false;
 let xWins = 0;
 let oWins = 0;
 let currentMark; // whether it's X or O's turn
@@ -163,6 +164,7 @@ function removeMainFunction() {
 
 // Main function
 function stampMark() {
+    if (lockGrid) return; // flag to prevent click events during opponent timeout
     // function will run only if textContent contains nothing 
     if (this.textContent === "") {
         // modify board
@@ -188,7 +190,11 @@ function stampMark() {
         // If opponent is a computer, do computer's turn
         if (gameActive === true && isComputerActive === true) {
             contentMessage.textContent = `Computer is thinking`;
-            setTimeout(computerMarkEasy, 100);
+            lockGrid = true; // prevent click events during timeout
+            setTimeout(function() {
+                computerMarkEasy();
+                lockGrid = false; // set flag to false after timeout
+            }, 300);
         }
     }
 }
