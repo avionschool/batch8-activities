@@ -21,10 +21,6 @@ let nextMoveArr = [];
 let charsArrPrev = [];
 let charsArrNext = [];
 
-// board array cheat-sheet
-// first row : [0][0],[0][1],[0][2]
-// 2nd row : [1][0], [1][1], [1][2]
-// 3rd row : [2][0], [2][1], [2][2]
 
 // triggers when an individual cell gets clicked
 const cellClicked = (e) => {
@@ -43,9 +39,7 @@ const cellClicked = (e) => {
 
 // populates board array upon click
 pushToBoard = () => {
-  // first-row
-  // console.log(typeof cellId);
-  let delArr = [];
+  let delArr = []; // used so item on orig. array won't be emptied
   switch ( cellId ) {
     case '0':
       boardArr[0].splice(0,1) //deletes item on position [0][0]
@@ -87,34 +81,49 @@ pushToBoard = () => {
 
 }
 
+// board array cheat-sheet
+// first row : [0][0],[0][1],[0][2]
+// 2nd row : [1][0], [1][1], [1][2]
+// 3rd row : [2][0], [2][1], [2][2]
+
 let boardArr = [
   ['0','1','2'],
   ['3','4','5'],
   ['6','7','8']
 ];
-
-
 checkWinner = () => {
   console.table(boardArr)
-  // horizontal combos
-  // iterated using while-loop
 
   let i = 0;
   let tempArr = [];
 
   // first row
-  
+  // iterated using while-loop
   while (i < 1) {
     let j = 0;
-    while ( j < boardArr[0].length) {
-      boardArr[0][0] === boardArr[i][j] ? tempArr.push(boardArr[i][j]) : null ;
+    while ( j < boardArr[i].length) {
+      boardArr[i][0] === boardArr[i][j] ? tempArr.push(boardArr[i][j]) : null ;
       j++;
     }
-    tempArr.length == 3 ? alert(boardArr[0][0] + ' wins!') : null ; 
+    tempArr.length == 3 ? alert(boardArr[i][0] + ' wins!') : null ; 
   i++;
   }
+
+  // second row
+  // iterated using do-while-loop
+  do {
+    let j = 0;
+    do {
+      boardArr[i][0] === boardArr[i][j] ? tempArr.push(boardArr[i][j]) : null ;
+      j++;
+    } while ( j < boardArr[i].length-1);
+    tempArr.length == 3 ? alert(boardArr[i][0] + ' wins!') : null ; 
+    i++;
+  } while ( i > 0 && i < 2 );
+
 };
 
+checkWinner();
 
 
 // hide and shows previous and next button
@@ -132,7 +141,6 @@ prevMove = () => {
 
   // removes last item from previous move array 
   // Syntax: (index,howMany) -1 index for last item
-  // console.log('lastItem: ' + lastItem);
   prevMoveArr.splice(-1,1);
 
 
