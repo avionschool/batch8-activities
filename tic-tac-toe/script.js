@@ -1,10 +1,11 @@
-// variables
+// global variables
 const cellsArr  = Array.from(document.getElementsByClassName('cell'));
+let playerText = document.querySelector('h2');
 const O = "O";
 const X = "X";
 let currentPlayer,nextPlayer = X;
-let playerText = document.querySelector('h2');
 let cellId;
+let lastChar;
 const winningCombo = [
   [0, 1, 2],
   [3, 4, 5],
@@ -15,28 +16,70 @@ const winningCombo = [
   [0, 4, 8],
   [2, 4, 6]
 ];
-let xArr = [0, 1, 2];
 let prevMoveArr = [];
 let nextMoveArr = [];
 let charsArrPrev = [];
 let charsArrNext = [];
-let lastChar;
+
+// board array cheat-sheet
+// first row : [0][0],[0][1],[0][2]
+// 2nd row : [1][0], [1][1], [1][2]
+// 3rd row : [2][0], [2][1], [2][2]
 
 // triggers when an individual cell gets clicked
 const cellClicked = (e) => {
   cellId = e.target.id; 
+  pushToBoard();
   switchPlayer();
   updatePlayerText();
   e.target.textContent = currentPlayer;
   prevMoveArr.push(cellId);
   charsArrPrev.push(currentPlayer);
-};
-
-checkWinner = () => {
-  // winningCombo.some
-
   
 };
+
+// populates board array upon click
+pushToBoard = () => {
+  // first-row
+  switch ( cellId ) {
+    case 0:
+      // console.log('pushed' + currentPlayer);
+      alert('0');
+      break;
+  }
+  // boardArr[0].push = currentPlayer;
+  console.log(cellId);
+
+}
+
+let boardArr = [
+  ['X','O','X'],
+  ['3','4','5'],
+  ['6','7','8']
+];
+
+
+checkWinner = () => {
+  console.table(boardArr)
+  // horizontal combos
+  // iterated using while-loop
+
+  let i = 0;
+  let tempArr = [];
+  let playerVal;
+  // first row
+  while (i < 1) {
+    let j = 0;
+    while ( j < boardArr[0].length) {
+      boardArr[0][0] === boardArr[i][j] ? tempArr.push(boardArr[i][j]) : null ;
+      j++;
+    }
+    tempArr.length == 3 ? console.log(boardArr[0][0] + ' wins!') : null ; 
+  i++;
+  }
+};
+checkWinner();
+
 
 // hide and shows previous and next button
 showHideButton = () => {
@@ -125,5 +168,6 @@ drawBoard = () => {
   });
 };
 
+// Calling the functions
 drawBoard();
 
