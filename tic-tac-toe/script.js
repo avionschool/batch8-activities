@@ -32,10 +32,23 @@ const cellClicked = (e) => {
   charsArrPrev.push(currentPlayer);
 };
 
+checkWinner = () => {
+  // winningCombo.some
+
+  
+};
+
 // hide and shows previous and next button
 showHideButton = () => {
-  prevMoveArr.length != 0 ?  document.querySelector(".buttons").style.display = "inline" : document.querySelector(".buttons").style.display = "none" ;
-  nextMoveArr.length != 1 ?  document.getElementById("next-button").style.display = "inline" : document.getElementById("next-button").style.display = "none";
+  // document.querySelector(".buttons").visibility = "visible"
+  console.log('P: '+prevMoveArr.length);
+  console.log('N: '+nextMoveArr.length);
+
+
+  prevMoveArr.length != 0 ? document.querySelector('.buttons').style.visibility = "visible" : document.querySelector('.buttons').style.visibility = 'hidden' ;
+
+  
+  nextMoveArr.length != 0 ?  document.getElementById("next-button").style.visibility = "visible" : document.getElementById("next-button").style.visibility = "hidden";
 };
 
 // displays previous move
@@ -58,11 +71,13 @@ prevMove = () => {
   // empties the content of individual based on which was the last item of previous array
   document.getElementById(`${lastItem}`).textContent = null;
 
-  // showHideButton();
   nextMoveArr.push(lastItem);
   
   // removes last item of characters previous array 
   charsArrPrev.splice(-1,1);
+
+  showHideButton();
+
 };
 
 // displays next move
@@ -80,8 +95,9 @@ nextMove = () => {
   // adds the last item of characters next array to characters previous array
   charsArrPrev.push(lastChar);
   
-  // showHideButton();
   nextMoveArr.splice(-1,1);
+  showHideButton();
+
   document.getElementById(`${nextItem}`).textContent = lastChar;
 
   // removes last item of characters next array
@@ -94,9 +110,7 @@ switchPlayer = () => {
   currentPlayer = currentPlayer === O ? X : O;
 };
 
-checkWinner = () => {
 
-};
 
 // updates who's currently playing
 updatePlayerText = () => {
