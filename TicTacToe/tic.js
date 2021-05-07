@@ -1,12 +1,10 @@
-/* 
-SuperBasic TicTacToe (Human vs Human) 
-authon: Ahmet Ataşoğlu
-*/
 const DIAMETER = 100;
 const SCL = 0.8;
 
-let w, h, d; // the d is the diagonal length of X
+// d diagonal length of X
+let w, h, d;
 
+// cells default to empty
 let cells = [
 	[null, null, null],
 	[null, null, null],
@@ -14,14 +12,13 @@ let cells = [
 ];
 
 let count = 9;
-
 let player = 'X';
 let nextPlayer = 'O';
 let info;
 
-
+// draw board / settings
 function setup() {
-	createCanvas(500, 500);
+	createCanvas(700, 700);
 
 	w = floor(width / 3);
 	h = floor(height / 3);
@@ -29,8 +26,7 @@ function setup() {
 
 	info = document.getElementById("info");
 
-	// Settings...
-	strokeWeight(3);
+	strokeWeight(20);
 	noFill();
 }
 
@@ -45,7 +41,7 @@ function draw() {
 	}
 }
 
-function mousePressed() {
+function mouseClick() {
 	if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
 		let row = (mouseX - mouseX % w) / w;
 		let col = (mouseY - mouseY % h) / h;
@@ -55,11 +51,11 @@ function mousePressed() {
 			player = nextPlayer;
 			nextPlayer = cells[col][row];
 			count--;
-			// console.log(cells);		
+			// console.log(cells);
 		}
 	}
 }
-
+// Restart Game
 function keyPressed() {
 	if (keyCode === ENTER) {
 		cells = [
@@ -73,78 +69,77 @@ function keyPressed() {
 		loop();
 	}
 }
-
+// Board Drawing
 function drawLines() {
 	stroke(255);
 	for (let i = 1; i < 3; i++) {
-		line(w * i, 0, w * i, height);
+		line(w *  i, 0, w * i, height);
 		line(0, h * i, width, h * i);
 	}
 }
+
 function drawSymbols() {
 	let x, y, t;
 	stroke(255);
 	for (let i = 0; i < 3; i++) {
 		for (let j = 0; j < 3; j++) {
-			if (cells[i][j] == 'X') {
+			if (cells[i][i] == 'X') {
 				x = j * w;
 				y = i * h;
 				t = floor(d / sqrt(2));
-				
-				line(x + t, y + t, x + w - t, y + h - t);
+
+				line( x + t, y + t, x + w - t, y + h - t);
 				line(x + w - t, y + t, x + t, y + h - t);
-			} 
-			else if (cells[i][j] == 'O') {
+			}
+			else if (cells[i][i] == 'O' ) {
 				x = j * w + w / 2;
-				y = i * h + h / 2;
+				y = j * w + w/ 2;
 				ellipse(x, y, DIAMETER, DIAMETER);
-			} else {
+			}else {
 				continue;
 			}
 		}
 	}
 }
 
-function checkWinner() {
+function equals3(a, b, c) {
+	if (a == b && b == c && c != null) return true;
+		else return false;
+}
 
+function checkWinner() {
 	let x, y;
-	// Diagonal check
+	// Diagonal Winner
 	stroke(255, 0, 0);
 	if (equals3(cells[0][0], cells[1][1], cells[2][2])) {
 		winner = cells[0][0];
 		line(w / 2, h / 2, w * 2.5, h * 2.5);
 		return true;
 	}
-
 	if (equals3(cells[0][2], cells[1][1], cells[2][0])) {
 		winner = cells[0][2];
 		line(w * 2.5, h / 2, w / 2, h * 2.5);
 		return true;
 	}
 
-	for (let i = 0; i < 3; i++) {	
-		// Horizontal check
+	for (let i = 0; i < 3; i++) {
+		// Horizontal winner
 		if (equals3(cells[i][0], cells[i][1], cells[i][2])) {
 			winner = cells[i][0];
 			line(w / 2, h * (i + 0.5), w * 2.5, h * (i + 0.5));
 			return true;
 		}
-		// Vertical check
+		// Vertical winner
 		if (equals3(cells[0][i], cells[1][i], cells[2][i])) {
-			winner = cells[0][i];
+			winner = cells [0][i];
 			line(w * (i + 0.5), h / 2, w * (i + 0.5), h * 2.5);
 			return true;
 		}
 	}
-
+	
 	if (count == 0) {
-		winner = 'Nobody';
+		winner = 'No Winner';
 		return true;
 	}
 	return false;
-}
-
-function equals3(a, b, c) {
-	if (a == b && b == c && c != null) return true;
-	else return false;
 }
