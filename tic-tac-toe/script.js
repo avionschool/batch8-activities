@@ -87,9 +87,9 @@ pushToBoard = () => {
 // 3rd row : [2][0], [2][1], [2][2]
 
 let boardArr = [
-  ['0','1','2'],
-  ['3','4','5'],
-  ['6','7','8']
+  ['X','Y','X'],
+  ['X','Y','X'],
+  ['Y','Y','Y']
 ];
 checkWinner = () => {
   console.table(boardArr)
@@ -99,27 +99,48 @@ checkWinner = () => {
 
   // first row
   // iterated using while-loop
+  let score = 0;
   while (i < 1) {
     let j = 0;
     while ( j < boardArr[i].length) {
-      boardArr[i][0] === boardArr[i][j] ? tempArr.push(boardArr[i][j]) : null ;
+      boardArr[i][0] === boardArr[i][j] ? score++ : null ;
       j++;
     }
-    tempArr.length == 3 ? alert(boardArr[i][0] + ' wins!') : null ; 
+    score == 3 ? alert(boardArr[i][0] + ' wins!') : null ; 
   i++;
   }
 
+
   // second row
   // iterated using do-while-loop
+  score = 0;
   do {
     let j = 0;
     do {
-      boardArr[i][0] === boardArr[i][j] ? tempArr.push(boardArr[i][j]) : null ;
+      boardArr[i][0] === boardArr[i][j] ? score++ : null ;
       j++;
-    } while ( j < boardArr[i].length-1);
-    tempArr.length == 3 ? alert(boardArr[i][0] + ' wins!') : null ; 
+    } while ( j < boardArr[i].length);
+    score == 3 ? alert(boardArr[i][0] + ' wins!') : null ; 
     i++;
   } while ( i > 0 && i < 2 );
+
+
+  // third row
+  // iterated using for-loop
+  score = 0;
+  for (let i = 2; i < 3  && i > 1 ; i++) {
+    for (let j = 0; j < boardArr[i].length; j++) {
+      boardArr[i][0] === boardArr[i][j] ? score++ : null ;
+    }
+    score == 3 ? alert(boardArr[i][0] + ' wins!') : null ; 
+  }
+
+  // first column
+  for (let i = 0; i < boardArr.length; i++) {
+    // console.log(boardArr[i][0]);
+    // boardArr[0][0] === boardArr[i][0] ? tempArr.push(boardArr[i][0]) : null ; 
+  }
+  // tempArr.length == 3 ? alert(boardArr[0][0] + ' wins!') : null ; 
 
 };
 
