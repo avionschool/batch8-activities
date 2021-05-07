@@ -29,31 +29,66 @@ let charsArrNext = [];
 // triggers when an individual cell gets clicked
 const cellClicked = (e) => {
   cellId = e.target.id; 
-  pushToBoard();
   switchPlayer();
   updatePlayerText();
+
   e.target.textContent = currentPlayer;
   prevMoveArr.push(cellId);
   charsArrPrev.push(currentPlayer);
-  
+
+  pushToBoard();
+  checkWinner();
+
 };
 
 // populates board array upon click
 pushToBoard = () => {
   // first-row
+  // console.log(typeof cellId);
+  let delArr = [];
   switch ( cellId ) {
-    case 0:
-      // console.log('pushed' + currentPlayer);
-      alert('0');
+    case '0':
+      boardArr[0].splice(0,1) //deletes item on position [0][0]
+      delArr = boardArr[0].splice(0,0, currentPlayer) //replaces the item that was deleted
+      break;
+    case '1':
+      boardArr[0].splice(1,1)
+      delArr = boardArr[0].splice(1,0, currentPlayer)
+      break;
+    case '2':
+      boardArr[0].splice(2,1)
+      delArr = boardArr[0].splice(2,0, currentPlayer)
+      break;
+    case '3':
+      boardArr[1].splice(0,1)
+      delArr = boardArr[1].splice(0,0, currentPlayer)
+      break;
+    case '4':
+      boardArr[1].splice(1,1)
+      delArr = boardArr[1].splice(1,0, currentPlayer)
+      break;
+    case '5':
+      boardArr[1].splice(2,1)
+      delArr = boardArr[1].splice(2,0, currentPlayer)
+      break;
+    case '6':
+      boardArr[2].splice(0,1)
+      delArr = boardArr[2].splice(0,0, currentPlayer)
+      break;
+    case '7':
+      boardArr[2].splice(1,1)
+      delArr = boardArr[2].splice(1,0, currentPlayer)
+      break;
+    default:
+      boardArr[2].splice(2,1)
+      delArr = boardArr[2].splice(2,0, currentPlayer)
       break;
   }
-  // boardArr[0].push = currentPlayer;
-  console.log(cellId);
 
 }
 
 let boardArr = [
-  ['X','O','X'],
+  ['0','1','2'],
   ['3','4','5'],
   ['6','7','8']
 ];
@@ -66,31 +101,27 @@ checkWinner = () => {
 
   let i = 0;
   let tempArr = [];
-  let playerVal;
+
   // first row
+  
   while (i < 1) {
     let j = 0;
     while ( j < boardArr[0].length) {
       boardArr[0][0] === boardArr[i][j] ? tempArr.push(boardArr[i][j]) : null ;
       j++;
     }
-    tempArr.length == 3 ? console.log(boardArr[0][0] + ' wins!') : null ; 
+    tempArr.length == 3 ? alert(boardArr[0][0] + ' wins!') : null ; 
   i++;
   }
 };
-checkWinner();
+
 
 
 // hide and shows previous and next button
 showHideButton = () => {
-  // document.querySelector(".buttons").visibility = "visible"
-  console.log('P: '+prevMoveArr.length);
-  console.log('N: '+nextMoveArr.length);
-
 
   prevMoveArr.length != 0 ? document.querySelector('.buttons').style.visibility = "visible" : document.querySelector('.buttons').style.visibility = 'hidden' ;
 
-  
   nextMoveArr.length != 0 ?  document.getElementById("next-button").style.visibility = "visible" : document.getElementById("next-button").style.visibility = "hidden";
 };
 
