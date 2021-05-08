@@ -35,7 +35,7 @@ body {
 .cell {
   width: var(--cell-size);
   height: var(--cell-size);
-  border: 1px solid black;
+  border: 3px solid rgb(182, 180, 180);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -47,15 +47,15 @@ body {
   margin-top: 40px;
 }
 
-/* fixed background  */
 body {
   background-repeat: no-repeat;
   background-size: cover;
+  color: black;
 }
 
 /* Images */
 body {
-  /* background-image: url(/assets/element5-digital-LTyDj7u_TU4-unsplash.jpg); */
+  background-image: url(/assets/federica-galli-aiqKc07b5PA-unsplash.jpg);
 }
 
 /* removes border of board  */
