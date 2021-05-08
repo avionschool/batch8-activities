@@ -237,6 +237,26 @@ function createBoardInstance() {
     gridHistory.push(grid2D); // push instance into gridHistory
 }
 
+
+function createGridArrayInstance() {
+    // takes current board and returns a 1D array
+    // e.g. ["", "", "", "", "", "O", "X", "", ""]
+    const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
+    return gridItems.map(function(item) {
+        return item.textContent;
+    })
+}
+
+function create2DArray(arr) {
+    // takes 1D array and turns into 2D array
+    let arrCopy = [...arr]; // shallow copy
+    let newArr = [];
+    while(arrCopy.length) {
+        newArr.push(arrCopy.splice(0,gridSize)); // create 1D array by splicing 3 items at a time and push into 2D array
+    };
+    return newArr;
+}
+
 function checkWin(grid2D) {
     // checks if win using magic squares algorithm
     // Establish variables
@@ -313,25 +333,6 @@ function switchStates() {
         currentPlayerMessage = (currentMark === xInput) ? `${xName} (${xInput})`:`${oName} (${oInput})`;
         contentMessage.textContent = `It's ${currentPlayerMessage}'s turn`
     }
-}
-
-function createGridArrayInstance() {
-    // takes current board and returns a 1D array
-    // e.g. ["", "", "", "", "", "O", "X", "", ""]
-    const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
-    return gridItems.map(function(item) {
-        return item.textContent;
-    })
-}
-
-function create2DArray(arr) {
-    // takes 1D array and turns into 2D array
-    let arrCopy = [...arr]; // shallow copy
-    let newArr = [];
-    while(arrCopy.length) {
-        newArr.push(arrCopy.splice(0,gridSize)); // create 1D array by splicing 3 items at a time and push into 2D array
-    };
-    return newArr;
 }
 
 // Content buttons: DOM and functions
