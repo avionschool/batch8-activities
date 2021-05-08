@@ -55,7 +55,8 @@ body {
 
 /* Images */
 body {
-  background-image: url(/assets/federica-galli-aiqKc07b5PA-unsplash.jpg);
+  /* saved on local */
+  background-image: url(assets/federica-galli-aiqKc07b5PA-unsplash.jpg);
 }
 
 /* removes border of board  */
