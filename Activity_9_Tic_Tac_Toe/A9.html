@@ -1,5 +1,4 @@
-<!--
-TIC TAC TOE (5 DAYS)
+<!-- TIC TAC TOE (5 DAYS)
 Phase 1
 • Create a game of tic tac toe.
 • The design, representation and responsiveness of the tic tac toe board in the DOM is up to your creativity and imagination.
@@ -19,39 +18,48 @@ Phase 2
     c. clears move history
 • Yes. Refreshing the page clears the history of the game.
 • No. You cannot use any library like React etc. (You can check them as references though.)
-• No. You cannot use class(objects). Let's be "functional" for now!
--->
+• No. You cannot use class(objects). Let's be "functional" for now!-->
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic Tac Toe Game Project</title>
         <link rel="stylesheet" href="A9.css">
         <script src="A9.js" defer></script>
-        <!--use defer so the script loads after the body of our html.-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tic Tac Toe Project</title>
+        <!--use defer so the script loads after the body of our html-->
+        <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
     </head>
 <body>
-    <main class="mainContainer">
-    <!--Tic-Tac-Toe Board
-        • class specifically for designs
-        • id specifically for Javascript
-        • use " " to put more than one classes-->
-        <div class="tContainer x" id="t3Container">
-            <div class="tBox x" id="rightLine"></div>
-            <div class="tBox o" id="rightLine"></div>
-            <div class="tBox"></div>
-            <div class="tBox" id="topRightLine"></div>
-            <div class="tBox" id="topRightLine"></div>
-            <div class="tBox" id="topLine"></div>
-            <div class="tBox" id="topRightLine"></div>
-            <div class="tBox" id="topRightLine"></div>
-            <div class="tBox" id="topLine"></div>
+    <main class="container">
+        <h1>
+            <span class="fontRed">TIC</span>
+            <span class="fontBlue">TAC</span>
+            <span class="fontGreen">TOE</span>
+        </h1>
+        <!--Tic-Tac-Toe Board-->
+        <div class="board" id="board">
+            <div class="cell" id="rightBorder"></div>
+            <div class="cell" id="rightBorder"></div>
+            <div class="cell"></div>
+            <div class="cell" id="topRightBorder"></div>
+            <div class="cell" id="topRightBorder"></div>
+            <div class="cell" id="topBorder"></div>
+            <div class="cell" id="topRightBorder"></div>
+            <div class="cell" id="topRightBorder"></div>
+            <div class="cell" id="topBorder"></div>
         </div>
-    <!--button pop-up when the game's finshed.-->
-        <div class="gameFinishedContainerC" id="gameFinishedContainerI">
-            <p id="gameFinishedDeclaration">Win!</p>
-            <button id="gameFinishedButtons">Finished</button>
-            <button id="gameFinishedButtons">Next</button>
+        <!--Pop-up displays-->
+        <div class="popUp" id="popUp">
+            <p class="winMessage fontRed" id="winMessage">Player X Wins!</p>
+            <div class="buttons">
+                <button class="button fontRed">Previous</button>
+                <button class="button fontRed">Next</button>
+                <button class="button fontRed" onclick="startGame()">Reset</button>
+            </div>
+        </div>
+        <div class="popUpTwo" id="popUpTwo">
+            <h3 class="fontBlue">Move History</h3>
+            <div class="fontRed" id="storage"></div>
         </div>
     </main>
 </body>
