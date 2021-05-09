@@ -121,7 +121,12 @@ function initializeContent() {
     addMainFunction();
     createBoardInstance(); // push empty board to gridHistory
     if (isXFirst == 0) { // switch to let O go first
-        switchStates();
+        oPlayerMovesFirst();
+    };
+}
+
+function oPlayerMovesFirst() {
+    switchStates();
         if (isComputerActive) {
             isGridLocked = true;
             setTimeout(function() {
@@ -129,7 +134,6 @@ function initializeContent() {
                 isGridLocked = false;
             }, 1000); // let computer move after animation duration
         }
-    };
 }
 
 function createGrid(num) {
@@ -390,13 +394,18 @@ function createBoardStateFrom2DArray() {
 }
 
 function resetBoard() {
-    currentMark = xInput;
-    turnNo = 0;
     isGameActive = true;
+    if (currentMark === xInput) { // if x wins; let o go first next
+        oPlayerMovesFirst();
+    } else { // else if o wins; let x go first next
+        currentMark = xInput;
+        contentMessage.textContent = `Player 1 goes first`;
+    }
+    turnNo = 0;
     addMainFunction();
     gridHistory = []; // reset gridHistory
     createBoardInstance(); // and push empty board as its first index
-    contentMessage.textContent = `Player 1 goes first`;
+    
     previousBtn.classList.add('hide');
     previousBtn.classList.remove('disabled');
     previousBtn.disabled = false;
