@@ -11,20 +11,33 @@ const WINNING_COMBINATIONS = [
     [0, 4, 8],
     [2, 4, 6]
 ]
-const cellElements = document.querySelectorAll('[data-cell]');
+
+const cellElements = document.querySelectorAll('.cell');
 const board = document.getElementById('board');
 const winningMessageElement = document.getElementById('winningMessage');
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
 const restartButton = document.getElementById('restartButton');
+const turnMessage = document.querySelectorAll('.turn');
 let circleTurn
+var currentClass;
 
-const move = [['']]
+const move = [''];
 
 const myHistory = [
     ['', '', ''],
     ['', '', ''],
     ['', '', '']
-]
+];
+
+//next and previous buttons
+const prev = document.getElementById('prevButton');
+const next = document.getElementById('nextButton');
+const storePrev = [];
+const storeNext = [];
+const movePrev = [];
+const moveNext = [];
+// const getCellLoc = 
+
 
 
 
@@ -47,8 +60,11 @@ function startGame() {
 }
 
 function handleClick (e) {
-    const cell = e.target
+    const cell = e.target;
+    const classList = cell.classList;
+    const getNode = classList[1];
     const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
+
     placeMark(cell, currentClass);
     if (checkWin(currentClass)) {
         endGame(false);
@@ -57,14 +73,19 @@ function handleClick (e) {
     }
     swapTurns();
     setBoardHoverClass();
-    history ();
+    storePrev.push(getNode); // to store variable same check
+    movePrev.push(classList[2])
+
+
+    console.log(classList)
 }
+
 
 function endGame(draw) {
     if (draw) {
-        winningMessageTextElement.innerText = 'Draw!'
+        winningMessageTextElement.innerText = 'Draw!';
     } else {
-        winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
+        winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
     }
     winningMessageElement.classList.add('show');
 }
@@ -82,6 +103,11 @@ function placeMark (cell, currentClass) {
 
 function swapTurns () {
     circleTurn = !circleTurn;
+    if (circleTurn) {
+        turnMessage.innerText = 'o turn'; 
+    } else {
+        turnMessage.innerText = 'x turn';
+    }
 }
 
 function setBoardHoverClass () {
@@ -102,10 +128,36 @@ function checkWin(currentClass) {
     })
 }
 
-// History, next and previous\\f
+// events of next and prev
 
-function history (cellElements, currentClass) {
-    move.splice(cellElements, 0, currentClass);
-    console.log(myHistory);
-    move.push(myHistory);
-}
+prev.addEventListener('click', (e) => {
+    if (storePrev.length !=0) {
+        let lastMove = storePrev[storePrev.length - 1];
+        let targetCell = cellElements[lastMove];
+        let lastPlayer = movePrev[movePrev.length - 1];
+        targetCell.classList.remove(targetCell.classList[2]);
+        storeNext.push(lastMove); // was able to store
+        storePrev.pop();
+        moveNext.push(lastPlayer);
+        movePrev.pop();
+
+        console.log(lastPlayer)
+    }
+})
+
+next.addEventListener('click', () => {
+    if (storeNext.length != 0) {
+        let lastMove = storeNext[storeNext.length -1]; 
+        let targetCell = cellElements[lastMove]; 
+        let lastPlayer = moveNext[moveNext.length - 1];
+        targetCell.classList.add(moveNext[moveNext.length - 1]);
+        storePrev.push(lastMove);
+        storeNext.pop();
+        movePrev.push(lastPlayer);
+        moveNext.pop();
+
+        console.log(cellElements)
+    } else {
+
+    }
+})

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,30 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
+    <p class="turn">x</p>
     <div class="board" id="board">
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
+        <div class="cell 0" data-cell></div>
+        <div class="cell 1" data-cell></div>
+        <div class="cell 2" data-cell></div>
+        <div class="cell 3" data-cell></div>
+        <div class="cell 4" data-cell></div>
+        <div class="cell 5" data-cell></div>
+        <div class="cell 6" data-cell></div>
+        <div class="cell 7" data-cell></div>
+        <div class="cell 8" data-cell></div>
     </div>
     <div class="winning-message" id="winningMessage">
         <div data-winning-message-text></div>
         <button id="restartButton">Restart</button>
     </div>
-    
+
+    <div class="buttons">
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+    </div>
+
 </body>
+
 </html>
