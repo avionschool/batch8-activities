@@ -4,6 +4,7 @@ const modal = document.querySelector('.modal');
 const modalContainer = document.querySelector('.modal-container');
 const content = document.querySelector('.content');
 const formGridSize = document.querySelector('#form-grid-size');
+const formFirstMove = document.querySelector('#form-first-move');
 const formOpponentSelection = document.querySelector('#form-opponent-selection');
 const playersMarks = document.querySelector('#form-players-marks');
 const opponentsMarks = document.querySelector('#form-opponents-marks');
@@ -76,15 +77,16 @@ let xName = "Player 1";
 let oName;
 let xInput;
 let oInput;
+let isXFirst;
 let isComputerActive;
-let lockGrid = false;
+let isGridLocked = false;
 let xWins = 0;
 let oWins = 0;
 let currentMark; // whether it's X or O's turn
 let currentPlayerMessage; // used to display player turn
 let turnNo = 0; // used as index for gridHistory
 let turnFinished; // to be set later for max gridHistory index for prev/next buttons
-let gameActive = true;
+let isGameActive = true;
 let gridHistory = [];
 let gridBoard; // 1d array of grid
 let grid2D; // 2d array of grid
@@ -93,6 +95,7 @@ let grid2D; // 2d array of grid
 function initializeContent() {
     // Assign variables
     gridSize = formGridSize.value; 
+    isXFirst = formFirstMove.value;
     oName = formOpponentSelection.value;
     xInput = playersMarks.value;
     oInput = opponentsMarks.value;
@@ -117,6 +120,16 @@ function initializeContent() {
     createGrid(gridSize);
     addMainFunction();
     createBoardInstance(); // push empty board to gridHistory
+    if (isXFirst == 0) { // switch to let O go first
+        switchStates();
+        if (isComputerActive) {
+            isGridLocked = true;
+            setTimeout(function() {
+                computerMarkEasy();
+                isGridLocked = false;
+            }, 1000); // let computer move after animation duration
+        }
+    };
 }
 
 function createGrid(num) {
@@ -164,7 +177,7 @@ function removeMainFunction() {
 
 // Main function
 function stampMark() {
-    if (lockGrid) return; // flag to prevent click events during opponent timeout
+    if (isGridLocked) return; // flag to prevent click events during opponent timeout
     // function will run only if textContent contains nothing 
     if (this.textContent === "") {
         // modify board
@@ -179,7 +192,7 @@ function stampMark() {
 
         // if game has ended, disable click events, set max prev/next index, show prev/next buttons, 
         // and disable next button
-        if (gameActive === false) {
+        if (isGameActive === false) {
             removeMainFunction();
             turnFinished = turnNo; // set max array index for prev/next buttons
             previousBtn.classList.remove('hide');
@@ -189,12 +202,12 @@ function stampMark() {
         }
 
         // If opponent is a computer, do computer's turn
-        if (gameActive === true && isComputerActive === true) {
+        if (isGameActive === true && isComputerActive === true) {
             contentMessage.textContent = `Computer is thinking`;
-            lockGrid = true; // prevent click events during timeout
+            isGridLocked = true; // prevent click events during timeout
             setTimeout(function() {
                 computerMarkEasy();
-                lockGrid = false; // set flag to false after timeout
+                isGridLocked = false; // set flag to false after timeout
             }, 300);
         }
     }
@@ -220,7 +233,7 @@ function computerMarkEasy() {
 
     // if game has ended, disable click events, set max prev/next index, show prev/next buttons, 
     // and disable next button
-    if (gameActive === false) {
+    if (isGameActive === false) {
         removeMainFunction();
         turnFinished = turnNo; // set max array index for prev/next buttons
         previousBtn.classList.remove('hide');
@@ -310,7 +323,7 @@ function checkWin(grid2D) {
 
 function endGameOnWin() {
     // ends game and modifies message and win counter
-    gameActive = false;
+    isGameActive = false;
     contentMessage.textContent = `${currentPlayerMessage} Wins!`;
     (currentMark === xInput) ? xWins++ : oWins++;
     p1Wins.textContent = xWins;
@@ -321,14 +334,14 @@ function checkDraw() {
     // ends game if turnNo reaches max gridSize
     if (turnNo === gridSize**2) {
         contentMessage.textContent = `Game ended in a draw!`;
-        gameActive = false;
+        isGameActive = false;
         return true;
     }
 }
 
 function switchStates() {
     // changes currentMark global variable
-    if (gameActive === true) {
+    if (isGameActive === true) {
         currentMark = (currentMark === xInput) ? oInput : xInput;
         currentPlayerMessage = (currentMark === xInput) ? `${xName} (${xInput})`:`${oName} (${oInput})`;
         contentMessage.textContent = `It's ${currentPlayerMessage}'s turn`
@@ -379,12 +392,14 @@ function createBoardStateFrom2DArray() {
 function resetBoard() {
     currentMark = xInput;
     turnNo = 0;
-    gameActive = true;
+    isGameActive = true;
     addMainFunction();
     gridHistory = []; // reset gridHistory
     createBoardInstance(); // and push empty board as its first index
     contentMessage.textContent = `Player 1 goes first`;
     previousBtn.classList.add('hide');
+    previousBtn.classList.remove('disabled');
+    previousBtn.disabled = false;
     nextBtn.classList.add('hide');
 }
 
