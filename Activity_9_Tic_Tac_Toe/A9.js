@@ -2,10 +2,11 @@
 //automatically let isOTurn = false;
 //querySelector() = get the first element in the document with that id/class
 //querySelectorAll() = get all elements in the document with that id/class
+//you need to place the oP, xP, dP as a global variable so it won't restart
 let xClass = "X";
 let oClass = "O";
 let isXTurn = true;
-let cells = document.querySelectorAll('.cell')
+let cells = document.querySelectorAll('.cell');
 let winningCombination = [
     [0, 1, 2],
     [3, 4, 5],
@@ -15,12 +16,21 @@ let winningCombination = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
-]
-let board = document.getElementById('board')
-let popUp = document.getElementById('popUp')
-let popUpTwo = document.getElementById('popUpTwo')
-let winMessage = document.getElementById('winMessage')
+];
+let board = document.getElementById('board');
+let popUp = document.getElementById('popUp');
+let popUpTwo = document.getElementById('popUpTwo');
+let winMessage = document.getElementById('winMessage');
 let storage = document.getElementById('storage');
+let xWinNotif = "Player X Wins!";
+let oWinNotif = "Player O Wins!";
+let drawNotif = "It's a draw!";
+let oP = 0;
+let xP = 0;
+let dP = 0;
+let xPoints = document.getElementById('xPoints')
+let drawPoints = document.getElementById('drawPoints')
+let oPoints = document.getElementById('oPoints')
 
 //need to run startGame function upon opening the browser
 //.forEach = Running the function through each cell one by one
@@ -36,7 +46,7 @@ function startGame() {
         cell.addEventListener('click', playerClick, { once: true })
         cell.addEventListener('click', function (e) {
             let moveLog = document.createElement('p')
-            moveLog.innerText = "Player " + currentClass + " selected the " + index + " box";
+            moveLog.innerText = "Player " + currentClass + " marked #" + index + " cell";
             storage.appendChild(moveLog);
         }, { once: true })
     })
@@ -93,14 +103,21 @@ function checkWin(currentClass) {
     })
 }
 
+//only use .value if you are going to get the value of the element, numbers doesn't need it
 function endGame(draw) {
     if (draw) {
-        winMessage.innerText = `It's a draw!`
+        winMessage.innerText = drawNotif
+        dP++;
+        drawPoints.innerText = dP;
     } else {
         if (isXTurn) {
-            winMessage.innerText = `Player X Wins!`
+            winMessage.innerText = xWinNotif;
+            xP++;
+            xPoints.innerText = xP;
         } else {
-            winMessage.innerText = `Player O Wins!`
+            winMessage.innerText = oWinNotif
+            oP++;
+            oPoints.innerText = oP;
         }
     }
     popUp.classList.add('show')
@@ -138,3 +155,29 @@ function clearBoard() {
     popUpTwo.classList.remove('show')
     storage.innerHTML = ""
 }
+
+
+// 1. bawat move , naglolog sa playerXArr and player0Arr, respectively
+// 2. pag pinundot ung previous, mag.remove latest .lenght - 1 class kung sino turn niya and viceversa (if turnx .lenght -1  if turn0.lenght-1)
+// 3. pag pinundot ung nextbutton, papasok siya sa historyArr and currentArr and revert back dun sa original arr without remove
+// const playerXArr = [1 3 5];
+// const player0Arr = [2 4 6];
+// const currentArr = [1 2 3 4 5 6];
+// const historyArr = [];
+
+// function logMove () {
+//     if (isXTurn) {
+//         history.push
+//     }
+// }
+
+// moveHistory[moveHistory.length - 1].forEach(function (move, index){
+//     cells[i].classList.remove(xClass);
+//     cells[i].classList.remove(oClass);
+//     if(move == xClass){
+//       cells[i].classList.add(xClass);
+     
+//     } else if (move == oClass) {
+//      cells[i].classList.add(oclass);
+//     }
+//  })

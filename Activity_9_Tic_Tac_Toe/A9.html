@@ -31,11 +31,27 @@ Phase 2
     </head>
 <body>
     <main class="container">
-        <h1>
-            <span class="fontRed">TIC</span>
-            <span class="fontBlue">TAC</span>
-            <span class="fontGreen">TOE</span>
-        </h1>
+        <div class="header">
+            <h1>
+                <span class="fontRed">TIC -</span>
+                <span class="fontBlue">TAC -</span>
+                <span class="fontGreen">TOE</span>
+            </h1>
+            <div class="status">
+                <span class="fontRed">
+                    <h2 >Player X</h2>
+                        <p class="centerPoints" id="xPoints">0</p>
+                </span>
+                <span class="fontGreen">
+                    <h2>Draw</h2>
+                        <p class="centerPoints" id="drawPoints">0</p>
+                </span>
+                <span class="fontBlue">
+                    <h2>Player O</h2>
+                        <p class="centerPoints" id="oPoints">0</p>
+                </span>
+            </div>
+        </div>
         <!--Tic-Tac-Toe Board-->
         <div class="board" id="board">
             <div class="cell" id="rightBorder"></div>
@@ -59,7 +75,7 @@ Phase 2
         </div>
         <div class="popUpTwo" id="popUpTwo">
             <h3 class="fontBlue">Move History</h3>
-            <div class="fontRed" id="storage"></div>
+            <p class="fontRed underline" id="storage"></p>
         </div>
     </main>
 </body>
