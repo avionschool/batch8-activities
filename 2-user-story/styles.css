@@ -1,14 +1,15 @@
-/* imports and variables */
+/* VARIABLES AND IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Raleway:wght@100&display=swap');
 
+/* MISC  */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-/* typography */
+/* TYPOGRAPHY */
 h1 {
   font-family: 'EB Garamond', serif;
 }
@@ -16,48 +17,56 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-#main {
-  font-size: medium;
+a {
+  text-decoration: none;
 }
 
-#title {
-  font-size: 90px;
-  color: #000000;
-  text-align: center;
-  background-color: rgb(231, 231, 231);
-}
-
-#img-div {
-  display: absolute;
-  text-align: center;
-}
-
-#image {
+/* POSITION */
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  position: relative;
   width: 100%;
+  height: 60px;
+  z-index: 1;
 }
 
-#img-caption {
-  color: #000000;
-  align-content: center;
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  max-width: 1500px;
+  justify-content: space-around;
+  align-items: center;
 }
 
-#tribute-info {
-  color: #000000;
-  text-align: center;
+.left-container,
+.right-container {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 300px;
+  z-index: 1;
 }
 
-#tribute-link {
+.left-container {
+  justify-content: flex-start;
 }
 
-* {
-  font-family: Helvetica, sans-serif;
+.right-container {
+  justify-content: flex-end;
 }
 
-q {
-  font-style: italic;
+.nav-left,
+.nav-right {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  flex-basis: 300px;
+  align-items: center;
 }
-
-head,
-body {
-  background-color: rgb(245, 245, 245);
+/* color and design  */
+.nav-left,
+.nav-right {
+  list-style-type: none;
 }
