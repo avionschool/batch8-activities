@@ -17,7 +17,7 @@ const board = document.getElementById('board');
 const winningMessageElement = document.getElementById('winningMessage');
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
 const restartButton = document.getElementById('restartButton');
-const turnMessage = document.querySelectorAll('.turn');
+const turnMessage = document.querySelector('[turn-message');
 let circleTurn
 var currentClass;
 
@@ -66,8 +66,9 @@ function handleClick (e) {
     const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
 
     placeMark(cell, currentClass);
+
     if (checkWin(currentClass)) {
-        endGame(false);
+        endGame(false); 
     } else if (isDraw()) {
         endGame(true);
     }
@@ -76,8 +77,6 @@ function handleClick (e) {
     storePrev.push(getNode); // to store variable same check
     movePrev.push(classList[2])
 
-
-    console.log(classList)
 }
 
 
@@ -87,6 +86,7 @@ function endGame(draw) {
     } else {
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
     }
+    turnMessage.removeAttribute('innerText'); // need to work on
     winningMessageElement.classList.add('show');
 }
 
@@ -121,9 +121,9 @@ function setBoardHoverClass () {
 }
 
 function checkWin(currentClass) {
-    return WINNING_COMBINATIONS.some(combination => {
-        return combination.every(index => {
-            return cellElements[index].classList.contains(currentClass);
+    return WINNING_COMBINATIONS.some(combination => { // to loop in all combination
+        return combination.every(index => { // while looping it checks if it has the same class.
+            return cellElements[index].classList.contains(currentClass); // it checks what index the class is.
         })
     })
 }
