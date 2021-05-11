@@ -1,11 +1,11 @@
 /* 
-* VARIABLES AND IMPORTS 
+* "VARIABLES AND IMPORTS"
 */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Raleway:wght@100&display=swap');
 
 /* 
-* MISC  
+* "MISC" 
 */
 * {
   padding: 0;
@@ -15,11 +15,11 @@
 
 /* 
 * 
-*TYPOGRAPHY
+* "TYPOGRAPHY"
 * 
 */
 
-h1 {
+#home h1 {
   font-family: 'EB Garamond', serif;
 }
 body {
@@ -36,10 +36,10 @@ a {
 *
 */
 .header {
+  position: fixed;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  position: fixed;
   width: 100%;
   height: 60px;
   z-index: 1;
@@ -79,10 +79,53 @@ a {
   align-items: center;
 }
 
+#home {
+  position: relative;
+}
+
+#home img {
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+}
+
+#home h1,
+p {
+  position: absolute;
+  bottom: 15%;
+  left: 55%;
+}
+
+#home p {
+  position: absolute;
+  bottom: 12%;
+  left: 55%;
+}
+
+/* 
+* 
+* "SIZE" 
+*
+*/
+
 /* 100 vh  and 100 vw */
 section {
   height: 100vh;
   width: 100%;
+}
+
+#home img {
+  /* height: 70%; */
+  width: 27%;
+}
+
+#home h1,
+p {
+  font-size: 7em;
+}
+
+#home p {
+  font-size: 3em;
 }
 
 /* 
@@ -100,6 +143,7 @@ section {
 .header,
 section:nth-child(odd) {
   background-color: white;
+  /* visibility: hidden; */
 }
 
 body {
