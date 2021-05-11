@@ -1,0 +1,4 @@
+body {text-align: center; font-family: 'Baloo Bhai', cursive;}
+canvas {margin: 0% auto; display: block;}
+#info {font-size: 18pt; color: red; font-weight: bold;}
+#reset, #previous, #next {font-size: 16pt; color: green;}
