@@ -197,7 +197,7 @@ prevMove = () => {
   lastChar = charsArrPrev[charsArrPrev.length - 1];
 
   // logs every move
-  console.log(`[ ${lastItem} , ${lastChar} ]`);
+  // console.log(`[ ${lastItem} , ${lastChar} ]`);
 
   // adds last item to characters next array
   charsArrNext.push(lastChar);
@@ -211,10 +211,20 @@ prevMove = () => {
   charsArrPrev.splice(-1, 1);
 
   showHideButton();
+
+  // coding challenge: objects
+  let prevMoveObj = {
+    lastItem1: lastItem,
+    lastChar1: lastChar,
+    saveMove: function () {
+      return `[ ${this.lastItem1},${this.lastChar1} ]`;
+    },
+  };
+
+  console.log(prevMoveObj.saveMove());
 };
 
 // displays next move
-
 nextMove = () => {
   // get last item of next move array
   let nextItem = nextMoveArr[nextMoveArr.length - 1];
@@ -229,7 +239,7 @@ nextMove = () => {
   charsArrPrev.push(lastChar);
 
   // logs every move
-  console.log(`[ ${nextItem} , ${lastChar} ]`);
+  // console.log(`[ ${nextItem} , ${lastChar} ]`);
 
   nextMoveArr.splice(-1, 1);
   showHideButton();
@@ -238,6 +248,17 @@ nextMove = () => {
 
   // removes last item of characters next array
   charsArrNext.splice(-1, 1);
+
+  // coding challenge: Objects topic
+  let nextMoveObj = {
+    nextItem1: nextItem,
+    nextChar1: lastChar,
+    saveMove: function () {
+      return `[ ${this.nextItem1},${this.nextChar1} ]`;
+    },
+  };
+
+  console.log(nextMoveObj.saveMove());
 };
 
 // switches X to O, vice-versa then updates value of variable currentPlayer
