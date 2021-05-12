@@ -87,7 +87,48 @@ function createObject() {
 
 // Javascript.info 'Object' challenges
 
+// Coding challenge: object and prototypes
+function createObjectandProps() {
+  let store = {
+    storeName: 'Bookstore',
+    inventoryList: [],
+    earningsAmt: 0,
+  };
+
+  let book = {};
+  let bookArr = [];
+
+  function addBook(title, qty, value) {
+    // passes value of title, qty, value parameters to book's properties
+    book.title = title;
+    book.qty = qty;
+    book.value = value;
+
+    // add to an array of book to the inventory
+    for (let key in book) {
+      // key === 'title' ? store.inventoryList.push(book[key]) : null;
+    }
+  }
+
+  function restockBook(title, qty) {
+    for (let key in store) {
+      // key === 'inventoryList' ? console.log('H') : null;
+      // store.inventoryList.push
+    }
+  }
+
+  // invoke functions
+  // creates a book object
+  addBook('Book1', 1, 10.0);
+  addBook('Book2', 2, 20.0);
+  addBook('Book3', 3, 30.0);
+
+  // adds book to inventory but won't push thru if book exists
+  restockBook('Book1', 1); //exists - will push thru and add 1 in the inventory
+  restockBook('Book4', 1); //doesnt exists - won't push thru w/ restock
+}
 
 // invoke functions here:
-//  quizGameExp();
-createObject();
+// quizGameExp();
+// createObject();
+createObjectandProps();
