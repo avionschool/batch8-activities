@@ -88,47 +88,74 @@ function createObject() {
 // Javascript.info 'Object' challenges
 
 // Coding challenge: object and prototypes
-function createObjectandProps() {
+function bookStore() {
   let store = {
     storeName: 'Bookstore',
     inventoryList: [],
     earningsAmt: 0,
   };
+  let book;
 
-  let book = {};
-  let bookArr = [];
-
-  function addBook(title, qty, value) {
-    // passes value of title, qty, value parameters to book's properties
-    book.title = title;
-    book.qty = qty;
-    book.value = value;
-
-    // add to an array of book to the inventory
-    for (let key in book) {
-      // key === 'title' ? store.inventoryList.push(book[key]) : null;
-    }
+  function AddBook(title, qty, value) {
+    book = {
+      // this is equivalent to title = title;
+      title,
+      qty,
+      value,
+    };
+    // adds book object to inventoryList array
+    store.inventoryList.push(book);
   }
 
+  // this function only re-stocks book when the book exists
   function restockBook(title, qty) {
-    for (let key in store) {
-      // key === 'inventoryList' ? console.log('H') : null;
-      // store.inventoryList.push
+    for (let i = 0; i < store.inventoryList.length; i++) {
+      let isFound;
+      let book = store.inventoryList[i];
+      // sets value of isFound to true if book title was found
+      title === book.title ? (isFound = true) : (isFound = false);
+      if (isFound == true) {
+        book.qty += qty;
+        // console.log(`Book found.\nTitle: ${book.title} Quantity: ${book.qty}`);
+        return;
+      } else {
+        // console.log(`Book not found. Re-stock failed.`);
+        return;
+      }
     }
   }
 
-  // invoke functions
-  // creates a book object
-  addBook('Book1', 1, 10.0);
-  addBook('Book2', 2, 20.0);
-  addBook('Book3', 3, 30.0);
+  function sellBook(title, qty) {
+    let isFound;
 
-  // adds book to inventory but won't push thru if book exists
-  restockBook('Book1', 1); //exists - will push thru and add 1 in the inventory
-  restockBook('Book4', 1); //doesnt exists - won't push thru w/ restock
+    for (let i = 0; i < store.inventoryList.length; i++) {
+      let book = store.inventoryList[i];
+      if (title === book.title) {
+        if (qty > book.qty) {
+          console.log(`Only ${book.qty} stocks left.`);
+          return;
+        } else {
+          let totalPrice = qty * book.value;
+          store.earningsAmt += store.earningsAmt + qty * book.value; // updates earnings
+          book.qty -= qty; // deducts quantity of book
+          console.log(`Successful transaction`);
+          return;
+        }
+      } else {
+        console.log(`Book not found.`);
+        return;
+      }
+    }
+  }
+  // invoke functions
+  let book1 = new AddBook('Book1', 4, 10.0);
+  let book2 = new AddBook('Book2', 1, 10.0);
+  restockBook('Book1', 1);
+  sellBook('Book1', 2);
+  // console.table(store.inventoryList);
 }
 
 // invoke functions here:
 // quizGameExp();
 // createObject();
-createObjectandProps();
+bookStore();
