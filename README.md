@@ -8,7 +8,7 @@
 6. [Chessboard CSS Grid](https://lea927.github.io/batch8-activities/6-chessboard-css-grid)
 7. [Product Landing Page](https://lea927.github.io/batch8-activities/7-product-landing-page)
 8. [Momentum App](https://lea927.github.io/batch8-activities/8-momentum)
-9. [Tic-Tac-Toe](https://lea927.github.io/batch8-activities/9-tic-tac-toe)
+9. [Tic-Tac-Toe](https://lea927.github.io/batch8-activities/9-tic-tac-toe) 10.[Banking App with Budget Tracking](https://lea927.github.io/batch8-activities/10-banking-app)
 
 Others
 [Coding Challenges](https://lea927.github.io/batch8-activities/0-coding-challenges)
