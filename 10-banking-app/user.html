@@ -54,9 +54,28 @@
       <!-- displays add button to add expense  -->
       <section id="add">
         <div class="add-wrapper">
-          <a href="#">+</a>
+          <a id="add-btn" href="#">+</a>
+          <!-- <button id="add-btn">+</button> -->
         </div>
       </section>
     </div>
+
+    <!-- add window -- modal -->
+    <!-- modal  -->
+    <div id="add-modal" class="modal">
+      <div class="modal-content">
+        <h3>Add an expense</h3>
+        <div class="form-field">
+          <label for="cost">Cost</label>
+          <input type="text" id="cost" />
+        </div>
+        <div class="form-field">
+          <label for="item">Item</label>
+          <input type="text" id="item" />
+        </div>
+        <a href="#">Save</a>
+      </div>
+    </div>
   </body>
+  <script src="script.js"></script>
 </html>
