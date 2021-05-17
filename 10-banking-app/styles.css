@@ -18,6 +18,14 @@
   ===========================
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body,
 div,
@@ -87,14 +95,6 @@ td {
   vertical-align: baseline;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 /* ==========================
       2. Layout
   ===========================
@@ -112,6 +112,20 @@ td {
   width: 100%;
 }
 
+.auth-sidebar .artwork {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.auth-sidebar .artwork .artwork-image {
+  flex-grow: 1;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+}
+
 /* ==========================
       3. Typography
   ===========================
@@ -119,6 +133,16 @@ td {
 
 body {
   font-family: 'Inter', sans-serif;
+}
+
+/* ==========================
+      4. Components
+  ===========================
+*/
+
+/* images  */
+.artwork-image {
+  background-image: url(assets/astronaut_and_octopus_artwork_illustration_generated.jpg);
 }
 
 /* ==========================
@@ -152,6 +176,7 @@ body {
 
   content {
     width: 100%;
+    outline: dotted 0.5px;
   }
 
   .auth-sidebar header h1 {
@@ -165,9 +190,9 @@ body {
   .auth-content {
     width: 100%;
     /* max-width: 416px; */
-    margin: auto;
-    /* outline: dotted 0.5px; */
+    /* margin: auto; */
     height: 500px;
+    padding: 0 20px 0 20px;
   }
 
   .font-heading-2 {
@@ -237,12 +262,12 @@ body {
   .auth-register-container a {
     color: white;
     background-color: #4f4599;
-    padding: 0.5em 10.3em;
+    padding: 0.7em 9em;
     border-radius: 10px;
   }
 
   .btn-login {
-    margin-top: 30px;
+    margin-top: 40px;
   }
   /* .auth-register-container a:hover {
     color: white;

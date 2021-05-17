@@ -1,0 +1,159 @@
+/* TABLE OF CONTENTS  
+1. Global Styles
+2. Layout
+3. Typography
+4. Components
+5. Media Queries
+  5.1 Mobile devices
+    5.1.1 Global Styles
+    5.1.2 Layout
+    5.1.3 Typography
+    5.1.4 Components
+*/
+
+/* ==========================
+      1. Global styles 
+
+      Main color: #4F4599
+  ===========================
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================
+      2. Layout
+  ===========================
+*/
+
+/* navigation bar  */
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+header {
+  background-color: #6c5fd1;
+  padding: 0.9em 0 0.9em;
+  color: white;
+}
+/* ==========================
+      3. Typography
+  ===========================
+*/
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ==========================
+  5. Media Queries
+    5.1 Mobile devices
+      5.1.1 Global Styles 
+  ===========================    
+*/
+
+/* navigation bar  */
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+header {
+  background-color: #6c5fd1;
+  padding: 0.9em 0 0.9em;
+  color: white;
+}
+
+.nav-links {
+  color: white;
+  text-decoration: none;
+}
+
+/* 5.1.2 Layout */
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+body:nth-child(even) {
+}
+
+section {
+  display: block;
+}
+
+wrapper:nth-child(even) {
+  /* background-color: #8475fa; */
+}
+#spendings {
+  height: 20%;
+  background-color: rgb(248, 246, 246);
+}
+
+.spendings-wrapper {
+  padding: 1em 0 1em 1em;
+}
+
+#history {
+  /* outline: dotted 0.5px; */
+}
+
+.history-wrapper {
+  margin-top: 1em;
+  padding: 0 1.5em 0 1.5em;
+}
+
+#add {
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(248, 246, 246);
+  width: 100%;
+  text-align: center;
+}
+
+/* 5.1.3 Typography */
+.spendings-wrapper h2 {
+  font-size: 3rem;
+  color: #4f4599;
+}
+
+/* 5.1.4 Components */
+
+/* Spendings history  table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: solid 1px #dddddd;
+}
+
+tr:nth-child(even) {
+  background-color: #cdc7fa;
+}
+
+/* add button  */
+.add-wrapper a {
+  text-decoration: none;
+  color: #4f4599;
+  font-size: 3rem;
+}
