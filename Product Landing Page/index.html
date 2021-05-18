@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Mad Burger</title>
+    <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+div.slide-down {
+  width:100%;
+  overflow:hidden;
+}
+div.slide-down p {
+  animation: 3s slide-down;
+  transition-delay: 1s;
+  margin-top:0%;
+}
+@keyframes slide-down {
+  from {
+    margin-top: -400%;
+    height: 300%; 
+  }
+
+  to {
+    margin-top: 0%;
+    height: 100%;
+  }
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  /* scroll-behavior: smooth; */
+  /* font: 400 15px/1.8 "Oswald", sans-serif;
+  color: #777; */
+}
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  /* opacity: 0.65; */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgimg-1 {
+  background-image: url("https://i.postimg.cc/sXj1ysw1/hamburger-4095156.jpg");
+  min-height: 100%;
+}
+.bgimg-2 {
+  background-image: url("https://i.postimg.cc/Y0NNDyc2/Background-1.png");
+  min-height: 1000px;
+}
+/* .bgimg-3 {
+  background-image: url("https://i.postimg.cc/jqBFyqBh/texture-1504364-1920.jpg");
+  min-height: 400px; 
+}  */
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+.flex-container {
+  display: flex;
+  /* background-color: rgb(253, 254, 255); */
+  /* align-items: flex-start; */
+  justify-content: center;
+  height: 500px;
+  
+}
+.flex-container > div {
+  margin: 10px;
+  padding: 2px;
+  font-size: 30px;
+  line-height: 0px;
+}
+.features {
+  color: #000;
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter !important;
+  color: inherit
+}
+.button {
+  background-color: #ff770f;
+  border: none;
+  color: white;
+  padding: 25px;
+  text-align: center;
+  font-family: 'Raleway',sans-serif;
+  display: inline-block;
+  font-size: 13px;
+  margin: 6px 2px;
+  cursor: pointer;
+}
+.button4 {border-radius: 12px;}
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  color: white;
+  text-align: center;
+  background-image: url("https://i.postimg.cc/zBVftyzj/lights-2602785.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media all and (max-width: 500px){
+  .features{
+    min-width: 300px;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+  footer > div > nav{
+    width: 60%;
+  }
+  #header > div > nav{
+    width: 100%;
+  }
+}
+@media all and (max-width: 700px){
+  .features{
+    margin-top: 20px;
+  }
+  footer > div > nav{
+    width: 80%;
+  }
+}
+@media all and (max-width: 500px){
+  footer > div > nav{
+    width: 100%;
+  }  
+}
+
+
+</style>
+</head>
+
+<body>
+  <header id="header">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#nav1">
+            <img src="https://i.postimg.cc/2jbsS99t/unnamed-removebg-preview-1-removebg-preview.png" width="80px" height="80px" class="d-inline-block align-top" alt="">
+          </a>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#nav1">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#nav2">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#info">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Location</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Newsletter</a>
+              </li>
+      </nav>
+    </header>
+
+      <div class="bgimg-1">
+        <p id="nav1"></p>
+        <div class="caption">
+        <!-- <span class="border">Mad Burger</span> -->
+        <div class="slide-down">
+            <p style="font-family:Berkshire Swash; color: #fff; font-size: 150px;">Mad Burger</p>
+            </div>
+        </div>
+      </div>
+      <br><br><br><br>
+      <div class="bgimg-2">
+        <p id="nav2"></p>
+      <div class="flex-container">
+        <div class="features">
+            <h1 style="font-size: 25px;"><br>Everything Delicious!</h1><br>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p style="font-family:Berkshire Swash; font-size: 50px;">Welcome!</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h1 style="font-size: 30px;">We Are Locally<br>
+                Handcrafted Burgers<br>
+                Serving Since 2016.</h1><br>
+                <p>&nbsp;</p>
+            <h1 style="font-size: 15px;">100% All Beef quarter-pounder burgers. Handcrafted with<br>
+                our signature Army Dressing & Sauces in freshly baked<br>
+                buns, made fresh daily.</h1><br>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <button class="button button4">MORE ABOUT US &raquo;</button></div>
+        <div>
+            <p><img src="https://i.postimg.cc/XJRghLMD/burger-3365223-960-720.jpg" class="image" alt="iphone x" width="380px" height="500px"><br></p></div>
+        <div>
+            <p>&nbsp;</p></div>
+        <div>
+            <p><img src="https://i.postimg.cc/yNrjhBLK/burger-3365224-960-720.jpg" class="image" alt="iphone x" width="380px" height="500px"><br> </p></div>  
+      </div>
+      <br><br><br>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <div><center><img src="https://i.postimg.cc/664zz6D0/kisspng-hamburger.png"></center></div>
+      <center><p style="font-family:Berkshire Swash; font-size: 50px; color: black;">Sneak Peek</p></center>
+      <center><h3 style="font-family:Raleway, sans-serif; font-size: 30px; font-weight: lighter;">Quality Ingredients, Tasty Burgers</h3></center><br>
+      <center><h3 style="font-size: 15px;">We got 21 Burgers to choose from, all 100% Beef handcrafted in freshly baked buns with our signature dressing & sauces. Made fresh daily<br>
+        Also available Chicken sandwiches, Nachos, Salads, Pica Pica & Big Scoop Ice Cream</h3></center>
+    </div>
+    <div class="video">
+      <center><iframe width="1100px" height="700px" src="https://www.youtube.com/embed/V5w1OGknhlc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+    </div>
+
+    <div class="footer">
+      <p><div id="info">
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+        <p style="font-family:Berkshire Swash; font-size: 50px; color: white;">Get In Touch</p>
+        <form id="form" action="https://www.facebook.com/hotguyburgerandsalad/" method="get">
+          <label for="email" id="email-label"><input id="email" name="email" type="email" placeholder="Enter your email" size="30"></input></label>
+            <!-- <input type="submit" id="button" value="Submit"></input> -->
+            <br><button class="button button4">SUBMIT</button>
+        </form>
+      </div>
+    </div></p>
+    </div>
+
+   
+
+     
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
