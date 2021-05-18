@@ -59,6 +59,12 @@ input {
     margin-right: 30px;
 }
 
+    .bank-logo {
+        display: flex;
+        justify-content: center;
+        height: 7.5vh;
+    }
+
     .button-container {
         display: grid;
         column-gap: 3vw;

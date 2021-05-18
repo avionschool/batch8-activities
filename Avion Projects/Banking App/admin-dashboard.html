@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/realfavicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/realfavicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/realfavicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/realfavicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/realfavicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Admin Dashboard | Bambam Bank</title>
+</head>
+
+<body>
+    <!-- Header 10% -->
+    <header class="header">
+        <div class="bank-logo">
+            <img class="logo-scales" src="assets/images/Scales.png" width="50px">
+            <img class="logo-name" src="assets/images/Name.png">
+        </div>
+        <div class="button-container">
+            <button class="logout"><a href="index.html">Logout</a></button>
+        </div>
+    </header>
+
+    <!-- NavBar 5% -->
+    <section class="navbar">
+        <div class="nav-item nav-home active">Home</div>
+        <div class="nav-item nav-client-list">Client List</div>
+        <div class="nav-item nav-add-client">Add Client</div>
+        <div class="nav-item nav-transactions">Transactions</div>
+    </section>
+
+    <!-- Content 85% -->
+    <section class="content">
+        <section class="content-item content-home">
+            <div class="home-message">Welcome admin!</div>
+        </section>
+
+        <section class="content-item content-client-list hide">
+            <table class="client-table">
+                <thead>
+                    <tr>
+                        <th>Account No.</th>
+                        <th>Name</th>
+                        <th>Balance</th>
+                        <th>Profile</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="table-content">
+                    <tr>
+                        <td>640763888</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>₱42,007,067.05</td>
+                        <td>View Details</td>
+                        <td>Transact</td>
+                    </tr>
+                    <tr>
+                        <td>567234777</td>
+                        <td>Jane Smith</td>
+                        <td>₱502,469.55</td>
+                        <td>View Details</td>
+                        <td>Transact</td>
+                    </tr>
+                </tbody>
+            </table>
+        <button class="add-client-btn">Add New Client</button>
+        </section>
+
+        <section class="content-item content-add-client hide">
+            <div>Add New Client</div>
+        </section>
+
+        <section class="content-item content-transactions hide">
+            <div>Transactions</div>
+        </section>
+    </section>
+</body>
+
+<script src="scripts/admin-dashboard.js"></script>
+</html>
