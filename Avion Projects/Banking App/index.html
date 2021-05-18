@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/realfavicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/realfavicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/realfavicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/realfavicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/realfavicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Bambam Bank</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="bank-logo"><img class="logo-scales" src="assets/images/Scales.png" width="50px"></div>
+        <div class="button-container">
+            <button class="home">Home</button>
+            <button class="login">Login</button>
+            <button class="register">Sign Up</button>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="bank-name"><img class="logo" src="assets/images/Logo.png"></div>
+
+        <div class="content-container">
+            <div class="bank-slogan hide">Save and budget with ease <br>with Bambam bank!</div>
+
+            <div class="login-container hide">
+                <p>Login to your Account</p>
+                <div class="form-item">
+                    <label for="login-username">Username:</label><br>
+                    <input id="login-username" class="login-username" type="text" value="admin">
+                </div>
+                <div class="form-item">
+                    <label for="login-password">Password:</label><br>
+                    <input id="login-password" class="login-password" type="password" value="1234">
+                </div>
+                <button class="login-submit">Login</button>
+                <div class="login-sign-up">Don't have an account? <a href="#">Sign up</a></div>
+            </div>
+
+            <div class="register-container">
+                <div class="form-item">
+                    <label for="uname">Username:</label><br>
+                    <input id="uname" type="text" placeholder="Enter desired username">
+                </div>
+                <div class="form-item">
+                    <label for="fname">First Name:</label><br>
+                    <input id="fname" type="text" placeholder="Enter first name">
+                </div>
+                <div class="form-item">
+                    <label for="lname">Last Name:</label><br>
+                    <input id="lname" type="text" placeholder="Enter last name">
+                </div>
+                <div class="form-item">
+                    <label for="email">Email Address:</label><br>
+                    <input id="email" type="email" placeholder="Enter email">
+                </div>
+                <div class="form-item">
+                    <label for="password">Password:</label><br>
+                    <input id="password" type="password" placeholder="Enter password">
+                </div>
+                <div class="form-item">
+                    <label for="re-password">Confirm your Password:</label><br>
+                    <input id="re-password" type="password" placeholder="Enter password again">
+                </div>
+                <button class="signup-submit">Submit</button>
+            </div>
+    </div>
+</body>
+
+<script src="scripts/index.js"></script>
+</html>

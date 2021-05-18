@@ -1,0 +1,118 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+:root {
+    --main-color-1: #23a450;
+    --main-color-2: #7ed957;
+    --main-color-3: #474a4d;
+}
+
+html {
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+    color: var(--main-color-3);
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.hide {
+    height: 0;
+    display: none;
+    visibility: hidden;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    border: 5px solid black;
+}
+
+/* HEADER PORTION */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10%;
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+    .button-container {
+        display: grid;
+        column-gap: 3vw;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 35vw;
+    }
+
+    .button-container button {
+        font-size: 0.8rem;
+        font-family: inherit;
+        background-color: var(--main-color-1);
+        color: white;
+        font-weight: bold;
+        padding: 5px 10px 5px 10px;
+        border-radius: 0.75rem;
+    }
+
+/* MAIN PORTION */
+.content {
+    height: 90%;
+    margin-left: 20px;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+    /* LOGO ON THE LEFT */
+    .bank-name {
+        width: 50%;
+    }
+
+        .logo {
+            max-width:100%;
+            max-height:100%;
+        }
+
+    /* SLOGAN, LOGIN, SIGN UP ON THE RIGHT */
+    .content-container {
+        width: 50%;
+    }
+
+        /* SLOGAN */
+        .bank-slogan {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-left: 2.5rem;
+        }
+
+        /* LOGIN */
+        .login-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* SIGN UP */
+        .signup-container {
+            display: flex;
+            flex-direction: column;
+        }
