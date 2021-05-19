@@ -79,11 +79,87 @@
         </section>
 
         <section class="content-item content-add-client hide">
-            <div>Add New Client</div>
+            <div class="add-client-container">
+                <div>Add New Client</div>
+                <form>
+                    <div class="form-item">
+                        <label for="fname">First Name:</label><br>
+                        <input id="fname" type="text" placeholder="Enter first name">
+                    </div>
+                    <div class="form-item">
+                        <label for="lname">Last Name:</label><br>
+                        <input id="lname" type="text" placeholder="Enter last name">
+                    </div>
+                    <div class="form-item">
+                        <label for="email">Email Address:</label><br>
+                        <input id="email" type="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-item">
+                        <label for="deposit-amount">Initial Deposit Amount:</label><br>
+                        <input id="deposit-amount" type="number" placeholder="Enter Amount">
+                    </div>
+                    <button>Add Client</button>
+                </form>
+            </div>
         </section>
 
         <section class="content-item content-transactions hide">
-            <div>Transactions</div>
+            <div class="transactions-container">
+                <div class="transaction-headers">
+                    <button class="transaction-navBtn">Deposit</button>
+                    <button class="transaction-navBtn">Withdraw</button>
+                    <button class="transaction-navBtn">Transfer</button>
+                </div>
+                <div class="transaction-body">
+
+                    <section class="transaction-section transaction-deposit">
+                        <form>
+                            <div class="form-item">
+                                <label for="deposit-account-no">Account Number:</label><br>
+                                <input id="deposit-account-no" type="text" placeholder="Enter Client's Account No.">
+                            </div>
+                            <div class="form-item">
+                                <label for="deposit-amount">Amount to be deposited:</label><br>
+                                <input id="deposit-amount" type="number" placeholder="Enter Amount to be deposited in Client's Account">
+                            </div>
+                            <button>Deposit</button>
+                        </form>
+                    </section>
+
+                    <section class="transaction-section transaction-withdraw hide">
+                        <form>
+                            <div class="form-item">
+                                <label for="withdraw-account-no">Account Number:</label><br>
+                                <input id="withdraw-account-no" type="text" placeholder="Enter Client's Account No.">
+                            </div>
+                            <div class="form-item">
+                                <label for="withdraw-amount">Amount to be withdrawn:</label><br>
+                                <input id="withdraw-amount" type="number" placeholder="Enter Amount to be withdrawn from Client's Account">
+                            </div>
+                            <button>Withdraw</button>
+                        </form>
+                    </section>
+
+                    <section class="transaction-section transaction-transfer hide">
+                        <form>
+                            <div class="form-item">
+                                <label for="transfer-account-no">Client's Account Number:</label><br>
+                                <input id="transfer-account-no" type="text" placeholder="Enter Client's Account No.">
+                            </div>
+                            <div class="form-item">
+                                <label for="transfer-amount">Amount to be transferred:</label><br>
+                                <input id="transfer-amount" type="number" placeholder="Enter Amount to be taken from Client's Account">
+                            </div>
+                            <hr>
+                            <div class="form-item">
+                                <label for="transfer-receiver-no">Receiver's Account Number:</label><br>
+                                <input id="transfer-receiver-no" type="text" placeholder="Enter Client's Account No.">
+                            </div>
+                            <button>Transfer Amount</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
         </section>
     </section>
 </body>
