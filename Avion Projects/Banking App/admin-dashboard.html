@@ -75,13 +75,13 @@
                     </tr>
                 </tbody>
             </table>
-        <button class="add-client-btn">Add New Client</button>
+        <button class="client-list-addBtn">Add New Client</button>
         </section>
 
         <section class="content-item content-add-client hide">
             <div class="add-client-container">
                 <div>Add New Client</div>
-                <form>
+                <!-- <form> -->
                     <div class="form-item">
                         <label for="fname">First Name:</label><br>
                         <input id="fname" type="text" placeholder="Enter first name">
@@ -98,65 +98,65 @@
                         <label for="deposit-amount">Initial Deposit Amount:</label><br>
                         <input id="deposit-amount" type="number" placeholder="Enter Amount">
                     </div>
-                    <button>Add Client</button>
-                </form>
+                    <button class="add-button">Add Client</button>
+                <!-- </form> -->
             </div>
         </section>
 
         <section class="content-item content-transactions hide">
             <div class="transactions-container">
                 <div class="transaction-headers">
-                    <button class="transaction-navBtn">Deposit</button>
+                    <button class="transaction-navBtn active-btn">Deposit</button>
                     <button class="transaction-navBtn">Withdraw</button>
                     <button class="transaction-navBtn">Transfer</button>
                 </div>
                 <div class="transaction-body">
 
                     <section class="transaction-section transaction-deposit">
-                        <form>
+                        <!-- <form> -->
                             <div class="form-item">
                                 <label for="deposit-account-no">Account Number:</label><br>
                                 <input id="deposit-account-no" type="text" placeholder="Enter Client's Account No.">
                             </div>
                             <div class="form-item">
                                 <label for="deposit-amount">Amount to be deposited:</label><br>
-                                <input id="deposit-amount" type="number" placeholder="Enter Amount to be deposited in Client's Account">
+                                <input id="deposit-amount" type="number" placeholder="Enter Amount">
                             </div>
-                            <button>Deposit</button>
-                        </form>
+                            <button class="add-button">Deposit</button>
+                        <!-- </form> -->
                     </section>
 
                     <section class="transaction-section transaction-withdraw hide">
-                        <form>
+                        <!-- <form> -->
                             <div class="form-item">
                                 <label for="withdraw-account-no">Account Number:</label><br>
                                 <input id="withdraw-account-no" type="text" placeholder="Enter Client's Account No.">
                             </div>
                             <div class="form-item">
                                 <label for="withdraw-amount">Amount to be withdrawn:</label><br>
-                                <input id="withdraw-amount" type="number" placeholder="Enter Amount to be withdrawn from Client's Account">
+                                <input id="withdraw-amount" type="number" placeholder="Enter Amount">
                             </div>
-                            <button>Withdraw</button>
-                        </form>
+                            <button class="add-button">Withdraw</button>
+                        <!-- </form> -->
                     </section>
 
                     <section class="transaction-section transaction-transfer hide">
-                        <form>
+                        <!-- <form> -->
                             <div class="form-item">
                                 <label for="transfer-account-no">Client's Account Number:</label><br>
                                 <input id="transfer-account-no" type="text" placeholder="Enter Client's Account No.">
                             </div>
                             <div class="form-item">
                                 <label for="transfer-amount">Amount to be transferred:</label><br>
-                                <input id="transfer-amount" type="number" placeholder="Enter Amount to be taken from Client's Account">
+                                <input id="transfer-amount" type="number" placeholder="Enter Amount">
                             </div>
                             <hr>
                             <div class="form-item">
                                 <label for="transfer-receiver-no">Receiver's Account Number:</label><br>
-                                <input id="transfer-receiver-no" type="text" placeholder="Enter Client's Account No.">
+                                <input id="transfer-receiver-no" type="text" placeholder="Enter Receiver's Account No.">
                             </div>
-                            <button>Transfer Amount</button>
-                        </form>
+                            <button class="add-button">Transfer Amount</button>
+                        <!-- </form> -->
                     </section>
                 </div>
             </div>

@@ -30,13 +30,9 @@ signupBtn.addEventListener('click', function() {
 // ===================================
 // ==    LOGIN FUNCTIONALITY        ==
 // ===================================
-const loginSubmit = document.querySelector('.login-submit');
+const loginSubmit = document.querySelector('#login-submit');
 loginSubmit.addEventListener('click', function() {
-    if (true) {
-        window.location.assign("admin-dashboard.html");
-    } else {
-        alert("Invalid username or password");
-    }
+    window.location.href = "admin-dashboard.html"; 
 })
 
 // ===================================

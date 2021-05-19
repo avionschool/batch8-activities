@@ -10,7 +10,7 @@
 
 :root {
     --main-color-1: #23a450;
-    --main-color-2: #7ed957;
+    --main-color-2: #52c04e;
     --main-color-3: #474a4d;
 }
 
@@ -124,39 +124,87 @@ a {
     }
 
     /* CLIENT LIST */
-    /* TABLE */
-    table {
-        width: 90%;
-        border-collapse: collapse;
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px solid black;
+        /* TABLE */
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid black;
+        }
+
+        td, th {
+            text-align: center;
+            padding: 12px;
+        }
+
+        td:nth-child(3) {
+            text-align: right;
+        }
+
+        th {
+            background-color: var(--main-color-1);
+            color: white;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2;}
+
+        /* ADD BUTTON */
+        .client-list-addBtn {
+            margin-top: 3vh;
+            margin-left: 5vw;
+            border-radius: 3px;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: whitesmoke;
+            background-color: var(--main-color-1);
+        }
+
+    /* ADD CLIENT */
+
+    /* TRANSACTIONS */
+    .transaction-headers {
+        margin-bottom: 20px;
+        background-color: var(--main-color-2);
     }
 
-    td, th {
-        text-align: center;
+    .transaction-navBtn {
+        background-color: transparent;
+        font-family: inherit;
+        font-size: 1.1rem;
         padding: 12px;
-    }
-
-    td:nth-child(3) {
-        text-align: right;
-    }
-
-    th {
-        background-color: var(--main-color-1);
         color: white;
     }
 
-    tr:nth-child(even) {background-color: #f2f2f2;}
-
-    /* ADD BUTTON */
-    .add-client-btn {
-        margin-top: 3vh;
-        margin-left: 5vw;
-        padding: 20px;
-        font-family: inherit;
-        font-size: 0.7rem;
-        font-weight: bold;
-        color: whitesmoke;
-        background-color: var(--main-color-1);
+    .active-btn {
+        background-color: #8d8d8d;
     }
+
+/* SHARED: Inputs and Buttons */
+.form-item input {
+    width: 430px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    border: 1px solid rgb(131, 131, 131);
+    margin-bottom: 10px;
+    color: var(--main-color-3);
+}
+
+.form-item input:focus {
+    outline-color: var(--main-color-1);
+}
+
+.add-button {
+    padding: 10px;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: var(--main-color-1);
+}

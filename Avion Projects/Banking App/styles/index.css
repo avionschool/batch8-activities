@@ -124,6 +124,10 @@ input {
             flex-direction: column;
         }
 
+        .login-submit {
+            padding: 12px;
+        }
+
         /* SIGN UP */
         .signup-container {
             display: flex;
