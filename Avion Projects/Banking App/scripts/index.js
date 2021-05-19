@@ -1,5 +1,5 @@
 // ===================================
-// ==         DOM SELECTORS         ==
+// ==         NAV BUTTONS           ==
 // ===================================
 const homeBtn = document.querySelector('.home');
 const loginBtn = document.querySelector('.login');
@@ -26,3 +26,19 @@ signupBtn.addEventListener('click', function() {
     loginContent.classList.add('hide');
     signupContent.classList.remove('hide');
 })
+
+// ===================================
+// ==    LOGIN FUNCTIONALITY        ==
+// ===================================
+const loginSubmit = document.querySelector('.login-submit');
+loginSubmit.addEventListener('click', function() {
+    if (true) {
+        window.location.assign("admin-dashboard.html");
+    } else {
+        alert("Invalid username or password");
+    }
+})
+
+// ===================================
+// ==    SIGN UP FUNCTIONALITY      ==
+// ===================================
