@@ -81,25 +81,30 @@
         <section class="content-item content-add-client hide">
             <div class="add-client-container">
                 <div>Add New Client</div>
-                <!-- <form> -->
+                <!-- Executing a javascript function on form submit without HTML page reload -->
+                <form action="#" onsubmit="add_user(); return false">
                     <div class="form-item">
                         <label for="fname">First Name:</label><br>
-                        <input id="fname" type="text" placeholder="Enter first name">
+                        <input id="fname" type="text" placeholder="Enter first name" required>
                     </div>
                     <div class="form-item">
                         <label for="lname">Last Name:</label><br>
-                        <input id="lname" type="text" placeholder="Enter last name">
+                        <input id="lname" type="text" placeholder="Enter last name" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="username">Username:</label><br>
+                        <input id="username" type="text" placeholder="Enter username" required>
                     </div>
                     <div class="form-item">
                         <label for="email">Email Address:</label><br>
-                        <input id="email" type="email" placeholder="Enter email">
+                        <input id="email" type="email" placeholder="Enter email" required>
                     </div>
                     <div class="form-item">
-                        <label for="deposit-amount">Initial Deposit Amount:</label><br>
-                        <input id="deposit-amount" type="number" placeholder="Enter Amount">
+                        <label for="initial-deposit-amount">Initial Deposit Amount:</label><br>
+                        <input id="initial-deposit-amount" type="number" placeholder="Enter Amount" min="0" step=".01" required>
                     </div>
-                    <button class="add-button">Add Client</button>
-                <!-- </form> -->
+                    <button id="add-new-client-btn" class="add-button" type="submit">Add Client</button>
+                </form>
             </div>
         </section>
 
@@ -116,13 +121,13 @@
                         <!-- <form> -->
                             <div class="form-item">
                                 <label for="deposit-account-no">Account Number:</label><br>
-                                <input id="deposit-account-no" type="text" placeholder="Enter Client's Account No.">
+                                <input id="deposit-account-no" type="text" pattern="[0-9]" placeholder="Enter Client's Account No." required maxlength="6">
                             </div>
                             <div class="form-item">
                                 <label for="deposit-amount">Amount to be deposited:</label><br>
-                                <input id="deposit-amount" type="number" placeholder="Enter Amount">
+                                <input id="deposit-amount" type="number" placeholder="Enter Amount" min="0" step=".01" required>
                             </div>
-                            <button class="add-button">Deposit</button>
+                            <button id="deposit-btn" class="add-button">Deposit</button>
                         <!-- </form> -->
                     </section>
 
@@ -130,32 +135,32 @@
                         <!-- <form> -->
                             <div class="form-item">
                                 <label for="withdraw-account-no">Account Number:</label><br>
-                                <input id="withdraw-account-no" type="text" placeholder="Enter Client's Account No.">
+                                <input id="withdraw-account-no" type="text" pattern="[0-9]" placeholder="Enter Client's Account No." required maxlength="6">
                             </div>
                             <div class="form-item">
                                 <label for="withdraw-amount">Amount to be withdrawn:</label><br>
-                                <input id="withdraw-amount" type="number" placeholder="Enter Amount">
+                                <input id="withdraw-amount" type="number" placeholder="Enter Amount" min="0" step=".01" required>
                             </div>
-                            <button class="add-button">Withdraw</button>
+                            <button id="withdraw-btn" class="add-button">Withdraw</button>
                         <!-- </form> -->
                     </section>
 
                     <section class="transaction-section transaction-transfer hide">
                         <!-- <form> -->
                             <div class="form-item">
-                                <label for="transfer-account-no">Client's Account Number:</label><br>
-                                <input id="transfer-account-no" type="text" placeholder="Enter Client's Account No.">
+                                <label for="transfer-sender-no">Client's Account Number:</label><br>
+                                <input id="transfer-sender-no" type="text" pattern="[0-9]" placeholder="Enter Client's Account No." required maxlength="6">
                             </div>
                             <div class="form-item">
                                 <label for="transfer-amount">Amount to be transferred:</label><br>
-                                <input id="transfer-amount" type="number" placeholder="Enter Amount">
+                                <input id="transfer-amount" type="number" placeholder="Enter Amount" min="0" step=".01" required>
                             </div>
                             <hr>
                             <div class="form-item">
                                 <label for="transfer-receiver-no">Receiver's Account Number:</label><br>
-                                <input id="transfer-receiver-no" type="text" placeholder="Enter Receiver's Account No.">
+                                <input id="transfer-receiver-no" type="text" pattern="[0-9]" placeholder="Enter Receiver's Account No." required maxlength="6">
                             </div>
-                            <button class="add-button">Transfer Amount</button>
+                            <button id="transfer-btn" class="add-button">Transfer Amount</button>
                         <!-- </form> -->
                     </section>
                 </div>
