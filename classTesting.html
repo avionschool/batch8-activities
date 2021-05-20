@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Class</title>
+    </head>
+<body>
+    <h1>JavaScript Class</h1>
+    <script>
+        class Player {
+        //class doesn't have a ()parameter
+            constructor(tempName, team){
+                this.name = tempName;
+                this.team = team;
+            }
+            inductPlayer(){
+                return `${this.name} is HOF Class 2020`;
+            }
+            //Polymorphysm
+            //log inducteeOne.displayName()
+            displayName(){
+                console.log(this.name);
+            }
+        }
+
+        class Superstar extends Player {
+        //extends gets what Player class has
+            constructor(name, team, tempNumRings, totalCareerScore){
+                super(name, team);
+                //inheriting the name and team
+                this.numRings = tempNumRings;
+                this.totalCareerScore = totalCareerScore;
+            }
+            displayName(){
+                console.log("Superstar Name:" + this.name);
+            //log playerOne.displayName()
+            }
+            displayNumCareerScore(){
+                return `The total career score of ${this.name} is ${this.totalCareerScore}`;
+            }
+        }
+
+        let playerOne = new Superstar("michaelJordan", "Bulls", 5, 1000);
+        let inducteeOne = new Player("kobeBryant", "Lakers");
+        let inducteeTwo = new Player("timDuncan", "Spurs");
+        let inducteeThree = new Player("kevinGarnett", "Timber Wolves");
+        
+        console.log(inducteeOne.name);
+        console.log(inducteeTwo.inductPlayer());
+        console.log(inducteeThree.team);
+        console.log(playerOne);
+        console.log(playerOne.displayNumCareerScore());
+    </script>
+</body>
+</html>
