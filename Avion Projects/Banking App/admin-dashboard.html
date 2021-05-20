@@ -118,38 +118,38 @@
                 <div class="transaction-body">
 
                     <section class="transaction-section transaction-deposit">
-                        <!-- <form> -->
+                        <form action="#" onsubmit="form_deposit(); return false">
                             <div class="form-item">
                                 <label for="deposit-account-no">Account Number:</label><br>
-                                <input id="deposit-account-no" type="text" pattern="[0-9]" placeholder="Enter Client's Account No." required maxlength="6">
+                                <input id="deposit-account-no" type="text" pattern="[0-9]*" placeholder="Enter Client's Account No." required maxlength="6">
                             </div>
                             <div class="form-item">
                                 <label for="deposit-amount">Amount to be deposited:</label><br>
                                 <input id="deposit-amount" type="number" placeholder="Enter Amount" min="0" step=".01" required>
                             </div>
-                            <button id="deposit-btn" class="add-button">Deposit</button>
-                        <!-- </form> -->
+                            <button type="submit" id="deposit-btn" class="add-button">Deposit</button>
+                        </form>
                     </section>
 
                     <section class="transaction-section transaction-withdraw hide">
-                        <!-- <form> -->
+                        <form action="#" onsubmit="form_withdraw(); return false">
                             <div class="form-item">
                                 <label for="withdraw-account-no">Account Number:</label><br>
-                                <input id="withdraw-account-no" type="text" pattern="[0-9]" placeholder="Enter Client's Account No." required maxlength="6">
+                                <input id="withdraw-account-no" type="text" pattern="[0-9]*" placeholder="Enter Client's Account No." required maxlength="6">
                             </div>
                             <div class="form-item">
                                 <label for="withdraw-amount">Amount to be withdrawn:</label><br>
                                 <input id="withdraw-amount" type="number" placeholder="Enter Amount" min="0" step=".01" required>
                             </div>
-                            <button id="withdraw-btn" class="add-button">Withdraw</button>
-                        <!-- </form> -->
+                            <button type="submit" id="withdraw-btn" class="add-button">Withdraw</button>
+                        </form>
                     </section>
 
                     <section class="transaction-section transaction-transfer hide">
-                        <!-- <form> -->
+                        <form action="#" onsubmit="form_transfer(); return false">
                             <div class="form-item">
                                 <label for="transfer-sender-no">Client's Account Number:</label><br>
-                                <input id="transfer-sender-no" type="text" pattern="[0-9]" placeholder="Enter Client's Account No." required maxlength="6">
+                                <input id="transfer-sender-no" type="text" pattern="[0-9]*" placeholder="Enter Client's Account No." required maxlength="6">
                             </div>
                             <div class="form-item">
                                 <label for="transfer-amount">Amount to be transferred:</label><br>
@@ -158,10 +158,10 @@
                             <hr>
                             <div class="form-item">
                                 <label for="transfer-receiver-no">Receiver's Account Number:</label><br>
-                                <input id="transfer-receiver-no" type="text" pattern="[0-9]" placeholder="Enter Receiver's Account No." required maxlength="6">
+                                <input id="transfer-receiver-no" type="text" pattern="[0-9]*" placeholder="Enter Receiver's Account No." required maxlength="6">
                             </div>
                             <button id="transfer-btn" class="add-button">Transfer Amount</button>
-                        <!-- </form> -->
+                        </form>
                     </section>
                 </div>
             </div>

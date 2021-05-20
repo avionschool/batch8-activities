@@ -5,32 +5,6 @@
 let clientList = []; // Array of User objects
 let generatedAccountNos = []; // Array of unique account nos.
 
-// // Creation of the BankingApp module
-// const bankingApp = (() => {
-//     let clientList = [];
-
-//     const create_user = (user) => {
-//         clientList.push(user);
-//         console.log(clientList);
-//     }
-//     const deposit = (user, amount) => {
-//         // code
-//     }
-//     const withdraw = (user, amount) => {
-//         // code
-//     }
-//     const send = (from_user, amount, to_user) => {
-//         // code
-//     }
-//     const get_balance = () => {
-//         // code
-//     }
-//     const list_users = () => {
-//         console.log('Users');
-//     }
-//     return {create_user, deposit, withdraw, send, get_balance, list_users};
-// })();
-
 // helper functions
 function generateAccountNo() {
     let randomAccountNo = "";
@@ -153,6 +127,7 @@ function list_users() {
         </tr>`
     })
     tableBody.innerHTML = div;
+    return clientList;
 }
 
 // Add New Client button simulates click on Add Client nav
@@ -237,11 +212,10 @@ function hideTransactionSections() {
 }
 
 // Db. Deposit
-const depositBtn = document.querySelector('#deposit-btn');
 const depositAccountNoInput = document.querySelector('#deposit-account-no');
 const depositAmountInput = document.querySelector('#deposit-amount');
 
-function deposit(user, amount) {
+function form_deposit() {
     let index = clientList.findIndex(function(item) {
         return item.accountNo == depositAccountNoInput.value;
     })
@@ -250,13 +224,8 @@ function deposit(user, amount) {
         return;
     }
 
-    if (!depositAmountInput.value) {
-        alert('Please enter valid amount.');
-        return;
-    }
-
     let selectedUser = clientList[index];
-    selectedUser.balance += parseFloat(depositAmountInput.value);
+    deposit(selectedUser, parseFloat(depositAmountInput.value));
 
     //reset values
     depositAccountNoInput.value = "";
@@ -264,14 +233,16 @@ function deposit(user, amount) {
     return;
 }
 
-depositBtn.addEventListener('click', deposit);
+function deposit(user, amount) {
+    user.balance += amount;
+    return user.balance;
+}
 
 // Dc. Withdraw
-const withdrawBtn = document.querySelector('#withdraw-btn');
 const withdrawAccountNoInput = document.querySelector('#withdraw-account-no');
 const withdrawAmountInput = document.querySelector('#withdraw-amount');
 
-function withdraw(user, amount) {
+function form_withdraw(user, amount) {
     let index = clientList.findIndex(function(item) {
         return item.accountNo == withdrawAccountNoInput.value;
     })
@@ -280,17 +251,12 @@ function withdraw(user, amount) {
         return;
     }
 
-    if (!withdrawAmountInput.value) {
-        alert('Please enter valid amount.');
-        return;
-    }
-
     let selectedUser = clientList[index];
     if (selectedUser.balance < withdrawAmountInput.value) {
         alert('Insufficient account balance. Cancelling transaction.');
         return;
     }
-    selectedUser.balance -= parseFloat(withdrawAmountInput.value);
+    withdraw(selectedUser, parseFloat(withdrawAmountInput.value))
 
     //reset values
     withdrawAccountNoInput.value = "";
@@ -298,16 +264,55 @@ function withdraw(user, amount) {
     return;
 }
 
-withdrawBtn.addEventListener('click', withdraw);
+function withdraw(user, amount) {
+    user.balance -= amount;
+    return user.balance;
+}
 
 // Dd. Transfer
-const transferBtn = document.querySelector('#transfer-btn');
 const transferSenderNoInput = document.querySelector('#transfer-sender-no');
 const transferAmountInput = document.querySelector('#transfer-amount');
 const transferReceiverNoInput = document.querySelector('#transfer-receiver-no');
 
+function form_transfer() {
+    let indexA = clientList.findIndex(function(item) {
+        return item.accountNo == transferSenderNoInput.value;
+    })
+    if (indexA === -1) {
+        alert('Sender Account No. does not exist!');
+        return;
+    }
+
+    let indexB = clientList.findIndex(function(item) {
+        return item.accountNo == transferReceiverNoInput.value;
+    })
+    if (indexB === -1) {
+        alert('Receiver Account No. does not exist!');
+        return;
+    }
+    let selectedUserA = clientList[indexA];
+    let selectedUserB = clientList[indexB];
+    if (selectedUserA === selectedUserB) {
+        alert('Cannot transfer to/from the same account!');
+        return;
+    }
+    if (selectedUserA.balance < transferAmountInput.value) {
+        alert('Insufficient account balance from Sender. Cancelling transaction.');
+        return;
+    }
+    send(selectedUserA, selectedUserB, parseFloat(transferAmountInput.value));
+
+    //reset values
+    transferSenderNoInput.value = "";
+    transferAmountInput.value = "";
+    transferReceiverNoInput.value = "";
+    return;
+}
+
 function send(from_user, to_user, amount) {
-    // code
+    from_user.balance -= amount;
+    to_user.balance += amount;
+    return `Sender balance: ${get_balance(from_user)} | Receiver balance: ${get_balance(to_user)}`;
 }
 
 // ================================
