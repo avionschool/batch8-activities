@@ -14,6 +14,8 @@
     5.2.2 Layout
     5.2.3 Typography
     5.2.4 Components
+    5.2.5 Keyframes 
+
   5.3 Desktop (1100px) 
     5.1.1 Global Styles
     5.1.2 Layout
@@ -114,7 +116,7 @@ body {
 }
 
 .auth-sidebar .artwork .artwork-image-dashboard {
-  flex-grow: 1;
+  flex-grow: 0;
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
@@ -123,6 +125,35 @@ body {
 .auth-sidebar header .logo {
   /* display: inline; */
   margin-bottom: 0px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0 2.2em 0 2.2em;
+}
+
+/* modal content  */
+.modal-content {
+  /* background-color: rgb(248, 246, 246); */
+  background-color: white;
+  margin: auto;
+  border: 1px solid #888;
+  border-radius: 20px;
+  width: 70vh;
+  height: 30vh;
+  position: fixed;
+  top: 200px;
+  left: 25%;
+  animation-name: animatemodal;
+  animation-duration: 0.5s;
 }
 
 /* ==========================
@@ -160,9 +191,18 @@ body {
   color: #4f4599;
 }
 
+.auth-sidebar header .bank-logo:hover {
+  width: 50%;
+  height: auto;
+  fill: currentColor;
+  /* color: white; */
+  color: white;
+}
+
 /* different background for the dashboard  */
 .artwork-image-dashboard {
-  background-image: url(/assets/astronaut\ budha\ mascot\ logo\ copy.png);
+  background-image: url(assets/astronaut\ budha\ mascot\ logo\ copy.png);
+  opacity: 0.15;
 }
 
 /* ======================================
@@ -175,13 +215,6 @@ body {
 
 @media (min-width: 960px) {
   /* 5.2.2 Layout */
-  .auth-sidebar {
-    background-color: black;
-  }
-
-  .auth-sidebar .artwork .artwork-image-dashboard {
-    max-height: 70%;
-  }
 
   .auth-sidebar header,
   .auth-sidebar .logo,
@@ -191,13 +224,156 @@ body {
     justify-content: center;
   }
 
+  .auth-sidebar .artwork {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .artwork .artwork-image-dashboard {
+    margin-top: 5em;
+    height: 60%;
+  }
+
+  .btn-container {
+    display: flex;
+    height: 20%;
+    flex-direction: column;
+  }
+
+  .btn-field {
+    display: flex;
+  }
+
+  .btn-container a {
+    width: 50%;
+    display: flex;
+    /* padding: 1em 1em 1em; */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-container h2 {
+    width: 50%;
+    display: flex;
+    /* padding: 1em 1em 1em; */
+    align-items: center;
+    /* justify-content: center; */
+  }
+
+  .modal-content {
+    padding: 1em;
+  }
+
+  /* main content  */
+  .auth-nav {
+    display: flex;
+    align-items: center;
+    padding-left: 3em;
+  }
+
   /* 5.2.3 Typography */
+
   .auth-sidebar header h1,
-  .font-heading-2 {
+  .font-heading-2,
+  .modal-content h1 {
     font-size: 1.5rem;
     font-weight: 600;
   }
+
+  .auth-sidebar header h1:hover,
+  .btn-field h2:hover,
+  .artwork-attribution a:hover {
+    color: #4f4599;
+  }
+
+  .auth-nav a,
+  .modal-content a {
+    text-decoration: none;
+  }
+
+  .btn-field h2 {
+    font-size: 1.2rem;
+    /* font-weight: 500; */
+  }
+
+  .btn-field h2 {
+    color: white;
+  }
 }
+
+/* 5.2.4 Components */
+.auth-sidebar-content {
+  background: black;
+}
+
+nav {
+  height: 5em;
+  background-color: white;
+}
+
+/* user and payments button  */
+.btn-container a svg {
+  width: 50%;
+  height: 50%;
+  cursor: pointer;
+}
+
+.btn-container a svg:hover {
+  width: 60%;
+  height: 60%;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btn-field:hover {
+  outline: solid 1px #cdc7fa;
+}
+
+/* Add new user window  */
+/* add new button  */
+.auth-nav a,
+.modal-content a,
+#btn-add-user {
+  padding: 1em 1.5em;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.auth-nav a:hover,
+.modal-content a:hover,
+#btn-add-user:hover {
+  padding: 1em 1.5em;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: #4f4599;
+  color: white;
+  cursor: pointer;
+}
+
+.add-form .form-field {
+  margin: 10px 0 10px;
+  padding: 0;
+}
+
+.add-form .form-field label,
+.add-form .form-field input {
+  display: block;
+  margin: 5px 0 5px;
+}
+
+/* 5.2.5 Keyframes */
+/* modal animation  */
+@keyframes animatemodal {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 200px;
+    opacity: 1;
+  }
+}
+
 /* ================================ 
         5.3 Desktop (1100px)  
    ================================*/

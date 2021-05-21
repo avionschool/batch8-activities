@@ -193,7 +193,8 @@ body {
 /* login area  */
 
 /* input fields  */
-.gen-form .form-field input {
+.gen-form .form-field input,
+.add-form .form-field input {
   height: 2.5em;
   border-radius: 5px;
   background-color: #efeff0;

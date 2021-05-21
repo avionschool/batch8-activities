@@ -3,23 +3,20 @@
 // ===============================
 
 // modal
-
-// add expense
-let addExpenseModal = document.getElementById('add-modal');
+// add user
+let addUserModal = document.getElementById('add-modal');
 let btnModal = document.getElementById('add-btn');
 
 // ===============================
 //      Event listeners
 // ===============================
 
-// modal
-
-// add expense
+// add user
 btnModal.onclick = function () {
-  addExpenseModal.style.display = 'block';
+  addUserModal.style.display = 'block';
 };
 
 // modal will be closed if user clicks anywhere outside of it
 window.onclick = function (e) {
-  e.target == addExpenseModal ? (addExpenseModal.style.display = 'none') : null;
+  e.target == addUserModal ? (addUserModal.style.display = 'none') : null;
 };
