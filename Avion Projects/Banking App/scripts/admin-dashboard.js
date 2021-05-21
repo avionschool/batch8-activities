@@ -138,6 +138,7 @@ function list_users() {
     })
     tableBody.innerHTML = div;
     addViewProfileHandler();
+    addTransactHandler();
     return clientList;
 }
 
@@ -174,7 +175,6 @@ function addViewProfileHandler() {
         viewProfile.style.cursor = "pointer";
         // On click, Open modal and manipulate contents
         viewProfile.addEventListener('click', function() {
-            console.log(index, selectedUser, selectedUser.accountNo);
             modal.style.display = "block";
             spanAccountNo.textContent = selectedUser.accountNo;
             spanEmail.textContent = selectedUser.email;
@@ -182,6 +182,26 @@ function addViewProfileHandler() {
             spanLname.textContent = selectedUser.lname;
             spanBalance.textContent = get_balance(selectedUser);
             spanIsAdmin.textContent = selectedUser.isAdmin;
+        })
+    })
+}
+
+// Navigate to Transactions section with Profile's details
+function addTransactHandler() {
+    let rows = [...tableBody.getElementsByTagName('tr')]; // targets table rows
+    rows.forEach(function(row, index) {
+        // select user
+        let selectedUser = clientList[index];
+        // in each row, target View Profile and style
+        let transact = row.children[4]; 
+        transact.style.textDecoration = "underline";
+        transact.style.cursor = "pointer";
+        // On click, Open modal and manipulate contents
+        transact.addEventListener('click', function() {
+            navTransactions.click();
+            depositAccountNoInput.value = selectedUser.accountNo;
+            withdrawAccountNoInput.value = selectedUser.accountNo;
+            transferSenderNoInput.value = selectedUser.accountNo;
         })
     })
 }
