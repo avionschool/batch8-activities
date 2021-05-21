@@ -137,7 +137,53 @@ function list_users() {
         </tr>`
     })
     tableBody.innerHTML = div;
+    addViewProfileHandler();
     return clientList;
+}
+
+// modal
+let modal = document.querySelector('.profile-modal');
+let modalClose = document.querySelector('.close');
+let spanAccountNo = document.querySelector('#profile-account-no');
+let spanEmail = document.querySelector('#profile-email');
+let spanFname = document.querySelector('#profile-fname');
+let spanLname = document.querySelector('#profile-lname');
+let spanBalance = document.querySelector('#profile-balance');
+let spanIsAdmin = document.querySelector('#profile-isAdmin');
+
+// Close modal when user clicks on Modal's 'x' or outside the modal window
+modalClose.onclick = function() {
+    modal.style.display = "none";
+  }
+
+window.onclick = function(event) {
+if (event.target == modal) {
+    modal.style.display = "none";
+}
+}
+
+// Open Modal to view Profile
+function addViewProfileHandler() {
+    let rows = [...tableBody.getElementsByTagName('tr')]; // targets table rows
+    rows.forEach(function(row, index) {
+        // select user
+        let selectedUser = clientList[index];
+        // in each row, target View Profile and style
+        let viewProfile = row.children[3]; 
+        viewProfile.style.textDecoration = "underline";
+        viewProfile.style.cursor = "pointer";
+        // On click, Open modal and manipulate contents
+        viewProfile.addEventListener('click', function() {
+            console.log(index, selectedUser, selectedUser.accountNo);
+            modal.style.display = "block";
+            spanAccountNo.textContent = selectedUser.accountNo;
+            spanEmail.textContent = selectedUser.email;
+            spanFname.textContent = selectedUser.fname;
+            spanLname.textContent = selectedUser.lname;
+            spanBalance.textContent = get_balance(selectedUser);
+            spanIsAdmin.textContent = selectedUser.isAdmin;
+        })
+    })
 }
 
 // Add New Client button simulates click on Add Client nav

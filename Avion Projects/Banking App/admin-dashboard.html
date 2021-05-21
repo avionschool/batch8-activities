@@ -59,13 +59,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-content">
-                    <tr>
-                        <td>640763888</td>
-                        <td>Juan Dela Cruz</td>
-                        <td>₱42,007,067.05</td>
-                        <td>View Details</td>
-                        <td>Transact</td>
-                    </tr>
+                    <!-- Sample Row; Will be overwritten by JS -->
                     <tr>
                         <td>567234777</td>
                         <td>Jane Smith</td>
@@ -80,7 +74,7 @@
 
         <section class="content-item content-add-client hide">
             <div class="add-client-container">
-                <div>Add New Client</div>
+                <div class="title">Add New Client</div>
                 <!-- Executing a javascript function on form submit without HTML page reload -->
                 <form action="#" onsubmit="add_user(); return false">
                     <div class="form-item">
@@ -171,6 +165,42 @@
     <!-- SUCCESSFUL ALERT PROMPT -->
     <div class="my_alert">
         <p>Transaction successful!</p>
+    </div>
+
+    <!-- View Profile Modal -->
+    <div class="profile-modal">
+        <div class="profile-content">
+            <div class="modal-top title">Client Profile<span class="close">&times;</span></div>
+            <div class="modal-left">
+                <div class="profile-image"><img src="assets/feathericons/user.svg" width="100px" height="100px"></div>
+                <div>Balance:</div>
+                <div><span id="profile-balance">100 pesos</div>
+            </div>
+            <div class="modal-right">
+                <table class='modal-table'>
+                    <tr>
+                        <td class="left-column">Account Number:</td>
+                        <td><span id="profile-account-no"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="left-column">First Name:</td>
+                        <td><span id="profile-fname"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="left-column">Last Name:</td>
+                        <td><span id="profile-lname"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="left-column">Email:</td>
+                        <td><span id="profile-email"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="left-column">Is Admin?</td>
+                        <td><span id="profile-isAdmin"></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 
 </body>

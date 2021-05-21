@@ -105,6 +105,12 @@ a {
         text-decoration: underline;
     }
 
+.title {
+    font-size: 1.25rem;
+    color: var(--main-color-1);
+    margin-bottom: 5px;
+}
+
 /* MAIN PORTION 85% */
 .content {
     height: 85%;
@@ -125,7 +131,7 @@ a {
 
     /* CLIENT LIST */
         /* TABLE */
-        table {
+        .client-table {
             width: 90%;
             border-collapse: collapse;
             margin-left: auto;
@@ -133,21 +139,21 @@ a {
             border: 1px solid black;
         }
 
-        td, th {
+        .client-table td, .client-table th {
             text-align: center;
             padding: 12px;
         }
 
-        td:nth-child(3) {
+        .client-table td:nth-child(3) {
             text-align: right;
         }
 
-        th {
+        .client-table th {
             background-color: var(--main-color-1);
             color: white;
         }
 
-        tr:nth-child(even) {background-color: #f2f2f2;}
+        .client-table tr:nth-child(even) {background-color: #f2f2f2;}
 
         /* ADD BUTTON */
         .client-list-addBtn {
@@ -224,3 +230,75 @@ a {
     opacity: 1;
     transition: opacity 0.6s;
 }
+
+/* VIEW PROFILE */
+.profile-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.profile-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* SECTIONING */
+    .modal-top {
+        height: 20%;
+        width: 100%;
+    }
+
+    .modal-left {
+        height: 80%;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        #profile-balance {
+            font-size: 1.2rem;
+        }
+
+    .modal-right {
+        height: 80%;
+        width: 60%;
+    }
+
+        .left-column {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .modal-table tr td span {
+            margin-left: 5px;
+        }
+
+/* Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
