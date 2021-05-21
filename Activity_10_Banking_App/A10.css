@@ -1,10 +1,183 @@
-.border{
-    border-style: solid;
-    height: 100px;
-    width: 200px;
-    margin-bottom: 30px;
+*{
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    font-family: 'Amatic SC', cursive;
 }
 
-.hidden{
+p {
+    border: 3.5px solid #7700b3;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 250px;
+}
+
+a {
+    color: #7700b3;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+a:hover {
+    color: #b366ff;
+    text-decoration: underline;
+}
+
+input {
+    border-radius: 10px;
+    border: 2px solid #7700b3;
+    color: #b366ff;
+    font-size: 30px;
+    font-weight: bold;
+    height: 40px;
+    outline: none;
+    padding-left: 15px;
+    width: 200px;
+}
+
+::placeholder { 
+    color: #7700b3; 
+}
+
+button {
+    background-color: #7700b3;
+    border: 1px solid #7700b3;
+    border-radius: 15px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    height: 40px;
+    width: 100px;
+}
+
+/*A10login.html*/
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.purpleCon {
+    background-color: #b366ff;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    height: 200px;
+    padding: 10px 0px 0px 30px;
+    width: 100%; 
+}
+
+.formStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border: 3.5px solid #7700b3;
+    border-radius: 25px;
+    height: 400px;
+    margin: 350px 0px 0px 0px;
+    position: absolute;
+    width: 350px;
+}
+
+.logoCon {
+    height: 45px;
+    width: 60px;
+}
+
+.hidden {
     visibility: hidden;
+}
+
+/*A10profile.html*/
+.subContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+}
+
+.containerSize {
+    height: 100%;
+    width: 50%;
+}
+
+.rightContainerDesign {
+    border-left-style: solid;
+    border-left-color: #b366ff;
+    border-left-width: 5px;
+}
+
+.greetUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 3.5px solid #7700b3;
+    border-radius: 25px;
+    font-size: 40px;
+    height: 80px;
+    margin: 0px 200px 500px 0px;
+    position: absolute;
+    width: 400px;
+}
+
+.currentBalance {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 50px;
+    height: 80px;
+    margin: 0px 0px 300px 0px;
+    position: absolute;
+    width: 500px;
+}
+
+.containerDesign {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 3.5px solid #7700b3; */
+    height: 50px;
+    position: absolute;
+    width: 330px;
+}
+
+.depositContainer {
+    margin: 0px 130px 150px 0px;
+}
+
+.withdrawContainer {
+    margin: 0px 130px 10px 0px;
+}
+
+.sendContainer {
+    margin: 130px 130px 0px 0px;
+}
+
+.accountName {
+    position: absolute;
+    margin: 100px 190px 0px 0px;
+}
+
+.sendButton {
+    position: absolute;
+    margin: 50px 0px 0px 230px;
+}
+
+.transactionHistoryTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 3.5px solid #7700b3;
+    border-radius: 25px;
+    height: 80px;
+    margin: 0px 0px 500px 0px;
+    position: absolute;
+    width: 250px;
 }

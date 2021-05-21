@@ -2,43 +2,42 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>KangarooMoney.com/createAccount</title>
+        <title>KangarooMoney.com/createAccount_login</title>
         <link rel="stylesheet" href="A10.css">
         <script src="A10.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     </head>
 <body>
-    <!-- <form action="A10profile.html">
-        <input type="text" name="userName" placeholder="last name, first name">
-        <input type="text" name="userPassword" placeholder="new password">
-        <input type="submit" value="Create Account">
-    </form> -->
-    <div class="container" id="loginForm">
-        <form action="A10profile.html">
-            <h1>Login</h1>
-            <input type="text" name="userName" placeholder="Username" id="username">
-            <input type="password" name="userPassword" placeholder="Password" id="password">
-            <input type="submit" value="Login" onclick="login()">
-            <p>
-                <a href="#">Forgot your password?</a>
-            </p>
-            <p id="linkCreateAccount">
-                <a href="#">Don't have an account? Create account</a>
-            </p>
+    <main class="container">
+        <div class="purpleCon">KangarooMoney.</div>
+        <form class="formStyle" id="loginForm" action="A10profile.html">
+        <!-- <form class="formStyle" id="loginForm" action="A10profile.html" onsubmit="event.preventDefault(); login()"> -->
+            <div class="logoCon">
+                <img src="kangaroo.png" height="100%" width="100%">
+            </div>  
+            <div>
+                <input type="text" name="userName" placeholder="username" id="username">
+            </div>
+            <div>
+                <input type="password" name="userPassword" placeholder="password" id="password">
+            </div>    
+            <button type="submit" onclick="login()">Login</button>
+            <!-- <button type="submit">Login</button> -->
+            <div id="linkCreateAccount">
+                <a href="#">Don't have an account? Create account.</a>
+                <!--you need blank href for it not to refersh itself-->
+            </div>
         </form>
-    </div>
-    
-    <div class="containerTwo hidden" id="createAccountForm">
-        <form>
-            <h1>Create Account</h1>
-                <input type="text" placeholder="Username" id="newUsername">
-                <input type="email" placeholder="Email" id="newEmail">
-                <input type="password" placeholder="Password" id="newPassword">
-                <!-- <input type="password" placeholder="Confim password"> -->
-                <button type="submit" onclick="registerUser()">Create Account</button>
-            <p id="linkLogin">
-                <a href="#">Already have an account? Sign in</a>
-            </p>
+        <form class="formStyle hidden" id="createAccountForm">
+            <h1>CREATE ACCOUNT</h1>
+            <input type="text" placeholder="Username" id="newUsername">
+            <input type="email" placeholder="Email" id="newEmail">
+            <input type="password" placeholder="Password" id="newPassword">
+            <button type="submit" onclick="registerUser()" id="createAccountButton">Create Account</button>
+            <div id="linkLogin">
+                <a href="#">Already have an account? Sign in!</a>
+            </div>
         </form>
-    </div>
+    </main>
 </body>
 </html>

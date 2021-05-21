@@ -5,28 +5,36 @@
         <title>KangarooMoney.com/profile</title>
         <link rel="stylesheet" href="A10.css">
         <script src="A10_2.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     </head>
 <body>
-    <div class="border">
-        <p id="greetUser"></p>
-    </div>
-    <div class="border">
-        <p>Your current balance is</p>
-        <p id="currentBalance"></p>
-    </div>
-    <div class="border">
-        <input type="number" id="depositAmount" placeholder="deposit"/>
-        <!-- <button id="depositButton" onclick="deposit()">Deposit</button>, you can remove onlclick now -->
-        <button id="depositButton">Deposit</button>
-    </div>
-    <div class="border">
-        <input type="number" id="withdrawAmount" placeholder="withdraw"/>
-        <!-- <button id="withdrawButton" onclick="withdraw()">Withdraw</button> -->
-        <button id="withdrawButton">Withdraw</button>
-    </div>
-    <div class="border">
-        <p>Transaction History</p>
-        <p id="transactionHistory"></p>
-    </div>
+    <main class="container">
+        <div class="purpleCon">KangarooMoney.</div>
+        <div class="subContainer">
+            <div class="container containerSize">
+                <div class="greetUser" id="greetUser"></div>
+                <div class="currentBalance">
+                    <div>Your current balance is <span id="currentBalance"></span></div>
+                </div>
+                <div class="depositContainer containerDesign">
+                    <input type="number" id="depositAmount" placeholder="amount">
+                    <button id="depositButton">Deposit</button>
+                </div>
+                <div class="withdrawContainer containerDesign">
+                    <input type="number" id="withdrawAmount" placeholder="amount">
+                    <button id="withdrawButton">Withdraw</button>
+                </div>
+                <div class="sendContainer containerDesign">
+                    <input type="number" id="sendAmount" placeholder="amount">
+                    <input type="text" class="accountName" id="accountName" placeholder="account name">
+                    <button class="sendButton" id="sendButton">Send</button>
+                </div>
+            </div>
+            <div class="container containerSize rightContainerDesign">
+                <h1 class="transactionHistoryTitle">Transaction History</h1>
+                <div id="transactionHistory"></div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
