@@ -398,7 +398,27 @@
         <nav class="auth-nav">
           <a href="#" id="add-btn">+ Add New</a>
         </nav>
-        <main></main>
+        <main>
+          <!-- user list - hidden by default -->
+          <div class="user-wrapper">
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Balance</th>
+              </tr>
+              <tbody id="tbody"></tbody>
+
+              <!-- <tr>
+                <td>Lea</td>
+                <td>0.00</td>
+              </tr>
+              <tr>
+                <td>Lea 1</td>
+                <td>1.00</td>
+              </tr> -->
+            </table>
+          </div>
+        </main>
       </section>
     </div>
     <!-- modal -->
@@ -408,18 +428,18 @@
         <form action="" class="add-form">
           <div class="form-field">
             <label for="account_no">Account Number</label>
-            <input type="text" name="account_no" id="" />
+            <input type="text" name="account_no" id="account_no" />
           </div>
           <div class="form-field">
             <label for="fullname">Fullname</label>
-            <input type="text" name="fullname" id="" />
+            <input type="text" name="fullname" id="fullname" />
           </div>
           <div class="form-field">
             <label for="balance">Balance</label>
-            <input type="text" name="balance" id="" value="0.00" />
+            <input type="text" name="balance" id="balance" value="0.00" />
           </div>
           <!-- <a href="#">Save</a> -->
-          <input type="button" value="Submit" id="btn-add-user" />
+          <input type="button" value="Submit" id="btn-add-user" onclick="addUser(this.form)" />
         </form>
       </div>
     </div>

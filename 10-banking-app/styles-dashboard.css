@@ -269,6 +269,29 @@ body {
     display: flex;
     align-items: center;
     padding-left: 3em;
+    height: 10vh;
+  }
+
+  main {
+    /* align-items: center */
+    justify-content: start;
+    /* padding: 2em; */
+  }
+
+  /* USER / PAYMENTS  */
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-wrapper {
+    height: 90vh;
+    display: flex;
+  }
+
+  td,
+  th {
+    padding: 1em;
   }
 
   /* 5.2.3 Typography */
@@ -299,78 +322,115 @@ body {
   .btn-field h2 {
     color: white;
   }
-}
 
-/* 5.2.4 Components */
-.auth-sidebar-content {
-  background: black;
-}
-
-nav {
-  height: 5em;
-  background-color: white;
-}
-
-/* user and payments button  */
-.btn-container a svg {
-  width: 50%;
-  height: 50%;
-  cursor: pointer;
-}
-
-.btn-container a svg:hover {
-  width: 60%;
-  height: 60%;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-.btn-field:hover {
-  outline: solid 1px #cdc7fa;
-}
-
-/* Add new user window  */
-/* add new button  */
-.auth-nav a,
-.modal-content a,
-#btn-add-user {
-  padding: 1em 1.5em;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.auth-nav a:hover,
-.modal-content a:hover,
-#btn-add-user:hover {
-  padding: 1em 1.5em;
-  border: 1px solid white;
-  border-radius: 10px;
-  background-color: #4f4599;
-  color: white;
-  cursor: pointer;
-}
-
-.add-form .form-field {
-  margin: 10px 0 10px;
-  padding: 0;
-}
-
-.add-form .form-field label,
-.add-form .form-field input {
-  display: block;
-  margin: 5px 0 5px;
-}
-
-/* 5.2.5 Keyframes */
-/* modal animation  */
-@keyframes animatemodal {
-  from {
-    top: 0;
-    opacity: 0;
+  table {
+    font-size: 1.2rem;
+    text-align: left;
   }
-  to {
-    top: 200px;
-    opacity: 1;
+
+  th {
+    color: white;
+    font-weight: 700;
+  }
+
+  /* 5.2.4 Components */
+  .auth-sidebar-content {
+    background: black;
+  }
+
+  nav {
+    height: 5em;
+    background-color: white;
+  }
+
+  /* user and payments button  */
+  .btn-container a svg {
+    width: 50%;
+    height: 50%;
+    cursor: pointer;
+  }
+
+  .btn-container a svg:hover {
+    width: 60%;
+    height: 60%;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .btn-field:hover {
+    outline: solid 1px #cdc7fa;
+  }
+
+  /* Add new user window  */
+  /* add new button  */
+  .auth-nav a,
+  .modal-content a,
+  #btn-add-user {
+    padding: 1em 1.5em;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  .auth-nav a:hover,
+  .modal-content a:hover,
+  #btn-add-user:hover {
+    padding: 1em 1.5em;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #4f4599;
+    color: white;
+    cursor: pointer;
+  }
+
+  .add-form .form-field {
+    margin: 10px 0 10px;
+    padding: 0;
+  }
+
+  .add-form .form-field label,
+  .add-form .form-field input {
+    display: block;
+    margin: 5px 0 5px;
+  }
+
+  /* USER / PAYMENTS  */
+  .user-wrapper {
+    margin-top: 1em;
+    padding: 0 1.5em 0 1.5em;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td {
+    border: solid 1px #dddddd;
+  }
+
+  tr:nth-child(even) {
+    background-color: #cdc7fa;
+  }
+
+  th {
+    background-color: #4f4599;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  /* 5.2.5 Keyframes */
+  /* modal animation  */
+  @keyframes animatemodal {
+    from {
+      top: 0;
+      opacity: 0;
+    }
+    to {
+      top: 200px;
+      opacity: 1;
+    }
   }
 }
 
