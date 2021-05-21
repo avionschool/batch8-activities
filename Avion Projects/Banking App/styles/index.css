@@ -65,16 +65,18 @@ input {
         height: 7.5vh;
     }
 
-    .button-container {
+    /* .button-container {
         display: grid;
         column-gap: 3vw;
         grid-template-columns: 1fr 1fr 1fr;
         width: 35vw;
-    }
+    } */
 
     .button-container button {
         font-size: 0.8rem;
         font-family: inherit;
+        margin: 0 1.5vw 0 1.5vw;
+        width: 130px;
         background-color: var(--main-color-1);
         color: white;
         font-weight: bold;
@@ -105,6 +107,9 @@ input {
 
     /* SLOGAN, LOGIN, SIGN UP ON THE RIGHT */
     .content-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 50%;
         max-height: fit-content;
         margin: auto;
@@ -119,13 +124,52 @@ input {
         }
 
         /* LOGIN */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--main-color-1);
+            margin-bottom: 5px;
+        }
+
+        .form-item input {
+            width: 330px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            padding: 5px;
+            border-radius: 3px;
+            box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+            border: 1px solid rgb(131, 131, 131);
+            margin-bottom: 10px;
+            color: var(--main-color-3);
+        }
+
+        .form-item input:focus {
+            outline-color: var(--main-color-1);
+        }
+
         .login-container {
             display: flex;
             flex-direction: column;
         }
 
-        .login-submit {
-            padding: 12px;
+        .submit {
+            width: 100px;
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: whitesmoke;
+            background-color: var(--main-color-1);
+        }
+
+        #login-sign-up {
+            margin-top: 3px;
+            font-size: 0.8rem;
+        }
+
+        #link-sign-up {
+            color: var(--main-color-1);
         }
 
         /* SIGN UP */
@@ -133,3 +177,21 @@ input {
             display: flex;
             flex-direction: column;
         }
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 18px;
+    }
+    .form-item input {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    html {
+        font-size: 16px;
+    }
+    .button-container button {
+        width: 100px;
+    }
+}
