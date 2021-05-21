@@ -175,6 +175,7 @@ function add_user() {
 
 function create_user(user) {
     clientList.push(user);
+    showAndFadeAlert(`Successfully added ${user.fname} ${user.lname} as a new client`, 'sucess')
 }
 // =====================
 // == D. TRANSACTIONS ==
@@ -235,6 +236,7 @@ function form_deposit() {
 
 function deposit(user, amount) {
     user.balance += amount;
+    showAndFadeAlert(`₱${amount.toLocaleString()} was successfully deposited into Account No. ${user.accountNo}`, 'sucess');
     return user.balance;
 }
 
@@ -266,6 +268,7 @@ function form_withdraw(user, amount) {
 
 function withdraw(user, amount) {
     user.balance -= amount;
+    showAndFadeAlert(`₱${amount.toLocaleString()} was successfully withdrawn from Account No. ${user.accountNo}`, 'sucess');
     return user.balance;
 }
 
@@ -312,11 +315,35 @@ function form_transfer() {
 function send(from_user, to_user, amount) {
     from_user.balance -= amount;
     to_user.balance += amount;
+    showAndFadeAlert(`Account No. ${from_user.accountNo} successfully transferred ₱${amount.toLocaleString()} to Account No. ${to_user.accountNo}`, 'sucess');
     return `Sender balance: ${get_balance(from_user)} | Receiver balance: ${get_balance(to_user)}`;
+}
+// ================================
+// == E. SUCCESS/ERROR    ALERTS ==
+// ================================
+let my_alert = document.querySelector('.my_alert');
+
+function showAndFadeAlert(message, type) {
+    // change bg color
+    if (type === "failure") {
+        my_alert.style.color = "#D8000C";
+        my_alert.style.backgroundColor = "#FFD2D2"
+    } else {
+        my_alert.style.color = "#4F8A10";
+        my_alert.style.backgroundColor = "#DFF2BF"
+    }
+
+    my_alert.style.display = "initial"; // show alert message
+    my_alert.style.opacity = "1";
+    if (message) {my_alert.children[0].textContent = message};
+    setTimeout(function() {
+        my_alert.style.opacity = "0";
+        my_alert.style.display = "none";
+    }, 5000); // and then fade after 5000ms
 }
 
 // ================================
-// == E. INITIALIZE TRANSACTIONS ==
+// == F. INITIALIZE TRANSACTIONS ==
 // ================================
 // create two user accounts
 create_user(new User(undefined, "ANormalGuy31", "atlas3@g.com", "911Emergency", "Johnny", "Smith", 498087.54, false));

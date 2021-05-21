@@ -208,3 +208,19 @@ a {
     color: whitesmoke;
     background-color: var(--main-color-1);
 }
+
+/* SUCESSFUL MODAL */
+.my_alert {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 10%;
+    top: 5%;
+    width: 75%;
+    height: 5%;
+    padding: 5px 0 5px 15px;
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    opacity: 1;
+    transition: opacity 0.6s;
+}
