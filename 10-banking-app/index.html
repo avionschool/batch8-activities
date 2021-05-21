@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="shortcut icon" href="assets/infinite-mathematical-symbol.svg" type="image/x-icon" />
-    <title>Banking App</title>
+    <title>Log in | Banking App</title>
   </head>
   <body class="sign-in">
     <div id="main-container">
@@ -70,17 +70,18 @@
             <!-- heading before login credentials -->
             <h2 class="font-heading-2">Login to Finbank.</h2>
             <div class="auth-register-container">
-              <form action="" class="gen-form">
+              <form class="gen-form">
                 <div class="form-field">
                   <label for="email">E-mail</label>
-                  <input type="text" name="email" id="email" />
+                  <input name="email" id="email" required />
                 </div>
                 <div class="form-field">
                   <label for="password">Password</label>
-                  <input type="text" name="password" id="password" />
+                  <input type="password" name="password" id="password" minlength="4" required />
                 </div>
                 <div class="btn-login">
-                  <a href="#">Login</a>
+                  <!-- <a href="#">Login</a> -->
+                  <input type="submit" value="Login" id="btn-submit" onclick="logIn(this.form)" />
                 </div>
               </form>
             </div>
@@ -89,4 +90,5 @@
       </section>
     </div>
   </body>
+  <script type="text/javascript" src="script.js"></script>
 </html>

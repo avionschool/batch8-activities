@@ -2,24 +2,13 @@
 //      Global variables
 // ===============================
 
-// modal
-
-// add expense
-let addExpenseModal = document.getElementById('add-modal');
-let btnModal = document.getElementById('add-btn');
+// ===============================
+//      Functions
+// ===============================
+function logIn(form) {
+  form.email.value === 'admin@finbank.com' && form.password.value == '1234' ? (form.action = 'dashboard.html') : alert('Incorrect login details!');
+}
 
 // ===============================
 //      Event listeners
 // ===============================
-
-// modal
-
-// add expense
-btnModal.onclick = function () {
-  addExpenseModal.style.display = 'block';
-};
-
-// modal will be closed if user clicks anywhere outside of it
-window.onclick = function (e) {
-  e.target == addExpenseModal ? (addExpenseModal.style.display = 'none') : null;
-};

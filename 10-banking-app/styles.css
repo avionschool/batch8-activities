@@ -21,6 +21,18 @@
     5.1.4 Components
 */
 
+/* color palettes 
+  
+  Main color: 
+    background-color: #4F4599
+  Light purple: 
+    background-color: #cdc7fa;
+  Gray: background-color: 
+    background-color: rgb(248, 246, 246);
+
+
+*/
+
 /* ==========================
       1. Global styles 
 
@@ -160,9 +172,17 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+.auth-sidebar-content .bank-logo:hover {
+  fill: white;
+}
+
 .auth-sidebar a {
   color: inherit;
   text-decoration: underline;
+}
+
+.auth-sidebar a:hover {
+  color: #4f4599;
 }
 
 .auth-sidebar .artwork .artwork-attribution {
@@ -171,6 +191,18 @@ body {
   color: white;
   padding: 25px 64px 35px;
   margin: 0;
+}
+
+/* .btn-login a {
+  text-decoration: none;
+} */
+
+.btn-login input {
+  font-size: 1rem;
+}
+
+.btn-login input:hover {
+  opacity: 0.7;
 }
 /* ==========================
       4. Components
@@ -203,15 +235,16 @@ body {
 }
 
 /* login button */
-.auth-register-container a {
+.btn-login input {
   color: white;
   background-color: #4f4599;
-  padding: 0.7em 10.6em;
+  padding: 1em 2em;
   border-radius: 10px;
+  width: 100%;
 }
 
-.btn-login {
-  margin-top: 40px;
+.btn-login input {
+  margin-top: 10px;
 }
 
 /* ==========================
@@ -294,8 +327,8 @@ body {
     font-weight: 800;
   }
 
-  .auth-register-container a {
-    text-decoration: none;
+  .btn-login input {
+    font-size: 1rem;
   }
 
   /* 5.1.4 Components  */
@@ -319,15 +352,15 @@ body {
   }
 
   /* login button */
-  .auth-register-container a {
+  .btn-login input {
     color: white;
     background-color: #4f4599;
     padding: 0.7em 9em;
     border-radius: 10px;
   }
 
-  .btn-login {
-    margin-top: 40px;
+  .btn-login input {
+    margin-top: 10px;
   }
   /* .auth-register-container a:hover {
     color: white;
@@ -431,6 +464,10 @@ body {
   .auth-sidebar header h1 {
     color: white;
   }
+
+  .btn-login input {
+    font-size: 1rem;
+  }
   /* 5.2.4 Components */
 }
 
@@ -448,6 +485,38 @@ body {
   .auth-sidebar header {
     padding: 64px 64px 30px;
   }
+
+  .auth-sidebar {
+    position: relative;
+  }
+
+  .auth-sidebar header {
+    text-align: left;
+  }
+
+  .auth-sidebar header .logo {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .auth-sidebar .artwork {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+
+  .auth-sidebar .artwork .artwork-image {
+    max-height: 70%;
+  }
+
+  .auth-sidebar .artwork .artwork-image {
+    flex-grow: 1;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+  }
+
   /* 5.3.3 Typography */
   /* 5.3.4 Components */
 }
