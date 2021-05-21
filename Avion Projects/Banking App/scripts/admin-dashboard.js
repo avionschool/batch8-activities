@@ -1,9 +1,22 @@
 // ===================
 // == GLOBAL VARS  ===
 // ===================
+var clientList_str = localStorage.getItem("clientList");
 
-let clientList = []; // Array of User objects
+// Initialize clientlist from local storage, of if first time, from empty array
+if (!clientList_str) {
+    var clientList = [];
+} else {
+    var clientList = JSON.parse(clientList_str);
+}
+
 let generatedAccountNos = []; // Array of unique account nos.
+
+// JSON
+function updateJSONClientList() {
+    clientList_str = JSON.stringify(clientList);
+    localStorage.setItem("clientList", clientList_str);
+}
 
 // helper functions
 function generateAccountNo() {
@@ -54,9 +67,6 @@ class User {
         // code for expense items
     }
 }
-
-let admin = new User("admin", "admin", undefined, 1234, undefined, undefined, 0, true);
-let john = new User('user', 'johndoe', '2@email.com', '12345', 'John', 'Doe', 2000, false);
 
 // ===================
 // == A. Nav Bar   ===
@@ -174,7 +184,8 @@ function add_user() {
 }
 
 function create_user(user) {
-    clientList.push(user);
+    clientList.unshift(user);
+    updateJSONClientList();
     showAndFadeAlert(`Successfully added ${user.fname} ${user.lname} as a new client`, 'sucess')
 }
 // =====================
@@ -237,6 +248,7 @@ function form_deposit() {
 function deposit(user, amount) {
     user.balance += amount;
     showAndFadeAlert(`₱${amount.toLocaleString()} was successfully deposited into Account No. ${user.accountNo}`, 'sucess');
+    updateJSONClientList();
     return user.balance;
 }
 
@@ -269,6 +281,7 @@ function form_withdraw(user, amount) {
 function withdraw(user, amount) {
     user.balance -= amount;
     showAndFadeAlert(`₱${amount.toLocaleString()} was successfully withdrawn from Account No. ${user.accountNo}`, 'sucess');
+    updateJSONClientList();
     return user.balance;
 }
 
@@ -316,6 +329,7 @@ function send(from_user, to_user, amount) {
     from_user.balance -= amount;
     to_user.balance += amount;
     showAndFadeAlert(`Account No. ${from_user.accountNo} successfully transferred ₱${amount.toLocaleString()} to Account No. ${to_user.accountNo}`, 'sucess');
+    updateJSONClientList();
     return `Sender balance: ${get_balance(from_user)} | Receiver balance: ${get_balance(to_user)}`;
 }
 // ================================
@@ -343,8 +357,8 @@ function showAndFadeAlert(message, type) {
 }
 
 // ================================
-// == F. INITIALIZE TRANSACTIONS ==
+// == F. Testing                 ==
 // ================================
 // create two user accounts
-create_user(new User(undefined, "ANormalGuy31", "atlas3@g.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
-create_user(new User(undefined, "GirlOnFire", "dragoon66@ymail.com", "DragonLady", "Vicky", "Bella", 210498087.98, false));
+// create_user(new User(undefined, "ANormalGuy31", "atlas3@g.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
+// create_user(new User(undefined, "GirlOnFire", "dragoon66@ymail.com", "DragonLady", "Vicky", "Bella", 210498087.98, false));

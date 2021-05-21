@@ -1,3 +1,13 @@
+// ===========================================
+// == IMPORTED FUNCTIONS AND CLASS CREATION ==
+// ===========================================
+let admin = {
+    username: "admin",
+    password: "1234",
+    isAdmin: true};
+let clientList = []; // Array of User objects
+clientList.push(admin);
+
 // ===================================
 // ==         NAV BUTTONS           ==
 // ===================================
@@ -31,8 +41,27 @@ signupBtn.addEventListener('click', function() {
 // ==    LOGIN FUNCTIONALITY        ==
 // ===================================
 const loginSubmit = document.querySelector('#login-submit');
+const loginUsername = document.querySelector('#login-username');
+const loginPassword = document.querySelector('#login-password');
 loginSubmit.addEventListener('click', function() {
-    window.location.href = "admin-dashboard.html"; 
+    index = clientList.findIndex(function(item) {
+        return item.username === loginUsername.value;
+    })
+    if (index === -1) {
+        alert('User does not exist!');
+        return;
+    }
+    
+    if (clientList[index].password !== loginPassword.value) {
+        alert('Incorrect password.');
+        return;
+    } else { // User and password matches so redirect to appropriate dashboard
+        if (clientList[index].isAdmin) {
+            window.location.href = "admin-dashboard.html"; 
+        } else {
+            window.location.href = "user-dashboard.html"; 
+        }
+    }
 })
 
 // ===================================
