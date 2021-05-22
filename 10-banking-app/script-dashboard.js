@@ -8,6 +8,7 @@ let usersKey = localStorage.getItem('users'); // gets existing data
 // note: key is the key in an object for readability purposes
 let key, FName, bal, AcctNum, runningBal;
 let isUserFound = true;
+let isMoneyEnough = true;
 
 // top nav bar
 let btnPayments = document.getElementsByClassName('pay-buttons');
@@ -40,6 +41,8 @@ let withModal = document.getElementById('withdraw-modal');
 let btnModalWith = document.getElementById('withdraw-btn');
 // withdraw window
 let txtAccNoW = document.getElementById('account_no_with');
+let txtAmtW = document.getElementById('amount_with');
+let btnWith = document.getElementById('btn-withdraw');
 
 // ===============================
 //      FUNCTIONS
@@ -110,10 +113,14 @@ function populateUser() {
   txtBalDep.value = bal;
 }
 
+// adds deposited amount to user's balance
+function depositMoney() {
+  runningBal = bal + parseFloat(txtAmt.value);
+}
+
 // updates balance of user after entering a new amount
 function updateBalance() {
   console.table(usersKey);
-  runningBal = bal + parseFloat(txtAmt.value);
   bal = runningBal; // updates bal variable to the running balance
   for (let i = 0; i < userObj.length; i++) {
     key = userObj[i];
@@ -130,6 +137,25 @@ function updateBalance() {
   }
 
   console.table(usersKey);
+}
+
+function withdrawMoney() {
+  // error handling - checks if there's enough balance to withdraw
+  parseFloat(txtAmtW.value) > bal ? (isMoneyEnough = false) : (isMoneyEnough = true);
+
+  // updates value of variable to re-use update balance function
+  txtAmt = document.getElementById('amount_with');
+
+  // displays message if balance is not suffi cient or will update balance
+  if (isMoneyEnough == false) {
+    alert('Insufficient balance');
+    return;
+  } else {
+    // deducts withdrawal amount from balance then passes on to running bal variable & calls update balance function
+    runningBal = bal - parseFloat(txtAmtW.value);
+    updateBalance();
+    populateUser();
+  }
 }
 
 // ===============================
@@ -194,8 +220,8 @@ txtAcctNo.addEventListener('keyup', (e) => {
 
 // submit button on deposit window
 btnAddDep.addEventListener('click', () => {
+  depositMoney();
   updateBalance();
-  // for balance textbox to reflect running balance
   populateUser();
 });
 
@@ -221,4 +247,9 @@ txtAccNoW.addEventListener('keyup', (e) => {
     searchUser();
     populateUser();
   }
+});
+
+// submit button on withdraw button
+btnWith.addEventListener('click', () => {
+  withdrawMoney();
 });
