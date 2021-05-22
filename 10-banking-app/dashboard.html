@@ -407,7 +407,7 @@
           <!-- will show once payments button was clicked  -->
           <a class="pay-buttons" id="deposit-btn">Deposit</a>
           <a class="pay-buttons" id="withdraw-btn">Withdraw</a>
-          <a class="pay-buttons">Send</a>
+          <a class="pay-buttons" id="send-money-btn">Send</a>
         </nav>
         <main>
           <!-- user list - hidden by default -->
@@ -464,12 +464,12 @@
             <input type="text" name="fullname" id="fullname_dep" />
           </div>
           <div class="form-field">
-            <label for="amount">Amount</label>
-            <input type="text" name="amount" id="amount_dep" />
-          </div>
-          <div class="form-field">
             <label for="balance">Balance:</label>
             <input type="text" name="balance" id="balance_dep" />
+          </div>
+          <div class="form-field">
+            <label for="amount">Amount</label>
+            <input type="text" name="amount" id="amount_dep" />
           </div>
           <input type="submit" value="Submit" id="btn-deposit" class="btn-transactions" />
         </div>
@@ -490,14 +490,44 @@
             <input type="text" name="fullname" id="fullname_with" />
           </div>
           <div class="form-field">
-            <label for="amount">Amount</label>
-            <input type="text" name="amount" id="amount_with" />
-          </div>
-          <div class="form-field">
             <label for="balance">Balance:</label>
             <input type="text" name="balance" id="balance_with" />
           </div>
+          <div class="form-field">
+            <label for="amount">Amount</label>
+            <input type="text" name="amount" id="amount_with" />
+          </div>
           <input type="submit" value="Submit" id="btn-withdraw" class="btn-transactions" />
+        </div>
+      </div>
+    </div>
+
+    <!-- send money modal  -->
+    <div id="send-money-modal" class="modal">
+      <div class="modal-content modal-content-send">
+        <h1>Send money</h1>
+        <div class="transaction-form">
+          <div class="form-field">
+            <label for="account-no">Sender:</label>
+            <input type="text" name="account-no-from" id="account-no-from" required placeholder="Please enter Sender's account number" />
+          </div>
+          <div class="form-field">
+            <label for="account-no-to">Receive:</label>
+            <input type="text" name="account-no-to" id="account-no-to" required placeholder="Please enter Receiver's account number" />
+          </div>
+          <div class="form-field">
+            <label for="balance-sender">Sender's Balance:</label>
+            <input type="text" name="balance-sender" id="balance-sender" />
+          </div>
+          <div class="form-field">
+            <label for="balance-receiver">Receiver's Balance:</label>
+            <input type="text" name="balance-receiver" id="balance-receiver" />
+          </div>
+          <div class="form-field">
+            <label for="amount-to-send">Amount</label>
+            <input type="text" name="amount-to-send" id="amount-to-send" placeholder="Please enter amount you wish to send" />
+          </div>
+          <input type="submit" value="Submit" id="btn-send" class="btn-transactions" />
         </div>
       </div>
     </div>

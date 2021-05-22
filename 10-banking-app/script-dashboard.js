@@ -44,6 +44,10 @@ let txtAccNoW = document.getElementById('account_no_with');
 let txtAmtW = document.getElementById('amount_with');
 let btnWith = document.getElementById('btn-withdraw');
 
+// send money
+let sendModal = document.getElementById('send-money-modal');
+let btnModalSend = document.getElementById('send-money-btn');
+
 // ===============================
 //      FUNCTIONS
 // ===============================
@@ -198,9 +202,8 @@ window.onload = function () {
 
 // DEPOSIT
 // sample of using arrow function
-// displays deposit modal
 btnModalDep.addEventListener('click', () => {
-  currentModal = 'depModal';
+  // displays deposit modal
   depModal.style.display = 'block';
 
   // modal(s) will be closed if user clicks anywhere outside of it
@@ -226,8 +229,8 @@ btnAddDep.addEventListener('click', () => {
 });
 
 // WITHDRAW
-// displays withdraw modal
 btnModalWith.addEventListener('click', () => {
+  // displays withdraw modal
   withModal.style.display = 'block';
 
   // modal(s) will be closed if user clicks anywhere outside of it
@@ -252,4 +255,14 @@ txtAccNoW.addEventListener('keyup', (e) => {
 // submit button on withdraw button
 btnWith.addEventListener('click', () => {
   withdrawMoney();
+});
+
+// SEND MONEY
+btnModalSend.addEventListener('click', () => {
+  sendModal.style.display = 'block';
+
+  // modal(s) will be closed if user clicks anywhere outside of it
+  window.onclick = function (e) {
+    e.target == sendModal ? (sendModal.style.display = 'none') : null;
+  };
 });

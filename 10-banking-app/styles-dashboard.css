@@ -161,6 +161,11 @@ body {
   height: 36vh;
 }
 
+/* adds height for send money window */
+.modal-content-send {
+  height: 42vh;
+}
+
 /* ==========================
       3. Typography
   ===========================
