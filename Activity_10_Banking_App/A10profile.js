@@ -11,13 +11,62 @@ function greeting() {
     return greetUser;
 }
 
+function createAccount(){
+    let newAccountName = document.getElementById('newAccountName');
+    let initialBalance = document.getElementById('initialBalance');
+    let storedAccountName = localStorage.getItem('account');
+    let accountData = JSON.parse(localStorage.getItem('account'));
+    let RegisteredAccountName = document.getElementById('RegisteredAccountName');
+    let balance = document.getElementById('balance');
+
+    if (newAccountName.value == storedAccountName) {
+        alert ('Error: Account name has been already used. Please choose another one.');
+    } else if (newAccountName.value.length == 0 && initialBalance.value.length == 0) {
+        alert ('Error: Please fill out the details required!');
+    } else if (newAccountName.value.length == 0) {
+        alert ('Error: Please type in your new account name.');
+    } else if (initialBalance.value.length == 0) {
+        alert ('Error: Please type in your initial balance.');
+    } else {
+        if (accountData) {
+            accountData.push({account: newAccountName.value, balance: initialBalance.value});
+            localStorage.setItem('account', JSON.stringify(accountData));
+        } else {
+            localStorage.setItem('account', JSON.stringify([{account: newAccountName.value, balance: initialBalance.value}]));
+        }
+    alert ('Success: Account has been created!');
+    
+    let listAccountName = document.createElement('p');
+    listAccountName.innerText = newAccountName.value;
+    RegisteredAccountName.appendChild(listAccountName);
+        
+    let listBalance = document.createElement('p');
+    listBalance.innerText = initialBalance.value;
+    balance.appendChild(listBalance);
+    }
+}
+
+
+// withdrawButton.addEventListener('click', function(){
+//     let newTransaction = document.createElement('p');
+//     newTransaction.innerText = "You withdrew Php" + withdrawAmount.value + " to your acccount.\n" + "Current balance: " + currentBalance;
+//     transactionHistory.appendChild(newTransaction);
+// })
+
 let tempBalance = 0;
 document.getElementById('currentBalance').innerHTML = tempBalance;
-let transactionHistory = document.getElementById('transactionHistory');
-let depositButton = document.getElementById('depositButton');
-let withdrawButton = document.getElementById('withdrawButton');
+
 let depositAmount = document.getElementById('depositAmount').value;
+let depositButton = document.getElementById('depositButton');
+
 let withdrawAmount = document.getElementById('withdrawAmount').value;
+let withdrawButton = document.getElementById('withdrawButton');
+
+let sendTo = document.getElementById('sendTo').value;
+let sendAmount = document.getElementById('sendAmount').value;
+let sendButton = document.getElementById('sendButton');
+
+let transactionHistory = document.getElementById('transactionHistory');
 
 class User {
     constructor(tempName, tempBalance) {
@@ -50,6 +99,7 @@ class User {
 }
 
 let userOne = new User ("Jan", 0);
+// createAccountButton.addEventListener('click', userOne.createUser);
 depositButton.addEventListener('click', userOne.deposit);
 withdrawButton.addEventListener('click', userOne.withdraw);
 //this is how you call a function using .addEventListner
