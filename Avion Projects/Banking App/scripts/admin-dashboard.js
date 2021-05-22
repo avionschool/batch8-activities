@@ -3,69 +3,17 @@
 // ===================
 var clientList_str = localStorage.getItem("clientList");
 
-// Initialize clientlist from local storage, of if first time, from empty array
+// Initialize clientlist from local storage, or if not in local storage, from empty array
 if (!clientList_str) {
     var clientList = [];
 } else {
     var clientList = JSON.parse(clientList_str);
 }
 
-let generatedAccountNos = []; // Array of unique account nos.
-
 // JSON
 function updateJSONClientList() {
     clientList_str = JSON.stringify(clientList);
     localStorage.setItem("clientList", clientList_str);
-}
-
-// helper functions
-function generateAccountNo() {
-    let randomAccountNo = "";
-    for (let i = 0; i < 6; i++) {
-        randomAccountNo += Math.floor(Math.random()*10);
-    }
-    // On the improbable chance it was already generated, generate another code
-    if (generatedAccountNos.includes(randomAccountNo)) {
-        return generateAccountNo();
-    } else {
-        generatedAccountNos.push(randomAccountNo);
-        return randomAccountNo;
-    }
-}
-
-function generateRandomPassword() {
-    let randomPassword = [];
-    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (let i = 0; i < 9; i++) {
-        randomPassword.push(characters.charAt(Math.floor(Math.random()* characters.length)));
-    }
-    return randomPassword.join('');
-}
-
-class User {
-    constructor(accountNo, username, email, password, fname, lname, balance, isAdmin) {
-        this.accountNo = (accountNo !== 'admin') ? generateAccountNo() : undefined;
-        this.username = username;
-        this.email = email;
-        this.password = (password === undefined) ? generateRandomPassword(): password;
-        this.fname = fname;
-        this.lname = lname;
-        this.balance = balance;
-        this.expenseItems = [];
-        this.isAdmin = isAdmin;
-    }
-
-    add() {
-        // code for expense items
-    }
-
-    delete() {
-        // code for expense items
-    }
-
-    list() {
-        // code for expense items
-    }
 }
 
 // ===================
@@ -220,6 +168,12 @@ const lnameInput = document.querySelector('#lname');
 const usernameInput = document.querySelector('#username');
 const emailInput = document.querySelector('#email');
 const initialDepositInput = document.querySelector('#initial-deposit-amount');
+const formAddClient = document.querySelector('#form-add-client');
+formAddClient.addEventListener('submit', function(e) {
+    add_user();
+    e.preventDefault(); // prevent page reload
+    return false;
+});
 
 function add_user() {
     // validates unique username
@@ -289,9 +243,26 @@ function hideTransactionSections() {
     }) 
 }
 
+// Function for resetting forms in transactions section
+function resetTransactionForms() {
+    depositAccountNoInput.value = "";
+    depositAmountInput.value = "";
+    withdrawAccountNoInput.value = "";
+    withdrawAmountInput.value = "";
+    transferSenderNoInput.value = "";
+    transferAmountInput.value = "";
+    transferReceiverNoInput.value = "";
+}
+
 // Db. Deposit
 const depositAccountNoInput = document.querySelector('#deposit-account-no');
 const depositAmountInput = document.querySelector('#deposit-amount');
+const formDeposit = document.querySelector('#form-deposit');
+formDeposit.addEventListener('submit', function(e) {
+    form_deposit();
+    e.preventDefault(); // prevent page reload
+    return false; 
+});
 
 function form_deposit() {
     let index = clientList.findIndex(function(item) {
@@ -306,8 +277,7 @@ function form_deposit() {
     deposit(selectedUser, parseFloat(depositAmountInput.value));
 
     //reset values
-    depositAccountNoInput.value = "";
-    depositAmountInput.value = "";
+    resetTransactionForms();
     return;
 }
 
@@ -321,8 +291,14 @@ function deposit(user, amount) {
 // Dc. Withdraw
 const withdrawAccountNoInput = document.querySelector('#withdraw-account-no');
 const withdrawAmountInput = document.querySelector('#withdraw-amount');
+const formWithdraw = document.querySelector('#form-withdraw');
+formWithdraw.addEventListener('submit', function(e) {
+    form_withdraw();
+    e.preventDefault(); // prevent page reload
+    return false; 
+});
 
-function form_withdraw(user, amount) {
+function form_withdraw() {
     let index = clientList.findIndex(function(item) {
         return item.accountNo == withdrawAccountNoInput.value;
     })
@@ -339,8 +315,7 @@ function form_withdraw(user, amount) {
     withdraw(selectedUser, parseFloat(withdrawAmountInput.value))
 
     //reset values
-    withdrawAccountNoInput.value = "";
-    withdrawAmountInput.value = "";
+    resetTransactionForms();
     return;
 }
 
@@ -355,6 +330,12 @@ function withdraw(user, amount) {
 const transferSenderNoInput = document.querySelector('#transfer-sender-no');
 const transferAmountInput = document.querySelector('#transfer-amount');
 const transferReceiverNoInput = document.querySelector('#transfer-receiver-no');
+const formTransfer = document.querySelector('#form-transfer');
+formTransfer.addEventListener('submit', function(e) {
+    form_transfer();
+    e.preventDefault(); // prevent page reload
+    return false; 
+});
 
 function form_transfer() {
     let indexA = clientList.findIndex(function(item) {
@@ -385,9 +366,7 @@ function form_transfer() {
     send(selectedUserA, selectedUserB, parseFloat(transferAmountInput.value));
 
     //reset values
-    transferSenderNoInput.value = "";
-    transferAmountInput.value = "";
-    transferReceiverNoInput.value = "";
+    resetTransactionForms();
     return;
 }
 
