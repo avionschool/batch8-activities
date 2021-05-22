@@ -452,7 +452,7 @@
 
     <!-- deposit modal  -->
     <div id="deposit-modal" class="modal">
-      <div class="modal-content">
+      <div class="modal-content modal-content-dep">
         <h1>Deposit</h1>
         <div class="transaction-form">
           <div class="form-field">
@@ -464,7 +464,11 @@
             <input type="text" name="fullname" id="fullname_dep" />
           </div>
           <div class="form-field">
-            <label for="balance">Balance</label>
+            <label for="amount">Amount</label>
+            <input type="text" name="amount" id="amount_dep" />
+          </div>
+          <div class="form-field">
+            <label for="balance">Balance:</label>
             <input type="text" name="balance" id="balance_dep" />
           </div>
           <input type="submit" value="Submit" id="btn-deposit" class="btn-transactions" />

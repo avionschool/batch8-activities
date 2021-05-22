@@ -156,6 +156,11 @@ body {
   animation-duration: 0.5s;
 }
 
+/* adds height for deposit/withdraw window  */
+.modal-content-dep {
+  height: 36vh;
+}
+
 /* ==========================
       3. Typography
   ===========================

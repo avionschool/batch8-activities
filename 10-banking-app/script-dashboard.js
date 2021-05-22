@@ -4,8 +4,9 @@
 
 // generic variables - used by more than 1 functions
 let userObj = JSON.parse(localStorage.getItem('users'));
+let usersKey = localStorage.getItem('users'); // gets existing data
 // note: key is the key in an object for readability purposes
-let key, FName, bal;
+let key, FName, bal, AcctNum, runningBal;
 let isUserFound = true;
 
 // top nav bar
@@ -15,6 +16,10 @@ let btnPayments = document.getElementsByClassName('pay-buttons');
 let addUserModal = document.getElementById('add-modal');
 let btnModal = document.getElementById('add-btn');
 let btnAddUser = document.getElementById('btn-add-user');
+// add user window
+let txtAcctNoU = document.getElementById('account_no');
+let txtFNameU = document.getElementById('fullname');
+let txtBal = document.getElementById('balance');
 
 // deposit
 let depModal = document.getElementById('deposit-modal');
@@ -22,7 +27,9 @@ let btnModalDep = document.getElementById('deposit-btn');
 // deposit window
 let txtAcctNo = document.getElementById('account_no_dep');
 let txtFName = document.getElementById('fullname_dep');
-let txtBal = document.getElementById('balance_dep');
+let txtAmt = document.getElementById('amount_dep');
+let txtBalDep = document.getElementById('balance_dep');
+let btnAddDep = document.getElementById('btn-deposit');
 
 // side nav bar
 let btnUserNav = document.getElementById('user-nav-btn');
@@ -39,12 +46,12 @@ function hideElements() {
 }
 
 // adding a new user
-function addUser(form) {
+function addUser() {
   // 'users' = key
   let allUsers = {
-    accountNo: form.account_no.value,
-    fullName: form.fullname.value,
-    balance: form.balance.value,
+    accountNo: txtAcctNoU.value,
+    fullName: txtFNameU.value,
+    balance: txtBal.value,
   };
 
   let userArr = [];
@@ -57,7 +64,8 @@ function addUser(form) {
     userArr.push(allUsers);
     localStorage.setItem('users', JSON.stringify(userArr));
   }
-  console.log('Added a user');
+
+  // console.log('added user');
 }
 
 // populates table with name and balance of user
@@ -66,19 +74,20 @@ function loadUserList() {
   // iterates keys and values of the users object
   for (let i = 0; i < userObj.length; i++) {
     let tr = '<tr>';
-    tr += '<td>' + userObj[i].fullName + '</td>' + '<td>$' + userObj[i].balance + '</td></tr>';
+    tr += '<td>' + userObj[i].fullName + '</td>' + '<td>Php ' + userObj[i].balance + '</td></tr>';
     tbody.innerHTML += tr;
   }
 }
 
+// returns details of user
 function searchUser() {
-  console.log(userObj);
   for (let i = 0; i < userObj.length; i++) {
     key = userObj[i];
     if (key.accountNo === txtAcctNo.value) {
       isUserFound = true;
       FName = key.fullName; // updates value of FName variable to details of the user found
-      bal = key.balance;
+      AcctNum = key.accountNo;
+      bal = parseFloat(key.balance);
       return;
     } else {
       isUserFound = false;
@@ -92,7 +101,29 @@ function searchUser() {
 // populates textfields based on the result of searchUser function
 function populateUser() {
   txtFName.value = FName;
-  txtBal.value = bal;
+  txtBalDep.value = bal;
+}
+
+// updates balance of user after entering a new amount
+function updateBalance() {
+  console.table(usersKey);
+  runningBal = bal + parseFloat(txtAmt.value);
+  bal = runningBal; // updates bal variable to the running balance
+  for (let i = 0; i < userObj.length; i++) {
+    key = userObj[i];
+    if (key.accountNo === AcctNum) {
+      // if no existing data, create an array
+      // or, convert the localstorage string to an array
+      usersKey = usersKey ? JSON.parse(usersKey) : [];
+
+      // adds new data to localstorage Array
+      usersKey[i].balance = runningBal.toString();
+      // saves back to localstorage
+      localStorage.setItem('users', JSON.stringify(usersKey));
+    }
+  }
+
+  console.table(usersKey);
 }
 
 // ===============================
@@ -102,7 +133,6 @@ function populateUser() {
 // SIDE NAV BAR
 // users button
 btnUserNav.addEventListener('click', () => {
-  console.log('users');
   btnModal.style.display = 'block'; //displays + add user button on top nav bar
   btnPayments[0].style.display = 'none'; // hides payments related buttons on top nav bar
   btnPayments[1].style.display = 'none';
@@ -152,4 +182,11 @@ txtAcctNo.addEventListener('keyup', (e) => {
     searchUser();
     populateUser();
   }
+});
+
+// submit button on deposit window
+btnAddDep.addEventListener('click', () => {
+  updateBalance();
+  // for balance textbox to reflect running balance
+  populateUser();
 });
