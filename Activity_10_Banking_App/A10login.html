@@ -4,14 +4,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>KangarooMoney.com/createAccount_login</title>
         <link rel="stylesheet" href="A10.css">
-        <script src="A10.js" defer></script>
+        <script src="A10login.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     </head>
 <body>
     <main class="container">
         <div class="purpleCon">KangarooMoney.</div>
-        <form class="formStyle" id="loginForm" action="A10profile.html">
-        <!-- <form class="formStyle" id="loginForm" action="A10profile.html" onsubmit="event.preventDefault(); login()"> -->
+        <form class="formStyle" id="loginForm">
             <div class="logoCon">
                 <img src="kangaroo.png" height="100%" width="100%">
             </div>  
@@ -20,9 +19,8 @@
             </div>
             <div>
                 <input type="password" name="userPassword" placeholder="password" id="password">
-            </div>    
-            <button type="submit" onclick="login()">Login</button>
-            <!-- <button type="submit">Login</button> -->
+            </div>   
+            <button type="submit" onclick="checkData()">Login</button>
             <div id="linkCreateAccount">
                 <a href="#">Don't have an account? Create account.</a>
                 <!--you need blank href for it not to refersh itself-->
@@ -33,7 +31,7 @@
             <input type="text" placeholder="Username" id="newUsername">
             <input type="email" placeholder="Email" id="newEmail">
             <input type="password" placeholder="Password" id="newPassword">
-            <button type="submit" onclick="registerUser()" id="createAccountButton">Create Account</button>
+            <button type="submit" onclick="storeData()" id="createAccountButton">Register</button>
             <div id="linkLogin">
                 <a href="#">Already have an account? Sign in!</a>
             </div>

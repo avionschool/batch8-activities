@@ -1,6 +1,7 @@
+//Why is it null? I can get the key and value from the previous page
 document.getElementById('greetUser').innerHTML = greeting();
 
-function greeting(){
+function greeting() {
     let urlString = window.location.search;
     let keyAndValue = new URLSearchParams(urlString);
      //use "new URLSearchParams" to get the key and value
@@ -9,39 +10,6 @@ function greeting(){
     let greetUser = "Hi " + userName + "!" + " How are you?";
     return greetUser;
 }
-
-// let currentBalance = 0;
-// document.getElementById('currentBalance').innerHTML = currentBalance;
-// let transactionHistory = document.getElementById('transactionHistory');
-// let depositButton = document.getElementById('depositButton');
-// let withdrawButton = document.getElementById('withdrawButton');
-
-// function deposit() {
-//     let depositAmount = Number(document.getElementById('depositAmount').value);
-//     //"number()" changing your string into a number
-//     let updatedBalance = depositAmount + currentBalance;
-//     currentBalance = updatedBalance;
-//     document.getElementById('currentBalance').innerHTML = "Php" + currentBalance;
-// }
-
-// depositButton.addEventListener('click', function(){
-//     let newTransaction = document.createElement('p');
-//     newTransaction.innerText = "You deposited Php" + depositAmount.value + " to your acccount.\n" + "Current balance: " + currentBalance;
-//     transactionHistory.appendChild(newTransaction);
-// })
-
-// function withdraw() {
-//     let withdrawAmount = Number(document.getElementById('withdrawAmount').value);
-//     let updatedBalance = currentBalance - withdrawAmount;
-//     currentBalance = updatedBalance;
-//     document.getElementById('currentBalance').innerHTML = "Php" + currentBalance;
-// }
-
-// withdrawButton.addEventListener('click', function(){
-//     let newTransaction = document.createElement('p');
-//     newTransaction.innerText = "You withdrew Php" + withdrawAmount.value + " to your acccount.\n" + "Current balance: " + currentBalance;
-//     transactionHistory.appendChild(newTransaction);
-// })
 
 let tempBalance = 0;
 document.getElementById('currentBalance').innerHTML = tempBalance;
@@ -129,3 +97,38 @@ withdrawButton.addEventListener('click', userOne.withdraw);
 // console.log(inducteeThree.team);
 // console.log(playerOne);
 // console.log(playerOne.displayNumCareerScore());
+
+
+// //Origianl code - did not use Javascript class
+// let currentBalance = 0;
+// document.getElementById('currentBalance').innerHTML = currentBalance;
+// let transactionHistory = document.getElementById('transactionHistory');
+// let depositButton = document.getElementById('depositButton');
+// let withdrawButton = document.getElementById('withdrawButton');
+
+// function deposit() {
+//     let depositAmount = Number(document.getElementById('depositAmount').value);
+//     //"number()" changing your string into a number
+//     let updatedBalance = depositAmount + currentBalance;
+//     currentBalance = updatedBalance;
+//     document.getElementById('currentBalance').innerHTML = "Php" + currentBalance;
+// }
+
+// depositButton.addEventListener('click', function(){
+//     let newTransaction = document.createElement('p');
+//     newTransaction.innerText = "You deposited Php" + depositAmount.value + " to your acccount.\n" + "Current balance: " + currentBalance;
+//     transactionHistory.appendChild(newTransaction);
+// })
+
+// function withdraw() {
+//     let withdrawAmount = Number(document.getElementById('withdrawAmount').value);
+//     let updatedBalance = currentBalance - withdrawAmount;
+//     currentBalance = updatedBalance;
+//     document.getElementById('currentBalance').innerHTML = "Php" + currentBalance;
+// }
+
+// withdrawButton.addEventListener('click', function(){
+//     let newTransaction = document.createElement('p');
+//     newTransaction.innerText = "You withdrew Php" + withdrawAmount.value + " to your acccount.\n" + "Current balance: " + currentBalance;
+//     transactionHistory.appendChild(newTransaction);
+// })
