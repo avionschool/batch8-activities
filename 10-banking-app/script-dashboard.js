@@ -12,6 +12,10 @@ let isUserFound = true;
 // top nav bar
 let btnPayments = document.getElementsByClassName('pay-buttons');
 
+// side nav bar
+let btnUserNav = document.getElementById('user-nav-btn');
+let btnPayNav = document.getElementById('pay-nav-btn');
+
 // add user
 let addUserModal = document.getElementById('add-modal');
 let btnModal = document.getElementById('add-btn');
@@ -31,9 +35,11 @@ let txtAmt = document.getElementById('amount_dep');
 let txtBalDep = document.getElementById('balance_dep');
 let btnAddDep = document.getElementById('btn-deposit');
 
-// side nav bar
-let btnUserNav = document.getElementById('user-nav-btn');
-let btnPayNav = document.getElementById('pay-nav-btn');
+// withdraw
+let withModal = document.getElementById('withdraw-modal');
+let btnModalWith = document.getElementById('withdraw-btn');
+// withdraw window
+let txtAccNoW = document.getElementById('account_no_with');
 
 // ===============================
 //      FUNCTIONS
@@ -149,6 +155,7 @@ btnPayNav.addEventListener('click', () => {
 
 // ADD USER
 // using regular function
+// displays add user modal
 btnModal.onclick = function () {
   addUserModal.style.display = 'block';
 
@@ -165,6 +172,7 @@ window.onload = function () {
 
 // DEPOSIT
 // sample of using arrow function
+// displays deposit modal
 btnModalDep.addEventListener('click', () => {
   currentModal = 'depModal';
   depModal.style.display = 'block';
@@ -189,4 +197,28 @@ btnAddDep.addEventListener('click', () => {
   updateBalance();
   // for balance textbox to reflect running balance
   populateUser();
+});
+
+// WITHDRAW
+// displays withdraw modal
+btnModalWith.addEventListener('click', () => {
+  withModal.style.display = 'block';
+
+  // modal(s) will be closed if user clicks anywhere outside of it
+  window.onclick = function (e) {
+    e.target == withModal ? (withModal.style.display = 'none') : null;
+  };
+
+  // re-assigns value to variables for function re-usability
+  // this will allow search user function to be re-used
+  txtAcctNo = document.getElementById('account_no_with');
+  txtFName = document.getElementById('fullname_with');
+  txtBalDep = document.getElementById('balance_with');
+});
+
+txtAccNoW.addEventListener('keyup', (e) => {
+  if (e.code === 'Enter') {
+    searchUser();
+    populateUser();
+  }
 });

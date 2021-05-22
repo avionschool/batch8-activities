@@ -157,7 +157,7 @@ body {
 }
 
 /* adds height for deposit/withdraw window  */
-.modal-content-dep {
+.modal-content-big {
   height: 36vh;
 }
 

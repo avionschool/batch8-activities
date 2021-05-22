@@ -406,7 +406,7 @@
           <a id="add-btn">+ Add New</a>
           <!-- will show once payments button was clicked  -->
           <a class="pay-buttons" id="deposit-btn">Deposit</a>
-          <a class="pay-buttons">Withdraw</a>
+          <a class="pay-buttons" id="withdraw-btn">Withdraw</a>
           <a class="pay-buttons">Send</a>
         </nav>
         <main>
@@ -452,7 +452,7 @@
 
     <!-- deposit modal  -->
     <div id="deposit-modal" class="modal">
-      <div class="modal-content modal-content-dep">
+      <div class="modal-content modal-content-big">
         <h1>Deposit</h1>
         <div class="transaction-form">
           <div class="form-field">
@@ -472,6 +472,32 @@
             <input type="text" name="balance" id="balance_dep" />
           </div>
           <input type="submit" value="Submit" id="btn-deposit" class="btn-transactions" />
+        </div>
+      </div>
+    </div>
+
+    <!-- withdraw modal  -->
+    <div id="withdraw-modal" class="modal">
+      <div class="modal-content modal-content-big">
+        <h1>Withdraw</h1>
+        <div class="transaction-form">
+          <div class="form-field">
+            <label for="account_no">Account Number</label>
+            <input type="text" name="account_no" id="account_no_with" required />
+          </div>
+          <div class="form-field">
+            <label for="fullname">Fullname</label>
+            <input type="text" name="fullname" id="fullname_with" />
+          </div>
+          <div class="form-field">
+            <label for="amount">Amount</label>
+            <input type="text" name="amount" id="amount_with" />
+          </div>
+          <div class="form-field">
+            <label for="balance">Balance:</label>
+            <input type="text" name="balance" id="balance_with" />
+          </div>
+          <input type="submit" value="Submit" id="btn-withdraw" class="btn-transactions" />
         </div>
       </div>
     </div>
