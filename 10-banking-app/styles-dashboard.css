@@ -270,6 +270,7 @@ body {
     align-items: center;
     padding-left: 3em;
     height: 10vh;
+    justify-content: flex-start;
   }
 
   main {
@@ -303,6 +304,9 @@ body {
     font-weight: 600;
   }
 
+  .modal-content h1 {
+    color: #4f4599;
+  }
   .auth-sidebar header h1:hover,
   .btn-field h2:hover,
   .artwork-attribution a:hover {
@@ -361,11 +365,10 @@ body {
     outline: solid 1px #cdc7fa;
   }
 
-  /* Add new user window  */
   /* add new button  */
   .auth-nav a,
   .modal-content a,
-  #btn-add-user {
+  .btn-transactions {
     padding: 1em 1.5em;
     border: 1px solid black;
     border-radius: 10px;
@@ -373,7 +376,7 @@ body {
 
   .auth-nav a:hover,
   .modal-content a:hover,
-  #btn-add-user:hover {
+  .btn-transactions:hover {
     padding: 1em 1.5em;
     border: 1px solid white;
     border-radius: 10px;
@@ -382,18 +385,19 @@ body {
     cursor: pointer;
   }
 
-  .add-form .form-field {
+  /* Add new user window  */
+  .transaction-form .form-field {
     margin: 10px 0 10px;
     padding: 0;
   }
 
-  .add-form .form-field label,
-  .add-form .form-field input {
+  .transaction-form .form-field label,
+  .transaction-form .form-field input {
     display: block;
     margin: 5px 0 5px;
   }
 
-  /* USER / PAYMENTS  */
+  /* USER / PAYMENTS  main content*/
   .user-wrapper {
     margin-top: 1em;
     padding: 0 1.5em 0 1.5em;
@@ -418,6 +422,11 @@ body {
 
   tr:hover {
     background-color: #ddd;
+  }
+
+  /* payments button on nav bar */
+  .pay-buttons {
+    margin: 0 1em 0 1em;
   }
 
   /* 5.2.5 Keyframes */

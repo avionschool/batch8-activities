@@ -11,6 +11,9 @@
   </head>
   <body>
     <div id="main-container">
+      <!-- =============================
+              SIDE NAVIGATION  
+          ===============================-->
       <section class="auth-sidebar">
         <div class="auth-sidebar-content">
           <header>
@@ -55,7 +58,7 @@
             <div class="btn-container">
               <!-- users button  -->
               <div class="btn-field">
-                <a a href="">
+                <a id="user-nav-btn">
                   <svg id="e59edb86-a3bc-4694-8aac-31e565ca5cfc" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="676" height="676" viewBox="0 0 676 676">
                     <title>Users</title>
                     <path
@@ -98,7 +101,7 @@
               </div>
               <!-- payments button  -->
               <div class="btn-field">
-                <a href="">
+                <a id="pay-nav-btn">
                   <svg id="baed4b18-14ee-447f-bd84-b0265ca0ad8a" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1049.58" height="678.59" viewBox="0 0 1049.58 678.59">
                     <defs>
                       <linearGradient id="b6a338e9-6675-4055-aeec-b883651a73ae" x1="790.68" y1="664.41" x2="790.68" y2="175.75" gradientUnits="userSpaceOnUse">
@@ -393,10 +396,18 @@
           </div>
         </div>
       </section>
+      <!-- =================================
+                MAIN CONTENT  
+          ==================================-->
       <!-- Users/Payments content page  -->
       <section class="content">
         <nav class="auth-nav">
-          <a href="#" id="add-btn">+ Add New</a>
+          <!-- hide for debugging purposes style="display: none" -->
+          <a id="add-btn">+ Add New</a>
+          <!-- will show once payments button was clicked  -->
+          <a class="pay-buttons" id="deposit-btn">Deposit</a>
+          <a class="pay-buttons">Withdraw</a>
+          <a class="pay-buttons">Send</a>
         </nav>
         <main>
           <!-- user list - hidden by default -->
@@ -407,25 +418,20 @@
                 <th>Balance</th>
               </tr>
               <tbody id="tbody"></tbody>
-
-              <!-- <tr>
-                <td>Lea</td>
-                <td>0.00</td>
-              </tr>
-              <tr>
-                <td>Lea 1</td>
-                <td>1.00</td>
-              </tr> -->
             </table>
           </div>
         </main>
       </section>
     </div>
-    <!-- modal -->
+    <!-- ===================================== 
+                    MODALS
+        ======================================-->
+    <!-- add user modal  -->
     <div id="add-modal" class="modal">
       <div class="modal-content">
         <h1>Add User</h1>
-        <form action="" class="add-form">
+        <!-- <form action="" class="transaction-form"> -->
+        <div class="transaction-form">
           <div class="form-field">
             <label for="account_no">Account Number</label>
             <input type="text" name="account_no" id="account_no" />
@@ -438,9 +444,31 @@
             <label for="balance">Balance</label>
             <input type="text" name="balance" id="balance" value="0.00" />
           </div>
-          <!-- <a href="#">Save</a> -->
-          <input type="button" value="Submit" id="btn-add-user" onclick="addUser(this.form)" />
-        </form>
+          <input type="button" value="Submit" id="btn-add-user" class="btn-transactions" onclick="addUser(this.form)" />
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- deposit modal  -->
+    <div id="deposit-modal" class="modal">
+      <div class="modal-content">
+        <h1>Deposit</h1>
+        <div class="transaction-form">
+          <div class="form-field">
+            <label for="account_no">Account Number</label>
+            <input type="text" name="account_no" id="account_no_dep" required />
+          </div>
+          <div class="form-field">
+            <label for="fullname">Fullname</label>
+            <input type="text" name="fullname" id="fullname_dep" />
+          </div>
+          <div class="form-field">
+            <label for="balance">Balance</label>
+            <input type="text" name="balance" id="balance_dep" />
+          </div>
+          <input type="submit" value="Submit" id="btn-deposit" class="btn-transactions" />
+        </div>
       </div>
     </div>
   </body>

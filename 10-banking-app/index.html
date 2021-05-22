@@ -70,20 +70,21 @@
             <!-- heading before login credentials -->
             <h2 class="font-heading-2">Login to Finbank.</h2>
             <div class="auth-register-container">
-              <form class="gen-form">
+              <!-- <form class="gen-form" id="login-form"> -->
+              <div class="gen-form">
                 <div class="form-field">
                   <label for="email">E-mail</label>
-                  <input name="email" id="email" required />
+                  <input type="email" name="email" id="email" value="admin@finbank.com" required />
                 </div>
                 <div class="form-field">
                   <label for="password">Password</label>
-                  <input type="password" name="password" id="password" minlength="4" required />
+                  <input type="password" name="password" id="password" minlength="4" value="1234" required />
                 </div>
                 <div class="btn-login">
-                  <!-- <a href="#">Login</a> -->
-                  <input type="submit" value="Login" id="btn-submit" onclick="logIn(this.form)" />
+                  <input type="submit" value="Login" id="btn-submit" />
                 </div>
-              </form>
+              </div>
+              <!-- </form> -->
             </div>
           </div>
         </main>
