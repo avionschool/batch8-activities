@@ -155,16 +155,6 @@ body {
   animation-duration: 0.5s;
 }
 
-/* adds height for deposit/withdraw window  */
-.modal-content-big {
-  height: 36vh;
-}
-
-/* adds height for send money window */
-.modal-content-send {
-  height: 42vh;
-}
-
 /* ==========================
       3. Typography
   ===========================
