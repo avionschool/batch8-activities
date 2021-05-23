@@ -78,11 +78,18 @@ function get_balance(user) {
     } else return string + '.00'; // display whole numbers with trailing zeros
 }
 
-// function display_balance(amount) {
-//     if (amount.includes('.')) {
-//         return amount;
-//     } else return amount + '.00'; 
-// }
+function display_balance(amount) {
+    amount = amount.toLocaleString(); // convert to string
+    ans = "";
+    if (amount.includes('.')) {
+        ans = amount;
+    } else ans = amount + '.00';
+    
+    if (ans.includes('-')) {
+        ans = `(${ans.slice(1)})`;
+    }
+    return ans; 
+}
 
 function list_users() {
     // refactor to not use innerHTML
@@ -177,7 +184,9 @@ promptConfirm.addEventListener('click', function() {
 })
 
 function remove_user(index) {
-    showAndFadeAlert(`Successfully deleted Account No. ${clientList[index].accountNo}`, 'success');
+    let message = `eleted Account No. ${clientList[index].accountNo}`;
+    showAndFadeAlert(`Successfully d`+message, 'success');
+    newTransaction(clientList[index].accountNo, `${clientList[index].fname} ${clientList[index].lname}`, 'Close', `D`+message, -clientList[index].balance, 0);
     clientList.splice(index, 1); // from index position, remove 1 specific element (itself)
     updateJSONClientList(); // update local storage
 }
@@ -250,10 +259,10 @@ function add_user() {
 
 function create_user(user) {
     clientList.unshift(user);
-    let message = `Successfully added ${user.fname} ${user.lname} as a new client`;
-    newTransaction(user.accountNo, `${user.fname} ${user.lname}`, 'Open', message, user.amount, user.amount);
+    let message = `dded ${user.fname} ${user.lname} as a new client`;
+    newTransaction(user.accountNo, `${user.fname} ${user.lname}`, 'Open', `A`+message, user.balance, user.balance);
     updateJSONClientList();
-    showAndFadeAlert(message, 'sucess')
+    showAndFadeAlert('Successfully a' + message, 'sucess')
 }
 
 // =====================
@@ -332,7 +341,9 @@ function form_deposit() {
 
 function deposit(user, amount) {
     user.balance += amount;
-    showAndFadeAlert(`₱${amount.toLocaleString()} was successfully deposited into Account No. ${user.accountNo}`, 'sucess');
+    let message = `eposited ₱${amount.toLocaleString()} into Account No. ${user.accountNo}`;
+    newTransaction(user.accountNo, `${user.fname} ${user.lname}`, 'Deposit', `D`+message, amount, user.balance);
+    showAndFadeAlert('Successfully d'+message, 'success');
     updateJSONClientList();
     return user.balance;
 }
@@ -372,7 +383,9 @@ function form_withdraw() {
 
 function withdraw(user, amount) {
     user.balance -= amount;
-    showAndFadeAlert(`₱${amount.toLocaleString()} was successfully withdrawn from Account No. ${user.accountNo}`, 'sucess');
+    let message = `ithdrew ₱${amount.toLocaleString()} from Account No. ${user.accountNo}`;
+    newTransaction(user.accountNo, `${user.fname} ${user.lname}`, 'Withdraw', `W`+message, -amount, user.balance);
+    showAndFadeAlert(`Successfully w`+message, 'sucess');
     updateJSONClientList();
     return user.balance;
 }
@@ -426,6 +439,10 @@ function form_transfer() {
 function send(from_user, to_user, amount) {
     from_user.balance -= amount;
     to_user.balance += amount;
+    let message1 = `Transferred ₱${amount} to Account No. ${to_user.accountNo}`;
+    newTransaction(from_user.accountNo, `${from_user.fname} ${from_user.lname}`, 'Transfer', message1, -amount, from_user.balance);
+    let message2 = `Received ₱${amount} from Account No. ${from_user.accountNo}`;
+    newTransaction(to_user.accountNo, `${to_user.fname} ${to_user.lname}`, 'Transfer', message2, amount, to_user.balance);
     showAndFadeAlert(`Account No. ${from_user.accountNo} successfully transferred ₱${amount.toLocaleString()} to Account No. ${to_user.accountNo}`, 'sucess');
     updateJSONClientList();
     return `Sender balance: ${get_balance(from_user)} | Receiver balance: ${get_balance(to_user)}`;
@@ -472,8 +489,8 @@ function show_history() {
             <td>${item.name}</td>
             <td>${item.type}</td>
             <td>${item.details}</td>
-            <td>${item.amount}</td>
-            <td>${item.runningBalance}</td>
+            <td>${display_balance((item.amount))}</td>
+            <td>₱${display_balance((item.runningBalance))}</td>
         </tr>`
     })
     historyTable.innerHTML = div;
