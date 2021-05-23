@@ -30,7 +30,7 @@ let txtBal = document.getElementById('balance');
 let depModal = document.getElementById('deposit-modal');
 let btnModalDep = document.getElementById('deposit-btn');
 // deposit window
-let txtAcctNo = document.getElementById('account_no_dep');
+let txtAcctNo = document.getElementById('account_no_dep'); // this variable gets re-used by other features and gets re-assigned to another element
 let txtFName = document.getElementById('fullname_dep');
 let txtAmt = document.getElementById('amount_dep');
 let txtBalDep = document.getElementById('balance_dep');
@@ -47,6 +47,9 @@ let btnWith = document.getElementById('btn-withdraw');
 // send money
 let sendModal = document.getElementById('send-money-modal');
 let btnModalSend = document.getElementById('send-money-btn');
+// sender
+let txtSender = document.getElementById('account-no-from');
+let isUsingSend = true; // later on will be used whether to change color of sender's or receiver's textbox to green
 
 // ===============================
 //      FUNCTIONS
@@ -101,6 +104,7 @@ function searchUser() {
       FName = key.fullName; // updates value of FName variable to details of the user found
       AcctNum = key.accountNo;
       bal = parseFloat(key.balance);
+
       return;
     } else {
       isUserFound = false;
@@ -160,6 +164,27 @@ function withdrawMoney() {
     updateBalance();
     populateUser();
   }
+}
+
+function sendMoney() {
+  // highlights sender/receiver's textbox when user is found
+  // for user-friendly purposes
+  function highlightTxtbox() {
+    if (isUsingSend == true) {
+      if (isUserFound == true) {
+        txtAcctNo.style.backgroundColor = '#81DA77';
+      } else {
+        txtAcctNo.style.backgroundColor = '#FAE1E1';
+      }
+    } else {
+      if (isUserFound == true) {
+        txtAcctNo.style.backgroundColor = '#81DA77';
+      } else {
+        txtAcctNo.style.backgroundColor = '#FAE1E1';
+      }
+    }
+  }
+  highlightTxtbox();
 }
 
 // ===============================
@@ -237,15 +262,15 @@ btnModalWith.addEventListener('click', () => {
   window.onclick = function (e) {
     e.target == withModal ? (withModal.style.display = 'none') : null;
   };
+});
 
+txtAccNoW.addEventListener('keyup', (e) => {
   // re-assigns value to variables for function re-usability
   // this will allow search user function to be re-used
   txtAcctNo = document.getElementById('account_no_with');
   txtFName = document.getElementById('fullname_with');
   txtBalDep = document.getElementById('balance_with');
-});
 
-txtAccNoW.addEventListener('keyup', (e) => {
   if (e.code === 'Enter') {
     searchUser();
     populateUser();
@@ -265,4 +290,17 @@ btnModalSend.addEventListener('click', () => {
   window.onclick = function (e) {
     e.target == sendModal ? (sendModal.style.display = 'none') : null;
   };
+});
+
+// triggers function to search for sender's details
+txtSender.addEventListener('keyup', (e) => {
+  // re-assigns value to variables for function re-usability
+  // this will allow search user function to be re-used
+  txtAcctNo = document.getElementById('account-no-from');
+  // see above for description
+  isUsingSend = true;
+  if (e.code === 'Enter') {
+    searchUser();
+    sendMoney();
+  }
 });
