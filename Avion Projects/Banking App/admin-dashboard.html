@@ -39,6 +39,7 @@
         <div class="nav-item nav-client-list">Client List</div>
         <div class="nav-item nav-add-client">Add Client</div>
         <div class="nav-item nav-transactions">Transactions</div>
+        <div class="nav-item nav-history">History</div>
     </section>
 
     <!-- Content 85% -->
@@ -159,6 +160,37 @@
                 </div>
             </div>
         </section>
+
+        <section class="content-item content-history hide">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Account No.</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Transaction Details</th>
+                        <th>Debit/Credit</th>
+                        <th>Running Balance</th>
+                    </tr>
+                </thead>
+                <tbody class="history-content">
+                    <!-- Sample Row; Will be overwritten by JS -->
+                    <tr>
+                        <td>2021-05-20</td>
+                        <td>23:00:00</td>
+                        <td>609090</td>
+                        <td>Liza Magdanniello Therese</td>
+                        <td>Transfer</td>
+                        <td>Transferred 100 to 090909</td>
+                        <td>+100.00</td>
+                        <td>1,100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
     </section>
 
     <!-- SUCCESSFUL ALERT PROMPT -->
@@ -230,5 +262,6 @@
 
 </body>
 <script src="scripts/User.js"></script>
+<script src="scripts/Transaction.js"></script>
 <script src="scripts/admin-dashboard.js"></script>
 </html>

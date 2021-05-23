@@ -2,6 +2,7 @@
 // == GLOBAL VARS  ===
 // ===================
 var clientList_str = localStorage.getItem("clientList");
+var transactionHistory_str = localStorage.getItem("transactionHistory");
 
 // Initialize clientlist from local storage, or if not in local storage, from empty array
 if (!clientList_str) {
@@ -10,10 +11,18 @@ if (!clientList_str) {
     var clientList = JSON.parse(clientList_str);
 }
 
+if (!transactionHistory_str) {
+    var transactionHistory = [];
+} else {
+    var transactionHistory = JSON.parse(transactionHistory_str);
+}
+
 // JSON
 function updateJSONClientList() {
     clientList_str = JSON.stringify(clientList);
     localStorage.setItem("clientList", clientList_str);
+    transactionHistory_str = JSON.stringify(transactionHistory);
+    localStorage.setItem("transactionHistory", transactionHistory_str);
 }
 
 // ===================
@@ -68,6 +77,12 @@ function get_balance(user) {
         return string;
     } else return string + '.00'; // display whole numbers with trailing zeros
 }
+
+// function display_balance(amount) {
+//     if (amount.includes('.')) {
+//         return amount;
+//     } else return amount + '.00'; 
+// }
 
 function list_users() {
     // refactor to not use innerHTML
@@ -129,7 +144,7 @@ const promptCancel = document.querySelector('#prompt-cancel');
 const promptConfirm = document.querySelector('#prompt-confirm');
 
 // Close view profile modal when user clicks on Modal's 'x' or outside the modal window
-modalClose.onclick = hideModals();
+modalClose.onclick = hideModals;
 
 window.onclick = function(event) {
 if (event.target == modal) hideModals();
@@ -235,8 +250,10 @@ function add_user() {
 
 function create_user(user) {
     clientList.unshift(user);
+    let message = `Successfully added ${user.fname} ${user.lname} as a new client`;
+    newTransaction(user.accountNo, `${user.fname} ${user.lname}`, 'Open', message, user.amount, user.amount);
     updateJSONClientList();
-    showAndFadeAlert(`Successfully added ${user.fname} ${user.lname} as a new client`, 'sucess')
+    showAndFadeAlert(message, 'sucess')
 }
 
 // =====================
@@ -438,7 +455,42 @@ function showAndFadeAlert(message, type) {
 }
 
 // ================================
-// == F. Testing                 ==
+// == F. TRANSACTION HISTORY     ==
+// ================================
+const historyTable = document.querySelector('.history-content');
+
+function show_history() {
+    // refactor to not use innerHTML
+    let div = "";
+
+    transactionHistory.forEach(function(item) {
+        div += `
+        <tr>
+            <td>${item.date}</td>
+            <td>${item.time}</td>
+            <td>${item.accountNo}</td>
+            <td>${item.name}</td>
+            <td>${item.type}</td>
+            <td>${item.details}</td>
+            <td>${item.amount}</td>
+            <td>${item.runningBalance}</td>
+        </tr>`
+    })
+    historyTable.innerHTML = div;
+    return transactionHistory;
+}
+
+function newTransaction(accountNo, name, type, details, amount, runningBalance) {
+    let transaction = new Transaction(accountNo, name, type, details, amount, runningBalance);
+    transactionHistory.unshift(transaction);
+    show_history();
+}
+
+// Initialize
+show_history();
+
+// ================================
+// == G. Testing                 ==
 // ================================
 // create three user accounts
 // create_user(new User(undefined, "ANormalGuy31", "atlas3@g.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
