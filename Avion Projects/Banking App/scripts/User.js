@@ -9,6 +9,7 @@ class User {
         this.balance = balance;
         this.expenseItems = [];
         this.isAdmin = isAdmin;
+        this.memberSince = new Date();
     }
 
     add() {

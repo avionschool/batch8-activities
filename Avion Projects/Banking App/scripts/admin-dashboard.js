@@ -25,7 +25,6 @@ const navHome = document.querySelector('.nav-home');
 const navClientList = document.querySelector('.nav-client-list');
 const navAddClient = document.querySelector('.nav-add-client');
 const navTransactions = document.querySelector('.nav-transactions');
-
 const sectionContents = [...document.querySelectorAll('.content-item')];
 
 // Add click event on nav items to style itself and unhide relevant section
@@ -80,8 +79,8 @@ function list_users() {
             <td>${item.accountNo}</td>
             <td>${item.fname} ${item.lname}</td>
             <td>${get_balance(item)}</td>
-            <td>View Details</td>
-            <td>Transact</td>
+            <td class="clickable-view-details">View Details</td>
+            <td class="clickable-transact">Transact</td>
         </tr>`
     })
     tableBody.innerHTML = div;
@@ -90,15 +89,16 @@ function list_users() {
     return clientList;
 }
 
-// modal
-let modal = document.querySelector('.profile-modal');
-let modalClose = document.querySelector('.close');
-let spanAccountNo = document.querySelector('#profile-account-no');
-let spanEmail = document.querySelector('#profile-email');
-let spanFname = document.querySelector('#profile-fname');
-let spanLname = document.querySelector('#profile-lname');
-let spanBalance = document.querySelector('#profile-balance');
-let spanIsAdmin = document.querySelector('#profile-isAdmin');
+// MODAL
+const modal = document.querySelector('.profile-modal');
+const modalClose = document.querySelector('.close');
+const spanAccountNo = document.querySelector('#profile-account-no');
+const spanEmail = document.querySelector('#profile-email');
+const spanFname = document.querySelector('#profile-fname');
+const spanLname = document.querySelector('#profile-lname');
+const spanBalance = document.querySelector('#profile-balance');
+const spanMemberSince = document.querySelector('#profile-member-since');
+const spanIsAdmin = document.querySelector('#profile-isAdmin');
 
 // Close modal when user clicks on Modal's 'x' or outside the modal window
 modalClose.onclick = function() {
@@ -113,39 +113,32 @@ if (event.target == modal) {
 
 // Open Modal to view Profile
 function addViewProfileHandler() {
-    let rows = [...tableBody.getElementsByTagName('tr')]; // targets table rows
-    rows.forEach(function(row, index) {
-        // select user
+    // target all view details
+    const viewProfile = [...document.querySelectorAll('.clickable-view-details')];
+    // and add click event to open view profile modal
+    viewProfile.forEach(function(item, index) {
         let selectedUser = clientList[index];
-        // in each row, target View Profile and style
-        let viewProfile = row.children[3]; 
-        viewProfile.style.textDecoration = "underline";
-        viewProfile.style.cursor = "pointer";
-        // On click, Open modal and manipulate contents
-        viewProfile.addEventListener('click', function() {
+        item.addEventListener('click', function() {
             modal.style.display = "block";
             spanAccountNo.textContent = selectedUser.accountNo;
             spanEmail.textContent = selectedUser.email;
             spanFname.textContent = selectedUser.fname;
             spanLname.textContent = selectedUser.lname;
             spanBalance.textContent = get_balance(selectedUser);
+            let today = new Date(selectedUser.memberSince); // convert to Date object first
+            spanMemberSince.textContent = today.toLocaleString();
             spanIsAdmin.textContent = selectedUser.isAdmin;
         })
     })
 }
 
-// Navigate to Transactions section with Profile's details
 function addTransactHandler() {
-    let rows = [...tableBody.getElementsByTagName('tr')]; // targets table rows
-    rows.forEach(function(row, index) {
-        // select user
+    // target all transact
+    const transact = [...document.querySelectorAll('.clickable-transact')];
+    // and add click event to open view profile modal
+    transact.forEach(function(item, index) {
         let selectedUser = clientList[index];
-        // in each row, target View Profile and style
-        let transact = row.children[4]; 
-        transact.style.textDecoration = "underline";
-        transact.style.cursor = "pointer";
-        // On click, Open modal and manipulate contents
-        transact.addEventListener('click', function() {
+        item.addEventListener('click', function() {
             navTransactions.click();
             depositAccountNoInput.value = selectedUser.accountNo;
             withdrawAccountNoInput.value = selectedUser.accountNo;
@@ -169,6 +162,8 @@ const usernameInput = document.querySelector('#username');
 const emailInput = document.querySelector('#email');
 const initialDepositInput = document.querySelector('#initial-deposit-amount');
 const formAddClient = document.querySelector('#form-add-client');
+
+// On form submit, add user
 formAddClient.addEventListener('submit', function(e) {
     add_user();
     e.preventDefault(); // prevent page reload
@@ -216,7 +211,6 @@ const transactionBtns = [...document.querySelectorAll('.transaction-navBtn')];
 const transactionDepositBtn = transactionBtns[0];
 const transactionWithdrawBtn = transactionBtns[1];
 const transactionTransferBtn = transactionBtns[2];
-
 const transactionSections = [...document.querySelectorAll('.transaction-section')];
 
 // Add click event on transaction buttons to style itself and unhide relevant section
@@ -258,6 +252,8 @@ function resetTransactionForms() {
 const depositAccountNoInput = document.querySelector('#deposit-account-no');
 const depositAmountInput = document.querySelector('#deposit-amount');
 const formDeposit = document.querySelector('#form-deposit');
+
+// On form submit, deposit
 formDeposit.addEventListener('submit', function(e) {
     form_deposit();
     e.preventDefault(); // prevent page reload
@@ -292,6 +288,8 @@ function deposit(user, amount) {
 const withdrawAccountNoInput = document.querySelector('#withdraw-account-no');
 const withdrawAmountInput = document.querySelector('#withdraw-amount');
 const formWithdraw = document.querySelector('#form-withdraw');
+
+// On form submit, withdraw
 formWithdraw.addEventListener('submit', function(e) {
     form_withdraw();
     e.preventDefault(); // prevent page reload
@@ -331,6 +329,8 @@ const transferSenderNoInput = document.querySelector('#transfer-sender-no');
 const transferAmountInput = document.querySelector('#transfer-amount');
 const transferReceiverNoInput = document.querySelector('#transfer-receiver-no');
 const formTransfer = document.querySelector('#form-transfer');
+
+// On form submit, transfer
 formTransfer.addEventListener('submit', function(e) {
     form_transfer();
     e.preventDefault(); // prevent page reload

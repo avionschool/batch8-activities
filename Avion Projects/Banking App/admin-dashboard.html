@@ -170,11 +170,14 @@
     <div class="profile-modal">
         <div class="profile-content">
             <div class="modal-top title">Client Profile<span class="close">&times;</span></div>
+            
             <div class="modal-left">
                 <div class="profile-image"><img src="assets/feathericons/user.svg" width="100px" height="100px"></div>
                 <div>Balance:</div>
                 <div><span id="profile-balance">100 pesos</div>
+                <div><span id="profile-transaction-history">View Transaction History</span></div>
             </div>
+
             <div class="modal-right">
                 <table class='modal-table'>
                     <tr>
@@ -194,13 +197,23 @@
                         <td><span id="profile-email"></span></td>
                     </tr>
                     <tr>
+                        <td class="left-column">Member since:</td>
+                        <td><span id="profile-member-since"></span></td>
+                    </tr>
+                    <tr>
                         <td class="left-column">Is Admin?</td>
                         <td><span id="profile-isAdmin"></span></td>
                     </tr>
                 </table>
             </div>
+
+            <div class="modal-bottom">
+                <span id="profile-delete"><img src="assets/feathericons/trash-2.svg" title="Delete profile" alt="delete profile"></span>
+            </div>
         </div>
     </div>
+
+    <!-- Delete Profile in Modal -->
 
 </body>
 <script src="scripts/User.js"></script>

@@ -155,6 +155,12 @@ a {
 
         .client-table tr:nth-child(even) {background-color: #f2f2f2;}
 
+        /* VIEW DETAILS AND TRANSACT */
+        .clickable-view-details, .clickable-transact {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
         /* ADD BUTTON */
         .client-list-addBtn {
             margin-top: 3vh;
@@ -256,49 +262,74 @@ a {
     flex-wrap: wrap;
 }
 
-/* SECTIONING */
-    .modal-top {
-        height: 20%;
-        width: 100%;
-    }
-
-    .modal-left {
-        height: 80%;
-        width: 40%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-        #profile-balance {
-            font-size: 1.2rem;
+    /* SECTIONING */
+        .modal-top {
+            height: 15%;
+            width: 100%;
         }
 
-    .modal-right {
-        height: 80%;
-        width: 60%;
-    }
+            /* Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+    
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
 
-        .left-column {
-            text-align: left;
-            font-weight: bold;
+        .modal-left {
+            height: 75%;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .modal-table tr td span {
-            margin-left: 5px;
+            #profile-transaction-history {
+                font-size: 0.75rem;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            #profile-balance {
+                font-size: 1.2rem;
+            }
+
+        .modal-right {
+            height: 75%;
+            width: 60%;
         }
 
-/* Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+            .left-column {
+                text-align: left;
+                font-weight: bold;
+            }
+
+            .modal-table tr td span {
+                margin-left: 5px;
+            }
+            
+        .modal-bottom {
+            height: 10%;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+            #profile-delete {
+                text-align: right;
+            }
+
+            #profile-delete img {
+                cursor: pointer;
+                filter: invert(12%) sepia(61%) saturate(6961%) hue-rotate(358deg) brightness(117%) contrast(119%);
+            }
+
+    
