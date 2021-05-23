@@ -49,7 +49,14 @@ let sendModal = document.getElementById('send-money-modal');
 let btnModalSend = document.getElementById('send-money-btn');
 // sender
 let txtSender = document.getElementById('account-no-from');
+let txtBalSend = document.getElementById('balance-sender');
 let isUsingSend = true; // later on will be used whether to change color of sender's or receiver's textbox to green
+// receiver
+let txtReceiver = document.getElementById('account-no-to');
+// send button
+let btnSendMoney = document.getElementById('btn-send');
+let senderBal; // this later on will be used to check sender's balance is enough
+let txtAmtSend = document.getElementById('amount-to-send');
 
 // ===============================
 //      FUNCTIONS
@@ -166,25 +173,53 @@ function withdrawMoney() {
   }
 }
 
-function sendMoney() {
-  // highlights sender/receiver's textbox when user is found
-  // for user-friendly purposes
-  function highlightTxtbox() {
+// searches for the sender and receiver's details whichever is applicable
+function sendMoneySearch() {
+  // highlights sender/receiver's textbox when user is found and populates balance textboxes
+  function afterSearch() {
     if (isUsingSend == true) {
       if (isUserFound == true) {
         txtAcctNo.style.backgroundColor = '#81DA77';
+        txtBalSend.value = bal;
+        senderBal = bal;
       } else {
         txtAcctNo.style.backgroundColor = '#FAE1E1';
+        txtBalSend.value = '';
       }
     } else {
       if (isUserFound == true) {
         txtAcctNo.style.backgroundColor = '#81DA77';
+        txtBalSend.value = bal;
       } else {
         txtAcctNo.style.backgroundColor = '#FAE1E1';
+        txtBalSend.value = '';
       }
     }
   }
-  highlightTxtbox();
+
+  afterSearch();
+}
+
+function sendMoney() {
+  // error handling: checks if sender and receiver's the same user
+  function areUsersSame() {
+    if (txtSender.value === txtReceiver.value) {
+      alert('Sender and receiver are the same. Transaction failed.');
+      return;
+    }
+  }
+
+  // error handling: check if Sender has enough money
+  function checkSenderBalance() {
+    if (senderBal < parseFloat(txtAmtSend.value)) {
+      alert('Insufficient balance. Transaction failed.');
+      return;
+    }
+  }
+
+  // invoke functions here
+  areUsersSame();
+  checkSenderBalance();
 }
 
 // ===============================
@@ -299,8 +334,28 @@ txtSender.addEventListener('keyup', (e) => {
   txtAcctNo = document.getElementById('account-no-from');
   // see above for description
   isUsingSend = true;
+  txtBalSend = document.getElementById('balance-sender'); // re-assigned to original element since the function on the receiver txtbox will change it to another element
   if (e.code === 'Enter') {
     searchUser();
-    sendMoney();
+    sendMoneySearch();
   }
+});
+
+// triggers function to search for receiver's details
+txtReceiver.addEventListener('keyup', (e) => {
+  // re-assigns value to variables for function re-usability
+  // this will allow search user function to be re-used
+  txtAcctNo = document.getElementById('account-no-to');
+  // see above for description
+  txtBalSend = document.getElementById('balance-receiver'); // to avoid declaring another variable for receiver's balance txtbox (re-usability)
+  isUsingSend = false;
+  if (e.code === 'Enter') {
+    searchUser();
+    sendMoneySearch();
+  }
+});
+
+// trigger function to send money to receiver
+btnSendMoney.addEventListener('click', () => {
+  sendMoney();
 });
