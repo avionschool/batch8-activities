@@ -239,7 +239,6 @@ a {
 
 /* VIEW PROFILE */
 .profile-modal {
-    display: none; 
     position: fixed; 
     z-index: 1; 
     left: 0;
@@ -260,6 +259,7 @@ a {
     height: auto;
     display: flex;
     flex-wrap: wrap;
+    border-radius: 10px;
 }
 
     /* SECTIONING */
@@ -332,4 +332,56 @@ a {
                 filter: invert(12%) sepia(61%) saturate(6961%) hue-rotate(358deg) brightness(117%) contrast(119%);
             }
 
-    
+/* DELETE PROFILE PRMOPT */
+#delete-profile-prompt {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto; 
+    overflow: auto;
+    background-color: #fefefe;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.prompt-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .prompt-content h1 {
+        margin-bottom: 5%;
+    }
+
+    #prompt-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .prompt-button {
+        font-size: inherit;
+        font-family: inherit;
+        margin-top: 7.5%;
+        padding: 15px 30px;
+        border-radius: 10px;
+    }
+
+        #prompt-cancel {
+            color: var(--main-color-3);
+            background-color: #eee;
+        }
+
+        #prompt-confirm {
+            color: white;
+            background-color: #f24849;
+        }

@@ -167,7 +167,7 @@
     </div>
 
     <!-- View Profile Modal -->
-    <div class="profile-modal">
+    <div class="profile-modal hide">
         <div class="profile-content">
             <div class="modal-top title">Client Profile<span class="close">&times;</span></div>
             
@@ -208,12 +208,25 @@
             </div>
 
             <div class="modal-bottom">
-                <span id="profile-delete"><img src="assets/feathericons/trash-2.svg" title="Delete profile" alt="delete profile"></span>
+                <span id="profile-delete"><img id="profile-trash-btn" src="assets/feathericons/trash-2.svg" title="Delete profile" alt="delete profile"></span>
             </div>
         </div>
+
+        <!-- Delete Profile in Modal -->
+        <div id="delete-profile-prompt" class="hide">
+            <div class="prompt-content">
+                <h1>Delete Client Account</h1>
+                <p>Are you sure you want to delete this account? <br> This process cannot be undone.</p>
+                <div id="prompt-buttons">
+                    <button id="prompt-cancel" class="prompt-button">Cancel</button>
+                    <button id="prompt-confirm" class="prompt-button">Confirm</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Delete Profile in Modal -->
+
 
 </body>
 <script src="scripts/User.js"></script>

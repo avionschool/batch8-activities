@@ -91,6 +91,7 @@ function list_users() {
 
 // MODAL
 const modal = document.querySelector('.profile-modal');
+const modalContent = document.querySelector('.profile-content');
 const modalClose = document.querySelector('.close');
 const spanAccountNo = document.querySelector('#profile-account-no');
 const spanEmail = document.querySelector('#profile-email');
@@ -100,17 +101,6 @@ const spanBalance = document.querySelector('#profile-balance');
 const spanMemberSince = document.querySelector('#profile-member-since');
 const spanIsAdmin = document.querySelector('#profile-isAdmin');
 
-// Close modal when user clicks on Modal's 'x' or outside the modal window
-modalClose.onclick = function() {
-    modal.style.display = "none";
-  }
-
-window.onclick = function(event) {
-if (event.target == modal) {
-    modal.style.display = "none";
-}
-}
-
 // Open Modal to view Profile
 function addViewProfileHandler() {
     // target all view details
@@ -119,7 +109,7 @@ function addViewProfileHandler() {
     viewProfile.forEach(function(item, index) {
         let selectedUser = clientList[index];
         item.addEventListener('click', function() {
-            modal.style.display = "block";
+            modal.classList.remove('hide');
             spanAccountNo.textContent = selectedUser.accountNo;
             spanEmail.textContent = selectedUser.email;
             spanFname.textContent = selectedUser.fname;
@@ -130,6 +120,51 @@ function addViewProfileHandler() {
             spanIsAdmin.textContent = selectedUser.isAdmin;
         })
     })
+}
+
+// DELETE PROMPT INSIDE THE MODAL
+const promptModal = document.querySelector('#delete-profile-prompt');
+const deleteProfileBtn = document.querySelector('#profile-trash-btn');
+const promptCancel = document.querySelector('#prompt-cancel');
+const promptConfirm = document.querySelector('#prompt-confirm');
+
+// Close view profile modal when user clicks on Modal's 'x' or outside the modal window
+modalClose.onclick = hideModals();
+
+window.onclick = function(event) {
+if (event.target == modal) hideModals();
+}
+
+function hideModals() {
+    modal.classList.add('hide');
+    promptModal.classList.add('hide');
+}
+
+// open delete prompt on trash icon click
+deleteProfileBtn.addEventListener('click', function() {
+    promptModal.classList.remove('hide');
+})
+
+// cancel button closes prompt modal
+promptCancel.onclick = function() {
+    promptModal.classList.add('hide');
+}
+
+// confirm button on delete prompt will delete current user
+promptConfirm.addEventListener('click', function() {
+    // look for specific user index
+    let index = clientList.findIndex(function(item) {
+        return item.accountNo === spanAccountNo.textContent;
+    })
+    hideModals(); // hide modals
+    remove_user(index);
+    list_users(); // refresh table
+})
+
+function remove_user(index) {
+    showAndFadeAlert(`Successfully deleted Account No. ${clientList[index].accountNo}`, 'success');
+    clientList.splice(index, 1); // from index position, remove 1 specific element (itself)
+    updateJSONClientList(); // update local storage
 }
 
 function addTransactHandler() {
@@ -203,6 +238,7 @@ function create_user(user) {
     updateJSONClientList();
     showAndFadeAlert(`Successfully added ${user.fname} ${user.lname} as a new client`, 'sucess')
 }
+
 // =====================
 // == D. TRANSACTIONS ==
 // =====================
@@ -404,6 +440,7 @@ function showAndFadeAlert(message, type) {
 // ================================
 // == F. Testing                 ==
 // ================================
-// create two user accounts
+// create three user accounts
 // create_user(new User(undefined, "ANormalGuy31", "atlas3@g.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
 // create_user(new User(undefined, "GirlOnFire", "dragoon66@ymail.com", "DragonLady", "Vicky", "Bella", 210498087.98, false));
+// create_user(new User(undefined, "GirOnFire", "dragon66@ymail.com", "DraonLady", "Vicy", "Bela", 21498087.98, false));
