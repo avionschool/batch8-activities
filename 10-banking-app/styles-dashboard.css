@@ -147,7 +147,7 @@ body {
   border: 1px solid #888;
   border-radius: 20px;
   width: 70vh;
-  height: 30vh;
+  height: auto;
   position: fixed;
   top: 200px;
   left: 25%;

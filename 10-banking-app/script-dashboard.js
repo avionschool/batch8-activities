@@ -201,6 +201,14 @@ function sendMoneySearch() {
 }
 
 function sendMoney() {
+  // error handling: textboxes shouldn't be empty/blank
+  function checkIfFilledOut() {
+    if (txtSender.value === '' || txtReceiver.value === '') {
+      alert('Please fill-out missing details. Transaction failed.');
+      return;
+    }
+  }
+
   // error handling: checks if sender and receiver's the same user
   function areUsersSame() {
     if (txtSender.value === txtReceiver.value) {
@@ -218,6 +226,7 @@ function sendMoney() {
   }
 
   // invoke functions here
+  checkIfFilledOut();
   areUsersSame();
   checkSenderBalance();
 }
