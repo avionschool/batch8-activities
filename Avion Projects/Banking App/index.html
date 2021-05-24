@@ -62,11 +62,19 @@
                     </div>
                     <div class="form-item">
                         <label for="fname">First Name:</label><br>
-                        <input id="fname" type="text" placeholder="Enter first name" required onkeypress="return /[a-z ]/i.test(event.key)">
+                        <input id="fname" type="text" placeholder="Enter first name" required 
+                            onkeypress="return /[a-z ]/i.test(event.key)"
+                            onpaste="return false"
+                            onDrag="return false"
+                            onDrop="return false">
                     </div>
                     <div class="form-item">
                         <label for="lname">Last Name:</label><br>
-                        <input id="lname" type="text" placeholder="Enter last name" required onkeypress="return /[a-z ]/i.test(event.key)">
+                        <input id="lname" type="text" placeholder="Enter last name" required
+                            onkeypress="return /[a-z ]/i.test(event.key)"
+                            onpaste="return false"
+                            onDrag="return false"
+                            onDrop="return false">
                     </div>
                     <div class="form-item">
                         <label for="email">Email Address:</label><br>

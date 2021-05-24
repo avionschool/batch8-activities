@@ -80,11 +80,19 @@
                 <form id="form-add-client">
                     <div class="form-item">
                         <label for="fname">First Name:</label><br>
-                        <input id="fname" type="text" placeholder="Enter first name" required onkeypress="return /[a-z ]/i.test(event.key)">
+                        <input id="fname" type="text" placeholder="Enter first name" required 
+                            onkeypress="return /[a-z ]/i.test(event.key)"
+                            onpaste="return false"
+                            onDrag="return false"
+                            onDrop="return false">
                     </div>
                     <div class="form-item">
                         <label for="lname">Last Name:</label><br>
-                        <input id="lname" type="text" placeholder="Enter last name" required onkeypress="return /[a-z ]/i.test(event.key)">
+                        <input id="lname" type="text" placeholder="Enter last name" required 
+                            onkeypress="return /[a-z ]/i.test(event.key)"
+                            onpaste="return false"
+                            onDrag="return false"
+                            onDrop="return false">
                     </div>
                     <div class="form-item">
                         <label for="username">Username:</label><br>
@@ -163,6 +171,8 @@
         </section>
 
         <section class="content-item content-history hide">
+            <input id="history-table-filter" placeholder="Search Account No./Name..." title="Search Account No./Name... || Press ESC to clear">
+
             <table class="history-table">
                 <thead>
                     <tr>
@@ -224,6 +234,10 @@
                     <tr>
                         <td class="left-column">Last Name:</td>
                         <td><span id="profile-lname"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="left-column">Username:</td>
+                        <td><span id="profile-username"></span></td>
                     </tr>
                     <tr>
                         <td class="left-column">Email:</td>

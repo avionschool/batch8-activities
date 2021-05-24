@@ -34,6 +34,7 @@ const navHome = document.querySelector('.nav-home');
 const navClientList = document.querySelector('.nav-client-list');
 const navAddClient = document.querySelector('.nav-add-client');
 const navTransactions = document.querySelector('.nav-transactions');
+const navHistory = document.querySelector('.nav-history');
 const sectionContents = [...document.querySelectorAll('.content-item')];
 
 // Add click event on nav items to style itself and unhide relevant section
@@ -64,9 +65,9 @@ function hideSections() {
 const loadInitialTransBtn = document.querySelector('#test-transactions');
 loadInitialTransBtn.addEventListener('click', function() {
     // create three user accounts
-    create_user(new User(undefined, "ANormalGuy31", "atlas3@g.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
-    create_user(new User(undefined, "GirlOnFire", "dragoon66@ymail.com", "DragonLady", "Vicky", "Bella", 83428087.98, false));
-    create_user(new User(undefined, "GirOnFire", "dragon66@ymail.com", "DraonLady", "Vicy", "Bela", 21498087.98, false));
+    create_user(new User(undefined, "ANormalGuy31", "atlas3@google.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
+    create_user(new User(undefined, "GirlOnFire", "dragoon66@ymail.com", "DragonLady", "Vicky", "Bella", 9987.98, false));
+    create_user(new User(undefined, "HighBaller", "bennyBenny@proton.com", "FalloutNV", "Benny", "Baller", 21498087.98, false));
     // deposit, withdraw, transfer
     deposit(clientList[0], 3000);
     withdraw(clientList[1], 5007.88);
@@ -137,6 +138,7 @@ const modal = document.querySelector('.profile-modal');
 const modalContent = document.querySelector('.profile-content');
 const modalClose = document.querySelector('.close');
 const spanAccountNo = document.querySelector('#profile-account-no');
+const spanUsername = document.querySelector('#profile-username');
 const spanEmail = document.querySelector('#profile-email');
 const spanFname = document.querySelector('#profile-fname');
 const spanLname = document.querySelector('#profile-lname');
@@ -153,11 +155,12 @@ function addViewProfileHandler() {
         let selectedUser = clientList[index];
         item.addEventListener('click', function() {
             modal.classList.remove('hide');
+            spanBalance.textContent = get_balance(selectedUser);
             spanAccountNo.textContent = selectedUser.accountNo;
-            spanEmail.textContent = selectedUser.email;
             spanFname.textContent = selectedUser.fname;
             spanLname.textContent = selectedUser.lname;
-            spanBalance.textContent = get_balance(selectedUser);
+            spanUsername.textContent = selectedUser.username;
+            spanEmail.textContent = selectedUser.email;
             let today = new Date(selectedUser.memberSince); // convert to Date object first
             spanMemberSince.textContent = today.toLocaleString();
             spanIsAdmin.textContent = selectedUser.isAdmin;
@@ -167,6 +170,7 @@ function addViewProfileHandler() {
 
 // DELETE PROMPT INSIDE THE MODAL
 const promptModal = document.querySelector('#delete-profile-prompt');
+const transHistoryBtn = document.querySelector('#profile-transaction-history');
 const deleteProfileBtn = document.querySelector('#profile-trash-btn');
 const promptCancel = document.querySelector('#prompt-cancel');
 const promptConfirm = document.querySelector('#prompt-confirm');
@@ -182,6 +186,14 @@ function hideModals() {
     modal.classList.add('hide');
     promptModal.classList.add('hide');
 }
+
+// View Transaction History
+transHistoryBtn.addEventListener('click', function() {
+    hideModals();
+    navHistory.click();
+    filterInputTable.value = spanAccountNo.textContent;
+    filterHistoryTable();
+});
 
 // open delete prompt on trash icon click
 deleteProfileBtn.addEventListener('click', function() {
@@ -495,7 +507,37 @@ function showAndFadeAlert(message, type) {
 // ================================
 // == F. TRANSACTION HISTORY     ==
 // ================================
+const filterInputTable = document.querySelector('#history-table-filter');
 const historyTable = document.querySelector('.history-content');
+
+filterInputTable.addEventListener('keydown', filterHistoryTable);
+filterInputTable.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") {
+        filterInputTable.value = null;
+        filterHistoryTable();
+    }
+});
+
+function filterHistoryTable() {
+    let filter, tr, td, cell;
+    filter = filterInputTable.value.toUpperCase();
+    tr = historyTable.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        // Hide the row initially.
+        tr[i].style.display = "none";
+    
+        td = tr[i].getElementsByTagName("td");
+        for (let j = 0; j < 4; j++) { // only search first 4 columns
+          cell = tr[i].getElementsByTagName("td")[j];
+          if (cell) {
+            if (cell.textContent.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+              break;
+            } 
+          }
+        }
+    }
+}
 
 function show_history() {
     // refactor to not use innerHTML

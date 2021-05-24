@@ -394,6 +394,30 @@ a {
         }
 
 /* TRANSACTION HISTORY */
+#history-table-filter {
+    font-family: inherit;
+    font-size: 0.6rem;
+    background-image: url(../assets/feathericons/search.svg);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: 2.55%;
+    margin-left: 2.5%;
+    margin-bottom: 1%;
+    padding-left: 28px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    border: 1px solid rgb(131, 131, 131);
+    color: var(--main-color-3);
+    width: fit-content;
+}
+
+#history-table-filter:focus {
+    outline-color: var(--main-color-1);
+}
+
 .history-table {
     width: 95%;
     border-collapse: collapse;
