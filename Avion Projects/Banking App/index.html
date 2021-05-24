@@ -58,27 +58,27 @@
                     <p class="section-title">Sign up for a new Account</p>
                     <div class="form-item">
                         <label for="uname">Username:</label><br>
-                        <input id="uname" type="text" placeholder="Enter desired username">
+                        <input id="uname" type="text" placeholder="Enter desired username" required>
                     </div>
                     <div class="form-item">
                         <label for="fname">First Name:</label><br>
-                        <input id="fname" type="text" placeholder="Enter first name">
+                        <input id="fname" type="text" placeholder="Enter first name" required onkeypress="return /[a-z ]/i.test(event.key)">
                     </div>
                     <div class="form-item">
                         <label for="lname">Last Name:</label><br>
-                        <input id="lname" type="text" placeholder="Enter last name">
+                        <input id="lname" type="text" placeholder="Enter last name" required onkeypress="return /[a-z ]/i.test(event.key)">
                     </div>
                     <div class="form-item">
                         <label for="email">Email Address:</label><br>
-                        <input id="email" type="email" placeholder="Enter email">
+                        <input id="email" type="email" placeholder="Enter email" required>
                     </div>
                     <div class="form-item">
                         <label for="password">Password:</label><br>
-                        <input id="password" type="password" placeholder="Enter password">
+                        <input id="password" type="password" placeholder="Enter password" required>
                     </div>
                     <div class="form-item">
                         <label for="re-password">Confirm your Password:</label><br>
-                        <input id="re-password" type="password" placeholder="Enter password again">
+                        <input id="re-password" type="password" placeholder="Enter password again" required>
                     </div>
                     <button id="sign-up-submit" class="submit">Sign Up</button>
                 <!-- </form> -->

@@ -80,11 +80,11 @@
                 <form id="form-add-client">
                     <div class="form-item">
                         <label for="fname">First Name:</label><br>
-                        <input id="fname" type="text" placeholder="Enter first name" required>
+                        <input id="fname" type="text" placeholder="Enter first name" required onkeypress="return /[a-z ]/i.test(event.key)">
                     </div>
                     <div class="form-item">
                         <label for="lname">Last Name:</label><br>
-                        <input id="lname" type="text" placeholder="Enter last name" required>
+                        <input id="lname" type="text" placeholder="Enter last name" required onkeypress="return /[a-z ]/i.test(event.key)">
                     </div>
                     <div class="form-item">
                         <label for="username">Username:</label><br>
