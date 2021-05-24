@@ -71,6 +71,7 @@ function hideElements() {
 
 // adding a new user
 function addUser() {
+  // performs a search function first to see if account no. or name exists
   function searchUser() {
     if (localStorage.getItem('users') == null) {
       addSuccessful();
@@ -90,7 +91,6 @@ function addUser() {
   searchUser();
 
   // error handling: user must not exist to be added
-
   if (isUserFound == true) {
     alert('User exists. Transaction failed.');
     return;
@@ -117,12 +117,7 @@ function addUser() {
       userArr.push(allUsers);
       localStorage.setItem('users', JSON.stringify(userArr));
     }
-
-    // invoke functions here
-    searchUser();
   }
-
-  // console.log('added user');
 }
 
 // populates table with name and balance of user
@@ -138,8 +133,11 @@ function loadUserList() {
 
 // returns details of user
 function searchUser() {
+  // let usersKey = localStorage.getItem('users'); // gets existing data
+
   for (let i = 0; i < userObj.length; i++) {
     key = userObj[i];
+    // txtAcctNo gets assigned different values depending on which function is calling it
     if (key.accountNo === txtAcctNo.value) {
       isUserFound = true;
       FName = key.fullName; // updates value of FName variable to details of the user found, same with AcctNum and bal (global variables that can be re-used)
@@ -155,13 +153,13 @@ function searchUser() {
   isUserFound == false ? alert("User doesn't exist") : (isUserFound = true);
 }
 
-// populates textfields based on the result of searchUser function
+// populates textfields based on the result of search User function
 function populateUser() {
   txtFName.value = FName;
   txtBalDep.value = bal;
 }
 
-// adds deposited amount to user's balance
+// adds deposited amount to user's balance then calls update balance after
 function depositMoney() {
   runningBal = bal + parseFloat(txtAmt.value);
 }
@@ -176,15 +174,22 @@ function updateBalance() {
       // if no existing data, create an array
       // or, convert the localstorage string to an array
 
-      // console.log(typeof usersKey);
       // original code
       // usersKey = usersKey ? JSON.parse(usersKey) : [];
 
-      usersKey = usersKey ? JSON.parse(usersKey) : [];
-
       // adds new data to localstorage Array
-      usersKey[i].balance = runningBal.toString();
+      // usersKey[i].balance = runningBal.toString();
       // saves back to localstorage
+      // localStorage.setItem('users', JSON.stringify(usersKey));
+
+      // test code
+      if (localStorage.getItem('users') === null) {
+        usersKey = [];
+      } else {
+        usersKey = JSON.parse(localStorage.getItem('users'));
+      }
+
+      usersKey[i].balance = runningBal.toString();
       localStorage.setItem('users', JSON.stringify(usersKey));
     }
   }
