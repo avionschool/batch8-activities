@@ -71,22 +71,55 @@ function hideElements() {
 
 // adding a new user
 function addUser() {
-  // 'users' = key
-  let allUsers = {
-    accountNo: txtAcctNoU.value,
-    fullName: txtFNameU.value,
-    balance: txtBal.value,
-  };
+  function searchUser() {
+    if (localStorage.getItem('users') == null) {
+      addSuccessful();
+    } else {
+      for (let i = 0; i < userObj.length; i++) {
+        key = userObj[i];
+        if (key.fullName === txtFNameU.value || key.accountNo === txtAcctNoU.value) {
+          isUserFound = true;
+          return;
+        } else {
+          isUserFound = false;
+        }
+      }
+    }
+  }
 
-  let userArr = [];
+  searchUser();
 
-  if (localStorage.getItem('users') == null) {
-    userArr.push(allUsers);
-    localStorage.setItem('users', JSON.stringify(userArr));
+  // error handling: user must not exist to be added
+
+  if (isUserFound == true) {
+    alert('User exists. Transaction failed.');
+    return;
   } else {
-    userArr = JSON.parse(localStorage.getItem('users'));
-    userArr.push(allUsers);
-    localStorage.setItem('users', JSON.stringify(userArr));
+    addSuccessful();
+    alert('User added successfully');
+  }
+
+  function addSuccessful() {
+    // 'users' = key
+    let allUsers = {
+      accountNo: txtAcctNoU.value,
+      fullName: txtFNameU.value,
+      balance: txtBal.value,
+    };
+
+    let userArr = [];
+
+    if (localStorage.getItem('users') == null) {
+      userArr.push(allUsers);
+      localStorage.setItem('users', JSON.stringify(userArr));
+    } else {
+      userArr = JSON.parse(localStorage.getItem('users'));
+      userArr.push(allUsers);
+      localStorage.setItem('users', JSON.stringify(userArr));
+    }
+
+    // invoke functions here
+    searchUser();
   }
 
   // console.log('added user');
@@ -135,13 +168,18 @@ function depositMoney() {
 
 // updates balance of user after entering a new amount
 function updateBalance() {
-  console.table(usersKey);
+  // console.table(usersKey);
   bal = runningBal; // updates bal variable to the running balance
   for (let i = 0; i < userObj.length; i++) {
     key = userObj[i];
     if (key.accountNo === AcctNum) {
       // if no existing data, create an array
       // or, convert the localstorage string to an array
+
+      // console.log(typeof usersKey);
+      // original code
+      // usersKey = usersKey ? JSON.parse(usersKey) : [];
+
       usersKey = usersKey ? JSON.parse(usersKey) : [];
 
       // adds new data to localstorage Array
@@ -151,7 +189,7 @@ function updateBalance() {
     }
   }
 
-  console.table(usersKey);
+  // console.table(usersKey);
 }
 
 function withdrawMoney() {
@@ -197,8 +235,12 @@ function searchSenderReceiver() {
 }
 
 function sendMoney() {
-  // error handling: textboxes shouldn't be empty/blank
+  // used for error handling, will update value depending whether certain validation had been met
   let isFilledOut = false;
+  let isUsersSame = false;
+  let isBalEnough = false;
+
+  // error handling: textboxes shouldn't be empty/blank
   function checkIfFilledOut() {
     if (txtBalRec.value === '' || txtBalSend.value === '') {
       alert('Please fill-out missing details. Transaction failed.');
@@ -214,7 +256,10 @@ function sendMoney() {
     if (isFilledOut == true) {
       if (txtSender.value === txtReceiver.value) {
         alert('Sender and receiver are the same. Transaction failed.');
+        isUsersSame = true;
         return;
+      } else {
+        isUsersSame = false;
       }
     }
   }
@@ -223,7 +268,10 @@ function sendMoney() {
   function checkSenderBalance() {
     if (senderBal < parseFloat(txtAmtSend.value)) {
       alert('Insufficient balance. Transaction failed.');
+      isBalEnough = false;
       return;
+    } else {
+      isBalEnough = true;
     }
   }
 
@@ -235,17 +283,32 @@ function sendMoney() {
     AcctNum = document.getElementById('account-no-from').value;
     // running bal will be passed on to update balance function
     runningBal = parseFloat(txtBalSend.value) - parseFloat(txtAmtSend.value);
-    // console.log(runningBal);
 
     updateBalance();
-    // alert(`Transaction successful! \n Account No. ${AcctNum} \n Running balance: ${runningBal}`);
+  }
+
+  // similar function as updateRunBalSend except that it updates receiver's data -- see description above
+  function updateRunBalRec() {
+    txtBalSend = document.getElementById('balance-receiver');
+    AcctNum = document.getElementById('account-no-to').value;
+    runningBal = parseFloat(txtBalSend.value) + parseFloat(txtAmtSend.value);
+
+    updateBalance();
+  }
+
+  // will only go through updating sender's and receiver's balance once validations have been passed
+  function sendMoneySuccess() {
+    if (isFilledOut == true && isUsersSame == false && isBalEnough == true) {
+      updateRunBalSend();
+      updateRunBalRec();
+    }
   }
 
   // invoke functions here
   checkIfFilledOut();
   areUsersSame();
   checkSenderBalance();
-  updateRunBalSend();
+  sendMoneySuccess();
 }
 
 // ===============================
