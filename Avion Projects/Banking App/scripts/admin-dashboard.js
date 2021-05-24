@@ -60,6 +60,27 @@ function hideSections() {
     }) 
 }
 
+// initial transactions
+const loadInitialTransBtn = document.querySelector('#test-transactions');
+loadInitialTransBtn.addEventListener('click', function() {
+    // create three user accounts
+    create_user(new User(undefined, "ANormalGuy31", "atlas3@g.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
+    create_user(new User(undefined, "GirlOnFire", "dragoon66@ymail.com", "DragonLady", "Vicky", "Bella", 83428087.98, false));
+    create_user(new User(undefined, "GirOnFire", "dragon66@ymail.com", "DraonLady", "Vicy", "Bela", 21498087.98, false));
+    // deposit, withdraw, transfer
+    deposit(clientList[0], 3000);
+    withdraw(clientList[1], 5007.88);
+    send(clientList[2], clientList[1], 222.22);
+    remove_user(0);
+    // hide the button
+    loadInitialTransBtn.style.display = "none";
+});
+
+// Hide button if clientList already has content
+if (clientList) {
+    loadInitialTransBtn.style.display = "none";
+}
+
 // ====================
 // == B. CLIENT LIST ==
 // ====================
@@ -505,11 +526,3 @@ function newTransaction(accountNo, name, type, details, amount, runningBalance) 
 
 // Initialize
 show_history();
-
-// ================================
-// == G. Testing                 ==
-// ================================
-// create three user accounts
-// create_user(new User(undefined, "ANormalGuy31", "atlas3@g.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
-// create_user(new User(undefined, "GirlOnFire", "dragoon66@ymail.com", "DragonLady", "Vicky", "Bella", 210498087.98, false));
-// create_user(new User(undefined, "GirOnFire", "dragon66@ymail.com", "DraonLady", "Vicy", "Bela", 21498087.98, false));

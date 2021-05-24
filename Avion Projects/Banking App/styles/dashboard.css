@@ -78,6 +78,13 @@ a {
         border-radius: 0.75rem;
     }
 
+    #test-transactions {
+        font-size: 0.6rem;
+        height: 1.5rem;
+        width: 180px;
+        margin-right: 30px;
+    }
+
 /* NAVBAR 5% */
 .navbar {
     display: flex;
