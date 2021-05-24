@@ -77,7 +77,7 @@ loadInitialTransBtn.addEventListener('click', function() {
 });
 
 // Hide button if clientList already has content
-if (clientList) {
+if (clientList.length > 0) {
     loadInitialTransBtn.style.display = "none";
 }
 
