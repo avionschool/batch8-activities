@@ -344,8 +344,6 @@ let toMoneyFormat = new Intl.NumberFormat('en-US', {
   currency: 'PHP',
 });
 
-// removeDash('-1');
-
 // ===============================
 //      EVENT LISTENERS
 // ===============================
@@ -414,6 +412,13 @@ txtAcctNo.addEventListener('keyup', (e) => {
   }
 });
 
+// triggers a function which removes dash/negative character upon key enter
+txtAmt.addEventListener('keyup', (e) => {
+  if (e.key === '-') {
+    txtAmt.value = removeDash(e.key);
+  }
+});
+
 // submit button on deposit window
 btnAddDep.addEventListener('click', () => {
   depositMoney();
@@ -442,6 +447,13 @@ txtAccNoW.addEventListener('keyup', (e) => {
   if (e.code === 'Enter') {
     searchUser();
     populateUser();
+  }
+});
+
+// triggers a function which removes dash/negative character upon key enter
+txtAmtW.addEventListener('keyup', (e) => {
+  if (e.key === '-') {
+    txtAmtW.value = removeDash(e.key);
   }
 });
 
@@ -489,6 +501,13 @@ txtReceiver.addEventListener('keyup', (e) => {
   if (e.code === 'Enter') {
     searchUser();
     searchSenderReceiver();
+  }
+});
+
+// triggers a function which removes dash/negative character upon key enter
+txtAmtSend.addEventListener('keyup', (e) => {
+  if (e.key === '-') {
+    txtAmtSend.value = removeDash(e.key);
   }
 });
 
