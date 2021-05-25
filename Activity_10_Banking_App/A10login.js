@@ -5,10 +5,17 @@ function storeData() {
     let newEmail = document.getElementById('newEmail');
     let storedUsername = localStorage.getItem('username');
     let storedEmail = localStorage.getItem('email');
-    let storedData = JSON.parse(localStorage.getItem('data'));
+    let storedData = JSON.parse(localStorage.getItem('loginData'));
 
-    // var usernameParse = JSON.parse(localStorage.getItem('username'));
-    // var emailParse = JSON.parse(localStorage.getItem('email'));
+    // let registeredAccount = [
+    //     {
+    //         username: jan,
+    //         password: jan,
+    //         email: jan
+    //     }
+    // ]
+    // let registeredAccount_convertString = JSON.stringify(registeredAccount);
+    // localStorage.setItem('loginData', registeredAccount_convertString);
 
     if (newUsername.value == storedUsername && newEmail.value == storedEmail) {
         alert ('Error: Username and email address have already used.');
@@ -30,9 +37,9 @@ function storeData() {
     } else {
         if (storedData) {
             storedData.push({username: newUsername.value, password: newPassword.value, email: newEmail.value});
-            localStorage.setItem('data', JSON.stringify(storedData));
+            localStorage.setItem('loginData', JSON.stringify(storedData));
         } else {
-            localStorage.setItem('data', JSON.stringify([{username: newUsername.value, password: newPassword.value, email: newEmail.value}]));
+            localStorage.setItem('loginData', JSON.stringify([{username: newUsername.value, password: newPassword.value, email: newEmail.value}]));
         }
         // localStorage.setItem('username', newUsername.value);
         // localStorage.setItem('password', newPassword.value);
@@ -49,7 +56,7 @@ function checkData() {
     // let storedUsername = localStorage.getItem('username');
     // let storedPassword = localStorage.getItem('password');
     // let storedEmail = localStorage.getItem('email');
-    let storedData = JSON.parse(localStorage.getItem('data'));
+    let storedData = JSON.parse(localStorage.getItem('loginData'));
 
     if (username.value == 0 && password.value == 0) {
         alert ('Error: Input login details.');
@@ -62,7 +69,7 @@ function checkData() {
             if (username.value == storedData[i].username && password.value == storedData[i].password || 
                 username.value == storedData[i].email && password.value == storedData[i].password) {
                 alert ('Success: Login completed!');
-                return window.open('A10profile.html');
+                return window.location.replace('A10profile.html');
             }
         }
         alert ('Error: Username/Password did not match!');

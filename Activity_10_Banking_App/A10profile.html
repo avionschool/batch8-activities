@@ -3,82 +3,59 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>KangarooMoney.com/profile</title>
-        <!-- <link rel="stylesheet" href="A10.css"> -->
+        <link rel="stylesheet" href="A10.css">
         <script src="A10profile.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     </head>
 <body>
-
-<div class="greetUser" id="greetUser"></div>
-
-<div>
-    <input type="text" id="newAccountName" placeholder="new account name">
-    <input type="number" id="initialBalance" placeholder="initial balance">
-    <button id="createAccountButton" onclick="createAccount()">Create Account</button>
-</div>
-
-<div>
-    <p>Account name</p>
-    <div id="RegisteredAccountName"></div>
-    <p>Balance</p>
-    <div id="balance"></div>
-</div>
-
-<div>
-Your current balance is <span id="currentBalance"></span>
-</div>
-
-<div>
-<input type="number" id="depositAmount" placeholder="amount">
-<button id="depositButton">Deposit</button>
-</div>
-
-<div>
-<input type="number" id="withdrawAmount" placeholder="amount">
-<button id="withdrawButton">Withdraw</button>
-</div>
-            
-<div>
-<input type="number" id="sendAmount" placeholder="amount">
-<input type="text" id="sendTo" placeholder="account name">
-<button id="sendButton">Send</button>
-</div>
-
-<div>
-<h1>Transaction History</h1>
-<div id="transactionHistory"></div>
-</div>
-
-</main>
-</body>
-</html>
-
-<!-- <main class="container">
+<main class="container">
     <div class="purpleCon">KangarooMoney.</div>
-    <div class="subContainer">
-        <div class="container containerSize">
-            <div class="greetUser" id="greetUser"></div>
-            <div class="currentBalance">
-                <div>Your current balance is <span id="currentBalance"></span></div>
+    <div class="greetUser" id="greetUser"></div>
+
+    <div class="containerSub">
+        <div class="containerSubOne">
+            <div class="flexStyle">
+                <div>
+                    <input class="inputStyleTwo" type="text" id="newAccountName" placeholder="new account">
+                    <input class="inputStyleTwo" type="number" id="initialBalance" placeholder="initial balance">
+                </div>
+                <button class="buttonStyleTwo" id="createAccountButton" onclick="createAccount()">Create</button>
             </div>
-            <div class="depositContainer containerDesign">
-                <input type="number" id="depositAmount" placeholder="amount">
-                <button id="depositButton">Deposit</button>
+            <div class="flexStyle">
+                <div>
+                    <input class="inputStyleTwo" type="text" id="depositTo" placeholder="account name">
+                    <input class="inputStyleTwo" type="number" id="depositAmount" placeholder="amount">
+                </div>
+                <button class="buttonStyleTwo" id="depositButton" onclick="deposit()">Deposit</button>
             </div>
-            <div class="withdrawContainer containerDesign">
-                <input type="number" id="withdrawAmount" placeholder="amount">
-                <button id="withdrawButton">Withdraw</button>
+            <div class="flexStyle">
+                <div>
+                    <input class="inputStyleTwo" type="text" id="withdrawFrom" placeholder="account name">
+                    <input class="inputStyleTwo" type="number" id="withdrawAmount" placeholder="amount">
+                </div>
+                <button class="buttonStyleTwo" id="withdrawButton" onclick="withdraw()">Withdraw</button>
             </div>
-            <div class="sendContainer containerDesign">
-                <input type="number" id="sendAmount" placeholder="amount">
-                <input type="text" class="accountName" id="accountName" placeholder="account name">
-                <button class="sendButton" id="sendButton">Send</button>
+            <div class="flexStyle">
+                <div>
+                    <input class="inputStyleTwo" type="text" id="fromWho" placeholder="from who">
+                    <input class="inputStyleTwo" type="text" id="sendTo" placeholder="send to">
+                    <input class="inputStyleTwo" type="number" id="sendAmount" placeholder="amount">
+                </div>
+                <button class="buttonStyleTwo" id="sendButton" onclick="transfer()">Send</button>
             </div>
         </div>
-        <div class="container containerSize rightContainerDesign">
-            <h1 class="transactionHistoryTitle">Transaction History</h1>
-            <div id="transactionHistory"></div>
+        <div class="containerSubTwo">
+            <div>
+                <div class="subHeader">Account name</div>
+                <div class="display" id="RegisteredAccountName"></div>
+            </div>
+            <div>
+                <div class="subHeader">Balance</div>
+                <div class="display" id="balance">
+                </div>
+            </div>
         </div>
     </div>
 </main>
- -->
+</body>
+</html>
