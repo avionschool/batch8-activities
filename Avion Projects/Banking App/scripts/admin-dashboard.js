@@ -1,21 +1,6 @@
 // ===================
 // == GLOBAL VARS  ===
 // ===================
-var clientList_str = localStorage.getItem("clientList");
-var transactionHistory_str = localStorage.getItem("transactionHistory");
-
-// Initialize clientlist from local storage, or if not in local storage, from empty array
-if (!clientList_str) {
-    var clientList = [];
-} else {
-    var clientList = JSON.parse(clientList_str);
-}
-
-if (!transactionHistory_str) {
-    var transactionHistory = [];
-} else {
-    var transactionHistory = JSON.parse(transactionHistory_str);
-}
 
 // JSON
 function updateJSONClientList() {
@@ -118,14 +103,16 @@ function list_users() {
     let div = "";
 
     clientList.forEach(function(item) {
-        div += `
-        <tr>
-            <td>${item.accountNo}</td>
-            <td>${item.fname} ${item.lname}</td>
-            <td>${get_balance(item)}</td>
-            <td class="clickable-view-details">View Details</td>
-            <td class="clickable-transact">Transact</td>
-        </tr>`
+        if (!item.isAdmin) { // ignores admin
+            div += `
+            <tr>
+                <td>${item.accountNo}</td>
+                <td>${item.fname} ${item.lname}</td>
+                <td>${get_balance(item)}</td>
+                <td class="clickable-view-details">View Details</td>
+                <td class="clickable-transact">Transact</td>
+            </tr>`
+        }
     })
     tableBody.innerHTML = div;
     addViewProfileHandler();

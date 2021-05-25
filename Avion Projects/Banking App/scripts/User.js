@@ -1,3 +1,14 @@
+// GLOBAL VARS
+let generatedAccountNos = []; // Array of unique account nos.
+
+// Initialize clientlist from local storage, or if not in local storage, from empty array
+var clientList_str = localStorage.getItem("clientList");
+if (!clientList_str) {
+    var clientList = [];
+} else {
+    var clientList = JSON.parse(clientList_str);
+}
+
 class User {
     constructor(accountNo, username, email, password, fname, lname, balance, isAdmin) {
         this.accountNo = (accountNo !== 'admin') ? generateAccountNo() : undefined;
@@ -25,9 +36,6 @@ class User {
     }
 }
 
-// global vars
-let generatedAccountNos = []; // Array of unique account nos.
-
 // helper functions
 function generateAccountNo() {
     let randomAccountNo = "";
@@ -51,3 +59,15 @@ function generateRandomPassword() {
     }
     return randomPassword.join('');
 }
+
+// ===========================================
+// == ADMIN                                 ==
+// ===========================================
+
+let x = new User(undefined, 'admin', undefined, '1234', undefined, undefined, undefined, true);
+
+let admin = {
+    username: "admin",
+    password: "1234",
+    isAdmin: true};
+clientList.push(admin);

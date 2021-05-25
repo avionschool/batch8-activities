@@ -1,16 +1,3 @@
-// ===========================================
-// == IMPORTED FUNCTIONS AND CLASS CREATION ==
-// ===========================================
-
-let x = new User(undefined, 'admin', undefined, '1234', undefined, undefined, undefined, true);
-
-let admin = {
-    username: "admin",
-    password: "1234",
-    isAdmin: true};
-clientList = [];
-clientList.push(admin);
-
 // ===================================
 // ==         NAV BUTTONS           ==
 // ===================================
