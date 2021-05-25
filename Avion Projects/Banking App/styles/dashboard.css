@@ -81,7 +81,7 @@ a {
     #test-transactions {
         font-size: 0.6rem;
         height: 1.5rem;
-        width: 180px;
+        width: 160px;
         margin-right: 30px;
     }
 
@@ -450,3 +450,90 @@ a {
 }
 
 .history-table tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+/*=================
+== MEDIA QUERIES == 
+=================*/
+/* H15 NAV5 C80 */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+    }
+
+    .bank-logo {
+        height: 6vh;
+    }
+
+    .logo-name {
+        width: 280px;
+        height: 6vh;
+    }
+
+    .content {
+        height: 80%;
+        padding-top: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .form-item input {
+        width: 250px;
+    }
+
+    /* CLIENT LIST */
+    .client-table {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .client-table td, .client-table th {
+        padding: 8px;
+    }
+
+    /* SUCCESSFUL MODAL */
+    .my_alert {
+        width: 100%;
+    }
+
+    /* VIEW PROFILE MODAL */
+    .profile-content {
+        width: 95%;
+        flex-direction: column;
+    }
+
+    .modal-left {
+        height: initial;
+        width: initial;
+    }
+
+    .modal-left img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .modal-right {
+        width: initial;
+    }
+
+    /* HISTORY TABLE */
+
+}
+
+@media screen and (max-width: 700px) {
+    html {
+        font-size: 16px;
+    }
+    
+    .button-container button {
+        width: 100px;
+    }
+}
+

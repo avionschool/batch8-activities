@@ -472,9 +472,9 @@ function form_transfer() {
 function send(from_user, to_user, amount) {
     from_user.balance -= amount;
     to_user.balance += amount;
-    let message1 = `Transferred ₱${amount} to Account No. ${to_user.accountNo}`;
+    let message1 = `Transferred ₱${display_balance(amount)} to Account No. ${to_user.accountNo}`;
     newTransaction(from_user.accountNo, `${from_user.fname} ${from_user.lname}`, 'Transfer', message1, -amount, from_user.balance);
-    let message2 = `Received ₱${amount} from Account No. ${from_user.accountNo}`;
+    let message2 = `Received ₱${display_balance(amount)} from Account No. ${from_user.accountNo}`;
     newTransaction(to_user.accountNo, `${to_user.fname} ${to_user.lname}`, 'Transfer', message2, amount, to_user.balance);
     showAndFadeAlert(`Account No. ${from_user.accountNo} successfully transferred ₱${amount.toLocaleString()} to Account No. ${to_user.accountNo}`, 'sucess');
     updateJSONClientList();
