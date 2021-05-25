@@ -126,6 +126,15 @@ function addUser() {
   }
 }
 
+// this function removes the - (negative character)
+function removeDash(input) {
+  let str = input;
+  str = str.substring(1);
+  alert('Negative number not allowed.Transaction failed');
+  // console.log(str);
+  return str;
+}
+
 // populates table with name and balance of user
 function loadUserList() {
   let tbody = document.getElementById('tbody');
@@ -335,10 +344,18 @@ let toMoneyFormat = new Intl.NumberFormat('en-US', {
   currency: 'PHP',
 });
 
-// console.log(toMoneyFormat.format(5));
+// removeDash('-1');
+
 // ===============================
 //      EVENT LISTENERS
 // ===============================
+
+// prepares the form
+window.onload = function () {
+  hideElements();
+  loadUserList();
+  displayBalance();
+};
 
 // SIDE NAV BAR
 // users button
@@ -369,11 +386,12 @@ btnModal.onclick = function () {
   };
 };
 
-window.onload = function () {
-  hideElements();
-  loadUserList();
-  displayBalance();
-};
+// triggers a function which removes dash/negative character upon key enter
+txtBal.addEventListener('keyup', (e) => {
+  if (e.key === '-') {
+    txtBal.value = removeDash(e.key);
+  }
+});
 
 // DEPOSIT
 // sample of using arrow function
