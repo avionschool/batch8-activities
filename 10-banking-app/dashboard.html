@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="assets/infinite-mathematical-symbol.svg" type="image/x-icon" />
     <title>Banking App</title>
   </head>
-  <body>
+  <!-->
     <div id="main-container">
       <!-- =============================
               SIDE NAVIGATION  
@@ -402,7 +402,6 @@
       <!-- Users/Payments content page  -->
       <section class="content">
         <nav class="auth-nav">
-          <!-- hide for debugging purposes style="display: none" -->
           <a id="add-btn">+ Add New</a>
           <!-- will show once payments button was clicked  -->
           <a class="pay-buttons" id="deposit-btn">Deposit</a>
@@ -414,6 +413,7 @@
           <div class="user-wrapper">
             <table>
               <tr>
+                <th>Account No.</th>
                 <th>Name</th>
                 <th>Balance</th>
               </tr>
@@ -426,6 +426,26 @@
     <!-- ===================================== 
                     MODALS
         ======================================-->
+    <!-- profile modal -->
+    <div id = "profile-modal" class="modal">
+      <div class="modal-content">
+        <h1>User Profile</h1>
+        <div class="transaction-form">
+          <div class="form-field">
+            <label for="account-no-profile">Account Number</label>
+            <input type="text" name="account-no-profile" id="account-no-profile" />
+          </div>
+          <div class="form-field">
+            <label for="fullname-profile">Full name</label>
+            <input type="text" name="fullname-profile" id="fullname-profile" />
+          </div>
+          <div class="form-field">
+            <label for="balance-profile">Balance</label>
+            <input type="text" name="balance-profile" id="balance-profile" />
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- add user modal  -->
     <div id="add-modal" class="modal">
       <div class="modal-content">

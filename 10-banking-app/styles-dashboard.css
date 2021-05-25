@@ -265,11 +265,13 @@ body {
 
   /* main content  */
   .auth-nav {
+    /* width: 100%; */
     display: flex;
     align-items: center;
     padding-left: 3em;
     height: 10vh;
-    justify-content: flex-start;
+    /* width: 100vh; */
+    /* justify-content: flex-end; */
   }
 
   main {

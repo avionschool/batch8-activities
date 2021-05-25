@@ -59,6 +59,12 @@ let btnSendMoney = document.getElementById('btn-send');
 let senderBal; // this later on will be used to check sender's balance is enough
 let txtAmtSend = document.getElementById('amount-to-send');
 
+// profile modal
+let profileModal = document.getElementById('profile-modal');
+let txtAcctNoP = document.getElementById('account-no-profile');
+let txtFNameP = document.getElementById('fullname-profile');
+let txtBalP = document.getElementById('balance-profile');
+
 // ===============================
 //      FUNCTIONS
 // ===============================
@@ -125,8 +131,10 @@ function loadUserList() {
   let tbody = document.getElementById('tbody');
   // iterates keys and values of the users object
   for (let i = 0; i < userObj.length; i++) {
+    // let tr = '<tr>';
+    // <table id='table-users'>
     let tr = '<tr>';
-    tr += '<td>' + userObj[i].fullName + '</td>' + '<td>Php ' + userObj[i].balance + '</td></tr>';
+    tr += '<td>' + userObj[i].accountNo + '</td>' + '<td>' + userObj[i].fullName + '</td>' + '<td>' + userObj[i].balance + '</td></tr>';
     tbody.innerHTML += tr;
   }
 }
@@ -173,16 +181,6 @@ function updateBalance() {
     if (key.accountNo === AcctNum) {
       // if no existing data, create an array
       // or, convert the localstorage string to an array
-
-      // original code
-      // usersKey = usersKey ? JSON.parse(usersKey) : [];
-
-      // adds new data to localstorage Array
-      // usersKey[i].balance = runningBal.toString();
-      // saves back to localstorage
-      // localStorage.setItem('users', JSON.stringify(usersKey));
-
-      // test code
       if (localStorage.getItem('users') === null) {
         usersKey = [];
       } else {
@@ -193,8 +191,6 @@ function updateBalance() {
       localStorage.setItem('users', JSON.stringify(usersKey));
     }
   }
-
-  // console.table(usersKey);
 }
 
 function withdrawMoney() {
@@ -316,6 +312,30 @@ function sendMoney() {
   sendMoneySuccess();
 }
 
+function displayBalance() {
+  let table = document.getElementById('tbody');
+  let rows = document.getElementsByTagName('tr');
+  for (let i = 0; i < rows.length; i++) {
+    let currentRow = table.rows[i];
+    // console.log(currentRow);
+    let createClickHandler = function (row) {
+      return function () {
+        let balance = row.getElementsByTagName('td')[2].innerHTML;
+        alert('Current Balance:' + toMoneyFormat.format(balance));
+      };
+    };
+
+    currentRow.onclick = createClickHandler(currentRow);
+  }
+}
+
+// formats numnber to a money format
+let toMoneyFormat = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'PHP',
+});
+
+// console.log(toMoneyFormat.format(5));
 // ===============================
 //      EVENT LISTENERS
 // ===============================
@@ -352,6 +372,7 @@ btnModal.onclick = function () {
 window.onload = function () {
   hideElements();
   loadUserList();
+  displayBalance();
 };
 
 // DEPOSIT
