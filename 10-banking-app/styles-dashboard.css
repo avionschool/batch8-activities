@@ -271,7 +271,15 @@ body {
     padding-left: 3em;
     height: 10vh;
     /* width: 100vh; */
-    /* justify-content: flex-end; */
+    justify-content: space-between;
+    /* position: relative; */
+  }
+
+  .auth-nav .form-field {
+    /* position: absolute; */
+    /* right: 10px; */
+    /* float: right; */
+    margin-right: 1rem;
   }
 
   main {

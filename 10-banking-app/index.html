@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+
+    <!-- FAV ICON  -->
     <link rel="shortcut icon" href="assets/infinite-mathematical-symbol.svg" type="image/x-icon" />
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- <link rel="stylesheet" href="styles-dashboard.css" /> -->
     <title>Log in | Banking App</title>
   </head>
   <body class="sign-in">
@@ -89,6 +95,19 @@
           </div>
         </main>
       </section>
+    </div>
+
+    <!--===========================
+              MODALS
+        ===========================-->
+    <!-- additional security -- for admin only -->
+    <div id="pin-modal" class="modal">
+      <div class="modal-content">
+        <h1>Pincode</h1>
+        <div class="form-field">
+          <input type="text" name="pincode" id="pincode" maxlength="4" />
+        </div>
+      </div>
     </div>
   </body>
   <script type="text/javascript" src="script.js"></script>
