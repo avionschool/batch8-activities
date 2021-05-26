@@ -49,6 +49,7 @@ loginSubmit.addEventListener('click', function() {
         if (clientList[index].isAdmin) {
             window.location.href = "admin-dashboard.html"; 
         } else {
+            localStorage.setItem("currentUserIndex", JSON.stringify(index));
             window.location.href = "user-dashboard.html"; 
         }
     }
@@ -79,12 +80,18 @@ signupSubmit.addEventListener('click', function() {
     } else if (signupPassword.value !== signupRePassword.value) {
         alert('Passwords do not match!');
     } else {
+        // add new user
         let newUser = new User(undefined, signupUsername.value, signupEmail.value,
             signupPassword.value, signupFname.value, signupLname.value, 0, false);
         clientList.unshift(newUser);
+        // add open transaction
+        let transaction = new Transaction(newUser.accountNo, `${newUser.fname} ${newUser.lname}`, 
+            'Open', `Added ${newUser.fname} ${newUser.lname} as a new client`, 0, 0);
+        transactionHistory.unshift(transaction);
+        // update local storage
         updateJSONClientList();
-        currentUser = JSON.stringify(newUser);
-        localStorage.setItem("currentUser", currentUser);
+        currentUserIndex = JSON.stringify("0");
+        localStorage.setItem("currentUserIndex", currentUserIndex);
         window.location.href = "user-dashboard.html"; // redirect
     }
 });

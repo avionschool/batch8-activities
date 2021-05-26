@@ -451,6 +451,22 @@ a {
 
 .history-table tr:nth-child(even) {background-color: #f2f2f2;}
 
+/* ========================== USER DASHBOARD ======================================= */
+.user-nav {
+    width: 200px;
+}
+
+.user-profile-content {
+    width: 100%;
+    margin: unset;
+    margin-top: 5%;
+    font-size: 18px;
+}
+
+.user-transaction-history-message {
+    padding-top: 20px;
+    font-size: 0.8rem;
+}
 
 /*=================
 == MEDIA QUERIES == 

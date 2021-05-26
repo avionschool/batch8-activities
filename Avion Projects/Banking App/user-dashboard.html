@@ -1,27 +1,147 @@
-<!-- 
-HOME
-HI! UNIQUE NAME, EMAIL, 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-Total Deposit: ___ ACCOUNT BALANCE
-Contact your local Bambam banker to deposit funds
+    <!-- Google Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/realfavicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/realfavicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/realfavicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/realfavicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/realfavicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>User Dashboard | Bambam Bank</title>
+</head>
+
+<body>
+    <!-- Header 10% -->
+    <header class="header">
+        <div class="bank-logo">
+            <img class="logo-scales" src="assets/images/Scales.png" width="50px">
+            <img class="logo-name" src="assets/images/Name.png">
+        </div>
+        <div class="button-container">
+            <a href="index.html"><button class="logout">Logout</button></a>
+        </div>
+    </header>
+
+    <!-- NavBar 5% -->
+    <section class="navbar">
+        <div class="nav-item user-nav user-home active">Profile</div>
+        <div class="nav-item user-nav user-transaction-history">Transaction History</div>
+        <div class="nav-item user-nav user-budget">Budget Tracker</div>
+    </section>
+
+    <!-- Content 85% -->
+    <section class="content">
+        <section class="content-item content-home">
+            <div class="home-message">Welcome user!</div>
+            <!-- View Profile Div -->
+            <div class="profile-content user-profile-content">
+                <div class="modal-top title">Client Profile</div>
+                
+                <div class="modal-left">
+                    <div class="profile-image"><img src="assets/feathericons/user.svg" width="100px" height="100px"></div>
+                    <div>Balance:</div>
+                    <div><span id="profile-balance">100 pesos</div>
+                    <div><span id="profile-transaction-history">View Transaction History</span></div>
+                </div>
+
+                <div class="modal-right">
+                    <table class='modal-table'>
+                        <tr>
+                            <td class="left-column">Account Number:</td>
+                            <td><span id="profile-account-no"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="left-column">First Name:</td>
+                            <td><span id="profile-fname"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="left-column">Last Name:</td>
+                            <td><span id="profile-lname"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="left-column">Username:</td>
+                            <td><span id="profile-username"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="left-column">Email:</td>
+                            <td><span id="profile-email"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="left-column">Member since:</td>
+                            <td><span id="profile-member-since"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-item content-history hide">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Account No.</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Transaction Details</th>
+                        <th>(Debit)/Credit</th>
+                        <th>Running Balance</th>
+                    </tr>
+                </thead>
+                <tbody class="history-content">
+                    <!-- Sample Row; Will be overwritten by JS -->
+                    <tr>
+                        <td>2021-05-20</td>
+                        <td>23:00:00</td>
+                        <td>609090</td>
+                        <td>Liza Magdanniello Therese</td>
+                        <td>Transfer</td>
+                        <td>Transferred 100 to 090909</td>
+                        <td>+100.00</td>
+                        <td>1,100</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="user-transaction-history-message"><strong>For official bank transactions: </strong><br> Please contact your local Bambam bank administrator to transact with us and update your balance.</div>
+        </section>
+        
+        <section class="content-item content-budget hide">
+        </section>
+        
+    </section>
+
+    <!-- SUCCESSFUL ALERT PROMPT -->
+    <div class="my_alert">
+        <p>Transaction successful!</p>
+    </div>
+
+</body>
+<script src="scripts/User.js"></script>
+<script src="scripts/user-dashboard.js"></script>
+</html>
 
 
-
-
-
-
-
-BUDGET TRACKER [EXPENSE ITEMS ARRAY]
+<!-- BUDGET TRACKER [EXPENSE ITEMS ARRAY]
 TOTAL RUNNING BALANCE __________
 Expense Items (TABLE):
 DESCRIPTION OVERFLOW....                    AMOUNT
 CLASS SMOL
 
-TOTAL EXPENSES
+TOTAL EXPENSES (LIKE A TODO LIST)
 
 
-
-
-
+ANOTHER SECTION?
 GRAPH
 VISUALIZE THE DATA -->
