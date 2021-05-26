@@ -195,3 +195,35 @@ input {
         width: 100px;
     }
 }
+
+@media screen and (max-width: 560px) {
+    .button-container button {
+        width: 70px;
+    }
+
+    .content {
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .bank-name {
+        width: initial;
+        height: 40%;
+        margin: 0px;
+    }
+
+    .content-container {
+        margin-top: -10%;
+        width: initial;
+        height: 80%;
+        align-items: initial;
+    }
+
+    .bank-slogan {
+        font-size: 30px;
+    }
+
+    .bank-slogan, .login-container {
+        margin-top: 30%;
+    }
+}

@@ -1,16 +1,4 @@
 // ===================
-// == GLOBAL VARS  ===
-// ===================
-
-// JSON
-function updateJSONClientList() {
-    clientList_str = JSON.stringify(clientList);
-    localStorage.setItem("clientList", clientList_str);
-    transactionHistory_str = JSON.stringify(transactionHistory);
-    localStorage.setItem("transactionHistory", transactionHistory_str);
-}
-
-// ===================
 // == A. Nav Bar   ===
 // ===================
 
@@ -58,12 +46,13 @@ loadInitialTransBtn.addEventListener('click', function() {
     withdraw(clientList[1], 5007.88);
     send(clientList[2], clientList[1], 222.22);
     remove_user(0);
+    list_users();
     // hide the button
     loadInitialTransBtn.style.display = "none";
 });
 
-// Hide button if clientList already has content
-if (clientList.length > 0) {
+// Hide button if clientList already has content other than admin
+if (clientList.length > 1) {
     loadInitialTransBtn.style.display = "none";
 }
 

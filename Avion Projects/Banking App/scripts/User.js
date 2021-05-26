@@ -1,8 +1,27 @@
-// GLOBAL VARS
+// ===================
+// == GLOBAL VARS  ===
+// ===================
+
+// JSON
+function updateJSONClientList() {
+    clientList_str = JSON.stringify(clientList);
+    localStorage.setItem("clientList", clientList_str);
+    transactionHistory_str = JSON.stringify(transactionHistory);
+    localStorage.setItem("transactionHistory", transactionHistory_str);
+}
+
 let generatedAccountNos = []; // Array of unique account nos.
 
 // Initialize clientlist from local storage, or if not in local storage, from empty array
 var clientList_str = localStorage.getItem("clientList");
+var transactionHistory_str = localStorage.getItem("transactionHistory");
+
+if (!transactionHistory_str) {
+    var transactionHistory = [];
+} else {
+    var transactionHistory = JSON.parse(transactionHistory_str);
+}
+
 if (!clientList_str) {
     var clientList = [];
 } else {
@@ -36,6 +55,19 @@ class User {
     }
 }
 
+class Transaction {
+    constructor(accountNo, name, type, details, amount, runningBalance) {
+        this.date = new Date().toLocaleDateString();
+        this.time = new Date().toLocaleTimeString('en-US', { hour12: false });
+        this.accountNo = accountNo;
+        this.name = name;
+        this.type = type;
+        this.details = details;
+        this.amount = amount;
+        this.runningBalance = runningBalance;
+    }
+}
+
 // helper functions
 function generateAccountNo() {
     let randomAccountNo = "";
@@ -63,11 +95,17 @@ function generateRandomPassword() {
 // ===========================================
 // == ADMIN                                 ==
 // ===========================================
-
-let x = new User(undefined, 'admin', undefined, '1234', undefined, undefined, undefined, true);
-
-let admin = {
-    username: "admin",
-    password: "1234",
-    isAdmin: true};
-clientList.push(admin);
+// Check if there is already an admin user in clientList; if none, add one
+(function addAdmin() {
+    let i = clientList.findIndex(function(item) {
+        return item.isAdmin;
+    })
+    if (i === -1) {
+        let admin = {
+            username: "admin",
+            password: "1234",
+            isAdmin: true
+        };
+        clientList.push(admin);
+    }
+})();
