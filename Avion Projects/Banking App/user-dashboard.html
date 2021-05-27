@@ -118,6 +118,42 @@
         </section>
         
         <section class="content-item content-budget hide">
+            <div class=user-budget-headers>
+                <button class="user-nav-btn active-btn" id="user-budget-main">MAIN</button>
+                <button class="user-nav-btn" id="user-budget-income">INCOME</button>
+                <button class="user-nav-btn" id="user-budget-expenses">EXPENSES</button>
+            </div>
+
+            <div class="user-budget-body">
+                <section class="budget-section user-main-content">
+                    <h3>Summary:</h3>
+                    <table id="user-budget-table">
+                        <tr>
+                            <td>Account Balance:</td>
+                            <td id="table-account-balance">Php 100.00</td>
+                        </tr>
+                        <tr>
+                            <td><span id="table-INCOME">INCOME:</span></td>
+                            <td id="table-income">0.00</td>
+                        </tr>
+                        <tr>
+                            <td><span id="table-EXPENSES">EXPENSES:</span></td>
+                            <td id="table-expenses">(1,000.00)</td>
+                        </tr>
+                        <tr>
+                            <td id="table-NET-SAVINGS">Net Savings:</td>
+                            <td id="table-net-savings">Php 1,100.00</td>
+                        </tr>
+                    </table>
+                </section>
+                <section class="budget-section user-income-items hide">
+                    TOTAL:
+                </section>
+                <section class="budget-section user-expense-items hide">
+                    TOTAL:
+                </section>
+            </div>
+
         </section>
         
     </section>
