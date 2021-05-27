@@ -1,6 +1,6 @@
-// !===============================
+// ===============================
 // !    Global variables
-// !===============================
+// ===============================
 let btnLogin = document.getElementById('btn-submit');
 let uID = document.getElementById('email');
 let uPW = document.getElementById('password');
@@ -9,9 +9,9 @@ let uPW = document.getElementById('password');
 let modalPin = document.getElementById('pin-modal');
 let txtPin = document.querySelector('#pincode');
 
-// ! ===============================
+//   ===============================
 // !    Functions
-// ! ===============================
+//   ===============================
 function logIn() {
   // ? checks first if the credentials entered belongs to an admin
   if (uID.value === 'admin@finbank.com' && uPW.value === '1234') {
@@ -28,9 +28,9 @@ function validatePinCode(pin) {
   console.log(pin);
   pin === '1234' ? (window.location.href = 'dashboard.html') : alert('Pin incorrect. Please try again.');
 }
-// ! ===============================
+//   ===============================
 // !     Event listeners
-// ! ===============================
+//   ===============================
 
 window.onload = function () {};
 

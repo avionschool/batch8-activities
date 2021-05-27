@@ -1,5 +1,5 @@
 // ===============================
-//      GLOBAL VARIABLES
+// !    GLOBAL VARIABLES
 // ===============================
 
 // generic variables - used by more than 1 functions
@@ -26,6 +26,7 @@ let btnAddUser = document.getElementById('btn-add-user');
 let txtAcctNoU = document.getElementById('account_no');
 let txtFNameU = document.getElementById('fullname');
 let txtBal = document.getElementById('balance');
+let txtEmail = document.querySelector('#email');
 
 // deposit
 let depModal = document.getElementById('deposit-modal');
@@ -112,6 +113,7 @@ function addUser() {
       accountNo: txtAcctNoU.value,
       fullName: txtFNameU.value,
       balance: txtBal.value,
+      email: txtEmail.value,
     };
 
     let userArr = [];
