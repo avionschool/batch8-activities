@@ -125,6 +125,7 @@ body {
 .auth-sidebar header .logo {
   /* display: inline; */
   margin-bottom: 0px;
+
 }
 
 .modal {
@@ -140,20 +141,7 @@ body {
   padding: 0 2.2em 0 2.2em;
 }
 
-/* modal content  */
-.modal-content {
-  background-color: white;
-  margin: auto;
-  border: 1px solid #888;
-  border-radius: 20px;
-  width: 70vh;
-  height: auto;
-  position: fixed;
-  top: 200px;
-  left: 25%;
-  animation-name: animatemodal;
-  animation-duration: 0.5s;
-}
+
 
 /* ==========================
       3. Typography

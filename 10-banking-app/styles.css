@@ -165,9 +165,10 @@ section {
   max-width: 500px;
 }
 
-/* ==========================
-      3. Typography
-  ===========================
+/* ! Default  */
+/* ! ==========================
+   !   3. Typography
+   ! ===========================
 */
 
 body {
@@ -195,10 +196,6 @@ body {
   margin: 0;
 }
 
-/* .btn-login a {
-  text-decoration: none;
-} */
-
 .btn-login input {
   font-size: 1rem;
 }
@@ -206,10 +203,11 @@ body {
 .btn-login input:hover {
   opacity: 0.7;
 }
-/* ==========================
-      4. Components
-  ===========================
-*/
+
+/* ! Default screen */
+/* !==========================
+   !  4. Components
+   !===========================*/
 
 .auth-sidebar header .bank-logo {
   width: 90px;
@@ -227,7 +225,7 @@ body {
 /* login area  */
 
 /* input fields  */
-.gen-form .form-field input,
+.transaction-form .form-field input,
 .transaction-form .form-field input,
 .auth-nav .form-field input {
   height: 2.5em;
@@ -250,9 +248,9 @@ body {
   margin-top: 10px;
 }
 
-/* ==========================
-      5. Media Queries
-  ===========================
+/* !==========================
+  !  5. Media Queries
+  !===========================
         5.1 Mobile Devices
 
   Working on the ff devices & resolution 
@@ -261,9 +259,10 @@ body {
   3. Pixel 2 XL           411 x 823
 */
 
-@media (min-width: 360px) and (max-width: 640px) {
+@media (min-width: 360px) {
   /* 5.1.1 Global Styles  */
 
+  /* ! Mobile  */
   /* 5.1.2 Layout  */
 
   section {
@@ -312,17 +311,7 @@ body {
     position: relative;
   }
 
-  .gen-form .form-field {
-    margin: 10px 0 10px;
-    padding: 0;
-  }
-
-  .gen-form .form-field label,
-  .gen-form .form-field input {
-    display: block;
-    margin: 5px 0 5px;
-  }
-
+  /* !Mobile  */
   /* 5.1.3 Typography  */
 
   .font-heading-2 {
@@ -334,6 +323,17 @@ body {
     font-size: 1rem;
   }
 
+  /* pop up window  */
+  .modal-content h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .modal-content h1 {
+    color: #4f4599;
+  }
+
+  /* ! Mobile  */
   /* 5.1.4 Components  */
 
   /* logo  */
@@ -365,17 +365,8 @@ body {
   .btn-login input {
     margin-top: 10px;
   }
-  /* .auth-register-container a:hover {
-    color: white;
-    background-color: #675ac9;
-    padding: 0.5em 1.5em;
-  } */
 
-  /* login and password container  */
-  /* .gen-form .form-field {
-    display: block;
-  } */
-
+  /* modal  */
   .modal {
     display: none;
     position: fixed;
@@ -395,7 +386,7 @@ body {
     margin: auto;
     border: 1px solid #888;
     border-radius: 20px;
-    width: 70vh;
+    width: 30vh;
     height: auto;
     position: fixed;
     top: 200px;
@@ -404,7 +395,28 @@ body {
     animation-duration: 0.5s;
   }
 
-  /* classList for JS */
+  /* popup window wrapper  */
+  .transaction-form {
+    margin: 1rem 0 1rem;
+    padding: 1rem;
+  }
+
+  /* popup components */
+  .transaction-form .form-field label,
+  .transaction-form .form-field input {
+    display: block;
+    margin: 5px 0 5px;
+  }
+
+  .transaction-form .form-field input {
+    height: 2.5em;
+    border-radius: 5px;
+    background-color: #efeff0;
+    width: 100%;
+    border: none;
+  }
+
+  /*! classList for JS */
   .show {
     display: block;
   }
@@ -428,9 +440,9 @@ body {
   }
 }
 
-/* ======================================
-        5.2 Desktop  
-  =======================================
+/* !======================================
+  !    5.2 Desktop  
+  !=======================================
 
   Working on the ff devices & resolution 
   1. Desktop            1440 x 1024
@@ -509,6 +521,7 @@ body {
     margin: 0;
   }
 
+  /* ! desktop  */
   /* 5.2.3 Typography */
   .auth-sidebar header h1,
   .font-heading-2 {

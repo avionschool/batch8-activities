@@ -77,7 +77,7 @@
             <h2 class="font-heading-2">Login to Finbank.</h2>
             <div class="auth-register-container">
               <!-- <form class="gen-form" id="login-form"> -->
-              <div class="gen-form">
+              <div class="transaction-form">
                 <div class="form-field">
                   <label for="email">E-mail</label>
                   <input type="email" name="email" id="email" value="admin@finbank.com" required />
@@ -103,9 +103,12 @@
     <!-- additional security -- for admin only -->
     <div id="pin-modal" class="modal">
       <div class="modal-content">
-        <h1>Pincode</h1>
-        <div class="form-field">
-          <input type="text" name="pincode" id="pincode" maxlength="4" />
+        <div class="transaction-form">
+          <h1>Pincode</h1>
+
+          <div class="form-field">
+            <input type="text" name="pincode" id="pincode" maxlength="4" placeholder="Enter 4 digit pincode" />
+          </div>
         </div>
       </div>
     </div>
