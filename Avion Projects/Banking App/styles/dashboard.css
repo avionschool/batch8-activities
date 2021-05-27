@@ -10,8 +10,11 @@
 
 :root {
     --main-color-1: #23a450;
-    --main-color-2: #52c04e;
+    --main-color-2: #29be5d;
     --main-color-3: #474a4d;
+    --active-button-color: #2DD1B8;
+    --secondary-color-1: #2DD1B8;
+    --inverted-main-color-2: #d641a2;
 }
 
 html {
@@ -467,8 +470,8 @@ a {
 /* BUDGET TRACKER */
 .user-budget-headers {
     display: flex;
-    margin-bottom: 20px;
     background-color: var(--main-color-2);
+    margin-bottom: 5px;
 }
 
 .user-nav-btn {
@@ -482,7 +485,7 @@ a {
 }
 
 .active-btn {
-    background-color: #8d8d8d;
+    background-color: var(--active-button-color);
 }
 
 /* MAIN */
@@ -508,6 +511,83 @@ a {
     color: green;
     border-top: 1px solid black;
     border-bottom: 3px double black;
+}
+
+/* INCOME/ EXPENSE GENERAL */
+.total-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-color-1);
+    color: white;
+    padding: 3px 20px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.icon {
+    height: 35px;
+    width: 35px;
+    filter: invert(100%);
+    padding: 5px;
+    border-radius: 100%;
+    background-color: var(--inverted-main-color-2);
+}
+
+.budget-cost-table-container {
+    width: 100%;
+    height: auto;
+}
+
+.budget-cost-table {
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+}
+/* 
+.budget-cost-table td {
+    border: 1px solid red;
+} */
+
+.budget-cost-table td:nth-child(1) {
+    width: 40px;
+    padding-right: 5px;
+}
+
+.table-name {
+    width: calc(60%);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+.table-action-btns {
+    padding-top: 10px;
+    display: inline-block;
+    width: 50px;
+}
+
+.table-action-btns img {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    filter: invert(26%) sepia(1%) saturate(2705%) hue-rotate(169deg) brightness(107%) contrast(93%);
+}
+
+.table-amount {
+    width: 40%;
+    text-align: right;
+    padding-right: 17px;
+    color: red;
+}
+
+.table-type {
+    font-size: 0.8rem;
+    padding-bottom: 5px;
+}
+
+.table-row-end {
+    border-bottom: 1px solid var(--main-color-3);
 }
 
 /*=================

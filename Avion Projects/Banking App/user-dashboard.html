@@ -147,10 +147,38 @@
                     </table>
                 </section>
                 <section class="budget-section user-income-items hide">
-                    TOTAL:
+                    <div class="total-container">
+                        <div>TOTAL</div>
+                        <div class="total-amount" id="total-income">P 1,000,000.00</div>
+                    </div>
                 </section>
                 <section class="budget-section user-expense-items hide">
-                    TOTAL:
+                    <div class="total-container">
+                        <div>TOTAL</div>
+                        <div class="total-amount" id="total-expense">P 1,000,000.00</div>
+                    </div>
+                    <div class="budget-cost-table-container">
+                        <table class="budget-cost-table">
+                            <tr>
+                                <td rowspan="2"><img class="icon" src="assets/fontawesome/bolt-solid.svg"></td>
+                                <td class="table-name">Electricity</td>
+                                <td rowspan="2" class="table-action-btns"><img src="assets/feathericons/edit.svg" title="Edit transaction"><img src="assets/feathericons/trash-2.svg" title="Delete transaction"></td>
+                                <td class="table-amount">P 100,000,000.00</td>
+                            </tr>
+                            <tr class="table-row-end">
+                                <td class="table-type">Utilities</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2"><img class="icon" src="assets/fontawesome/bolt-solid.svg"></td>
+                                <td class="table-name">Electricity</td>
+                                <td class="table-action-btns"><img src="assets/feathericons/edit.svg"><img src="assets/feathericons/trash-2.svg"></td>
+                                <td class="table-amount">P 100,000,000.00</td>
+                            </tr>
+                            <tr class="table-row-end">
+                                <td class="table-type">Utilities</td>
+                            </tr>
+                        </table>
+                    </div>
                 </section>
             </div>
 
@@ -166,6 +194,7 @@
 </body>
 <script src="scripts/getDisplayBalance.js"></script>
 <script src="scripts/User.js"></script>
+<script src="scripts/ExpenseItem.js"></script>
 <script src="scripts/user-dashboard.js"></script>
 </html>
 

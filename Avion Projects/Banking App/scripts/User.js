@@ -38,6 +38,7 @@ class User {
         this.lname = lname;
         this.balance = balance;
         this.expenseItems = [];
+        this.incomeItems = [];
         this.isAdmin = isAdmin;
         this.memberSince = new Date();
     }
