@@ -8,4 +8,4 @@
 
 ### Note(s):
 
-..\* Budget tracking app is initially programmed for mobile device.
+Budget tracking app is initially programmed for mobile device.

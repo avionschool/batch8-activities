@@ -1,6 +1,6 @@
-// ===============================
-//      Global variables
-// ===============================
+// !===============================
+// !    Global variables
+// !===============================
 let btnLogin = document.getElementById('btn-submit');
 let uID = document.getElementById('email');
 let uPW = document.getElementById('password');
@@ -9,32 +9,37 @@ let uPW = document.getElementById('password');
 let modalPin = document.getElementById('pin-modal');
 let txtPin = document.querySelector('#pincode');
 
-// ===============================
-//      Functions
-// ===============================
+// ! ===============================
+// !    Functions
+// ! ===============================
 function logIn() {
-  // checks first if the credentials entered belongs to an admin
+  // ? checks first if the credentials entered belongs to an admin
   if (uID.value === 'admin@finbank.com' && uPW.value === '1234') {
-    // if it belong to an admin the pincode will popup asking for a 4 digit pincode
+    // ? if it belong to an admin the pincode will popup asking for a 4 digit pincode
     modalPin.classList.add('show');
     modalPin.classList.remove('hide');
-
-    // window.location.href = 'dashboard.html';
   } else {
-    // alert('Incorrect login details!');
+    // ? calls function to validate user's details
+    // ? if details aren't valid will display msg
   }
 }
-// ===============================
-//      Event listeners
-// ===============================
+
+function validatePinCode(pin) {
+  console.log(pin);
+  pin === '1234' ? (window.location.href = 'dashboard.html') : alert('Pin incorrect. Please try again.');
+}
+// ! ===============================
+// !     Event listeners
+// ! ===============================
 
 window.onload = function () {};
 
-// triggers login function
+// ! Login button
+// ? triggers login function
 btnLogin.addEventListener('click', () => {
   logIn();
 
-  // closes modal if clicked anywhere outside the window
+  // ? closes modal if clicked anywhere outside the window
   window.onclick = function (e) {
     if (e.target == modalPin) {
       modalPin.classList.add('hide');
@@ -43,9 +48,10 @@ btnLogin.addEventListener('click', () => {
   };
 });
 
+// ! pincode window
 // triggers function once pin is entered
 txtPin.addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
-    logIn();
+    validatePinCode(txtPin.value);
   }
 });

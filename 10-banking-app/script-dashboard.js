@@ -12,6 +12,7 @@ let isMoneyEnough = true;
 
 // top nav bar
 let btnPayments = document.getElementsByClassName('pay-buttons');
+let txtSearch = document.querySelector('#search-box');
 
 // side nav bar
 let btnUserNav = document.getElementById('user-nav-btn');
@@ -131,7 +132,6 @@ function removeDash(input) {
   let str = input;
   str = str.substring(1);
   alert('Negative number not allowed.Transaction failed');
-  // console.log(str);
   return str;
 }
 
@@ -183,20 +183,21 @@ function depositMoney() {
 
 // updates balance of user after entering a new amount
 function updateBalance() {
-  // console.table(usersKey);
   bal = runningBal; // updates bal variable to the running balance
   for (let i = 0; i < userObj.length; i++) {
     key = userObj[i];
     if (key.accountNo === AcctNum) {
       // if no existing data, create an array
       // or, convert the localstorage string to an array
+
       if (localStorage.getItem('users') === null) {
         usersKey = [];
       } else {
         usersKey = JSON.parse(localStorage.getItem('users'));
       }
-
+      // adds new data
       usersKey[i].balance = runningBal.toString();
+
       localStorage.setItem('users', JSON.stringify(usersKey));
     }
   }
@@ -321,12 +322,12 @@ function sendMoney() {
   sendMoneySuccess();
 }
 
+// displays an alert message based on the data clicked on the users list table
 function displayBalance() {
   let table = document.getElementById('tbody');
   let rows = document.getElementsByTagName('tr');
   for (let i = 0; i < rows.length; i++) {
     let currentRow = table.rows[i];
-    // console.log(currentRow);
     let createClickHandler = function (row) {
       return function () {
         let balance = row.getElementsByTagName('td')[2].innerHTML;
@@ -338,7 +339,7 @@ function displayBalance() {
   }
 }
 
-// formats numnber to a money format
+// formats numnber to a money format (Example: Php 100.00)
 let toMoneyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'PHP',
@@ -358,7 +359,8 @@ window.onload = function () {
 // SIDE NAV BAR
 // users button
 btnUserNav.addEventListener('click', () => {
-  btnModal.style.display = 'block'; //displays + add user button on top nav bar
+  btnModal.style.display = 'block'; //displays + add user button/search box on top nav bar
+  txtSearch.style.display = 'block';
   btnPayments[0].style.display = 'none'; // hides payments related buttons on top nav bar
   btnPayments[1].style.display = 'none';
   btnPayments[2].style.display = 'none';
@@ -366,7 +368,8 @@ btnUserNav.addEventListener('click', () => {
 
 // payments button
 btnPayNav.addEventListener('click', () => {
-  btnModal.style.display = 'none'; //hide + add user button on top nav bar
+  btnModal.style.display = 'none'; //hide + add user button/search box on top nav bar
+  txtSearch.style.display = 'none';
   btnPayments[0].style.display = 'block'; // displays payments related buttons on top nav bar
   btnPayments[1].style.display = 'block';
   btnPayments[2].style.display = 'block';
