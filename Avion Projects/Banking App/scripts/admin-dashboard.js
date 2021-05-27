@@ -37,12 +37,14 @@ function hideSections() {
 // initial transactions
 const loadInitialTransBtn = document.querySelector('#test-transactions');
 loadInitialTransBtn.addEventListener('click', function() {
-    // create three user accounts
+    // create four user accounts
+    create_user(new User(undefined, "user", "userEmail@proton.com", "1234", "John", "Doe", 50450.98, false));
     create_user(new User(undefined, "ANormalGuy31", "atlas3@google.com", "911Emergency", "Johnny", "Smith", 498087.54, false));
     create_user(new User(undefined, "GirlOnFire", "dragoon66@ymail.com", "DragonLady", "Vicky", "Bella", 9987.98, false));
     create_user(new User(undefined, "HighBaller", "bennyBenny@proton.com", "FalloutNV", "Benny", "Baller", 21498087.98, false));
     // deposit, withdraw, transfer
     deposit(clientList[0], 3000);
+    deposit(clientList[3], 452.66);
     withdraw(clientList[1], 5007.88);
     send(clientList[2], clientList[1], 222.22);
     remove_user(0);
@@ -177,9 +179,8 @@ deleteProfileBtn.addEventListener('click', function() {
 })
 
 // cancel button closes prompt modal
-promptCancel.onclick = function() {
-    promptModal.classList.add('hide');
-}
+promptCancel.onclick = () => promptModal.classList.add('hide');
+
 
 // confirm button on delete prompt will delete current user
 promptConfirm.addEventListener('click', function() {
@@ -217,9 +218,7 @@ function addTransactHandler() {
 
 // Add New Client button simulates click on Add Client nav
 const clientListBtn = document.querySelector('.client-list-addBtn');
-clientListBtn.addEventListener('click', function() {
-    navAddClient.click();
-})
+clientListBtn.onclick = () => navAddClient.click();
 
 // ====================
 // == C. ADD CLIENT  ==

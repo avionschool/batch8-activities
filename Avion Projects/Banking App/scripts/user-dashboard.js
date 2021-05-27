@@ -116,3 +116,61 @@ const historyTable = document.querySelector('.history-content');
 })();
 
 // BUDGET TRACKER
+// NAV
+const budgetBtns = [...document.querySelectorAll('.user-nav-btn')];
+const budgetMain = budgetBtns[0];
+const budgetIncome = budgetBtns[1];
+const budgetExpenses = budgetBtns[2];
+const budgetSections = [...document.querySelectorAll('.budget-section')];
+
+// Add click event on budget buttons to style itself and unhide relevant section
+budgetBtns.forEach(function(item, index) {
+    item.addEventListener('click', function() {
+        clearBudgetBtns();
+        this.classList.add('active-btn');
+
+        const selectedSection = budgetSections[index];
+        hideBudgetSections();
+        selectedSection.classList.remove('hide');
+    })
+});
+
+function clearBudgetBtns() {
+    budgetBtns.forEach(function(item) {
+        item.classList.remove('active-btn');
+    })
+}
+
+function hideBudgetSections() {
+    budgetSections.forEach(function(item) {
+        item.classList.add('hide');
+    }) 
+}
+
+// MAIN
+const spanTableINCOME = document.querySelector('#table-INCOME');
+const spanTableEXPENSES = document.querySelector('#table-EXPENSES');
+const tdTableAccountBalance = document.querySelector('#table-account-balance');
+const tdTableIncome = document.querySelector('#table-income');
+const tdTableExpenses = document.querySelector('#table-expenses');
+const tdTableNetSavings = document.querySelector('#table-net-savings');
+
+// Clickable INCOME & EXPENSES in Table Summary
+spanTableINCOME.onclick = () => budgetIncome.click();
+spanTableEXPENSES.onclick = () => budgetExpenses.click();
+
+// Update amounts in table upon click of MAIN
+budgetMain.addEventListener('click', updateBudgetSummary);
+
+function updateBudgetSummary() {
+    tdTableAccountBalance.textContent = get_balance(currentUser);
+}
+
+// INCOME
+
+// EXPENSES
+
+
+
+// INITIALIZE
+updateBudgetSummary();
