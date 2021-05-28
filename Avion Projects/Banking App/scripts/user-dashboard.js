@@ -147,7 +147,34 @@ function updateBudgetSummary() {
 // INCOME
 
 // EXPENSES
+// Modal
+const modalExpense = document.querySelector('#add-expense-modal');
+const addExpense = document.querySelector('#add-expense');
+const modalExpenseClose = document.querySelector('#close-expense');
 
+addExpense.addEventListener('click', function() {
+    modalExpense.classList.remove('hide');
+})
+
+// Close clicked on 'x' or outside the modal content window
+modalExpenseClose.onclick = hideModals;
+
+window.onclick = function(event) {
+if (event.target == modalExpense) hideModals();
+}
+
+function hideModals() {
+    modalExpense.classList.add('hide');
+}
+
+// inputs
+const expenseType = document.querySelector('#expense-type');
+expenseType.addEventListener('change', function() {
+    // this.style.backgroundImage = "url(../assets/fontawesome/bolt-solid.svg);";
+    this.style.backgroundImage = "url(/Avion%20Projects/Banking%20App/assets/fontawesome/bolt-solid.svg)";
+})
+
+// change logo on change
 
 
 // INITIALIZE

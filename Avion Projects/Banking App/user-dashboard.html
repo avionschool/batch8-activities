@@ -146,17 +146,20 @@
                         </tr>
                     </table>
                 </section>
+
                 <section class="budget-section user-income-items hide">
                     <div class="total-container">
                         <div>TOTAL</div>
                         <div class="total-amount" id="total-income">P 1,000,000.00</div>
                     </div>
                 </section>
+
                 <section class="budget-section user-expense-items hide">
                     <div class="total-container">
                         <div>TOTAL</div>
                         <div class="total-amount" id="total-expense">P 1,000,000.00</div>
                     </div>
+
                     <div class="budget-cost-table-container">
                         <table class="budget-cost-table">
                             <tr>
@@ -179,6 +182,33 @@
                             </tr>
                         </table>
                     </div>
+
+                    <div class="add-transaction" id="add-expense"><img src="assets/fontawesome/plus-circle-solid.svg" title="Add expense"></div>
+                
+                    <div class="add-transaction-modal hide" id="add-expense-modal">
+                        <form class="add-transaction-content">
+                            <div class="modal-top title">Add Expense Transaction<span id="close-expense" class="close">&times;</span></div>
+                            <input id="expense-name" type="text" placeholder="Enter payee or expense item" required>
+                            <input id="expense-amount" type="number" step=".01" min="0.01" placeholder="0.00" required>
+                            <input id="expense-type" list="type" type="text" name="expense-type" placeholder="Choose Expense Type" required>
+                            <datalist id="type">
+                                <option value="Transportation"></option>
+                                <option value="Entertainment"></option>
+                                <option value="Health"></option>
+                                <option value="Food"></option>
+                                <option value="Clothing"></option>
+                                <option value="Utilities"></option>
+                                <option value="Household"></option>
+                                <option value="Miscellaneous"></option>
+                            </datalist>
+                            <div>
+                                <input type="date" id="expense-date" required>
+                                <input type="time" id="expense-time" required>
+                            </div>
+                            <button class="add-button transaction-content-button">Add Expense</button>
+                        </form>
+                    </div>
+
                 </section>
             </div>
 
@@ -192,9 +222,10 @@
     </div>
 
 </body>
+<script src="scripts/logoObject.js"></script>
 <script src="scripts/getDisplayBalance.js"></script>
-<script src="scripts/User.js"></script>
 <script src="scripts/ExpenseItem.js"></script>
+<script src="scripts/User.js"></script>
 <script src="scripts/user-dashboard.js"></script>
 </html>
 
