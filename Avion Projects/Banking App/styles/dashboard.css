@@ -546,14 +546,16 @@ a {
     height: auto;
     border-collapse: collapse;
 }
-/* 
-.budget-cost-table td {
-    border: 1px solid red;
-} */
 
 .budget-cost-table td:nth-child(1) {
     width: 40px;
-    padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 8px;
+}
+
+.budget-cost-table td:nth-child(2) {
+    padding-left: 3px;
+    padding-right: 10px;
 }
 
 .table-name {
@@ -580,6 +582,10 @@ a {
     transform: scale(110%);
 }
 
+.table-name {
+    padding-left: 5px;
+}
+
 .table-amount {
     width: 40%;
     text-align: right;
@@ -590,6 +596,21 @@ a {
 .table-type {
     font-size: 0.8rem;
     padding-bottom: 5px;
+}
+
+.span-date-month {
+    font-size: 0.5rem;
+    font-weight: bold;
+    vertical-align: bottom;
+    text-align: center;
+    margin-left: 3px;
+}
+
+.span-date-day {
+    vertical-align: top;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
 }
 
 .table-row-end {
@@ -649,12 +670,36 @@ a {
 
 #expense-type {
     padding-left: 35px;
-    /* background-image: url(../assets/fontawesome/ellipsis-h-solid.svg); */
-    background-image: url(/Avion%20Projects/Banking%20App/assets/fontawesome/ellipsis-h-solid.svg);
     background-size: 18px 18px;
     background-repeat: no-repeat;
     background-position: 2.55%;
 }
+
+/* ICONS */
+    .icon-miscellaneous {
+        background-image: url(../assets/fontawesome/ellipsis-h-solid.svg);
+    }
+    .icon-transportation {
+        background-image: url(../assets/fontawesome/car-side-solid.svg);
+    }
+    .icon-entertainment {
+        background-image: url(../assets/fontawesome/theater-masks-solid.svg);
+    }
+    .icon-health {
+        background-image: url(../assets/fontawesome/pills-solid.svg);
+    }
+    .icon-food {
+        background-image: url(../assets/fontawesome/utensils-solid.svg);
+    }
+    .icon-clothing {
+        background-image: url(../assets/fontawesome/tshirt-solid.svg);
+    }
+    .icon-utilities {
+        background-image: url(../assets/fontawesome/bolt-solid.svg);
+    }
+    .icon-household {
+        background-image: url(../assets/fontawesome/home-solid.svg);
+    }
 
 #expense-date, #expense-time {
     width: 160px;

@@ -164,6 +164,10 @@
                         <table class="budget-cost-table">
                             <tr>
                                 <td rowspan="2"><img class="icon" src="assets/fontawesome/bolt-solid.svg"></td>
+                                <td rowspan="2">
+                                    <span class="span-date-month">JUN</span><br>
+                                    <span class="span-date-day">28</span>
+                                </td>
                                 <td class="table-name">Electricity</td>
                                 <td rowspan="2" class="table-action-btns"><img src="assets/feathericons/edit.svg" title="Edit transaction"><img src="assets/feathericons/trash-2.svg" title="Delete transaction"></td>
                                 <td class="table-amount">P 100,000,000.00</td>
@@ -173,8 +177,12 @@
                             </tr>
                             <tr>
                                 <td rowspan="2"><img class="icon" src="assets/fontawesome/bolt-solid.svg"></td>
+                                <td rowspan="2">
+                                    <span class="span-date-month">JAN</span><br>
+                                    <span class="span-date-day">02</span>
+                                </td>
                                 <td class="table-name">Electricity</td>
-                                <td class="table-action-btns"><img src="assets/feathericons/edit.svg"><img src="assets/feathericons/trash-2.svg"></td>
+                                <td rowspan="2" class="table-action-btns"><img src="assets/feathericons/edit.svg" title="Edit transaction"><img src="assets/feathericons/trash-2.svg" title="Delete transaction"></td>
                                 <td class="table-amount">P 100,000,000.00</td>
                             </tr>
                             <tr class="table-row-end">
@@ -186,11 +194,11 @@
                     <div class="add-transaction" id="add-expense"><img src="assets/fontawesome/plus-circle-solid.svg" title="Add expense"></div>
                 
                     <div class="add-transaction-modal hide" id="add-expense-modal">
-                        <form class="add-transaction-content">
+                        <form class="add-transaction-content" id="add-expense-modal-content">
                             <div class="modal-top title">Add Expense Transaction<span id="close-expense" class="close">&times;</span></div>
                             <input id="expense-name" type="text" placeholder="Enter payee or expense item" required>
                             <input id="expense-amount" type="number" step=".01" min="0.01" placeholder="0.00" required>
-                            <input id="expense-type" list="type" type="text" name="expense-type" placeholder="Choose Expense Type" required>
+                            <input id="expense-type" class="icon-miscellaneous" list="type" type="text" name="expense-type" placeholder="Choose Expense Type" required>
                             <datalist id="type">
                                 <option value="Transportation"></option>
                                 <option value="Entertainment"></option>
@@ -222,7 +230,6 @@
     </div>
 
 </body>
-<script src="scripts/logoObject.js"></script>
 <script src="scripts/getDisplayBalance.js"></script>
 <script src="scripts/ExpenseItem.js"></script>
 <script src="scripts/User.js"></script>

@@ -148,12 +148,30 @@ function updateBudgetSummary() {
 
 // EXPENSES
 // Modal
+const addExpenseBtn = document.querySelector('#add-expense');
 const modalExpense = document.querySelector('#add-expense-modal');
-const addExpense = document.querySelector('#add-expense');
+const formAddExpense = document.querySelector('#add-expense-modal-content');
+const modalExpenseInputs = [...formAddExpense.getElementsByTagName('input')];
+const expenseName = document.querySelector('#expense-name');
+const expenseAmount = document.querySelector('#expense-amount');
+const expenseType = document.querySelector('#expense-type');
+const expenseDate = document.querySelector('#expense-date');
+const expenseTime = document.querySelector('#expense-time');
 const modalExpenseClose = document.querySelector('#close-expense');
 
-addExpense.addEventListener('click', function() {
+
+// unhide modal
+addExpenseBtn.addEventListener('click', function() {
     modalExpense.classList.remove('hide');
+    // sets date and time input to current time
+    var date = new Date();
+    var hour = date.getHours(),
+        min  = date.getMinutes();
+    hour = (hour < 10 ? "0" : "") + hour;
+    min = (min < 10 ? "0" : "") + min;
+
+    expenseDate.valueAsDate = new Date();
+    expenseTime.value = hour + ":" + min;
 })
 
 // Close clicked on 'x' or outside the modal content window
@@ -167,15 +185,36 @@ function hideModals() {
     modalExpense.classList.add('hide');
 }
 
-// inputs
-const expenseType = document.querySelector('#expense-type');
-expenseType.addEventListener('change', function() {
-    // this.style.backgroundImage = "url(../assets/fontawesome/bolt-solid.svg);";
-    this.style.backgroundImage = "url(/Avion%20Projects/Banking%20App/assets/fontawesome/bolt-solid.svg)";
+// Pressing ESC in an input box clears its value
+modalExpenseInputs.forEach(function(item) {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+            this.value = null;
+        }
+    });
 })
 
-// change logo on change
+// change logo on change event
+expenseType.addEventListener('input', function() {
+    // create list of icon names
+    let listOfIconNames = [];
+    let options = [...document.querySelector('#type').children];
+    options.forEach(function(item) {
+        listOfIconNames.push(item.value);
+    })
+    // dynamically change icon to represent expense type
+    if (listOfIconNames.includes(this.value)) {
+        this.className = `icon-${this.value.toLowerCase()}`
+    } else this.className = 'icon-miscellaneous';
+})
 
+// form submission
+formAddExpense.addEventListener('submit', function(e) {
+    console.log("PRINTS"); // add transaction
+    e.preventDefault(); // prevent page reload
+    formAddExpense.reset() // reset form
+    return false;
+});
 
 // INITIALIZE
 updateBudgetSummary();
