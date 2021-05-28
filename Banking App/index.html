@@ -1,261 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="bootstrap-4.4.1-dist/js/bootstrap.js">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>QUICK CASH BANK</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>e-BANK</title>
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Font Awesome CSS -->
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
 </head>
-
 <body>
-	<div class="container bg-danger p-4" id="loginaccount">
-		<div class="row mt-3">
-			<div class="col-sm-12 col-md-8 pl-4">
-				<p class="text-white pl-3" style="font-size: 2rem;font-weight: bold;">QUICK CASH BANK</p>
-				<p class="text-white pl-3" style="font-size: 1.5rem;font-weight: bold;">e-BANKING AT YOUR FINGERTIPS</p>
-				<div class="icon ml-3 float-left " style="width: 50px;height: 50px;"><img src="icons8-double-tick-64.png" width="70%"></div>
-				<div class="text ml-3 " style="width: 80%;height: 50px;padding: 0.05rem;">
-					<p class="text-white" style="font-size: 1.3rem">Credit Cards</p>
-				</div>
-				<div class="icon ml-3 float-left  " style="width: 50px;height: 50px;"><img src="icons8-double-tick-64.png" width="70%"></div>
-				<div class="text ml-3 " style="width: 80%;height: 50px;padding: 0.05rem;">
-					<p class="text-white" style="font-size: 1.3rem">Deposit Money</p>
-				</div>
-				<div class="icon ml-3 float-left " style="width: 50px;height: 50px;"><img src="icons8-double-tick-64.png" width="70%"></div>
-				<div class="text ml-3 " style="width: 80%;height: 50px;padding: 0.05rem;">
-					<p class="text-white" style="font-size: 1.3rem">Withdrawal Money</p>
-				</div>
-				<div class="icon ml-3 float-left " style="width: 50px;height: 50px;"><img src="icons8-double-tick-64.png" width="70%"></div>
-				<div class="text ml-3 " style="width: 80%;height: 50px;padding: 0.05rem;">
-					<p class="text-white" style="font-size: 1.3rem">Send Money</p>
-				</div>
-				<div class="icon ml-3 float-left " style="width: 50px;height: 50px;"><img src="icons8-double-tick-64.png" width="70%"></div>
-				<div class="text ml-3 " style="width: 80%;height: 50px;padding: 0.05rem;">
-					<p class="text-white" style="font-size: 1.3rem">Loans</p>
-				</div>
-				
-			</div>
-			<div class="col-sm-12 col-md-4 rounded shadow-sm bg-white" style="border-right: 3px solid #e00404; ">
-				<p class="text-danger mt-4 ml-3" style="font-weight: bold;font-size: 1.3rem;">WELCOME!</p>
-            <form class="col-12 pb-3 " id="formlogin">
-               <div class="form-group">
-			<label class="text-dark">User ID</label>
-			<input type="text" name="idname" id="idname" class="form-control">
-		</div>
-              <div class="form-group">
-			<label class="text-dark">Password</label>
-			<input type="password" name="pass" id="pass" class="form-control">
-		</div>       
-            </form>
-           
-            <button onclick="Login()" id="login" type="submit" class="btn btn-danger btn-block mt-1 mb-5 " style="width: 80%;margin:0 auto;">Submit</button>
-            </div>
-        </div>
-	</div>    
+	<!-- <div id="loginDiv">
+		<form id="loginForm">
 
-	<div class="container pt-4" id="manageaccount" style="display: none">
-		<div class="row">
-			<div class="col-3">
-				<div class="back text-center">
-					<!-- <p>User Profile</p> -->
-					<a href="">User Profile</a>
+		</form>
+	</div> -->
+
+	<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+		<div class="card card0 border-0">
+			<div class="row d-flex">
+				<div class="col-lg-6">
+					<div class="card1 pb-5">
+						<div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>
+						<div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+					</div>
 				</div>
-			</div>
-			<div class="col-6">
-				<div class="logo">
-					<p >QUICK CASH BANK</p>
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="suport text-center">
-
-					<button class="btn btn-outline-danger" onclick="Logout()">LOGOUT</button>
-						
-				</div>
-			</div>
-		</div>
-</div>
-
-
-	<div class="container " style="background: #efefef; " >
-		<div class="row ">
-			<div class="col-sm-12 col-md-4 " id="content" style="display: none;">
-
-				<div class="box_content_left  p-2  mt-4 ">
-
-					<div class="infomation p-3 shadow-sm p-3 bg-white rounded" style="border-left: 3px solid #e00404;">
-						
-						<div class="img_left rounded-circle" style="width: 100px; height: 100px;float: left;">
-							<img class="rounded-circle" src="1.png" width="100%" height="100%">
+				<div class="col-lg-6">
+					<div class="card2 card border-0 px-4 py-5">
+						<div class="row mb-4 px-3">
+							<h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
+							<div class="facebook text-center mr-3">
+								<div class="fa fa-facebook"></div>
+							</div>
+							<div class="twitter text-center mr-3">
+								<div class="fa fa-twitter"></div>
+							</div>
+							<div class="linkedin text-center mr-3">
+								<div class="fa fa-linkedin"></div>
+							</div>
 						</div>
-					<div class="text_right pt-3" style="width: 53%;float: right">
-						<p style="font-size: 1.5rem; font-weight: bold;margin: 0" id="infoname"></p>
-						<p style="font-size: 0.8rem" id="joindate"></p>
+						<div class="row px-3 mb-4">
+							<div class="line"></div> <small class="or text-center">Or</small>
+							<div class="line"></div>
+						</div>
+						<div class="row px-3"> <label class="mb-1">
+								<h6 class="mb-0 text-sm">Email Address</h6>
+							</label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> </div>
+						<div class="row px-3"> <label class="mb-1">
+								<h6 class="mb-0 text-sm">Password</h6>
+							</label> <input type="password" name="password" placeholder="Enter password"> </div>
+						<div class="row px-3 mb-4">
+							<div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Remember me</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
+						</div>
+						<div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Login</button> </div>
+						<div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div>
 					</div>
-					<div class="img_left mt-3" style="width: 60%;float: left;clear: left;">
-						<p style="font-weight: bold;margin: 0">Account Number</p>
-						<p style="font-size: 0.8rem" id="acctNumber">0123456789</p>
-					</div>
-					<div class="img_left mt-3" style="width: 37%;float: right;">
-						<!-- <div class="btn btn-danger mt-1" style="width: 100%">Change</div> -->
-						<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="Change()">Change</button>
-					</div>
 				</div>
-
-
-			<div class="account shadow-sm p-3 bg-white rounded">
-				<p class="text1 text-danger">Transactions</p>
-				<div class="info_acount">
-					<p style="float: left;font-size: 1rem;font-weight: bold;">Current Balance</p>
-					<p style="float: right;font-size: 1rem;font-weight: bold;">₱ 5000</p>
-				</div>
-				<div class="info_acount" style="clear: left;">
-					<p style="float: left;font-size: 1rem;font-weight: bold;">Account Type</p>
-					<p style="float: right;font-size: 1rem;font-weight: bold;" class="text-danger" id="typemoney">Peso Savings</p>
-				</div>
-
-				<div class="line mt-1 mb-1"></div>
-				<div class="total ">
-					<p class="mt-3" style="float: left;font-weight: bold;font-size: 1.3rem">Amount</p>
-					<p style="float: right;font-weight: bold;font-size: 2.5rem;" class="text-danger"  id="balance"></p>
-				</div>
-				<div class="buttondetail mt-3" style="width: 84%;margin: 0 auto;">
-					<!-- <div class="btn btn-danger" style="width: 100%">Detail Infomation</div> -->
-				</div>
-				
 			</div>
-
+			<div class="bg-blue py-4">
+				<div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+					<div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+				</div>
 			</div>
-		</div>
-
-			<div class="col-sm-12 col-md-5 p-2  mt-4" id="content2" style="display: none;">
-				<div class="payment p-3 shadow-sm p-3 mb-4 bg-white rounded">
-					
-					<p style="font-weight: bold;margin-top: 1rem;font-size: 1.5rem" class="text-danger">CREATE TRANSACTIONS</p>
-					<div class="addmoney">
-						<p style="margin-bottom: 0.5rem;">Deposit Cash</p>
-						<div class="input-group mb-2 float-left" style="width: 75%;">
-        					<div class="input-group-prepend">
-          						<div class="input-group-text">₱</div>
-        					</div>
-        					<input type="number" name="balance" id="Depositinput" value="" class="form-control" id="inlineFormInputGroup" placeholder="Enter amount" >
-
-      					</div>
-      				
-      				<button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 22%;" onclick="Deposit()">Deposit</button>
-					</div>
-
-
-					<div class="addmoney">
-						<p style="margin-bottom: 0.5rem;clear: left;">Withdraw Cash</p>
-						<div class="input-group mb-2 float-left" style="width: 75%;">
-        					<div class="input-group-prepend">
-          						<div class="input-group-text">₱</div>
-        					</div>
-        					<input type="number" name="balance" id="Withdrawalinput" value="" class="form-control" id="inlineFormInputGroup" placeholder="Enter amount" >
-
-      					</div>
-      				<button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="Withdrawal()">Withdraw</button>
-					</div>
-
-					<div class="exmoney mt-2">
-						<p class="mt-3 " style="margin-bottom: 0.5rem;clear: left;">Express Send</p>
-
-      
-      <div class="numbercard">
-      	<input type="number" name="balance" id="accountnumber" value="" class="form-control" id="inlineFormInputGroup" placeholder="To account" >
-      </div>
-      <div class="money">
-      	<div class="input-group" style="width: 122%;">
-        <div class="input-group-prepend">
-          <div class="input-group-text">₱</div>
-        </div>
-        <input type="number" name="balance" id="moneynumber" value="" class="form-control" id="inlineFormInputGroup" placeholder="Amount" >
-      </div>
-      </div>
-      
-      <button type="button" class="btn btn-danger float-right " data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 22%;" onclick="Transfers()" >Transfer</button>
-      <br><br>
-	  <p class="text1 text-danger">Transactions History</p>
-	  <p style="float: right;font-size: 1rem;font-weight: bold;" id="amt_history"></p>
-	  <p style="float: left;font-size: 1rem;font-weight: bold;" id="acct_description"></p>
-	  
-
-					</div>
-					
-				</div>
-				
-			</div>
-
-
-		
-
-			<div class="col-sm-12 col-md-3 p-2  mt-4" id="content3" style="display: none;">
-				<div class="payment  shadow-sm  mb-4 bg-white " style="border-radius: 8px !important;">
-					<div class="boxx" style="width: 100%; height: 150px;">
-						<div class="card">
-  <div class="card__front card__part">
-    <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-    
-    <p class="card_numer">**** **** **** 0414</p>
-    <div class="card__space-75">
-      <span class="card__label">Card holder</span>
-      <p class="card__info" id="infoname2"></p>
-    </div>
-    <div class="card__space-25">
-      <span class="card__label">Expires</span>
-            <p class="card__info">10/25</p>
-    </div>
-  </div>
-  
-  
-  
-</div>
-						
-						
-					</div>
-					
-					<p class="text-success" id="stt" style="font-size: 90%"> </p>
-				</div>
-				</div>
 		</div>
 	</div>
 
-	<div class="modal fade bd-example-modal-sm mt-5" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content" style="border-bottom: 0.5rem solid #e00404 !important;">
-      <div class="iconpopup " style="margin: 0 auto; width: 27%;height: 100%; margin-top: 20%;">
-          <img id="notick" src="tick.png" width="100%" >
-          <img id="errortick" src="ticknot.png" width="100%" style="display: none;" >
-          <img id="changeimg" src="defender.png" width="100%" style="display: none;">
-      </div>
-      <div id="no" class=" iconpopup mt-4" style="margin: 0 auto; width: 80%;margin-bottom: 10%;">
-          <p class="text-center" style="font-weight: bold;margin-bottom: 2%">NOTIFICATION</p>
-          <p class="text-center" id="notification"></p>
-
-      </div>
-      <div id="changepass" class=" iconpopup mt-4" style="margin: 0 auto; width: 80%;margin-bottom: 10%;display: none">
-          <p class="text-center" style="font-weight: bold;margin-bottom: 2%">CHANGE PASSWORD</p>
-          <p class="mt-3" style="margin-bottom: 2%;">Enter current password</p>
-          <input type="password" name="pass" id="passcurrent" class="form-control " >
-          <p class="mt-1" style="margin-bottom: 2%;">Enter new password</p>
-          <input type="password" name="pass" id="passnew" class="form-control " >
-          <p class="mt-1" style="margin-bottom: 2%;">Enter repeat new password</p>
-          <input type="password" name="pass" id="passnewrepeat" class="form-control " >
-          <button class="btn btn-danger float-right mt-3" onclick="Changepassword()">Change</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 	
-
-
-	<script language="Javascript" src="js.js"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,258 +1,169 @@
-*{
-	margin: 0;
-	padding:0;
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #B0BEC5;
+    background-repeat: no-repeat
 }
 
-
-.back{
-float: left;
-width: 100%;
-height: 50px;
-/*background: red;*/
-}
-.back p{
-padding-top: 0.5rem;
-font-weight: bold;
-font-size: 1.2rem;
-color: #e00404;
+.card0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 0px
 }
 
-.logo{
-float: left;
-width: 100%;
-height: 50px;
-/*background: green;*/
-}
-.logo p{
-font-size: 2rem;
-font-weight: bold;
-text-align: center;
-color: #e00404;
-margin-top: -0.5rem;
-}
-.suport{
-float: right;
-width: 100%;
-height: 50px;
-/*	background: yellow;*/
-}
-.suport p{
-padding-top: 0.5rem;
-font-weight: bold;
-font-size: 1.2rem;
-color: #e00404;
+.card2 {
+    margin: 0px 40px
 }
 
-.box_content_left{
-margin: 0 auto;
-padding-top: 2rem;
-width: 92%;
-
-/*background: #fff;*/
-
-}
-.infomation{
-margin: 0 auto;
-width: 100%;
-height: 200px;
-background: #fff;
-margin-bottom: 1rem;
-border-radius: 3%;
+.logo {
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 35px
 }
 
-.infomation p.text1{
-margin: 0;
-font-size: 1.2rem; 
-color: #e00404;
-font-weight: bold;
-margin-left: 1.5rem;
-}
-.infomation p.text2{ 
-color: #e00404;
-margin-left: 1.5rem;
-}
-.line{
-width: 84%;
-margin: 0 auto;
-height: 2px;
-background: #efefef;
+.image {
+    width: 360px;
+    height: 280px
 }
 
-
-.account{
-margin: 0 auto;
-width: 100%;
-padding-bottom: 2rem;
-background: #fff;
-border-radius: 3%;
-
-}
-.account p.text1{
-
-font-size: 1.5rem; 
-color: #e00404;
-font-weight: bold;
-margin-left: 1.3rem;
-}
-.account .info_acount{
-width:84%;
-height: 40px;
-margin: 0 auto;
-/*	background: red;*/
-}
-.total{
-clear: left;
-width:84%;
-height: 60px;
-margin: 0 auto;
-/*background: red;*/
+.border-line {
+    border-right: 1px solid #EEEEEE
 }
 
-
-
-
-.box_content_right{
-
-float: right;
-width: 65%;
-height: 800px;
-background: pink;
-}
-.setting_left{
-float: left;
-width: 45%;
-height: 800px;
-background: yellow;
-}
-.box_content_right .line{
-float: left;
-width: 1px;
-height: 700px;
-margin: 0 auto;
-background: green;
-}
-.payment_right{
-float: right;
-width: 35%;
-height: 800px;
-background: yellow;
+.facebook {
+    background-color: #3b5998;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
 }
 
-
-.payment{
-float: left;
-width: 100%;
-height: 500px;
-background: red;
-}
-.status{
-float: right;
-width: 39.9%;
-height: 500px;
-background: pink;
-border-left: 1px solid black;
+.twitter {
+    background-color: #1DA1F2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
 }
 
-
-.numbercard{
-float: left;
-width: 41.5%;
-
-}
-.money{
-margin-left: 0.5rem;
-float: left;
-width: 26%;
-}
-
-.addmoney{
-width: 100%;
-height: 65px;
-/*background: green;*/
-}
-.exmoney{
-width: 100%;
-height: 100px;
-/*background: green;*/
+.linkedin {
+    background-color: #2867B2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.card__part{
-
-z-index: 1000;
-
-display: inline-block;
-width: 100%;
-height: 150px;
-background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(10deg, rgb(224, 4, 4) 0%, rgba(224, 4, 4) 100%);
-background-repeat: no-repeat;
-border-top-right-radius: 4px;
-border-top-left-radius: 4px;
-
--webkit-backface-visibility: hidden;
-
+.line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
 }
 
-.card__front{
-padding: 18px;
-
+.or {
+    width: 10%;
+    font-weight: bold
 }
 
-.card__square {
-border-radius: 5px;
-height: 30px;
+.text-sm {
+    font-size: 14px !important
 }
 
-.card_numer {
-display: block;
-width: 100%;
-word-spacing: 4px;
-font-size: 15px;
-letter-spacing: 2px;
-color: #fff;
-text-align: center;
-margin-bottom: 12px;
-margin-top: 18px;
+::placeholder {
+    color: #BDBDBD;
+    opacity: 1;
+    font-weight: 300
 }
 
-.card__space-75 {
-width: 75%;
-float: left;
+:-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
 }
 
-
-
-.card__label {
-font-size: 10px;
-text-transform: uppercase;
-color: rgba(255,255,255,0.8);
-letter-spacing: 1px;
+::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
 }
 
-.card__info {
-margin-bottom: 0;
-   margin: -2px;
-font-size: 15px;
-line-height: 18px;
-color: #fff;
-letter-spacing: 1px;
-text-transform: uppercase;
+input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+a {
+    color: inherit;
+    cursor: pointer
+}
+
+.btn-blue {
+    background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+}
+
+.bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+
+@media screen and (max-width: 991px) {
+    .logo {
+        margin-left: 0px
+    }
+
+    .image {
+        width: 300px;
+        height: 220px
+    }
+
+    .border-line {
+        border-right: none
+    }
+
+    .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
 }
