@@ -537,6 +537,19 @@ body {
     font-size: 1rem;
   }
   /* 5.2.4 Components */
+  .modal-content {
+    background-color: white;
+    margin: auto;
+    border: 1px solid #888;
+    border-radius: 20px;
+    width: 30vh;
+    height: auto;
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    animation-name: animatemodal;
+    animation-duration: 0.5s;
+  }
 }
 
 /* ================================ 

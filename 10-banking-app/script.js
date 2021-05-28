@@ -1,11 +1,21 @@
 // ===============================
 // !    Global variables
 // ===============================
+
+// README
+// 1.
+// 2.
+
+// ? generic
+let usersKey = JSON.parse(localStorage.getItem('users'));
+let isUserExisting = false;
+
+// ? login
 let btnLogin = document.getElementById('btn-submit');
 let uID = document.getElementById('email');
 let uPW = document.getElementById('password');
 
-// pincode modal
+// ? pincode modal
 let modalPin = document.getElementById('pin-modal');
 let txtPin = document.querySelector('#pincode');
 
@@ -19,15 +29,40 @@ function logIn() {
     modalPin.classList.add('show');
     modalPin.classList.remove('hide');
   } else {
-    // ? calls function to validate user's details
-    // ? if details aren't valid will display msg
+    // ? this section validate user's details
+    for (let i = 0; i < usersKey.length; i++) {
+      // ? obj represents one object per array
+      let obj = usersKey[i];
+      // ? will validate username and password
+      if (uID.value === obj.email && uPW.value === obj.password.toString()) {
+        displayAlert(`Welcome, ${obj.fullName}!`);
+        // ? loads user dashboard if successful
+        window.location.href = 'user.html';
+        return;
+      } else {
+        displayAlert(`Incorrect details. Login failed.`);
+        return;
+      }
+    }
   }
 }
 
+// ? additional layer of security (for admin only)
 function validatePinCode(pin) {
   console.log(pin);
   pin === '1234' ? (window.location.href = 'dashboard.html') : alert('Pin incorrect. Please try again.');
 }
+
+// ? helper for alert
+function displayAlert(msg) {
+  return alert(msg);
+}
+
+// ? helper for console log
+function log(x) {
+  console.log(x);
+}
+
 //   ===============================
 // !     Event listeners
 //   ===============================
@@ -49,7 +84,7 @@ btnLogin.addEventListener('click', () => {
 });
 
 // ! pincode window
-// triggers function once pin is entered
+// ? triggers function once pin is entered
 txtPin.addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
     validatePinCode(txtPin.value);

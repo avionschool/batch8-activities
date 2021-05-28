@@ -77,9 +77,9 @@ function hideElements() {
   btnPayments[2].style.display = 'none';
 }
 
-// adding a new user
+// ? adding a new user
 function addUser() {
-  // performs a search function first to see if account no. or name exists
+  // ? performs a search function first to see if account no. or name exists
   function searchUser() {
     if (localStorage.getItem('users') == null) {
       addSuccessful();
@@ -114,6 +114,8 @@ function addUser() {
       fullName: txtFNameU.value,
       balance: txtBal.value,
       email: txtEmail.value,
+      password: generatePassword(9999),
+      expense: 0,
     };
 
     let userArr = [];
@@ -127,6 +129,11 @@ function addUser() {
       localStorage.setItem('users', JSON.stringify(userArr));
     }
   }
+}
+
+// generates random number for default password
+function generatePassword(number) {
+  return Math.floor(Math.random() * number);
 }
 
 // this function removes the - (negative character)

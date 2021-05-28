@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- FAV ICON  -->
+    <!-- ! FAV ICON  -->
     <link rel="shortcut icon" href="assets/infinite-mathematical-symbol.svg" type="image/x-icon" />
 
-    <!-- CSS FILES -->
+    <!-- ! CSS FILES -->
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- <link rel="stylesheet" href="styles-dashboard.css" /> -->
     <title>Log in | Banking App</title>
   </head>
   <body class="sign-in">
@@ -76,29 +75,31 @@
             <!-- heading before login credentials -->
             <h2 class="font-heading-2">Login to Finbank.</h2>
             <div class="auth-register-container">
-              <!-- <form class="gen-form" id="login-form"> -->
+              <!--  ? sample login details
+                    ? Testing purposes only
+                    ? username: admin@finbank.com
+                    ? pw: 1234 -->
               <div class="transaction-form">
                 <div class="form-field">
                   <label for="email">E-mail</label>
-                  <input type="email" name="email" id="email" value="admin@finbank.com" required />
+                  <input type="email" name="email" id="email" value="lea@mail.com" required />
                 </div>
                 <div class="form-field">
                   <label for="password">Password</label>
-                  <input type="password" name="password" id="password" minlength="4" value="1234" required />
+                  <input type="password" name="password" id="password" minlength="4" value="8765" required />
                 </div>
                 <div class="btn-login">
                   <input type="submit" value="Login" id="btn-submit" />
                 </div>
               </div>
-              <!-- </form> -->
             </div>
           </div>
         </main>
       </section>
     </div>
 
-    <!--===========================
-              MODALS
+    <!-- ===========================
+            ! MODALS
         ===========================-->
     <!-- additional security -- for admin only -->
     <div id="pin-modal" class="modal">
@@ -106,7 +107,7 @@
         <div class="transaction-form">
           <h1>Pincode</h1>
           <div class="form-field">
-            <input type="number" name="pincode" id="pincode" maxlength="4" placeholder="Enter 4 digit pincode" min="1" max="2" />
+            <input type="password" name="pincode" id="pincode" maxlength="4" placeholder="Enter 4 digit pincode" />
           </div>
         </div>
       </div>
