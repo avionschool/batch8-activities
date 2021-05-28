@@ -2,7 +2,7 @@
 // !    Global variables
 // ===============================
 
-// README
+// ! README -- for other notes
 // 1.
 // 2.
 
