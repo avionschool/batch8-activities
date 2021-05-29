@@ -71,6 +71,33 @@ let txtBalP = document.getElementById('balance-profile');
 //      FUNCTIONS
 // ===============================
 
+// todo add function to loadinitialdata
+function loadinitialData() {
+  if (prompt('Load initial data?[Y/N]') === 'Y') {
+    let testUser = {
+      accountNo: 1,
+      fullName: 'lea',
+      balance: 100.0,
+      email: 'lea@mail.com',
+      password: generatePassword(9999),
+      expense: 0,
+      isLoggedin: false,
+    };
+    let userArr = [];
+    if (localStorage.getItem('users') == null) {
+      userArr.push(testUser);
+      localStorage.setItem('users', JSON.stringify(userArr));
+    } else {
+      userArr = JSON.parse(localStorage.getItem('users'));
+      userArr.push(testUser);
+      localStorage.setItem('users', JSON.stringify(userArr));
+      alert('Test data added successfully.');
+    }
+  }
+}
+
+loadinitialData();
+
 function hideElements() {
   btnPayments[0].style.display = 'none';
   btnPayments[1].style.display = 'none';
@@ -116,6 +143,7 @@ function addUser() {
       email: txtEmail.value,
       password: generatePassword(9999),
       expense: 0,
+      isLoggedin: false,
     };
 
     let userArr = [];

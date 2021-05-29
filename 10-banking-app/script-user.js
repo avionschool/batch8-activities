@@ -10,6 +10,8 @@
 // ! DASHBOARD
 // *****************************
 
+// ? generic variables
+
 // ? navigation bar
 let linkProfile = document.getElementById('profile-link');
 
@@ -20,11 +22,13 @@ let modalsUser = document.getElementsByClassName('modal');
 let btnModal = document.getElementById('add-btn');
 
 // ? profile
-let profileModal = document.getElementById('');
+// let profileModal = document.getElementById('');
 
 //   ===============================
 // !    Functions
 //   ===============================
+
+class expenseList {}
 
 //   ===============================
 // !     HELPERS
@@ -43,13 +47,12 @@ function log(x) {
 //   ===============================
 // !     EVENT LISTENERS
 //   ===============================
-
 // *****************************
 //       ! DASHBOARD
 // *****************************
 
-// add expense
-btnModal.onclick = function () {
+// ! add expense
+btnModal.addEventListener('click', () => {
   modalsUser[0].classList.add('show');
   modalsUser[0].classList.remove('hide');
 
@@ -60,9 +63,9 @@ btnModal.onclick = function () {
       modalsUser[0].classList.remove('show');
     }
   };
-};
+});
 
-// ! profile
+// ! edit profile
 // nav link
 linkProfile.addEventListener('click', () => {
   modalsUser[1].classList.add('show');

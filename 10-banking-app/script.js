@@ -2,6 +2,10 @@
 // !    Global variables
 // ===============================
 
+// ! Readme
+
+// 1. obj represents one object per array
+
 // *****************************
 //        ! LOGIN
 // *****************************
@@ -9,6 +13,8 @@
 // ? generic
 let usersKey = JSON.parse(localStorage.getItem('users'));
 let isUserExisting = false;
+let fullName;
+// let userEmail;
 
 // ? login
 let btnLogin = document.getElementById('btn-submit');
@@ -34,16 +40,23 @@ function logIn() {
       // ? obj represents one object per array
       let obj = usersKey[i];
       // ? will validate username and password
-      if (uID.value === obj.email && uPW.value === obj.password.toString()) {
-        displayAlert(`Welcome, ${obj.fullName}!`);
-        // ? loads user dashboard if successful
-        window.location.href = 'user.html';
-        return;
+      // log(`${obj.email} ${obj.password}`);
+      if (obj.email === uID.value) {
+        isUserExisting == true;
+        fullName = obj.fullName;
       } else {
-        displayAlert(`Incorrect details. Login failed.`);
-        return;
+        isUserExisting == false;
       }
     }
+  }
+
+  if (isUserExisting == false) {
+    // ? loads user dashboard and updates login status if successful
+    displayAlert(`Welcome, ${fullName}!`);
+    updateLogInStatus();
+    window.location.href = 'user.html';
+  } else {
+    displayAlert(`Incorrect details. Login failed.`);
   }
 }
 
@@ -51,6 +64,33 @@ function logIn() {
 function validatePinCode(pin) {
   console.log(pin);
   pin === '1234' ? (window.location.href = 'dashboard.html') : alert('Pin incorrect. Please try again.');
+}
+
+// ? updates logged in status to true
+// ? later on will be used to check which user is logged in to populate user dashboard details
+function updateLogInStatus() {
+  // ? will perform search function first
+  for (let i = 0; i < usersKey.length; i++) {
+    // ? Readme (Item 1)
+    let obj = usersKey[i];
+    // ? searches for the key inside the object
+    if (uID.value === obj.email) {
+      // ? if no existing data
+      // ? will create an empty array
+      // ? or convert key to string
+      if (localStorage.getItem('users') === null) {
+        usersKey = [];
+      } else {
+        usersKey = JSON.parse(localStorage.getItem('users'));
+      }
+      // ? assigned value key
+      usersKey[i].isLoggedIn = true;
+
+      // ? updates key
+      localStorage.setItem('users', JSON.stringify(usersKey));
+      // displayAlert('Log in updates');
+    }
+  }
 }
 
 //   ===============================
@@ -71,7 +111,10 @@ function log(x) {
 // !     EVENT LISTENERS
 //   ===============================
 
-window.onload = function () {};
+window.onload = function () {
+  // userEmail = uID.value;
+  // log('index email' + userEmail);
+};
 
 // *****************************
 //       ! LOGIN PAGE
