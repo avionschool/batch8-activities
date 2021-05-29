@@ -71,17 +71,17 @@ let txtBalP = document.getElementById('balance-profile');
 //      FUNCTIONS
 // ===============================
 
-// todo add function to loadinitialdata
+// ? loads sample user data for testing purposes only
 function loadinitialData() {
   if (prompt('Load initial data?[Y/N]') === 'Y') {
     let testUser = {
       accountNo: 1,
-      fullName: 'lea',
+      fullName: 'lee',
       balance: 100.0,
-      email: 'lea@mail.com',
+      email: 'lee@mail.com',
       password: generatePassword(9999),
       expense: 0,
-      isLoggedin: false,
+      isLoggedin: true,
     };
     let userArr = [];
     if (localStorage.getItem('users') == null) {

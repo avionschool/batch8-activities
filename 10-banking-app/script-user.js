@@ -11,6 +11,9 @@
 // *****************************
 
 // ? generic variables
+let usersKey = JSON.parse(localStorage.getItem('users'));
+
+let userEmail;
 
 // ? navigation bar
 let linkProfile = document.getElementById('profile-link');
@@ -28,7 +31,35 @@ let btnModal = document.getElementById('add-btn');
 // !    Functions
 //   ===============================
 
-class expenseList {}
+class expenseList {
+  static getUsers() {
+    // ? if no existing data
+    // ? will create an empty array
+    // ? or convert key to string
+    if (localStorage.getItem('users') === null) {
+      usersKey = [];
+    } else {
+      usersKey = JSON.parse(localStorage.getItem('users'));
+    }
+    return log(usersKey);
+  }
+
+  // search user's details using emaill as primary ID
+  static retreiveUserData(isLoggedIn) {
+    const users = expenseList.getUsers();
+    for (let i = 0; i < usersKey.length; i++) {
+      if (isLoggedIn == usersKey.isLoggedIn) {
+        return log('user found');
+      } else {
+        return log('user doesnt exist');
+      }
+    }
+  }
+}
+
+// expenseList.retreiveUserData(true);
+expenseList.getUsers();
+expenseList.retreiveUserData(true);
 
 //   ===============================
 // !     HELPERS

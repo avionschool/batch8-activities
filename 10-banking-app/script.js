@@ -12,7 +12,7 @@
 
 // ? generic
 let usersKey = JSON.parse(localStorage.getItem('users'));
-let isUserExisting = false;
+let isUserValidated = false;
 let fullName;
 // let userEmail;
 
@@ -41,28 +41,28 @@ function logIn() {
       let obj = usersKey[i];
       // ? will validate username and password
       // log(`${obj.email} ${obj.password}`);
-      if (obj.email === uID.value) {
-        isUserExisting == true;
+      // log(uID.value);
+      if (obj.email === uID.value && obj.password.toString() === uPW.value) {
+        isUserValidated = true;
         fullName = obj.fullName;
-      } else {
-        isUserExisting == false;
+        log(obj.email);
       }
     }
-  }
 
-  if (isUserExisting == false) {
-    // ? loads user dashboard and updates login status if successful
-    displayAlert(`Welcome, ${fullName}!`);
-    updateLogInStatus();
-    window.location.href = 'user.html';
-  } else {
-    displayAlert(`Incorrect details. Login failed.`);
+    if (isUserValidated == true) {
+      // ? loads user dashboard and updates login status if successful
+      displayAlert(`Welcome, ${fullName}!`);
+      updateLogInStatus();
+      window.location.href = 'user.html';
+    } else {
+      displayAlert(`Incorrect details. Login failed.`);
+    }
   }
 }
 
 // ? additional layer of security (for admin only)
 function validatePinCode(pin) {
-  console.log(pin);
+  // console.log(pin);
   pin === '1234' ? (window.location.href = 'dashboard.html') : alert('Pin incorrect. Please try again.');
 }
 
