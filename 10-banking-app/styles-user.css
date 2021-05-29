@@ -178,6 +178,11 @@ body {
     color: white;
   }
 
+  /* overrides design for better CTA */
+  #btn-save-profile {
+    background-color: #cdc7fa;
+  }
+
   /* Modal */
 
   .modal {

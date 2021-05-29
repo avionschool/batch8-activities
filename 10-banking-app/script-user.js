@@ -4,7 +4,7 @@
 
 // ! README -- for other notes
 // ? 1. window.onclick for modals - modal will be closed if user clicks anywhere outside of it
-// ? 2.
+// ? 2. obj -
 
 // *****************************
 // ! DASHBOARD
@@ -12,20 +12,19 @@
 
 // ? generic variables
 let usersKey = JSON.parse(localStorage.getItem('users'));
-
 let userEmail;
-
-// ? navigation bar
-let linkProfile = document.getElementById('profile-link');
 
 // ? modals
 let modalsUser = document.getElementsByClassName('modal');
+
+// ? navigation bar
+let linkProfile = document.getElementById('profile-link');
 
 // ? add expense
 let btnModal = document.getElementById('add-btn');
 
 // ? profile
-// let profileModal = document.getElementById('');
+let btnLogout = document.getElementById('btn-logout');
 
 //   ===============================
 // !    Functions
@@ -51,9 +50,26 @@ class User {
     for (let i = 0; i < users.length; i++) {
       // ? represents one obj in the array of objects
       let obj = users[i];
-      isLoggedIn == obj.isLoggedIn ? (userEmail = obj.email) : null;
+      if (isLoggedIn == obj.isLoggedIn) {
+        userEmail = obj.email;
+      }
     }
     return userEmail;
+  }
+
+  // ? updates isLoggedIn status back to false and re-directs back to login page
+  static logoutUser(email) {
+    const users = User.getUsers();
+    for (let i = 0; i < users.length; i++) {
+      let obj = users[i];
+      if (email === obj.email) {
+        obj.isLoggedIn = false;
+        localStorage.setItem('users', JSON.stringify(users));
+      }
+    }
+
+    displayAlert('Successfully logged out.');
+    window.location.href = 'index.html';
   }
 }
 
@@ -108,4 +124,9 @@ linkProfile.addEventListener('click', () => {
       modalsUser[1].classList.remove('show');
     }
   };
+});
+
+// ? call function to logout user
+btnLogout.addEventListener('click', () => {
+  User.logoutUser(userEmail);
 });
