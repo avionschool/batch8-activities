@@ -14,7 +14,7 @@
         <nav>
           <ul>
             <li><a class="nav-links" href="#">Spendings</a></li>
-            <li><a class="nav-links" href="#">Profile</a></li>
+            <li><a class="nav-links" id="profile-link">Profile</a></li>
           </ul>
         </nav>
       </header>
@@ -72,13 +72,35 @@
           <h3>Add an expense</h3>
           <div class="form-field">
             <label for="cost">Cost</label>
-            <input type="text" id="cost" />
+            <input type="number" id="cost" />
           </div>
           <div class="form-field">
             <label for="item">Item</label>
             <input type="text" id="item" />
           </div>
           <input type="submit" value="Save" class="buttons" id="expense-btn" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ! profile  -->
+    <div id="profile-modal" class="modal">
+      <div class="modal-content">
+        <div class="transaction-form">
+          <h3>Profile</h3>
+          <div class="form-field">
+            <Fabel for="fullname">Fullname:</Fabel>
+            <input type="text" id="fullname" F />
+          </div>
+          <div class="form-field">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" />
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input type="text" id="password" />
+          </div>
+          <input type="submit" value="Save" />
         </div>
       </div>
     </div>

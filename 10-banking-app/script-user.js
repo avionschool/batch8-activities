@@ -3,67 +3,28 @@
 // ===============================
 
 // ! README -- for other notes
-// 1.
-// 2.
-
-// *****************************
-//        ! LOGIN
-// *****************************
-
-// ? generic
-let usersKey = JSON.parse(localStorage.getItem('users'));
-let isUserExisting = false;
-
-// ? login
-let btnLogin = document.getElementById('btn-submit');
-let uID = document.getElementById('email');
-let uPW = document.getElementById('password');
-
-// ? pincode modal
-let modalPin = document.getElementById('pin-modal');
-let txtPin = document.querySelector('#pincode');
+// ? 1. window.onclick for modals - modal will be closed if user clicks anywhere outside of it
+// ? 2.
 
 // *****************************
 // ! DASHBOARD
 // *****************************
 
+// ? navigation bar
+let linkProfile = document.getElementById('profile-link');
+
+// ? modals
+let modalsUser = document.getElementsByClassName('modal');
+
 // ? add expense
-let addExpenseModal = document.getElementById('add-modal');
 let btnModal = document.getElementById('add-btn');
+
+// ? profile
+let profileModal = document.getElementById('');
 
 //   ===============================
 // !    Functions
 //   ===============================
-function logIn() {
-  // ? checks first if the credentials entered belongs to an admin
-  if (uID.value === 'admin@finbank.com' && uPW.value === '1234') {
-    // ? if it belong to an admin the pincode will popup asking for a 4 digit pincode
-    modalPin.classList.add('show');
-    modalPin.classList.remove('hide');
-  } else {
-    // ? this section validate user's details
-    for (let i = 0; i < usersKey.length; i++) {
-      // ? obj represents one object per array
-      let obj = usersKey[i];
-      // ? will validate username and password
-      if (uID.value === obj.email && uPW.value === obj.password.toString()) {
-        displayAlert(`Welcome, ${obj.fullName}!`);
-        // ? loads user dashboard if successful
-        window.location.href = 'user.html';
-        return;
-      } else {
-        displayAlert(`Incorrect details. Login failed.`);
-        return;
-      }
-    }
-  }
-}
-
-// ? additional layer of security (for admin only)
-function validatePinCode(pin) {
-  console.log(pin);
-  pin === '1234' ? (window.location.href = 'dashboard.html') : alert('Pin incorrect. Please try again.');
-}
 
 //   ===============================
 // !     HELPERS
@@ -83,44 +44,35 @@ function log(x) {
 // !     EVENT LISTENERS
 //   ===============================
 
-window.onload = function () {};
-
-// *****************************
-//       ! LOGIN PAGE
-// *****************************
-
-// ! Login button
-// ? triggers login function
-btnLogin.addEventListener('click', () => {
-  logIn();
-
-  // ? closes modal if clicked anywhere outside the window
-  window.onclick = function (e) {
-    if (e.target == modalPin) {
-      modalPin.classList.add('hide');
-      modalPin.classList.remove('show');
-    }
-  };
-});
-
-// ! pincode window
-// ? triggers function once pin is entered
-txtPin.addEventListener('keyup', (e) => {
-  if (e.key === 'Enter') {
-    validatePinCode(txtPin.value);
-  }
-});
-
 // *****************************
 //       ! DASHBOARD
 // *****************************
 
 // add expense
 btnModal.onclick = function () {
-  addExpenseModal.style.display = 'block';
+  modalsUser[0].classList.add('show');
+  modalsUser[0].classList.remove('hide');
+
+  // modal will be closed if user clicks anywhere outside of it
+  window.onclick = function (e) {
+    if (e.target == modalsUser[0]) {
+      modalsUser[0].classList.add('hide');
+      modalsUser[0].classList.remove('show');
+    }
+  };
 };
 
-// modal will be closed if user clicks anywhere outside of it
-window.onclick = function (e) {
-  e.target == addExpenseModal ? (addExpenseModal.style.display = 'none') : null;
-};
+// ! profile
+// nav link
+linkProfile.addEventListener('click', () => {
+  modalsUser[1].classList.add('show');
+  modalsUser[1].classList.remove('hide');
+
+  // see readme above (1)
+  window.onclick = function (e) {
+    if (e.target == modalsUser[1]) {
+      modalsUser[1].classList.add('hide');
+      modalsUser[1].classList.remove('show');
+    }
+  };
+});
