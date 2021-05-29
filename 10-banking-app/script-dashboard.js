@@ -75,13 +75,13 @@ let txtBalP = document.getElementById('balance-profile');
 function loadinitialData() {
   if (prompt('Load initial data?[Y/N]') === 'Y') {
     let testUser = {
-      accountNo: 1,
+      accountNo: 2,
       fullName: 'lee',
       balance: 100.0,
-      email: 'lee@mail.com',
+      email: 'lee1@mail.com',
       password: generatePassword(9999),
       expense: 0,
-      isLoggedin: true,
+      isLoggedIn: false,
     };
     let userArr = [];
     if (localStorage.getItem('users') == null) {

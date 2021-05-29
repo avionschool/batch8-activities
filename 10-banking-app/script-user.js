@@ -31,7 +31,8 @@ let btnModal = document.getElementById('add-btn');
 // !    Functions
 //   ===============================
 
-class expenseList {
+class User {
+  // ? returns all values stored in users key (array of objects)
   static getUsers() {
     // ? if no existing data
     // ? will create an empty array
@@ -41,25 +42,23 @@ class expenseList {
     } else {
       usersKey = JSON.parse(localStorage.getItem('users'));
     }
-    return log(usersKey);
+    return usersKey;
   }
 
-  // search user's details using emaill as primary ID
+  // ? returns the email of user who has a true isLoggedin status
   static retreiveUserData(isLoggedIn) {
-    const users = expenseList.getUsers();
-    for (let i = 0; i < usersKey.length; i++) {
-      if (isLoggedIn == usersKey.isLoggedIn) {
-        return log('user found');
-      } else {
-        return log('user doesnt exist');
-      }
+    const users = User.getUsers();
+    for (let i = 0; i < users.length; i++) {
+      // ? represents one obj in the array of objects
+      let obj = users[i];
+      isLoggedIn == obj.isLoggedIn ? (userEmail = obj.email) : null;
     }
+    return userEmail;
   }
 }
 
-// expenseList.retreiveUserData(true);
-expenseList.getUsers();
-expenseList.retreiveUserData(true);
+// ! functions invoked during onload
+User.retreiveUserData(true);
 
 //   ===============================
 // !     HELPERS
