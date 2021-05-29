@@ -47,8 +47,8 @@ class User {
         currentUser.expenseItems.unshift(transaction);
     }
 
-    static delete(transaction) {
-        // code for expense items
+    static delete(index) {
+        currentUser.expenseItems.splice(index, 1);
     }
 
     static list() {

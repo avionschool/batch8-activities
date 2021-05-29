@@ -341,7 +341,7 @@ a {
             }
 
 /* DELETE PROFILE PRMOPT */
-#delete-profile-prompt {
+#delete-profile-prompt, .delete-prompt {
     z-index: 2;
     position: absolute;
     top: 50%;
@@ -384,12 +384,12 @@ a {
         border-radius: 10px;
     }
 
-        #prompt-cancel {
+        #prompt-cancel, .cancel-btn {
             color: var(--main-color-3);
             background-color: #eee;
         }
 
-        #prompt-confirm {
+        #prompt-confirm, .confirm-btn {
             color: white;
             background-color: #f24849;
         }

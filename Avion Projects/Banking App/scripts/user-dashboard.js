@@ -194,6 +194,7 @@ if (event.target == modalExpense) hideModals();
 
 function hideModals() {
     modalExpense.classList.add('hide');
+    expensePromptModal.classList.add('hide');
 }
 
 // Pressing ESC in an input box clears its value
@@ -257,7 +258,7 @@ function createExpenseTable() {
                 <span class="span-date-day">${dateParts[2]}</span>
             </td>
             <td class="table-name">${item.name}</td>
-            <td rowspan="2" class="table-action-btns"><img src="assets/feathericons/edit.svg" title="Edit transaction"><img src="assets/feathericons/trash-2.svg" title="Delete transaction"></td>
+            <td rowspan="2" class="table-action-btns"><img class="edit-expense-icon" src="assets/feathericons/edit.svg" title="Edit transaction"><img class="delete-expense-icon" src="assets/feathericons/trash-2.svg" title="Delete transaction"></td>
             <td class="table-amount">${display_balance(item.amount)}</td>
         </tr>
         <tr class="table-row-end">
@@ -266,6 +267,7 @@ function createExpenseTable() {
     });
     expenseTable.innerHTML = innerHTML;
     getDisplayExpenseTotal();
+    addDeleteTransactionHandler();
 }
 
 // displays total expense
@@ -281,7 +283,34 @@ function getDisplayExpenseTotal() {
 
 // Action Buttons
 // Delete Transaction
-const tableActionBtns = document.querySelector('.table-action-btns').children;
+const expensePromptModal = document.querySelector('#delete-expense-prompt');
+const expensePromptCancel = document.querySelector('#expense-prompt-cancel');
+const expensePromptConfirm = document.querySelector('#expense-prompt-confirm');
+
+function addDeleteTransactionHandler() {
+    let deleteBtns = [...document.querySelectorAll('.delete-expense-icon')];
+    deleteBtns.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            expensePromptModal.classList.remove('hide');
+            // add click event on confirm so it can access index variable
+            // confirm button will delete transaction
+            expensePromptConfirm.onclick = function() {
+                hideModals(); // hide modals
+                User.delete(index);
+                createExpenseTable();
+                updateJSONClientList();
+            }
+        })
+    })
+}
+
+// Edit transaction
+function addEditTransactionHandler() {
+    let deleteBtns = [...document.querySelectorAll('.edit-expense-icon')];
+}
+
+// cancel button closes prompt modal
+expensePromptCancel.onclick = () => expensePromptModal.classList.add('hide');
 
 // INITIALIZE
 createExpenseTable();
