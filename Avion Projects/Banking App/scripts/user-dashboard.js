@@ -1,3 +1,7 @@
+// GLOBAL VARS
+let EXPENSESTotalAmount = 0.00;
+let INCOMETotalAmount = 0.00;
+
 // LOAD CURRENTLY LOGGED IN USER FROM LOCAL STORAGE
 var currentUserIndex_str = localStorage.getItem("currentUserIndex");
 var currentUserIndex = JSON.parse(currentUserIndex_str);
@@ -142,6 +146,11 @@ budgetMain.addEventListener('click', updateBudgetSummary);
 
 function updateBudgetSummary() {
     tdTableAccountBalance.textContent = get_balance(currentUser);
+    tdTableExpenses.textContent = `(${totalExpense.textContent.slice(1)})`;
+    tdTableNetSavings.textContent = '₱' + display_balance((currentUser.balance - EXPENSESTotalAmount));
+    if (tdTableNetSavings.textContent.includes('(')) {
+        tdTableNetSavings.style.color = "red";
+    } else tdTableNetSavings.style.color = "green";
 }
 
 // INCOME
@@ -159,6 +168,8 @@ const expenseDate = document.querySelector('#expense-date');
 const expenseTime = document.querySelector('#expense-time');
 const modalExpenseClose = document.querySelector('#close-expense');
 
+// expense table
+const expenseTable = document.querySelector('.budget-cost-table');
 
 // unhide modal
 addExpenseBtn.addEventListener('click', function() {
@@ -194,6 +205,11 @@ modalExpenseInputs.forEach(function(item) {
     });
 })
 
+// force amount to be 2 decimal places
+expenseAmount.addEventListener('change', function(e) {
+    this.value = parseFloat(this.value).toFixed(2);
+})
+
 // change logo on change event
 expenseType.addEventListener('input', function() {
     // create list of icon names
@@ -210,11 +226,57 @@ expenseType.addEventListener('input', function() {
 
 // form submission
 formAddExpense.addEventListener('submit', function(e) {
-    console.log("PRINTS"); // add transaction
+    formCreateExpenseItem(); // add transaction
     e.preventDefault(); // prevent page reload
     formAddExpense.reset() // reset form
+    hideModals(); // hide modal
     return false;
 });
 
+// ##FUNCTIONS##
+function formCreateExpenseItem() {
+    let item = new ExpenseItem(expenseName.value, parseFloat(expenseAmount.value),
+        expenseType.value, spanAccountNo.value, expenseDate.value, expenseTime.value);
+    User.add(item);
+    createExpenseTable();
+    // update local storage
+    updateJSONClientList();
+}
+
+function createExpenseTable() {
+    let innerHTML = "";
+    currentUser.expenseItems.forEach(function(item) {
+        let dateParts = item.transactionDate.split('-');
+        let parsedDate = new Date(dateParts[0], dateParts[1] -1, dateParts[2]);
+        innerHTML += `
+        <tr>
+            <td rowspan="2"><div class="icon icon-miscellaneous icon-${item.expenseType.toLowerCase()}"></td>
+            <td rowspan="2">
+                <span class="span-date-month">${parsedDate.toLocaleString('default', { month: 'short' }).toUpperCase()}</span><br>
+                <span class="span-date-day">${dateParts[2]}</span>
+            </td>
+            <td class="table-name">${item.name}</td>
+            <td rowspan="2" class="table-action-btns"><img src="assets/feathericons/edit.svg" title="Edit transaction"><img src="assets/feathericons/trash-2.svg" title="Delete transaction"></td>
+            <td class="table-amount">${display_balance(item.amount)}</td>
+        </tr>
+        <tr class="table-row-end">
+            <td class="table-type">${item.expenseType}</td>
+        </tr>`
+    });
+    expenseTable.innerHTML = innerHTML;
+    getDisplayExpenseTotal();
+}
+
+const totalExpense = document.querySelector('#total-expense');
+
+function getDisplayExpenseTotal() {
+    var total = currentUser.expenseItems.reduce(function(acc, item) {
+        return acc + parseFloat(item.amount);
+    }, 0);
+    totalExpense.textContent = '₱' + display_balance(total);
+    EXPENSESTotalAmount = total;
+}
+
 // INITIALIZE
+createExpenseTable();
 updateBudgetSummary();

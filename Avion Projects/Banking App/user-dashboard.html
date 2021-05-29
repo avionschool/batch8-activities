@@ -163,7 +163,7 @@
                     <div class="budget-cost-table-container">
                         <table class="budget-cost-table">
                             <tr>
-                                <td rowspan="2"><img class="icon" src="assets/fontawesome/bolt-solid.svg"></td>
+                                <td rowspan="2"><div class="icon icon-miscellaneous"></td>
                                 <td rowspan="2">
                                     <span class="span-date-month">JUN</span><br>
                                     <span class="span-date-day">28</span>
@@ -176,7 +176,7 @@
                                 <td class="table-type">Utilities</td>
                             </tr>
                             <tr>
-                                <td rowspan="2"><img class="icon" src="assets/fontawesome/bolt-solid.svg"></td>
+                                <td rowspan="2"><div class="icon icon-transportation"></td>
                                 <td rowspan="2">
                                     <span class="span-date-month">JAN</span><br>
                                     <span class="span-date-day">02</span>
@@ -197,7 +197,12 @@
                         <form class="add-transaction-content" id="add-expense-modal-content">
                             <div class="modal-top title">Add Expense Transaction<span id="close-expense" class="close">&times;</span></div>
                             <input id="expense-name" type="text" placeholder="Enter payee or expense item" required>
-                            <input id="expense-amount" type="number" step=".01" min="0.01" placeholder="0.00" required>
+                            <input id="expense-amount"
+                                type="number" 
+                                step=".01" 
+                                min="0.01" 
+                                placeholder="0.00" 
+                                required>
                             <input id="expense-type" class="icon-miscellaneous" list="type" type="text" name="expense-type" placeholder="Choose Expense Type" required>
                             <datalist id="type">
                                 <option value="Transportation"></option>

@@ -41,18 +41,18 @@ class User {
         this.incomeItems = [];
         this.isAdmin = isAdmin;
         this.memberSince = new Date();
+        }
+
+    static add(transaction) {
+        currentUser.expenseItems.unshift(transaction);
     }
 
-    add() {
+    static delete(transaction) {
         // code for expense items
     }
 
-    delete() {
-        // code for expense items
-    }
-
-    list() {
-        // code for expense items
+    static list() {
+        createExpenseTable();
     }
 }
 
