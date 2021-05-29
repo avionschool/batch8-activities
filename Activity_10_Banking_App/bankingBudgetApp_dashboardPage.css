@@ -1,0 +1,145 @@
+/*general designs*/
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Amatic SC', cursive;
+    cursor: pointer;
+}
+
+h1:hover {
+    color: #b366ff;
+}
+
+p {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    border: 2px solid #7700b3;
+    border-radius: 15px;
+    background-color: #7700b3;
+    color: white;
+    font-size: 30px;
+}
+button:hover {
+    background-color: #b366ff;
+}
+
+input {
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    border: 3px solid #7700b3;
+    color: #b366ff;
+    font-size: 30px;
+    outline: none;
+    padding-left: 15px;
+}
+::placeholder { 
+    color: #b366ff;
+}
+
+/*repetitive designs*/
+.flexStyleRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexStyleColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.flexStyleColumnTwo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.borderStyle {
+    border: 3px solid #7700b3;
+    border-radius: 25px;
+    background-color: white;
+}
+
+/*container designs*/
+.purpleContainer {
+    height: 150px;
+    width: 100%;
+    background-color: #b366ff;
+    color: white;
+    font-size: 80px;
+    padding-left: 30px;
+}
+
+.greetUserContainer {
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    margin: 0px 800px 400px 0px;
+    font-size: 40px;
+}
+
+.dashboardContainer {
+    height: 500px;
+    width: 800px;
+    margin-top: 50px;
+}
+
+.functionContainer {
+    height: 100%;
+    width: 20%;
+}
+.logoContainer {
+    height: 60px;
+    width: 60px;
+}
+
+.displayContainer {
+    height: 100%;
+    width: 80%;
+}
+.displayHeightWidth {
+    height: 50%;
+    width: 100%;
+}
+.displaySubCon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding-top: 10px;
+}
+.displayTitle {
+    height: 50px;
+    width: 130px;
+    color: black;
+    font-size: 25px;   
+}
+
+.popupContainerDesign {
+    height: 220px;
+    width: 400px;
+    position: absolute;
+    margin: 0px 0px 50px 160px;
+}
+.popupContainerDesignTwo {
+    height: 220px;
+    width: 600px;
+    position: absolute;
+    margin: 0px 0px 50px 150px;
+}
+
+/*selective design*/
+.hidden {
+    visibility: hidden;
+}
+
+.inputMargin {
+    margin-right: 5px;
+}

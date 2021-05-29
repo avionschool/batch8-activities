@@ -1,33 +1,64 @@
-document.getElementById('greetUser').innerHTML = greeting();
+//displaying functions
+//popup IDs
+let initialPopup = document.getElementById('initialPopup');
+let createPopup = document.getElementById('createPopup');
+let depositPopup = document.getElementById('depositPopup');
+let withdrawPopup = document.getElementById('withdrawPopup');
+let transferPopup = document.getElementById('transferPopup');
+//addEventListener targets
+let goToCreatePopup = document.getElementById('goToCreatePopup');
+let goToDepositPopup = document.getElementById('goToDepositPopup');
+let goToWithdrawPopup = document.getElementById('goToWithdrawPopup');
+let goToTransferPopup = document.getElementById('goToTransferPopup');
+//addEventListener functions
+goToCreatePopup.addEventListener('click', function() {
+    initialPopup.classList.add('hidden');
+    createPopup.classList.remove('hidden');
+    depositPopup.classList.add('hidden');
+    withdrawPopup.classList.add('hidden');
+    transferPopup.classList.add('hidden');
+});
+goToDepositPopup.addEventListener('click', function() {
+    initialPopup.classList.add('hidden');
+    createPopup.classList.add('hidden');
+    depositPopup.classList.remove('hidden');
+    withdrawPopup.classList.add('hidden');
+    transferPopup.classList.add('hidden'); 
+});
+goToWithdrawPopup.addEventListener('click', function() {
+    initialPopup.classList.add('hidden');
+    createPopup.classList.add('hidden');
+    depositPopup.classList.add('hidden');
+    withdrawPopup.classList.remove('hidden');
+    transferPopup .classList.add('hidden');
+});
+goToTransferPopup.addEventListener('click', function() {
+    initialPopup.classList.add('hidden');
+    createPopup.classList.add('hidden');
+    depositPopup.classList.add('hidden');
+    withdrawPopup.classList.add('hidden');
+    transferPopup.classList.remove('hidden');
+});
 
-function greeting() {
-    let urlString = window.location.search;
-    let keyAndValue = new URLSearchParams(urlString);
-     //use "new URLSearchParams" to get the key and value
-    let userName = keyAndValue.get('userName');
-    //this line is using the "name" of the input that's in the html file
-    // let greetUser = "Hi there! How are you?";
-    let greetUser = "Hi " + userName + "!" + " How are you?";
-    return greetUser;
-}
-
-let listBalanceID = 0;
+//global variables
 let newArr = [];
+let listBalanceID = 0;
 
-//if there is an accountNumber key in the localstorage then accountNumber will be equivalent to that otherwise, start with 100
-//you need to call the key of your accountNumber to call the value
+//avoid resetting of accountNumber
 if (JSON.parse(localStorage.getItem('accountNumber'))) {
     accountNumber = JSON.parse(localStorage.getItem('accountNumber'));
 } else {
     accountNumber = 100;
 }
+//if there is an accountNumber key in the localstorage then accountNumber will be equivalent to that otherwise, start with 100
+//you need to call the key of your accountNumber to call the value
 
+//functions
 function createAccount() {
     let newAccountName = document.getElementById('newAccountName');
     let initialBalance = document.getElementById('initialBalance');
     let RegisteredAccountName = document.getElementById('RegisteredAccountName');
     let balance = document.getElementById('balance');
-    
     let newAccount = {
         name: newAccountName.value,
         balance: initialBalance.value
@@ -47,7 +78,7 @@ function createAccount() {
         return alert ('Error: Please type in the initial balance.');
     } else {
         accountNumber = accountNumber + 1;
-        //accountNumber = 100
+        //accountNumber = 100, if localStorage.clear();
         console.log(accountNumber);
 
         localStorage.setItem(accountNumber, JSON.stringify(newAccount));
@@ -58,19 +89,19 @@ function createAccount() {
 
         let accountNumberValue = JSON.parse(localStorage.getItem(accountNumber));
         //JSON.parse(localStorage.getItem(accountNumber)) = "{\"name\":\"jan\",\"balance\":\"1\"}"
-        //you need to get the value of the accountNumber = 101 then push it
+        //you need to get the value of the accountNumber = 101 before pushing it
 
         newArr.push(accountNumberValue);
         console.log(newArr);
         
-        //to display the .values inside each createElement, you get the lastest .values
         let listAccountName = document.createElement('p');
         listAccountName.innerHTML = newArr[newArr.length-1].name;
         RegisteredAccountName.appendChild(listAccountName);
         console.log(newArr[newArr.length-1].name);
+        //to display the .values inside each createElement, you get the lastest .values
 
-        // listBalanceID += 1;
         listBalanceID = listBalanceID + 1;
+        //the same as listBalanceID += 1;
         let listBalance = document.createElement('p');
         listBalance.innerHTML = `<p id="${listBalanceID}">${newArr[newArr.length-1].balance}</p>`;
         balance.appendChild(listBalance);
@@ -100,11 +131,11 @@ function deposit() {
         if (newArr[i].name == depositTo.value) {
             sum = Number(depositAmount.value) + Number(newArr[i].balance);
             newArr[i].balance = sum;
-            //using the sum of the ID to target and updated the innerHTML
             let targetedID = document.getElementById(i + 1);
+            //using the sum of the ID to target and updated the innerHTML
             targetedID.innerHTML = sum;
-            //updating the localstorage ny sending the updated array[i]
             localStorage.setItem(i + 101, JSON.stringify(newArr[i]));
+            //updating the localstorage ny sending the updated array[i]
             return alert ('Sucess: Deposit successful!');
         }
     }

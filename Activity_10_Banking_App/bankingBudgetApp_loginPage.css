@@ -1,0 +1,103 @@
+/*general designs*/
+* {
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    font-family: 'Amatic SC', cursive;
+}
+
+p {
+    color: #7700b3;
+    font-size: 25px;
+    text-decoration: none;
+}
+p:hover {
+    color: #b366ff;
+    text-decoration: underline;
+}
+
+input {
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid #7700b3;
+    color: #b366ff;
+    font-size: 30px;
+    font-weight: bold;
+    outline: none;
+    padding-left: 15px;
+}
+::placeholder { 
+    color: #b366ff;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    background-color: #7700b3;
+    border: 1px solid #7700b3;
+    border-radius: 15px;
+    color: white;
+    font-size: 30px;
+}
+
+/*container designs*/
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.purpleContainer {
+    height: 150px;
+    width: 100%;
+    background-color: #b366ff;
+    color: white;
+    font-size: 80px;
+    padding-left: 30px;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3.5px solid #7700b3;
+    border-radius: 25px;
+    background-color: white;
+    height: 400px;
+    margin: 350px 0px 0px 0px;
+    position: absolute;
+    width: 350px;
+}
+
+/* .logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 60px;
+} */
+
+/* .footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50px;
+    width: 200px;
+    position: absolute;
+    margin: 850px 0px 0px 0px;
+} */
+
+/*selective designs*/
+.hidden {
+    visibility: hidden;
+}
+
+.kangaroo {
+    height: 350px;
+    width: 400px;
+    position: absolute;
+    margin: 650px 820px 0px 0px;
+}

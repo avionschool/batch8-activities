@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KangarooMoney.com/loginPage</title>
+        <link rel="stylesheet" href="bankingBudgetApp_loginPage.css">
+        <script src="bankingBudgetApp_loginPage.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <main class="mainContainer">
+        <div class="purpleContainer">KangarooMoney.</div>
+        <!--login form-->
+        <div class="formContainer" id="loginForm">
+            <h1>LOGIN</h1>
+            <input id="username" type="text" placeholder="username">
+            <input id="password" type="password" placeholder="password">
+            <button onclick="checkData()" type="submit">Login</button>
+            <p id="createAccountLink">Don't have an account? Create account.</p>
+        </div>
+        <!--create account form-->
+        <div class="formContainer hidden" id="createAccountForm">
+            <h1>CREATE ACCOUNT</h1>
+            <input id="newUsername" type="text" placeholder="Username" >
+            <input id="newEmail" type="email" placeholder="Email" >
+            <input id="newPassword" type="password" placeholder="Password" >
+            <button type="submit" onclick="storeData()">Register</button>
+            <p id="loginLink">Already have an account? Sign in!</p>
+        </div>
+        <!-- <div class="footerContainer">
+            <div class="logoContainer">
+                <img src="pictures/facebook.png" alt="facebook" height="90%" width="100%">
+            </div>   
+            <div class="logoContainer">
+                <img src="pictures/twitter.png" alt="twitter" height="70%" width="90%">
+            </div>   
+            <div class="logoContainer">
+                <img src="pictures/instagram.jpg" alt="instagram" height="80%" width="60%" >
+            </div>
+        </div> -->
+        <div class="kangaroo">
+            <img src="pictures/kangaroo.png" alt="logo" height="100%" width="100%">
+        </div>
+    </main>
+</body>
+</html>
