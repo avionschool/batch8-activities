@@ -238,6 +238,7 @@ function formCreateExpenseItem() {
     let item = new ExpenseItem(expenseName.value, parseFloat(expenseAmount.value),
         expenseType.value, spanAccountNo.value, expenseDate.value, expenseTime.value);
     User.add(item);
+    User.sort_expenseItems();
     createExpenseTable();
     // update local storage
     updateJSONClientList();
@@ -267,6 +268,7 @@ function createExpenseTable() {
     getDisplayExpenseTotal();
 }
 
+// displays total expense
 const totalExpense = document.querySelector('#total-expense');
 
 function getDisplayExpenseTotal() {
@@ -276,6 +278,10 @@ function getDisplayExpenseTotal() {
     totalExpense.textContent = '₱' + display_balance(total);
     EXPENSESTotalAmount = total;
 }
+
+// Action Buttons
+// Delete Transaction
+const tableActionBtns = document.querySelector('.table-action-btns').children;
 
 // INITIALIZE
 createExpenseTable();

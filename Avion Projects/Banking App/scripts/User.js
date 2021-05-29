@@ -54,6 +54,12 @@ class User {
     static list() {
         createExpenseTable();
     }
+
+    static sort_expenseItems() {
+        currentUser.expenseItems.sort(function(current, next) {
+            return new Date(next.transactionDate) - new Date(current.transactionDate); // latest first
+        })
+    }
 }
 
 class Transaction {
