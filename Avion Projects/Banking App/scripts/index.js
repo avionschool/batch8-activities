@@ -33,6 +33,19 @@ signupBtn.addEventListener('click', function() {
 const loginSubmit = document.querySelector('#login-submit');
 const loginUsername = document.querySelector('#login-username');
 const loginPassword = document.querySelector('#login-password');
+
+loginUsername.addEventListener('keydown', function(e) {
+    if (e.key === "Enter") {
+        loginSubmit.click();
+    }
+})
+
+loginPassword.addEventListener('keydown', function(e) {
+    if (e.key === "Enter") {
+        loginSubmit.click();
+    }
+})
+
 loginSubmit.addEventListener('click', function() {
     index = clientList.findIndex(function(item) {
         return item.username === loginUsername.value;
