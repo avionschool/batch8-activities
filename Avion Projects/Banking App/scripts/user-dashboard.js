@@ -1,6 +1,7 @@
 // GLOBAL VARS
 let EXPENSESTotalAmount = 0.00;
 let INCOMETotalAmount = 0.00;
+let currentExpense;
 
 // LOAD CURRENTLY LOGGED IN USER FROM LOCAL STORAGE
 var currentUserIndex_str = localStorage.getItem("currentUserIndex");
@@ -157,6 +158,7 @@ function updateBudgetSummary() {
 
 // EXPENSES
 // Modal
+const modalExpenseTitle = document.querySelector('#expense-title');
 const addExpenseBtn = document.querySelector('#add-expense');
 const modalExpense = document.querySelector('#add-expense-modal');
 const formAddExpense = document.querySelector('#add-expense-modal-content');
@@ -167,6 +169,7 @@ const expenseType = document.querySelector('#expense-type');
 const expenseDate = document.querySelector('#expense-date');
 const expenseTime = document.querySelector('#expense-time');
 const modalExpenseClose = document.querySelector('#close-expense');
+const modalExpenseSubmit = document.querySelector('#expense-modal-submit');
 
 // expense table
 const expenseTable = document.querySelector('.budget-cost-table');
@@ -174,6 +177,9 @@ const expenseTable = document.querySelector('.budget-cost-table');
 // unhide modal
 addExpenseBtn.addEventListener('click', function() {
     modalExpense.classList.remove('hide');
+    modalExpenseTitle.textContent = "Add Expense Transaction";
+    modalExpenseSubmit.textContent = "Add Expense";
+    formAddExpense.reset();
     // sets date and time input to current time
     var date = new Date();
     var hour = date.getHours(),
@@ -236,9 +242,16 @@ formAddExpense.addEventListener('submit', function(e) {
 
 // ##FUNCTIONS##
 function formCreateExpenseItem() {
-    let item = new ExpenseItem(expenseName.value, parseFloat(expenseAmount.value),
-        expenseType.value, spanAccountNo.value, expenseDate.value, expenseTime.value);
-    User.add(item);
+    if (modalExpenseSubmit.textContent === "Add Expense") {
+        // ADDS
+        let item = new ExpenseItem(expenseName.value, parseFloat(expenseAmount.value),
+            expenseType.value, spanAccountNo.value, expenseDate.value, expenseTime.value);
+        User.add(item);
+    } else {
+        // EDITS
+        ExpenseItem.update(expenseName.value, parseFloat(expenseAmount.value),
+            expenseType.value, spanAccountNo.value, expenseDate.value, expenseTime.value);
+    }
     User.sort_expenseItems();
     createExpenseTable();
     // update local storage
@@ -268,6 +281,7 @@ function createExpenseTable() {
     expenseTable.innerHTML = innerHTML;
     getDisplayExpenseTotal();
     addDeleteTransactionHandler();
+    addEditTransactionHandler();
 }
 
 // displays total expense
@@ -305,8 +319,24 @@ function addDeleteTransactionHandler() {
 }
 
 // Edit transaction
+// Makes use of the Add Expense Modal
 function addEditTransactionHandler() {
-    let deleteBtns = [...document.querySelectorAll('.edit-expense-icon')];
+    let editBtns = [...document.querySelectorAll('.edit-expense-icon')];
+    editBtns.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            let selectedExpense = currentUser.expenseItems[index];
+            modalExpense.classList.remove('hide');
+            modalExpenseTitle.textContent = "Edit Expense Transaction";
+            modalExpenseSubmit.textContent = "Edit Expense";
+            expenseName.value = selectedExpense.name;
+            expenseAmount.value = selectedExpense.amount;
+            expenseType.value = selectedExpense.expenseType;
+            expenseType.dispatchEvent(new Event('input')); // trigger input event
+            expenseDate.value = selectedExpense.transactionDate;
+            expenseTime.value = selectedExpense.transactionTime;
+            currentExpense = selectedExpense; // modify global variable
+        })
+    })
 }
 
 // cancel button closes prompt modal

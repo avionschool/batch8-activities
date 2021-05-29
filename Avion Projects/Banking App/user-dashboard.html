@@ -194,8 +194,9 @@
                     <div class="add-transaction" id="add-expense"><img src="assets/fontawesome/plus-circle-solid.svg" title="Add expense"></div>
                 
                     <div class="add-transaction-modal hide" id="add-expense-modal">
+                        <!-- ADD TRANSACTION -->
                         <form class="add-transaction-content" id="add-expense-modal-content">
-                            <div class="modal-top title">Add Expense Transaction<span id="close-expense" class="close">&times;</span></div>
+                            <div id="expense-title" class="modal-top title">Add Expense Transaction<span id="close-expense" class="close">&times;</span></div>
                             <input id="expense-name" type="text" placeholder="Enter payee or expense item" required>
                             <input id="expense-amount"
                                 type="number" 
@@ -218,7 +219,7 @@
                                 <input type="date" id="expense-date" required>
                                 <input type="time" id="expense-time" required>
                             </div>
-                            <button class="add-button transaction-content-button">Add Expense</button>
+                            <button id="expense-modal-submit" class="add-button transaction-content-button">Add Expense</button>
                         </form>
                     </div>
 
