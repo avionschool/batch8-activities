@@ -2,6 +2,7 @@
 let EXPENSESTotalAmount = 0.00;
 let INCOMETotalAmount = 0.00;
 let currentExpense;
+let currentIncome;
 
 // LOAD CURRENTLY LOGGED IN USER FROM LOCAL STORAGE
 var currentUserIndex_str = localStorage.getItem("currentUserIndex");
@@ -42,7 +43,7 @@ function hideSections() {
 // ================
 // === SECTIONS ===
 // ================
-// PROFILE SECTION
+// ================================ PROFILE SECTION ========================================
 const profileMessage = document.querySelector('.home-message');
 const spanAccountNo = document.querySelector('#profile-account-no');
 const spanUsername = document.querySelector('#profile-username');
@@ -70,7 +71,7 @@ spanViewTransactionHistory.addEventListener('click', function() {
     navTransactionHistory.click();
 })
 
-// TRANSACTION HISTORY SECTION
+// ================================ TRANSACTION HISTORY SECTION =============================
 const historyTable = document.querySelector('.history-content');
 
 (function show_history() {
@@ -98,7 +99,7 @@ const historyTable = document.querySelector('.history-content');
     return transactionHistory;
 })();
 
-// BUDGET TRACKER
+// =====================================  BUDGET TRACKER ======================================
 // NAV
 const budgetBtns = [...document.querySelectorAll('.user-nav-btn')];
 const budgetMain = budgetBtns[0];
@@ -130,7 +131,7 @@ function hideBudgetSections() {
     }) 
 }
 
-// MAIN
+// ---------------------------------------- MAIN -----------------------------------------
 const spanTableINCOME = document.querySelector('#table-INCOME');
 const spanTableEXPENSES = document.querySelector('#table-EXPENSES');
 const tdTableAccountBalance = document.querySelector('#table-account-balance');
@@ -147,16 +148,184 @@ budgetMain.addEventListener('click', updateBudgetSummary);
 
 function updateBudgetSummary() {
     tdTableAccountBalance.textContent = get_balance(currentUser);
+    tdTableIncome.textContent = `${totalIncome.textContent.slice(1)}`;
     tdTableExpenses.textContent = `(${totalExpense.textContent.slice(1)})`;
-    tdTableNetSavings.textContent = '₱' + display_balance((currentUser.balance - EXPENSESTotalAmount));
+    tdTableNetSavings.textContent = '₱' + display_balance((currentUser.balance + INCOMETotalAmount - EXPENSESTotalAmount));
     if (tdTableNetSavings.textContent.includes('(')) {
         tdTableNetSavings.style.color = "red";
     } else tdTableNetSavings.style.color = "green";
 }
 
-// INCOME
+// --------------------------------------- INCOME -----------------------------------------
+// Modal
+const modalIncomeTitle = document.querySelector('#income-title');
+const addIncomeBtn = document.querySelector('#add-income');
+const modalIncome = document.querySelector('#add-income-modal');
+const formAddIncome = document.querySelector('#add-income-modal-content');
+const modalIncomeInputs = [...formAddIncome.getElementsByTagName('input')];
+const incomeName = document.querySelector('#income-name');
+const incomeAmount = document.querySelector('#income-amount');
+const incomeType = document.querySelector('#income-type');
+const incomeDate = document.querySelector('#income-date');
+const incomeTime = document.querySelector('#income-time');
+const modalIncomeClose = document.querySelector('#close-income');
+const modalIncomeSubmit = document.querySelector('#income-modal-submit');
 
-// EXPENSES
+// income table
+const incomeTable = document.querySelector('#budget-cost-income-table');
+
+// unhide modal
+addIncomeBtn.addEventListener('click', function() {
+    modalIncome.classList.remove('hide');
+    modalIncomeTitle.textContent = "Add Income Transaction";
+    modalIncomeSubmit.textContent = "Add Income";
+    formAddIncome.reset();
+    // sets date and time input to current time
+    var date = new Date();
+    var hour = date.getHours(),
+        min  = date.getMinutes();
+    hour = (hour < 10 ? "0" : "") + hour;
+    min = (min < 10 ? "0" : "") + min;
+
+    incomeDate.valueAsDate = new Date();
+    incomeTime.value = hour + ":" + min;
+})
+
+// Close clicked on 'x' or outside the modal content window
+modalIncomeClose.onclick = hideModals;
+
+window.addEventListener('click', function(event) {
+if (event.target == modalIncome) hideModals();
+});
+
+// hideModals included in expense function
+
+// Pressing ESC in an input box clears its value
+modalIncomeInputs.forEach(function(item) {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+            this.value = null;
+        }
+    });
+})
+
+// force amount to be 2 decimal places
+incomeAmount.addEventListener('change', function(e) {
+    this.value = parseFloat(this.value).toFixed(2);
+})
+
+// form submission
+formAddIncome.addEventListener('submit', function(e) {
+    formCreateIncomeItem(); // add transaction
+    e.preventDefault(); // prevent page reload
+    formAddIncome.reset() // reset form
+    hideModals(); // hide modal
+    return false;
+});
+
+// ##FUNCTIONS##
+function formCreateIncomeItem() {
+    if (modalIncomeSubmit.textContent === "Add Income") {
+        // ADDS
+        let item = new IncomeItem(incomeName.value, parseFloat(incomeAmount.value),
+            incomeType.value, spanAccountNo.value, incomeDate.value, incomeTime.value);
+        User.add_income(item);
+    } else {
+        // EDITS
+        IncomeItem.update(incomeName.value, parseFloat(incomeAmount.value),
+            incomeType.value, spanAccountNo.value, incomeDate.value, incomeTime.value);
+    }
+    User.sort_incomeItems();
+    createIncomeTable();
+    // update local storage
+    updateJSONClientList();
+}
+
+function createIncomeTable() {
+    let innerHTML = "";
+    currentUser.incomeItems.forEach(function(item) {
+        let dateParts = item.transactionDate.split('-');
+        let parsedDate = new Date(dateParts[0], dateParts[1] -1, dateParts[2]);
+        innerHTML += `
+        <tr>
+            <td rowspan="2"><div class="icon icon-${item.incomeType.toLowerCase()}"></td>
+            <td rowspan="2">
+                <span class="span-date-month">${parsedDate.toLocaleString('default', { month: 'short' }).toUpperCase()}</span><br>
+                <span class="span-date-day">${dateParts[2]}</span>
+            </td>
+            <td class="table-name">${item.name}</td>
+            <td rowspan="2" class="table-action-btns"><img class="edit-income-icon" src="assets/feathericons/edit.svg" title="Edit transaction"><img class="delete-income-icon" src="assets/feathericons/trash-2.svg" title="Delete transaction"></td>
+            <td class="table-amount table-amount-income">${display_balance(item.amount)}</td>
+        </tr>
+        <tr class="table-row-end">
+            <td class="table-type">${item.incomeType}</td>
+        </tr>`
+    });
+    incomeTable.innerHTML = innerHTML;
+    getDisplayIncomeTotal();
+    addDeleteTransactionHandlerIncome();
+    addEditTransactionHandlerIncome();
+}
+
+// displays total income
+const totalIncome = document.querySelector('#total-income');
+
+function getDisplayIncomeTotal() {
+    var total = currentUser.incomeItems.reduce(function(acc, item) {
+        return acc + parseFloat(item.amount);
+    }, 0);
+    totalIncome.textContent = '₱' + display_balance(total);
+    INCOMETotalAmount = total;
+}
+
+// Action Buttons
+// Delete Transaction
+const incomePromptModal = document.querySelector('#delete-income-prompt');
+const incomePromptCancel = document.querySelector('#income-prompt-cancel');
+const incomePromptConfirm = document.querySelector('#income-prompt-confirm');
+
+function addDeleteTransactionHandlerIncome() {
+    let deleteBtns = [...document.querySelectorAll('.delete-income-icon')];
+    deleteBtns.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            incomePromptModal.classList.remove('hide');
+            // add click event on confirm so it can access index variable
+            // confirm button will delete transaction
+            incomePromptConfirm.onclick = function() {
+                hideModals(); // hide modals
+                User.delete_income(index);
+                createIncomeTable();
+                updateJSONClientList();
+            }
+        })
+    })
+}
+
+// Edit transaction
+// Makes use of the Add Income Modal
+function addEditTransactionHandlerIncome() {
+    let editBtns = [...document.querySelectorAll('.edit-income-icon')];
+    editBtns.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            let selectedIncome = currentUser.incomeItems[index];
+            modalIncome.classList.remove('hide');
+            modalIncomeTitle.textContent = "Edit Income Transaction";
+            modalIncomeSubmit.textContent = "Edit Income";
+            incomeName.value = selectedIncome.name;
+            incomeAmount.value = selectedIncome.amount;
+            incomeType.value = selectedIncome.incomeType;
+            incomeType.dispatchEvent(new Event('input')); // trigger input event
+            incomeDate.value = selectedIncome.transactionDate;
+            incomeTime.value = selectedIncome.transactionTime;
+            currentIncome = selectedIncome; // modify global variable
+        })
+    })
+}
+
+// cancel button closes prompt modal
+incomePromptCancel.onclick = () => incomePromptModal.classList.add('hide');
+
+// -------------------------------------- EXPENSES -----------------------------------------
 // Modal
 const modalExpenseTitle = document.querySelector('#expense-title');
 const addExpenseBtn = document.querySelector('#add-expense');
@@ -172,7 +341,7 @@ const modalExpenseClose = document.querySelector('#close-expense');
 const modalExpenseSubmit = document.querySelector('#expense-modal-submit');
 
 // expense table
-const expenseTable = document.querySelector('.budget-cost-table');
+const expenseTable = document.querySelector('#budget-cost-expense-table');
 
 // unhide modal
 addExpenseBtn.addEventListener('click', function() {
@@ -194,13 +363,15 @@ addExpenseBtn.addEventListener('click', function() {
 // Close clicked on 'x' or outside the modal content window
 modalExpenseClose.onclick = hideModals;
 
-window.onclick = function(event) {
+window.addEventListener('click', function(event) {
 if (event.target == modalExpense) hideModals();
-}
+});
 
 function hideModals() {
     modalExpense.classList.add('hide');
-    expensePromptModal.classList.add('hide');
+    expensePromptModal.classList.add('hide');    
+    modalIncome.classList.add('hide');
+    incomePromptModal.classList.add('hide');
 }
 
 // Pressing ESC in an input box clears its value
@@ -227,8 +398,12 @@ expenseType.addEventListener('input', function() {
     })
     // dynamically change icon to represent expense type
     if (listOfIconNames.includes(this.value)) {
-        this.className = `icon-${this.value.toLowerCase()}`
-    } else this.className = 'icon-miscellaneous';
+        this.className = "modal-content-input modal-type"; // reset classes
+        this.classList.add(`icon-${this.value.toLowerCase()}`);
+    } else {
+        this.className = "modal-content-input modal-type"; // reset classes
+        this.classList.add('icon-miscellaneous');
+    }
 })
 
 // form submission
@@ -343,5 +518,6 @@ function addEditTransactionHandler() {
 expensePromptCancel.onclick = () => expensePromptModal.classList.add('hide');
 
 // INITIALIZE
+createIncomeTable();
 createExpenseTable();
 updateBudgetSummary();

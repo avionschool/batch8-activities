@@ -147,21 +147,81 @@
                     </table>
                 </section>
 
+                <!-- INCOME SECTION -->
                 <section class="budget-section user-income-items hide">
                     <div class="total-container">
                         <div>TOTAL</div>
                         <div class="total-amount" id="total-income">P 1,000,000.00</div>
                     </div>
+
+                    <!-- INCOME TABLE -->
+                    <div class="budget-cost-table-container">
+                        <table class="budget-cost-table" id="budget-cost-income-table">
+                            <tr>
+                                <td rowspan="2"><div class="icon icon-income"></td>
+                                <td rowspan="2">
+                                    <span class="span-date-month">JUN</span><br>
+                                    <span class="span-date-day">28</span>
+                                </td>
+                                <td class="table-name">Interest</td>
+                                <td rowspan="2" class="table-action-btns"><img src="assets/feathericons/edit.svg" title="Edit transaction"><img src="assets/feathericons/trash-2.svg" title="Delete transaction"></td>
+                                <td class="table-amount table-amount-income">P 100,000,000.00</td>
+                            </tr>
+                            <tr class="table-row-end">
+                                <td class="table-type">Income</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="add-transaction" id="add-income"><img src="assets/fontawesome/plus-circle-solid.svg" title="Add income"></div>
+                
+                    <div class="add-transaction-modal hide" id="add-income-modal">
+                        <!-- ADD TRANSACTION -->
+                        <form class="add-transaction-content" id="add-income-modal-content">
+                            <div id="income-title" class="modal-top title">Add Income Transaction<span id="close-income" class="close">&times;</span></div>
+                            <input id="income-name" class="modal-content-input" type="text" placeholder="Enter payor or income item" required>
+                            <input id="income-amount"
+                                class="modal-content-input"
+                                type="number" 
+                                step=".01" 
+                                min="0.01" 
+                                placeholder="0.00" 
+                                required>
+                            <select id="income-type" class="modal-content-input modal-type icon-income" name="income-type" placeholder="Choose Income Type" required>
+                                <option value="Income">Income</option>
+                            </select>
+                            <div>
+                                <input type="date" id="income-date" class="modal-content-input modal-date" required>
+                                <input type="time" id="income-time" class="modal-content-input modal-time" required>
+                            </div>
+                            <button id="income-modal-submit" class="add-button transaction-content-button">Add Income</button>
+                        </form>
+                    </div>
+
+                    <!-- Delete Transaction Modal -->
+                    <div id="delete-income-prompt" class="delete-prompt hide">
+                        <div class="prompt-content">
+                            <h1>Delete Transaction</h1>
+                            <p>Are you sure you want to delete this transaction? <br> This process cannot be undone.</p>
+                            <div id="prompt-buttons">
+                                <button id="income-prompt-cancel" class="prompt-button cancel-btn">Cancel</button>
+                                <button id="income-prompt-confirm" class="prompt-button confirm-btn">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
 
+                <!-- EXPENSE SECTION -->
                 <section class="budget-section user-expense-items hide">
                     <div class="total-container">
                         <div>TOTAL</div>
                         <div class="total-amount" id="total-expense">P 1,000,000.00</div>
                     </div>
 
+                    <!-- EXPENSE TABLE -->
                     <div class="budget-cost-table-container">
-                        <table class="budget-cost-table">
+                        <table class="budget-cost-table" id="budget-cost-expense-table">
                             <tr>
                                 <td rowspan="2"><div class="icon icon-miscellaneous"></td>
                                 <td rowspan="2">
@@ -197,14 +257,15 @@
                         <!-- ADD TRANSACTION -->
                         <form class="add-transaction-content" id="add-expense-modal-content">
                             <div id="expense-title" class="modal-top title">Add Expense Transaction<span id="close-expense" class="close">&times;</span></div>
-                            <input id="expense-name" type="text" placeholder="Enter payee or expense item" required>
+                            <input id="expense-name" class="modal-content-input" type="text" placeholder="Enter payee or expense item" required>
                             <input id="expense-amount"
+                                class="modal-content-input"
                                 type="number" 
                                 step=".01" 
                                 min="0.01" 
                                 placeholder="0.00" 
                                 required>
-                            <input id="expense-type" class="icon-miscellaneous" list="type" type="text" name="expense-type" placeholder="Choose Expense Type" required>
+                            <input id="expense-type" class="modal-content-input modal-type icon-miscellaneous" list="type" type="text" name="expense-type" placeholder="Choose Expense Type" required>
                             <datalist id="type">
                                 <option value="Transportation"></option>
                                 <option value="Entertainment"></option>
@@ -216,8 +277,8 @@
                                 <option value="Miscellaneous"></option>
                             </datalist>
                             <div>
-                                <input type="date" id="expense-date" required>
-                                <input type="time" id="expense-time" required>
+                                <input type="date" id="expense-date" class="modal-content-input modal-date" required>
+                                <input type="time" id="expense-time" class="modal-content-input modal-time" required>
                             </div>
                             <button id="expense-modal-submit" class="add-button transaction-content-button">Add Expense</button>
                         </form>
@@ -249,21 +310,13 @@
 
 </body>
 <script src="scripts/getDisplayBalance.js"></script>
+<script src="scripts/IncomeItem.js"></script>
 <script src="scripts/ExpenseItem.js"></script>
 <script src="scripts/User.js"></script>
 <script src="scripts/user-dashboard.js"></script>
 </html>
 
 
-<!-- BUDGET TRACKER [EXPENSE ITEMS ARRAY]
-TOTAL RUNNING BALANCE __________
-Expense Items (TABLE):
-DESCRIPTION OVERFLOW....                    AMOUNT
-CLASS SMOL
-
-TOTAL EXPENSES (LIKE A TODO LIST)
-
-
-ANOTHER SECTION?
+<!-- ANOTHER SECTION?
 GRAPH
 VISUALIZE THE DATA -->

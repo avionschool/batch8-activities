@@ -60,6 +60,24 @@ class User {
             return new Date(next.transactionDate) - new Date(current.transactionDate); // latest first
         })
     }
+
+    static add_income(transaction) {
+        currentUser.incomeItems.unshift(transaction);
+    }
+
+    static delete_income(index) {
+        currentUser.incomeItems.splice(index, 1);
+    }
+
+    static list_income() {
+        createIncomeTable();
+    }
+
+    static sort_incomeItems() {
+        currentUser.incomeItems.sort(function(current, next) {
+            return new Date(next.transactionDate) - new Date(current.transactionDate); // latest first
+        })
+    }
 }
 
 class Transaction {

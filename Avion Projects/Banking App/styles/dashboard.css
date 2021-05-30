@@ -595,6 +595,10 @@ a {
     color: red;
 }
 
+.table-amount-income {
+    color: green;
+}
+
 .table-type {
     font-size: 0.8rem;
     padding-bottom: 5px;
@@ -658,7 +662,7 @@ a {
     border-radius: 10px;
 }
 
-.add-transaction-content input {
+.modal-content-input {
     font-size: 0.8rem;
     font-family: inherit;
     width: 325px;
@@ -670,7 +674,7 @@ a {
     color: var(--main-color-3);
 }
 
-#expense-type {
+.modal-type {
     padding-left: 35px;
     background-size: 18px 18px;
     background-repeat: no-repeat;
@@ -678,6 +682,9 @@ a {
 }
 
 /* ICONS */
+    .icon-income {
+        background-image: url(../assets/fontawesome/money-bill-wave-solid.svg);
+    }
     .icon-miscellaneous {
         background-image: url(../assets/fontawesome/ellipsis-h-solid.svg);
     }
@@ -703,7 +710,7 @@ a {
         background-image: url(../assets/fontawesome/home-solid.svg);
     }
 
-#expense-date, #expense-time {
+.modal-date, .modal-time {
     width: 160px;
 }
 
