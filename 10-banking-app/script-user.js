@@ -45,6 +45,7 @@ let expenseID;
 // ? pop-up window
 let txtEditCost = document.getElementById('cost-edit');
 let txtEditName = document.getElementById('item-edit');
+let btnSaveChanges = document.getElementById('edit-btn');
 
 // ? DASHBOARD
 // ? expense table list
@@ -122,14 +123,19 @@ class ExpenseItem {
     let lastExpenseID;
     // ? get last expense id from local storage
     const items = ExpenseItem.getItems();
-    for (let i = 0; i < items.length; i++) {
-      // ? Readme (item 2)
-      obj = items[i];
-      // ? declared this so i's value won't change
-      let j = i + 1;
-      if ((j = items.length)) {
-        // ? assigned to lastExpenseID scope variable
-        lastExpenseID = obj.expenseId;
+    // ? if there's no items yet will assign length of items key (0) to last expense id variable
+    if (items.length == 0) {
+      lastExpenseID = items.length;
+    } else {
+      for (let i = 0; i < items.length; i++) {
+        // ? Readme (item 2)
+        obj = items[i];
+        // ? declared this so i's value won't change
+        let j = i + 1;
+        if ((j = items.length)) {
+          // ? assigned to lastExpenseID scope variable
+          lastExpenseID = obj.expenseId;
+        }
       }
     }
 
@@ -187,7 +193,6 @@ class ExpenseItem {
             // ? passes expense id which was from the hidden column expense id
             ExpenseItem.retreiveItemObj(expenseID);
             // ? passes to elements inside modal
-
             txtEditCost.value = expenseArr[0].cost;
             txtEditName.value = expenseArr[0].expenseName;
           }
@@ -212,8 +217,6 @@ class ExpenseItem {
     return expenseArr[0];
   }
 }
-
-ExpenseItem.retreiveItemObj(5);
 
 //   ===============================
 // !     HELPERS
@@ -281,6 +284,17 @@ btnSaveItem.addEventListener('click', () => {
 });
 
 // ! edit expense item
+btnSaveChanges.onclick = function () {
+  if (isFilledOut(txtEditName.value, txtEditCost.value) == false) {
+    displayAlert('Please fill out missing fields. Transacation failed.');
+  } else {
+    // update codes here
+  }
+};
+
+// btnSaveItem.addEventListener('click', () => {
+//   log('clicked');
+// });
 
 // ! edit profile
 // ? nav link
