@@ -91,6 +91,7 @@ class User {
   }
 }
 
+let currentRow;
 class ExpenseItem {
   constructor(expenseName, cost, expenseId, owner) {
     this.expenseName = expenseName;
@@ -112,8 +113,7 @@ class ExpenseItem {
 
   static loadSampleItems() {
     // let item = new ExpenseItem('Spotify', 194.0, 1, 'lee1@mail.com');
-    let item = new ExpenseItem('Netflix', 500.0, 2, 'lee1@mail.com');
-
+    let item = new ExpenseItem('Netflix', 500.0, 4, 'lee1@mail.com');
     ExpenseItem.addItem(item);
   }
 
@@ -127,36 +127,57 @@ class ExpenseItem {
     }
   }
 
-  static whichItemClicked() {
-    // let tableList = document.getElementById('expense-list-table');
-    // let tableTbody = document.getElementById('expense-list-tbody');
-    // let tableTr = document.getElementsByTagName('tr');
-    // let tableTd = document.getElementsByTagName('td');
-
+  static displayItemClicked() {
     let table = tableTbody;
     let rows = tableTr;
 
     for (let i = 0; i < rows.length; i++) {
-      let currentRow = table.rows[i];
-      // log(currentRow);
+      currentRow = table.rows[i];
+      let createClickHandler = function (row) {
+        return function () {
+          let expenseID = row.getElementsByTagName('td')[2].innerHTML;
+          // ? call a function here to popup edit modal
+          function showEditModal() {
+            modalsUser[2].classList.add('show');
+            modalsUser[2].classList.remove('hide');
 
-      function createClickHandler(row) {
-        let expenseID = row.getElementsByTagName('td')[2].innerHTML;
-        // ? call a function here to popup edit modal
-        function showEditModal() {
-          modalsUser[2].classList.add('show');
-          modalsUser[2].classList.remove('hide');
-        }
-
-        showEditModal();
-      }
+            // ? see readme above (1)
+            window.onclick = function (e) {
+              if (e.target == modalsUser[2]) {
+                modalsUser[2].classList.add('hide');
+                modalsUser[2].classList.remove('show');
+              }
+            };
+          }
+          showEditModal();
+        };
+      };
 
       currentRow.onclick = createClickHandler(currentRow);
     }
+  }
 
-    // return log(createClickHandler());
+  // ? adds 1 to the last expense ID
+  static generateExpenseID() {
+    let lastExpenseID;
+    // ? get last expense id from local storage
+    const items = ExpenseItem.getItems();
+    for (let i = 0; i < items.length; i++) {
+      // ? Readme (item 2)
+      obj = items[i];
+      // ? declared this so i's value won't change
+      let j = i + 1;
+      if ((j = items.length)) {
+        // ? assigned to lastExpenseID scope variable
+        lastExpenseID = obj.expenseId;
+      }
+    }
+
+    return parseInt(lastExpenseID) + 1;
   }
 }
+
+// log(ExpenseItem.generateExpenseID());
 
 //   ===============================
 // !     HELPERS
@@ -188,12 +209,11 @@ function log(x) {
 // ! main dashboard
 window.onload = function () {
   User.retreiveUserData(true);
+  ExpenseItem.refreshExpenseList();
+  ExpenseItem.displayItemClicked();
 
   // for testing purposes only
   // ExpenseItem.loadSampleItems();
-
-  ExpenseItem.refreshExpenseList();
-  ExpenseItem.whichItemClicked();
 };
 
 // ! add expense
@@ -218,7 +238,7 @@ btnSaveItem.addEventListener('click', () => {
   } else {
     // ? will add item if validation(s) was/were passed
     displayAlert('Item added successfully.');
-    let item = new ExpenseItem(txtExpenseName.value, txtExpenseCost.value, 1, userEmail);
+    let item = new ExpenseItem(txtExpenseName.value, txtExpenseCost.value, ExpenseItem.generateExpenseID(), userEmail);
     ExpenseItem.addItem(item);
     ExpenseItem.refreshExpenseList();
   }
