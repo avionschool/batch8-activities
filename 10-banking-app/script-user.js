@@ -9,11 +9,14 @@
 // ?    -- if no existing data
 // ?    -- will create an empty array
 // ?    -- or convert key to string
+// ? 4. empties array first invoking the function
+// ?    -- passes expense id which was from the hidden column expense id
 
 // todo
 // todo 1.) clear form - ask user if form can already be closed if yes clear out all fields
 // todo 2.) update user details
 // todo 3.) disable inout fields delete modal
+// todo 4.) close modal once CRUD is done
 
 // *****************************
 // ! DASHBOARD
@@ -146,6 +149,7 @@ class ExpenseItem {
     const items = ExpenseItem.getItems();
     items.push(item);
     localStorage.setItem('items', JSON.stringify(items));
+    displayAlert('Item added successfully.');
   }
 
   static loadSampleItems() {
@@ -172,7 +176,7 @@ class ExpenseItem {
       currentRow = table.rows[i];
       let createClickHandler = function (row) {
         return function () {
-          let expenseID = row.getElementsByTagName('td')[2].innerHTML;
+          expenseID = row.getElementsByTagName('td')[2].innerHTML;
           // ? shows/hides popup edit modal
           function showEditModal() {
             modalsUser[2].classList.add('show');
@@ -202,6 +206,20 @@ class ExpenseItem {
         };
       };
       currentRow.onclick = createClickHandler(currentRow);
+    }
+  }
+
+  static updateItem(id, name, cost) {
+    items = ExpenseItem.getItems();
+    // log(id + name + cost);
+    for (let i = 0; i < items.length; i++) {
+      obj = items[i];
+      if (id == obj.expenseId) {
+        obj.expenseName = name;
+        obj.cost = cost;
+        localStorage.setItem('items', JSON.stringify(items));
+        displayAlert('Item edited successfully');
+      }
     }
   }
 
@@ -273,10 +291,9 @@ btnModal.addEventListener('click', () => {
 btnSaveItem.addEventListener('click', () => {
   // ? validation if fields are filleout
   if (isFilledOut(txtExpenseName.value, txtExpenseCost.value) == false) {
-    displayAlert('Please fill out missing fields. Transacation failed.');
+    displayAlert('Please fill out missing fields. Transaction failed.');
   } else {
     // ? will add item if validation(s) was/were passed
-    displayAlert('Item added successfully.');
     let item = new ExpenseItem(txtExpenseName.value, txtExpenseCost.value, ExpenseItem.generateExpenseID(), userEmail);
     ExpenseItem.addItem(item);
     ExpenseItem.refreshExpenseList();
@@ -284,17 +301,23 @@ btnSaveItem.addEventListener('click', () => {
 });
 
 // ! edit expense item
-btnSaveChanges.onclick = function () {
+// btnSaveChanges.onclick = function () {
+//   if (isFilledOut(txtEditName.value, txtEditCost.value) == false) {
+//     displayAlert('Please fill out missing fields. Transacation failed.');
+//   } else {
+//     // update codes here
+//   }
+// };
+
+btnSaveChanges.addEventListener('click', () => {
   if (isFilledOut(txtEditName.value, txtEditCost.value) == false) {
-    displayAlert('Please fill out missing fields. Transacation failed.');
+    displayAlert('Please fill out missing fields. Transaction failed.');
   } else {
     // update codes here
+    ExpenseItem.updateItem(expenseID, txtEditName.value, txtEditCost.value);
+    ExpenseItem.refreshExpenseList();
   }
-};
-
-// btnSaveItem.addEventListener('click', () => {
-//   log('clicked');
-// });
+});
 
 // ! edit profile
 // ? nav link
