@@ -10,6 +10,11 @@
 // ?    -- will create an empty array
 // ?    -- or convert key to string
 
+// todo
+// todo 1.) clear form - ask user if form can already be closed if yes clear out all fields
+// todo 2.) update user details
+// todo 3.) disable inout fields delete modal
+
 // *****************************
 // ! DASHBOARD
 // *****************************
@@ -19,6 +24,8 @@ let usersKey = JSON.parse(localStorage.getItem('users'));
 let userEmail = 'lee1@mail.com'; // ? assigned valued for debugging purposes
 let itemsKey = JSON.parse(localStorage.getItem('items'));
 let obj;
+let items;
+let expenseArr = [];
 
 // ? modals
 let modalsUser = document.getElementsByClassName('modal');
@@ -34,12 +41,18 @@ let txtExpenseCost = document.getElementById('cost');
 let txtExpenseName = document.getElementById('item');
 let expenseID;
 
+// ? edit expense
+// ? pop-up window
+let txtEditCost = document.getElementById('cost-edit');
+let txtEditName = document.getElementById('item-edit');
+
 // ? DASHBOARD
 // ? expense table list
 let tableList = document.getElementById('expense-list-table');
 let tableTbody = document.getElementById('expense-list-tbody');
 let tableTr = document.getElementsByTagName('tr');
 let tableTd = document.getElementsByTagName('td');
+let currentRow;
 
 // ? profile
 let btnLogout = document.getElementById('btn-logout');
@@ -91,7 +104,6 @@ class User {
   }
 }
 
-let currentRow;
 class ExpenseItem {
   constructor(expenseName, cost, expenseId, owner) {
     this.expenseName = expenseName;
@@ -103,6 +115,25 @@ class ExpenseItem {
   // ? ReadMe (item 3)
   static getItems() {
     return (itemsKey = localStorage.getItem('items') === null ? [] : JSON.parse(localStorage.getItem('items')));
+  }
+
+  // ? adds 1 to the last expense ID
+  static generateExpenseID() {
+    let lastExpenseID;
+    // ? get last expense id from local storage
+    const items = ExpenseItem.getItems();
+    for (let i = 0; i < items.length; i++) {
+      // ? Readme (item 2)
+      obj = items[i];
+      // ? declared this so i's value won't change
+      let j = i + 1;
+      if ((j = items.length)) {
+        // ? assigned to lastExpenseID scope variable
+        lastExpenseID = obj.expenseId;
+      }
+    }
+
+    return parseInt(lastExpenseID) + 1;
   }
 
   static addItem(item) {
@@ -136,7 +167,7 @@ class ExpenseItem {
       let createClickHandler = function (row) {
         return function () {
           let expenseID = row.getElementsByTagName('td')[2].innerHTML;
-          // ? call a function here to popup edit modal
+          // ? shows/hides popup edit modal
           function showEditModal() {
             modalsUser[2].classList.add('show');
             modalsUser[2].classList.remove('hide');
@@ -149,35 +180,40 @@ class ExpenseItem {
               }
             };
           }
+
+          function populateModal() {
+            // ? empties array first invoking the function
+            expenseArr = [];
+            // ? passes expense id which was from the hidden column expense id
+            ExpenseItem.retreiveItemObj(expenseID);
+            // ? passes to elements inside modal
+
+            txtEditCost.value = expenseArr[0].cost;
+            txtEditName.value = expenseArr[0].expenseName;
+          }
+
           showEditModal();
+          populateModal();
         };
       };
-
       currentRow.onclick = createClickHandler(currentRow);
     }
   }
 
-  // ? adds 1 to the last expense ID
-  static generateExpenseID() {
-    let lastExpenseID;
-    // ? get last expense id from local storage
-    const items = ExpenseItem.getItems();
+  // ? accepts expense id to be search returns expense item obj and stores keys into an array
+  static retreiveItemObj(id) {
+    items = ExpenseItem.getItems();
     for (let i = 0; i < items.length; i++) {
-      // ? Readme (item 2)
       obj = items[i];
-      // ? declared this so i's value won't change
-      let j = i + 1;
-      if ((j = items.length)) {
-        // ? assigned to lastExpenseID scope variable
-        lastExpenseID = obj.expenseId;
+      if (obj.expenseId == id) {
+        expenseArr.push(obj);
       }
     }
-
-    return parseInt(lastExpenseID) + 1;
+    return expenseArr[0];
   }
 }
 
-// log(ExpenseItem.generateExpenseID());
+ExpenseItem.retreiveItemObj(5);
 
 //   ===============================
 // !     HELPERS
