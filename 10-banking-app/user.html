@@ -38,22 +38,6 @@
           <h1>Recent transactions</h1>
           <table id="expense-list-table">
             <tbody id="expense-list-tbody"></tbody>
-            <!-- <tr>
-              <td>Spotify</td>
-              <td>P 194.00</td>
-            </tr>
-            <tr>
-              <td>Netflix</td>
-              <td>P 489.00</td>
-            </tr>
-            <tr>
-              <td>Spotify</td>
-              <td>P 194.00</td>
-            </tr>
-            <tr>
-              <td>Netflix</td>
-              <td>P 489.00</td>
-            </tr> -->
           </table>
         </div>
       </section>
@@ -93,8 +77,8 @@
         <div class="transaction-form">
           <h3>Profile</h3>
           <div class="form-field">
-            <Fabel for="fullname">Fullname:</Fabel>
-            <input type="text" id="fullname" F />
+            <label for="fullname">Fullname:</label>
+            <input type="text" id="fullname" />
           </div>
           <div class="form-field">
             <label for="email">E-mail</label>
@@ -106,6 +90,24 @@
           </div>
           <input type="submit" value="Save" class="buttons" id="btn-save-profile" />
           <input type="submit" value="Log out" class="buttons" id="btn-logout" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ! edit expense  -->
+    <div id="edit-expense-modal" class="modal">
+      <div class="modal-content">
+        <div class="transaction-form">
+          <h3>Edit Expense</h3>
+          <div class="form-field">
+            <label for="cost">Cost</label>
+            <input type="text" id="cost-edit" class="auto-pop-input" />
+          </div>
+          <div class="form-field">
+            <label for="item">Item</label>
+            <input type="text" id="item-edit" class="auto-pop-input" />
+          </div>
+          <input type="submit" value="Save" id="edit-btn" class="buttons" />
         </div>
       </div>
     </div>

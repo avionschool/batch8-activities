@@ -110,6 +110,13 @@ class ExpenseItem {
     localStorage.setItem('items', JSON.stringify(items));
   }
 
+  static loadSampleItems() {
+    // let item = new ExpenseItem('Spotify', 194.0, 1, 'lee1@mail.com');
+    let item = new ExpenseItem('Netflix', 500.0, 2, 'lee1@mail.com');
+
+    ExpenseItem.addItem(item);
+  }
+
   static refreshExpenseList() {
     const items = ExpenseItem.getItems();
     // ? clears list first before populating it with (`new)values
@@ -135,7 +142,13 @@ class ExpenseItem {
 
       function createClickHandler(row) {
         let expenseID = row.getElementsByTagName('td')[2].innerHTML;
-        log(expenseID);
+        // ? call a function here to popup edit modal
+        function showEditModal() {
+          modalsUser[2].classList.add('show');
+          modalsUser[2].classList.remove('hide');
+        }
+
+        showEditModal();
       }
 
       currentRow.onclick = createClickHandler(currentRow);
@@ -175,6 +188,10 @@ function log(x) {
 // ! main dashboard
 window.onload = function () {
   User.retreiveUserData(true);
+
+  // for testing purposes only
+  // ExpenseItem.loadSampleItems();
+
   ExpenseItem.refreshExpenseList();
   ExpenseItem.whichItemClicked();
 };
