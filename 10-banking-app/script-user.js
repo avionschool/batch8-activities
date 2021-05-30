@@ -16,7 +16,7 @@
 
 // ? generic variables
 let usersKey = JSON.parse(localStorage.getItem('users'));
-let userEmail;
+let userEmail = 'lee1@mail.com'; // assigned valued for debugging purposes
 let itemsKey = JSON.parse(localStorage.getItem('items'));
 
 // ? modals
@@ -155,8 +155,15 @@ btnSaveItem.addEventListener('click', () => {
   // ExpenseItem.AddItem(item);
   // log(userEmail);
 
-  // validation if fields are filleout
-  log(ExpenseItem.isFilledOut(txtExpenseName.value, txtExpenseCost.value));
+  // ? validation if fields are filleout
+  if (ExpenseItem.isFilledOut(txtExpenseName.value, txtExpenseCost.value) == false) {
+    displayAlert('Please fill out missing fields. Transacation failed.');
+  } else {
+    // ? will add item if validation(s) was/were passed
+    displayAlert('Item added successfully.');
+    let item = new ExpenseItem(txtExpenseName.value, txtExpenseCost.value, 1, userEmail);
+    ExpenseItem.AddItem(item);
+  }
 });
 
 // ! edit profile
