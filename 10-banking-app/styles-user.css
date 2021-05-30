@@ -167,7 +167,11 @@ body {
     border: solid 1px #dddddd;
   }
 
-  tr:nth-child(even) {
+  td:nth-child(2) {
+    text-align: right;
+  }
+
+  tbody:nth-child(even) {
     background-color: #cdc7fa;
   }
 

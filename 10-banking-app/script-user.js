@@ -16,8 +16,9 @@
 
 // ? generic variables
 let usersKey = JSON.parse(localStorage.getItem('users'));
-let userEmail = 'lee1@mail.com'; // assigned valued for debugging purposes
+let userEmail = 'lee1@mail.com'; // ? assigned valued for debugging purposes
 let itemsKey = JSON.parse(localStorage.getItem('items'));
+let obj;
 
 // ? modals
 let modalsUser = document.getElementsByClassName('modal');
@@ -32,6 +33,9 @@ let btnSaveItem = document.getElementById('expense-btn');
 let txtExpenseCost = document.getElementById('cost');
 let txtExpenseName = document.getElementById('item');
 let expenseID;
+
+// ? dashboard
+let tableList = document.getElementById('expense-list-table');
 
 // ? profile
 let btnLogout = document.getElementById('btn-logout');
@@ -96,16 +100,20 @@ class ExpenseItem {
     return (itemsKey = localStorage.getItem('items') === null ? [] : JSON.parse(localStorage.getItem('items')));
   }
 
-  static AddItem(item) {
+  static addItem(item) {
     const items = ExpenseItem.getItems();
     items.push(item);
     localStorage.setItem('items', JSON.stringify(items));
   }
 
-  static isFilledOut(input1, input2) {
-    let results = true;
-    input1 === '' || input2 === '' ? (results = false) : results;
-    return results;
+  static refreshExpenseList() {
+    const items = ExpenseItem.getItems();
+    // ? clears list first before populating it with values
+    tableList.innerHTML = '';
+    for (let i = 0; i < items.length; i++) {
+      obj = items[i];
+      tableList.innerHTML += '<tr><td>' + obj.expenseName + '</td><td>' + obj.cost + '</td></tr>';
+    }
   }
 }
 
@@ -115,6 +123,12 @@ User.retreiveUserData(true);
 //   ===============================
 // !     HELPERS
 //   ===============================
+
+function isFilledOut(input1, input2) {
+  let results = true;
+  input1 === '' || input2 === '' ? (results = false) : results;
+  return results;
+}
 
 // ? helper for alert
 function displayAlert(msg) {
@@ -133,12 +147,17 @@ function log(x) {
 //       ! DASHBOARD
 // *****************************
 
+// ! main dashboard
+window.onload = function () {
+  ExpenseItem.refreshExpenseList();
+};
+
 // ! add expense
 btnModal.addEventListener('click', () => {
   modalsUser[0].classList.add('show');
   modalsUser[0].classList.remove('hide');
 
-  // modal will be closed if user clicks anywhere outside of it
+  // ? modal will be closed if user clicks anywhere outside of it
   window.onclick = function (e) {
     if (e.target == modalsUser[0]) {
       modalsUser[0].classList.add('hide');
@@ -149,30 +168,25 @@ btnModal.addEventListener('click', () => {
 
 // ? pop-up window
 btnSaveItem.addEventListener('click', () => {
-  // let item1 = new ExpenseItem('name2', 2.0, 2, 'lee2');
-  // ExpenseItem.AddItem(item1);
-  // let item = new ExpenseItem(txtExpenseName.value, txtExpenseCost.value, 1, userEmail);
-  // ExpenseItem.AddItem(item);
-  // log(userEmail);
-
   // ? validation if fields are filleout
-  if (ExpenseItem.isFilledOut(txtExpenseName.value, txtExpenseCost.value) == false) {
+  if (isFilledOut(txtExpenseName.value, txtExpenseCost.value) == false) {
     displayAlert('Please fill out missing fields. Transacation failed.');
   } else {
     // ? will add item if validation(s) was/were passed
     displayAlert('Item added successfully.');
     let item = new ExpenseItem(txtExpenseName.value, txtExpenseCost.value, 1, userEmail);
-    ExpenseItem.AddItem(item);
+    ExpenseItem.addItem(item);
+    ExpenseItem.refreshExpenseList();
   }
 });
 
 // ! edit profile
-// nav link
+// ? nav link
 linkProfile.addEventListener('click', () => {
   modalsUser[1].classList.add('show');
   modalsUser[1].classList.remove('hide');
 
-  // see readme above (1)
+  // ? see readme above (1)
   window.onclick = function (e) {
     if (e.target == modalsUser[1]) {
       modalsUser[1].classList.add('hide');
