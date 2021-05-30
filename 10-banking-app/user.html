@@ -51,9 +51,9 @@
 
     <!-- =========================
               ! MODALS
-         ========================= git-->
+         ========================= -->
 
-    <!-- ! add expense -->
+    <!-- ! add expense [0] -->
     <div id="add-modal" class="modal">
       <div class="modal-content">
         <div class="transaction-form">
@@ -71,7 +71,7 @@
       </div>
     </div>
 
-    <!-- ! profile  -->
+    <!-- ! profile [1] -->
     <div id="profile-modal" class="modal">
       <div class="modal-content">
         <div class="transaction-form">
@@ -88,23 +88,23 @@
             <label for="password">Password</label>
             <input type="text" id="password" />
           </div>
-          <input type="submit" value="Save" class="buttons" id="btn-save-profile" />
+          <input type="submit" value="Save" class="buttons buttons-less-color" id="btn-save-profile" />
           <input type="submit" value="Log out" class="buttons" id="btn-logout" />
         </div>
       </div>
     </div>
 
-    <!-- ! edit expense  -->
+    <!-- ! edit expense [2] -->
     <div id="edit-expense-modal" class="modal">
       <div class="modal-content">
         <div class="transaction-form">
           <h3>Edit Expense</h3>
           <div class="form-field">
-            <label for="cost">Cost</label>
+            <label for="cost-edit">Cost</label>
             <input type="text" id="cost-edit" class="auto-pop-input" />
           </div>
           <div class="form-field">
-            <label for="item">Item</label>
+            <label for="item-edit">Item</label>
             <input type="text" id="item-edit" class="auto-pop-input" />
           </div>
           <input type="submit" value="Save" id="edit-btn" class="buttons" />
@@ -112,5 +112,35 @@
       </div>
     </div>
   </body>
+
+  <!-- ! delete expense [3] -->
+  <div id="delete-expense-modal" class="modal">
+    <div class="modal-content">
+      <div class="transaction-form">
+        <h3>Delete this item?</h3>
+        <div class="form-field">
+          <label for="cost-delete">Cost</label>
+          <input type="text" id="cost-delete" class="auto-pop-input" />
+        </div>
+        <div class="form-field">
+          <label for="item-delete">/Item</label>
+          <input type="text" id="item-delete" class="auto-pop-input" />
+        </div>
+        <input type="submit" value="Cancel" class="buttons buttons-less-color" id="delete-cancel-btn" />
+        <input type="submit" value="Yes" class="buttons" id="delete-yes-btn" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ! delete or edit [4] -->
+  <div id="delete-or-edit-modal" class="modal">
+    <div class="modal-content">
+      <div class="transaction-form">
+        <h3>Click which one you'd like to do</h3>
+        <input type="submit" value="Edit" class="buttons" id="option-edit-btn" />
+        <input type="submit" value="Delete" class="buttons buttons-less-color" id="option-delete-btn" />
+      </div>
+    </div>
+  </div>
   <script type="text/javascript" src="script-user.js"></script>
 </html>

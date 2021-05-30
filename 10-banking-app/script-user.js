@@ -50,6 +50,15 @@ let txtEditCost = document.getElementById('cost-edit');
 let txtEditName = document.getElementById('item-edit');
 let btnSaveChanges = document.getElementById('edit-btn');
 
+// ? edit or delete pop-up window
+// ? buttons
+let btnEditOption = document.getElementById('option-edit-btn');
+let btnDeleteOption = document.getElementById('option-delete-btn');
+
+// ? delete expense pop-up window
+let btnDeleteCancel = document.getElementById('delete-cancel-btn');
+let btnDeleteYes = document.getElementById('delete-yes-btn');
+
 // ? DASHBOARD
 // ? expense table list
 let tableList = document.getElementById('expense-list-table');
@@ -158,16 +167,6 @@ class ExpenseItem {
     ExpenseItem.addItem(item);
   }
 
-  static refreshExpenseList() {
-    const items = ExpenseItem.getItems();
-    // ? clears list first before populating it with (`new)values
-    tableTbody.innerHTML = '';
-    for (let i = 0; i < items.length; i++) {
-      obj = items[i];
-      tableTbody.innerHTML += '<tr><td>' + obj.expenseName + '</td><td>' + obj.cost + '</td><td>' + obj.expenseId + '</></tr>';
-    }
-  }
-
   static displayItemClicked() {
     let table = tableTbody;
     let rows = tableTr;
@@ -177,36 +176,57 @@ class ExpenseItem {
       let createClickHandler = function (row) {
         return function () {
           expenseID = row.getElementsByTagName('td')[2].innerHTML;
-          // ? shows/hides popup edit modal
-          function showEditModal() {
-            modalsUser[2].classList.add('show');
-            modalsUser[2].classList.remove('hide');
+
+          // ? calls the edit or delete pop up
+          function showOptionModal() {
+            modalsUser[4].classList.add('show');
+            modalsUser[4].classList.remove('hide');
 
             // ? see readme above (1)
             window.onclick = function (e) {
-              if (e.target == modalsUser[2]) {
-                modalsUser[2].classList.add('hide');
-                modalsUser[2].classList.remove('show');
+              if (e.target == modalsUser[4]) {
+                modalsUser[4].classList.add('hide');
+                modalsUser[4].classList.remove('show');
               }
             };
           }
 
-          function populateModal() {
-            // ? empties array first invoking the function
-            expenseArr = [];
-            // ? passes expense id which was from the hidden column expense id
-            ExpenseItem.retreiveItemObj(expenseID);
-            // ? passes to elements inside modal
-            txtEditCost.value = expenseArr[0].cost;
-            txtEditName.value = expenseArr[0].expenseName;
-          }
-
-          showEditModal();
-          populateModal();
+          showOptionModal();
         };
       };
       currentRow.onclick = createClickHandler(currentRow);
     }
+  }
+
+  // ? shows/hides popup edit modal
+  static showEditModal() {
+    // ? hide option modal
+    modalsUser[4].classList.add('hide');
+    modalsUser[4].classList.remove('show');
+
+    // ? show edit modal
+    modalsUser[2].classList.add('show');
+    modalsUser[2].classList.remove('hide');
+
+    // ? see readme above (1)
+    window.onclick = function (e) {
+      if (e.target == modalsUser[2]) {
+        // ? hide edit modal
+        modalsUser[2].classList.add('hide');
+        modalsUser[2].classList.remove('show');
+      }
+    };
+
+    function populateModal() {
+      // ? empties array first invoking the function
+      expenseArr = [];
+      // ? passes expense id which was from the hidden column expense id
+      ExpenseItem.retreiveItemObj(expenseID);
+      // ? passes to elements inside modal
+      txtEditCost.value = expenseArr[0].cost;
+      txtEditName.value = expenseArr[0].expenseName;
+    }
+    populateModal();
   }
 
   static updateItem(id, name, cost) {
@@ -233,6 +253,18 @@ class ExpenseItem {
       }
     }
     return expenseArr[0];
+  }
+
+  static refreshExpenseList() {
+    const items = ExpenseItem.getItems();
+    tableTbody.innerHTML = '';
+
+    // ? clears list first before populating it with (`new)values
+    for (let i = 0; i < items.length; i++) {
+      obj = items[i];
+      tableTbody.innerHTML += '<tr><td>' + obj.expenseName + '</td><td>' + obj.cost + '</td><td>' + obj.expenseId + '</></tr>';
+    }
+    ExpenseItem.displayItemClicked();
   }
 }
 
@@ -267,7 +299,6 @@ function log(x) {
 window.onload = function () {
   User.retreiveUserData(true);
   ExpenseItem.refreshExpenseList();
-  ExpenseItem.displayItemClicked();
 
   // for testing purposes only
   // ExpenseItem.loadSampleItems();
@@ -338,3 +369,11 @@ linkProfile.addEventListener('click', () => {
 btnLogout.addEventListener('click', () => {
   User.logoutUser(userEmail);
 });
+
+// ! edit or delete pop-up
+// ? edit
+btnEditOption.addEventListener('click', () => {
+  ExpenseItem.showEditModal();
+});
+// ? delete
+btnDeleteOption.addEventListener('click', () => {});

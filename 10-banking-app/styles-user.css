@@ -189,7 +189,7 @@ body {
   }
 
   /* overrides design for better CTA */
-  #btn-save-profile {
+  .buttons-less-color {
     background-color: #cdc7fa;
   }
 
