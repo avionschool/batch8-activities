@@ -167,11 +167,17 @@ body {
     border: solid 1px #dddddd;
   }
 
+  /* cost  */
   td:nth-child(2) {
     text-align: right;
   }
 
-  tbody:nth-child(even) {
+  /* hides expense id  */
+  td:nth-child(3) {
+    display: none;
+  }
+
+  tr:nth-child(even) {
     background-color: #cdc7fa;
   }
 

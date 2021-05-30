@@ -34,8 +34,12 @@ let txtExpenseCost = document.getElementById('cost');
 let txtExpenseName = document.getElementById('item');
 let expenseID;
 
-// ? dashboard
+// ? DASHBOARD
+// ? expense table list
 let tableList = document.getElementById('expense-list-table');
+let tableTbody = document.getElementById('expense-list-tbody');
+let tableTr = document.getElementsByTagName('tr');
+let tableTd = document.getElementsByTagName('td');
 
 // ? profile
 let btnLogout = document.getElementById('btn-logout');
@@ -109,16 +113,34 @@ class ExpenseItem {
   static refreshExpenseList() {
     const items = ExpenseItem.getItems();
     // ? clears list first before populating it with values
-    tableList.innerHTML = '';
+    tableTbody.innerHTML = '';
     for (let i = 0; i < items.length; i++) {
       obj = items[i];
-      tableList.innerHTML += '<tr><td>' + obj.expenseName + '</td><td>' + obj.cost + '</td></tr>';
+      // tableTbody.innerHTML += '<tr><td>' + obj.expenseName + '</td><td>' + obj.cost + '</></tr>';
+      tableTbody.innerHTML += '<tr><td>' + obj.expenseName + '</td><td>' + obj.cost + '</td><td>' + obj.expenseId + '</></tr>';
+    }
+  }
+
+  static fillItemDetails() {
+    // let tableList = document.getElementById('expense-list-table');
+    // let tableTr = document.getElementsByTagName('tr');
+    // let tableTd = document.getElementsByTagName('td');
+
+    // ? declare above later
+    let tableTbody = document.getElementsByTagName('tbody');
+
+    let table = tableList;
+    let rows = tableTbody;
+
+    log(tableTr);
+    for (let i = 0; i < rows.length; i++) {
+      let currentRow = table.rows[i];
+      log(i);
     }
   }
 }
 
-// ! functions invoked during onload
-User.retreiveUserData(true);
+ExpenseItem.fillItemDetails();
 
 //   ===============================
 // !     HELPERS
@@ -149,6 +171,7 @@ function log(x) {
 
 // ! main dashboard
 window.onload = function () {
+  User.retreiveUserData(true);
   ExpenseItem.refreshExpenseList();
 };
 
@@ -179,6 +202,8 @@ btnSaveItem.addEventListener('click', () => {
     ExpenseItem.refreshExpenseList();
   }
 });
+
+// ! edit expense item
 
 // ! edit profile
 // ? nav link
