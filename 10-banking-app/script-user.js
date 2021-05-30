@@ -11,6 +11,10 @@
 // ?    -- or convert key to string
 // ? 4. empties array first invoking the function
 // ?    -- passes expense id which was from the hidden column expense id
+// ? 5. empties array first invoking the function
+// ?    -- passes expense id which was from the hidden column expense id
+// ?    -- passes to elements inside modal
+// ? 6.
 
 // todo
 // todo 1.) clear form - ask user if form can already be closed if yes clear out all fields
@@ -56,6 +60,9 @@ let btnEditOption = document.getElementById('option-edit-btn');
 let btnDeleteOption = document.getElementById('option-delete-btn');
 
 // ? delete expense pop-up window
+let txtDeleteCost = document.getElementById('cost-delete');
+let txtDeleteName = document.getElementById('item-delete');
+// ? buttons
 let btnDeleteCancel = document.getElementById('delete-cancel-btn');
 let btnDeleteYes = document.getElementById('delete-yes-btn');
 
@@ -198,7 +205,7 @@ class ExpenseItem {
     }
   }
 
-  // ? shows/hides popup edit modal
+  // ? shows/hides pop-up edit modal
   static showEditModal() {
     // ? hide option modal
     modalsUser[4].classList.add('hide');
@@ -229,14 +236,63 @@ class ExpenseItem {
     populateModal();
   }
 
+  // ? shows/hide pop-up delete modal
+  static showDeleteModal() {
+    // ? hide option modal
+    modalsUser[4].classList.add('hide');
+    modalsUser[4].classList.remove('show');
+
+    // ? show delete modal
+    modalsUser[3].classList.add('show');
+    modalsUser[3].classList.remove('hide');
+
+    // ? see readme above (1)
+    window.onclick = function (e) {
+      if (e.target == modalsUser[3]) {
+        // ? hide delete modal
+        modalsUser[3].classList.add('hide');
+        modalsUser[3].classList.remove('show');
+      }
+    };
+
+    // disables textboxes
+    txtDeleteCost.disabled = true;
+    txtDeleteName.disabled = true;
+
+    function populateModal() {
+      // ? Readme (Item 5)
+      expenseArr = [];
+      ExpenseItem.retreiveItemObj(expenseID);
+      txtDeleteCost.value = expenseArr[0].cost;
+      txtDeleteName.value = expenseArr[0].expenseName;
+    }
+    populateModal();
+  }
+
   static updateItem(id, name, cost) {
     items = ExpenseItem.getItems();
-    // log(id + name + cost);
     for (let i = 0; i < items.length; i++) {
+      // ? Readme (item 2)
       obj = items[i];
       if (id == obj.expenseId) {
         obj.expenseName = name;
         obj.cost = cost;
+        localStorage.setItem('items', JSON.stringify(items));
+        displayAlert('Item edited successfully');
+      }
+    }
+  }
+
+  static deleteItem(id) {
+    items = ExpenseItem.getItems();
+    for (let i = 0; i < items.length; i++) {
+      // ? Readme (item 2)
+      obj = items[i];
+      if (id == obj.expenseId) {
+        // log(obj.expenseName);
+        // log(items[i]);
+        items.splice(i, 1);
+        // log(items);
         localStorage.setItem('items', JSON.stringify(items));
         displayAlert('Item edited successfully');
       }
@@ -332,14 +388,6 @@ btnSaveItem.addEventListener('click', () => {
 });
 
 // ! edit expense item
-// btnSaveChanges.onclick = function () {
-//   if (isFilledOut(txtEditName.value, txtEditCost.value) == false) {
-//     displayAlert('Please fill out missing fields. Transacation failed.');
-//   } else {
-//     // update codes here
-//   }
-// };
-
 btnSaveChanges.addEventListener('click', () => {
   if (isFilledOut(txtEditName.value, txtEditCost.value) == false) {
     displayAlert('Please fill out missing fields. Transaction failed.');
@@ -363,6 +411,8 @@ linkProfile.addEventListener('click', () => {
       modalsUser[1].classList.remove('show');
     }
   };
+
+  // disables textbox
 });
 
 // ? call function to logout user
@@ -376,4 +426,19 @@ btnEditOption.addEventListener('click', () => {
   ExpenseItem.showEditModal();
 });
 // ? delete
-btnDeleteOption.addEventListener('click', () => {});
+btnDeleteOption.addEventListener('click', () => {
+  ExpenseItem.showDeleteModal();
+});
+
+// ! delete expense item
+// ? cancel button
+btnDeleteCancel.addEventListener('click', () => {
+  modalsUser[3].classList.add('hide');
+  modalsUser[3].classList.remove('show');
+});
+// ? yes button
+
+btnDeleteYes.addEventListener('click', () => {
+  ExpenseItem.deleteItem(expenseID);
+  ExpenseItem.refreshExpenseList();
+});
