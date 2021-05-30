@@ -112,35 +112,38 @@ class ExpenseItem {
 
   static refreshExpenseList() {
     const items = ExpenseItem.getItems();
-    // ? clears list first before populating it with values
+    // ? clears list first before populating it with (`new)values
     tableTbody.innerHTML = '';
     for (let i = 0; i < items.length; i++) {
       obj = items[i];
-      // tableTbody.innerHTML += '<tr><td>' + obj.expenseName + '</td><td>' + obj.cost + '</></tr>';
       tableTbody.innerHTML += '<tr><td>' + obj.expenseName + '</td><td>' + obj.cost + '</td><td>' + obj.expenseId + '</></tr>';
     }
   }
 
-  static fillItemDetails() {
+  static whichItemClicked() {
     // let tableList = document.getElementById('expense-list-table');
+    // let tableTbody = document.getElementById('expense-list-tbody');
     // let tableTr = document.getElementsByTagName('tr');
     // let tableTd = document.getElementsByTagName('td');
 
-    // ? declare above later
-    let tableTbody = document.getElementsByTagName('tbody');
+    let table = tableTbody;
+    let rows = tableTr;
 
-    let table = tableList;
-    let rows = tableTbody;
-
-    log(tableTr);
     for (let i = 0; i < rows.length; i++) {
       let currentRow = table.rows[i];
-      log(i);
+      // log(currentRow);
+
+      function createClickHandler(row) {
+        let expenseID = row.getElementsByTagName('td')[2].innerHTML;
+        log(expenseID);
+      }
+
+      currentRow.onclick = createClickHandler(currentRow);
     }
+
+    // return log(createClickHandler());
   }
 }
-
-ExpenseItem.fillItemDetails();
 
 //   ===============================
 // !     HELPERS
@@ -173,6 +176,7 @@ function log(x) {
 window.onload = function () {
   User.retreiveUserData(true);
   ExpenseItem.refreshExpenseList();
+  ExpenseItem.whichItemClicked();
 };
 
 // ! add expense
