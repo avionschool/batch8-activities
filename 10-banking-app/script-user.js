@@ -4,7 +4,11 @@
 
 // ! README -- for other notes
 // ? 1. window.onclick for modals - modal will be closed if user clicks anywhere outside of it
-// ? 2. obj -
+// ? 2. obj - represents one object on the users' array of objects
+// ? 3. returns all values stores in users key
+// ?    -- if no existing data
+// ?    -- will create an empty array
+// ?    -- or convert key to string
 
 // *****************************
 // ! DASHBOARD
@@ -13,6 +17,7 @@
 // ? generic variables
 let usersKey = JSON.parse(localStorage.getItem('users'));
 let userEmail;
+let itemsKey = JSON.parse(localStorage.getItem('items'));
 
 // ? modals
 let modalsUser = document.getElementsByClassName('modal');
@@ -72,6 +77,31 @@ class User {
     window.location.href = 'index.html';
   }
 }
+
+class ExpenseItem {
+  constructor(expenseName, cost, expenseId, owner) {
+    this.expenseName = expenseName;
+    this.cost = cost;
+    this.expenseId = expenseId;
+    this.owner = owner;
+  }
+
+  // ? ReadMe (item 3)
+  static getItems() {
+    return (itemsKey = localStorage.getItem('items') === null ? [] : JSON.parse(localStorage.getItem('items')));
+  }
+
+  static AddItem(item) {
+    const items = ExpenseItem.getItems();
+    items.push(item);
+    localStorage.setItem('items', JSON.stringify(items));
+  }
+}
+
+// ExpenseItem.getItems();
+let item1 = new ExpenseItem('name2', 2.0, 2, 'lee2');
+
+ExpenseItem.AddItem(item1);
 
 // ! functions invoked during onload
 User.retreiveUserData(true);
