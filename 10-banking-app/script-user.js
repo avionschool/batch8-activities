@@ -27,6 +27,11 @@ let linkProfile = document.getElementById('profile-link');
 
 // ? add expense
 let btnModal = document.getElementById('add-btn');
+// ? pop-up window
+let btnSaveItem = document.getElementById('expense-btn');
+let txtExpenseCost = document.getElementById('cost');
+let txtExpenseName = document.getElementById('item');
+let expenseID;
 
 // ? profile
 let btnLogout = document.getElementById('btn-logout');
@@ -96,12 +101,13 @@ class ExpenseItem {
     items.push(item);
     localStorage.setItem('items', JSON.stringify(items));
   }
+
+  static isFilledOut(input1, input2) {
+    let results = true;
+    input1 === '' || input2 === '' ? (results = false) : results;
+    return results;
+  }
 }
-
-// ExpenseItem.getItems();
-let item1 = new ExpenseItem('name2', 2.0, 2, 'lee2');
-
-ExpenseItem.AddItem(item1);
 
 // ! functions invoked during onload
 User.retreiveUserData(true);
@@ -139,6 +145,18 @@ btnModal.addEventListener('click', () => {
       modalsUser[0].classList.remove('show');
     }
   };
+});
+
+// ? pop-up window
+btnSaveItem.addEventListener('click', () => {
+  // let item1 = new ExpenseItem('name2', 2.0, 2, 'lee2');
+  // ExpenseItem.AddItem(item1);
+  // let item = new ExpenseItem(txtExpenseName.value, txtExpenseCost.value, 1, userEmail);
+  // ExpenseItem.AddItem(item);
+  // log(userEmail);
+
+  // validation if fields are filleout
+  log(ExpenseItem.isFilledOut(txtExpenseName.value, txtExpenseCost.value));
 });
 
 // ! edit profile
