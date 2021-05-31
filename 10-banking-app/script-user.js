@@ -30,9 +30,12 @@
 let usersKey = JSON.parse(localStorage.getItem('users'));
 let userEmail = 'lee1@mail.com'; // ? assigned valued for debugging purposes
 let itemsKey = JSON.parse(localStorage.getItem('items'));
-let obj;
-let items;
+let obj; // ? Readme (item 2)
+let items; // ? items key gets re-assigned here for readability purposes
+let users; // ? same desc. as items
+// ? declared to store the object retreived in an array so the function to retreive can be re-used
 let expenseArr = [];
+let userArr = [];
 
 // ? modals
 let modalsUser = document.getElementsByClassName('modal');
@@ -73,6 +76,9 @@ let tableTbody = document.getElementById('expense-list-tbody');
 let tableTr = document.getElementsByTagName('tr');
 let tableTd = document.getElementsByTagName('td');
 let currentRow;
+let txtBalance = document.querySelector('h2');
+
+// ? amounts
 
 // ? profile
 let btnLogout = document.getElementById('btn-logout');
@@ -81,6 +87,9 @@ let btnLogout = document.getElementById('btn-logout');
 // !    Functions
 //   ===============================
 
+// =================================
+// !          USER CLASS
+// =================================
 class User {
   // ? returns all values stored in users key (array of objects)
   static getUsers() {
@@ -97,22 +106,22 @@ class User {
 
   // ? returns the email of user who has a true isLoggedin status
   static retreiveUserData(isLoggedIn) {
-    const users = User.getUsers();
+    users = User.getUsers();
     for (let i = 0; i < users.length; i++) {
       // ? represents one obj in the array of objects
-      let obj = users[i];
+      obj = users[i];
       if (isLoggedIn == obj.isLoggedIn) {
-        userEmail = obj.email;
+        userArr.push(obj);
       }
     }
-    return userEmail;
+    return userArr[0];
   }
 
   // ? updates isLoggedIn status back to false and re-directs back to login page
   static logoutUser(email) {
-    const users = User.getUsers();
+    users = User.getUsers();
     for (let i = 0; i < users.length; i++) {
-      let obj = users[i];
+      obj = users[i];
       if (email === obj.email) {
         obj.isLoggedIn = false;
         localStorage.setItem('users', JSON.stringify(users));
@@ -122,8 +131,29 @@ class User {
     displayAlert('Successfully logged out.');
     window.location.href = 'index.html';
   }
+
+  // ? accepts parameter id which is the email of the user
+  // ? get users balance first through search user function
+  static updateUserBalance(id, amount) {
+    let runningBalance;
+    users = User.getUsers();
+    for (let i = 0; i < users.length; i++) {
+      obj = users[i];
+      if (id === obj.email) {
+        runningBalance = parseFloat(obj.balance) - parseFloat(amount);
+        obj.balance = runningBalance;
+        localStorage.setItem('users', JSON.stringify(users));
+        txtBalance.innerHTML = toMoneyFormat.format(runningBalance);
+      }
+    }
+  }
 }
 
+// log(User.updateUserBalance());
+
+// =================================
+// !      EXPENSE ITEM CLASS
+// =================================
 class ExpenseItem {
   constructor(expenseName, cost, expenseId, owner) {
     this.expenseName = expenseName;
@@ -289,10 +319,7 @@ class ExpenseItem {
       // ? Readme (item 2)
       obj = items[i];
       if (id == obj.expenseId) {
-        // log(obj.expenseName);
-        // log(items[i]);
         items.splice(i, 1);
-        // log(items);
         localStorage.setItem('items', JSON.stringify(items));
         displayAlert('Item edited successfully');
       }
@@ -328,6 +355,13 @@ class ExpenseItem {
 // !     HELPERS
 //   ===============================
 
+// ? ormats numnber to a money format (Example: from 100 to Php 100.00)
+let toMoneyFormat = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'PHP',
+});
+
+// ? checks if fields have been filled out
 function isFilledOut(input1, input2) {
   let results = true;
   input1 === '' || input2 === '' ? (results = false) : results;
@@ -354,6 +388,7 @@ function log(x) {
 // ! main dashboard
 window.onload = function () {
   User.retreiveUserData(true);
+  userEmail = userArr[0].email; // ? assigns e-mail of user to a global variable upon log-in/onload
   ExpenseItem.refreshExpenseList();
 
   // for testing purposes only
@@ -384,6 +419,9 @@ btnSaveItem.addEventListener('click', () => {
     let item = new ExpenseItem(txtExpenseName.value, txtExpenseCost.value, ExpenseItem.generateExpenseID(), userEmail);
     ExpenseItem.addItem(item);
     ExpenseItem.refreshExpenseList();
+
+    // ? update balance of user
+    User.updateUserBalance(userEmail, txtExpenseCost.value);
   }
 });
 
