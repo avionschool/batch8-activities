@@ -21,6 +21,7 @@
 // todo 2.) update user details
 // todo 3.) disable inout fields delete modal
 // todo 4.) close modal once CRUD is done
+// todo 5.) wrap transaction history to scrollable div
 
 // *****************************
 // ! DASHBOARD
@@ -134,13 +135,17 @@ class User {
 
   // ? accepts parameter id which is the email of the user
   // ? get users balance first through search user function
-  static updateUserBalance(id, amount) {
+  static updateUserBalance(id, amount, transaction) {
     let runningBalance;
     users = User.getUsers();
     for (let i = 0; i < users.length; i++) {
       obj = users[i];
       if (id === obj.email) {
-        runningBalance = parseFloat(obj.balance) - parseFloat(amount);
+        if (transaction === 'add') {
+          runningBalance = parseFloat(obj.balance) - parseFloat(amount);
+        } else if (transaction === 'delete') {
+          runningBalance = parseFloat(obj.balance) + parseFloat(amount);
+        }
         obj.balance = runningBalance;
         localStorage.setItem('users', JSON.stringify(users));
         txtBalance.innerHTML = toMoneyFormat.format(runningBalance);
@@ -321,7 +326,7 @@ class ExpenseItem {
       if (id == obj.expenseId) {
         items.splice(i, 1);
         localStorage.setItem('items', JSON.stringify(items));
-        displayAlert('Item edited successfully');
+        displayAlert('Item deleted successfully');
       }
     }
   }
@@ -388,7 +393,10 @@ function log(x) {
 // ! main dashboard
 window.onload = function () {
   User.retreiveUserData(true);
-  userEmail = userArr[0].email; // ? assigns e-mail of user to a global variable upon log-in/onload
+  userEmail = userArr[0].email;
+  txtBalance.innerHTML = toMoneyFormat.format(parseFloat(userArr[0].balance));
+
+  // ? assigns e-mail of user to a global variable upon log-in/onload
   ExpenseItem.refreshExpenseList();
 
   // for testing purposes only
@@ -421,7 +429,7 @@ btnSaveItem.addEventListener('click', () => {
     ExpenseItem.refreshExpenseList();
 
     // ? update balance of user
-    User.updateUserBalance(userEmail, txtExpenseCost.value);
+    User.updateUserBalance(userEmail, txtExpenseCost.value, 'add');
   }
 });
 
@@ -479,4 +487,5 @@ btnDeleteCancel.addEventListener('click', () => {
 btnDeleteYes.addEventListener('click', () => {
   ExpenseItem.deleteItem(expenseID);
   ExpenseItem.refreshExpenseList();
+  User.updateUserBalance(userEmail, txtDeleteCost.value, 'delete');
 });

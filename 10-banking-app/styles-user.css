@@ -117,6 +117,7 @@ body {
   }
 
   .history-wrapper {
+    /* overflow: scroll; */
     margin-top: 1em;
     padding: 0 1.5em 0 1.5em;
   }
