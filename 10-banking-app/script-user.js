@@ -22,6 +22,7 @@
 // todo 3.) disable inout fields delete modal
 // todo 4.) close modal once CRUD is done
 // todo 5.) wrap transaction history to scrollable div
+// todo 5.) add edit to transaction type for update user balance
 
 // *****************************
 // ! DASHBOARD
@@ -29,7 +30,7 @@
 
 // ? generic variables
 let usersKey = JSON.parse(localStorage.getItem('users'));
-let userEmail = 'lee1@mail.com'; // ? assigned valued for debugging purposes
+let userEmail; // ? assigned valued for debugging purposes
 let itemsKey = JSON.parse(localStorage.getItem('items'));
 let obj; // ? Readme (item 2)
 let items; // ? items key gets re-assigned here for readability purposes
@@ -304,6 +305,9 @@ class ExpenseItem {
     populateModal();
   }
 
+  // ? id - expense id
+  // ? name - expense name
+  // ? cost - expense cost
   static updateItem(id, name, cost) {
     items = ExpenseItem.getItems();
     for (let i = 0; i < items.length; i++) {
@@ -438,7 +442,6 @@ btnSaveChanges.addEventListener('click', () => {
   if (isFilledOut(txtEditName.value, txtEditCost.value) == false) {
     displayAlert('Please fill out missing fields. Transaction failed.');
   } else {
-    // update codes here
     ExpenseItem.updateItem(expenseID, txtEditName.value, txtEditCost.value);
     ExpenseItem.refreshExpenseList();
   }
