@@ -39,6 +39,17 @@ function validateCharOrEmoji(node) {
     }
 }
 
+// ComputerDifficulty: Impossible only available on 3x3 grid
+// Disables opponent selection if gridSize larger than 3 (selectedIndex 0) is selected
+formGridSize.addEventListener('change', function() {
+    if (this.selectedIndex !==0) {
+        formOpponentSelection.selectedIndex = 0;
+        formOpponentSelection[2].disabled = true;
+    } else {
+        formOpponentSelection[2].disabled = false;
+    }
+})
+
 // Button on submit
 formSubmitBtn.addEventListener('click', function(e) {
     if (playersMarks.value === opponentsMarks.value) {
@@ -75,10 +86,11 @@ const totalResetBtn = document.querySelector('.total-reset');
 let gridSize;
 let xName = "Player 1";
 let oName;
-let xInput;
-let oInput;
+let xInput; // X will be the maximizer ++
+let oInput; // O will be the minimizer --
 let isXFirst;
 let isComputerActive;
+let computerDifficulty;
 let isGridLocked = false;
 let xWins = 0;
 let oWins = 0;
@@ -101,6 +113,7 @@ function initializeContent() {
     oInput = opponentsMarks.value;
     currentMark = xInput;
     (oName === "Player 2") ? isComputerActive = false : isComputerActive = true;
+    computerDifficulty = (oName.includes('Random')) ? "Random" : "Impossible";
 
     // Change text based on inputs
     if (parseInt(gridSize) !== 3) {title.textContent = `Tic-Tac-Toe ${gridSize}x${gridSize}`};
@@ -130,7 +143,7 @@ function oPlayerMovesFirst() {
         if (isComputerActive) {
             isGridLocked = true;
             setTimeout(function() {
-                computerMarkEasy();
+                computerMark();
                 isGridLocked = false;
             }, 1000); // let computer move after animation duration
         }
@@ -210,25 +223,35 @@ function stampMark() {
             contentMessage.textContent = `Computer is thinking`;
             isGridLocked = true; // prevent click events during timeout
             setTimeout(function() {
-                computerMarkEasy();
+                computerMark();
                 isGridLocked = false; // set flag to false after timeout
             }, 300);
         }
     }
 }
 
-function computerMarkEasy() {
-    // computer chooses a grid to mark randomly
+function computerMark() {
     const gridItems = [...gridContainer.querySelectorAll('div')]; // Array/Nodelist of the grid items
-    let indexes = [...gridItems.keys()]; // convert gridItems to an array of its index equiv
-    let emptyIndexes = indexes.filter(index => gridItems[index].textContent === ""); // create new array of indexes that pass the test
-    let selectedIndex = emptyIndexes[Math.floor(Math.random()*emptyIndexes.length)]; // get a random no text gridItem
-    let randomGridItem = gridItems[selectedIndex];
+    const gridItems2D = create2DArray(gridItems);
 
-    // modify board
-    randomGridItem.textContent = currentMark;
-    randomGridItem.classList.toggle('hover');
-    turnNo++;
+    if (computerDifficulty === "Random") {
+        // computer chooses a grid to mark randomly    
+        let indexes = [...gridItems.keys()]; // convert gridItems to an array of its index equiv
+        let emptyIndexes = indexes.filter(index => gridItems[index].textContent === ""); // create new array of indexes that pass the test
+        let selectedIndex = emptyIndexes[Math.floor(Math.random()*emptyIndexes.length)]; // get a random no text gridItem
+        let randomGridItem = gridItems[selectedIndex];
+
+        // modify board
+        randomGridItem.textContent = currentMark;
+        randomGridItem.classList.toggle('hover');
+        turnNo++;
+    } else {
+        let coordinates = findBestPlay(grid2D).coordinates;
+        gridItems2D[coordinates[0]][coordinates[1]].textContent = currentMark;
+        gridItems2D[coordinates[0]][coordinates[1]].classList.toggle('hover');
+        turnNo++;
+    }
+
 
     createBoardInstance(); // create and save board state in 2D array
     checkDraw(); // check if draw
@@ -414,4 +437,146 @@ function resetBoard() {
 
 function resetPage() {
     window.location = window.location;
+}
+
+// MINIMAX ALGORITHM
+// FREECODECAMP VER
+function getAllEmptyCellsCoordinates(board) {
+    // returns 1D array of coordinates
+    let arr = [];
+    for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+            if (board[i][j] == "") {
+                arr.push([i,j]);
+            }
+        }
+    }
+    return arr;
+}
+
+function evaluateBoard(board, depth) {
+    // board requires 2D array of board
+    // depth represents nodeHeight
+    // similar to checkWin() function
+    // checks for victory and 
+    // returns a number that is +, -, or 0
+
+    let xWinEquivalent = gridSize * xInput.codePointAt(0); // Value of n X's in a row
+    let oWinEquivalent = gridSize * oInput.codePointAt(0); // Value of n O's in a row
+    let extractedCharacters = 0;
+    // check rows
+    for (let rx = 0; rx < gridSize; rx++) {
+        extractedCharacters = 0;
+        for (let ry = 0; ry < gridSize; ry++) {
+            extractedCharacters += board[rx][ry].codePointAt(0);
+        }
+        if (extractedCharacters === xWinEquivalent) {
+            return +100 - depth;
+        } else if (extractedCharacters === oWinEquivalent) {
+            return -100 + depth;
+        }
+    }
+
+    // check cols
+    for (let cx = 0; cx < gridSize; cx++) {
+        extractedCharacters = 0;
+        for (let cy = 0; cy < gridSize; cy++) {
+            extractedCharacters += board[cy][cx].codePointAt(0);
+        }
+        if (extractedCharacters === xWinEquivalent) {
+            return +100 - depth;
+        } else if (extractedCharacters === oWinEquivalent) {
+            return -100 + depth;
+        }
+    }
+
+    // check first diag
+    extractedCharacters = 0;
+    for (let i = 0; i < gridSize; i++) {
+        extractedCharacters += board[i][i].codePointAt(0);
+    }
+    if (extractedCharacters === xWinEquivalent) {
+        return +100 - depth;
+    } else if (extractedCharacters === oWinEquivalent) {
+        return -100 + depth;
+    }
+
+    // check second diag
+    extractedCharacters = 0;
+    for (let j = 0; j < gridSize; j++) {
+        extractedCharacters += board[(gridSize-1)-j][j].codePointAt(0);
+    }
+    if (extractedCharacters === xWinEquivalent) {
+        return +100 - depth;
+    } else if (extractedCharacters === oWinEquivalent) {
+        return -100 + depth;
+    }
+
+    // else if no wins, return 0
+    return 0;
+}
+
+// return an object containing coordinates and score properties
+function minimax(board, depth, currentMark) {
+    let emptyCells = getAllEmptyCellsCoordinates(board);
+
+    // check terminal state
+    let score = evaluateBoard(board, depth);
+    if (score !== 0) {
+        return {score}; // wins
+    } else if (emptyCells.length === 0) {
+        return {score: 0}; // draws
+    }
+
+    // testing grid states
+    let allTestPlayInfos = []; // will contain object prodiving coordinates of best play and its score
+
+    // loop through all empty indexes to test them
+    for (let i = 0; i < emptyCells.length; i++) {
+        let currentTestPlayInfo = {}; // storing this test to hold coordinates AND score
+        let xCoordinate = emptyCells[i][0];
+        let yCoordinate = emptyCells[i][1];
+        currentTestPlayInfo.coordinates = [xCoordinate, yCoordinate]; // save coordinates
+        
+        board[xCoordinate][yCoordinate] = currentMark; // put X or O on the board
+
+        // recursively run minimax with the new board and saves score
+        if (currentMark === oInput) {
+            let result = minimax(board, depth+1, xInput);
+            currentTestPlayInfo.score = result.score;
+        } else {
+            let result = minimax(board, depth+1, oInput);
+            currentTestPlayInfo.score = result.score;
+        }
+
+        // reset board 
+        board[xCoordinate][yCoordinate] = "";
+        allTestPlayInfos.push(currentTestPlayInfo);
+    }
+
+    let bestScoreIndex = null;
+    if (currentMark === xInput) { // X the maximizer
+        let bestScore = -Infinity;
+        for (let i = 0; i < allTestPlayInfos.length; i++) {
+            if (allTestPlayInfos[i].score > bestScore) {
+                bestScore = allTestPlayInfos[i].score;
+                bestScoreIndex = i;
+            }
+        }
+    } else { // O the minimizer
+        let bestScore = +Infinity;
+        for (let i = 0; i < allTestPlayInfos.length; i++) {
+            if (allTestPlayInfos[i].score < bestScore) {
+                bestScore = allTestPlayInfos[i].score;
+                bestScoreIndex = i;
+            }
+        }
+    }
+
+    // return object with the best test-play score for the current player
+    return allTestPlayInfos[bestScoreIndex];
+}
+
+function findBestPlay(board) {
+    return minimax(board, 0, currentMark);
 }
