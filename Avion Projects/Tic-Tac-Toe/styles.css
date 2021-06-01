@@ -116,6 +116,10 @@ button {
         border-radius: 15%;
     }
 
+    .pointer-events {
+        pointer-events: auto;
+    }
+
     .emoji-btn {
         margin-left: 7px;
         padding-left: 3px;

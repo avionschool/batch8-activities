@@ -45,8 +45,12 @@ formGridSize.addEventListener('change', function() {
     if (this.selectedIndex !==0) {
         formOpponentSelection.selectedIndex = 0;
         formOpponentSelection[2].disabled = true;
+        formOpponentSelection[2].title = "Disabled due to slow computation";
+        formOpponentSelection.classList.add('pointer-events');
     } else {
         formOpponentSelection[2].disabled = false;
+        formOpponentSelection.classList.remove('pointer-events');
+        formOpponentSelection[2].title = "";
     }
 })
 
