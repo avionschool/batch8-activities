@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form-item">
-                    <label for="form-opponent-selection">Opponent:</label>
+                    <label for="form-opponent-selection">Opponent*:</label>
                     <select id="form-opponent-selection" name="form-opponent-selection">
                         <option value="Player 2">Player 2</option>
                         <option value="Computer (Random)">Computer (Random)</option>
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="form-item">
-                    <label for="form-players-marks">Player 1's Marks*:</label>
+                    <label for="form-players-marks">Player 1's Marks**:</label>
                     <input id="form-players-marks" 
                            name="form-players-marks" 
                            type="text" 
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="form-item">
-                    <label for="form-opponents-marks">Opponent's Marks*:</label for="form-opponent-marks">
+                    <label for="form-opponents-marks">Opponent's Marks**:</label for="form-opponent-marks">
                     <input id="form-opponents-marks" 
                            name="form-opponents-marks" 
                            type="text" 
@@ -69,7 +69,8 @@
                     <button class="emoji-btn">Random<br>Emoji</button>
                 </div>
 
-                <div class="form-footnote">*Emojis are accepted!</div>
+                <div id="opponent-disclaimer" class="form-footnote">*Computer (Impossible) turns may take up to 20 seconds on a 7x7 grid.</div>
+                <div class="form-footnote">**Emojis are accepted!</div>
                 <button class="form-submit">Let's Play!</button>
             </div>
         </div>

@@ -39,7 +39,7 @@ function validateCharOrEmoji(node) {
     }
 }
 
-// Re-allowed Impossible AI. Made faster by alpha-beta pruning and limited node depth search
+// Re-allowed Impossible AI. Made faster by limited node depth search
 // ComputerDifficulty: Impossible only available on 3x3 grid
 // Disables opponent selection if gridSize larger than 3 (selectedIndex 0) is selected
 // formGridSize.addEventListener('change', function() {

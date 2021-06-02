@@ -142,7 +142,8 @@ button {
     }
 
     .form-footnote {
-        font-size: calc(var(--modal-font-size) - 0.4rem);
+        margin-top: 5px;
+        font-size: calc(var(--modal-font-size) - 0.3rem);
     }
 
     .form-submit {
