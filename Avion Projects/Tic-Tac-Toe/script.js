@@ -476,7 +476,7 @@ function getAllEmptyCellsCoordinates(board) {
 }
 
 // return an object containing coordinates and score properties
-function minimax(board, depth, currentMark, alpha, beta) {
+function minimax(board, depth, currentMark) {
     let emptyCells = getAllEmptyCellsCoordinates(board);
 
     // check terminal state
@@ -507,24 +507,15 @@ function minimax(board, depth, currentMark, alpha, beta) {
 
         // recursively run minimax with the new board and saves score
         if (currentMark === oInput) {
-            let result = minimax(board, depth+1, xInput, alpha, beta);
+            let result = minimax(board, depth+1, xInput);
             currentTestPlayInfo.score = result.score;
-            // alpha-beta pruning; discontinue search after current node has been evaluated
-            // alpha = best score that X(maximizer) can achieve, i.e. the MINIMUM score they are assured of
-            // beta = best score that O(minimizer) can achieve, i.e. the MINIMUM score they are assured of
-            alpha = Math.max(alpha, result);
         } else {
-            let result = minimax(board, depth+1, oInput, alpha, beta);
+            let result = minimax(board, depth+1, oInput);
             currentTestPlayInfo.score = result.score;
-            beta = Math.min(beta, result);
         }
 
         // reset board 
         board[xCoordinate][yCoordinate] = "";
-
-        // stop current looping of empty cells and not push score
-        if (beta <= alpha) 
-            break;
         allTestPlayInfos.push(currentTestPlayInfo);
     }
 
@@ -539,7 +530,7 @@ function minimax(board, depth, currentMark, alpha, beta) {
             }
         }
     } else { // O the minimizer
-        let bestScore = +Infinity;
+        let bestScore = Infinity;
         for (let i = 0; i < allTestPlayInfos.length; i++) {
             if (allTestPlayInfos[i].score < bestScore) {
                 bestScore = allTestPlayInfos[i].score;
@@ -553,5 +544,5 @@ function minimax(board, depth, currentMark, alpha, beta) {
 }
 
 function findBestPlay(board) {
-    return minimax(board, 0, currentMark, -Infinity, +Infinity);
+    return minimax(board, 0, currentMark);
 }
