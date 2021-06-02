@@ -208,7 +208,8 @@ function stampMark() {
 
         createBoardInstance(); // create and save board state in 2D array
         checkDraw(); // check if draw
-        checkWin(grid2D); // check if win        
+        let winStatus = evaluateBoard(grid2D, 0); // check if win (returns + or - number for wins)      
+        if (winStatus !== 0) {endGameOnWin()}; // if win modify game message and win counter
         switchStates(); // switch states
 
         // if game has ended, disable click events, set max prev/next index, show prev/next buttons, 
@@ -239,6 +240,7 @@ function computerMark() {
     const gridItems2D = create2DArray(gridItems);
 
     if (computerDifficulty === "Random") {
+        // AI: Random
         // computer chooses a grid to mark randomly    
         let indexes = [...gridItems.keys()]; // convert gridItems to an array of its index equiv
         let emptyIndexes = indexes.filter(index => gridItems[index].textContent === ""); // create new array of indexes that pass the test
@@ -250,16 +252,17 @@ function computerMark() {
         randomGridItem.classList.toggle('hover');
         turnNo++;
     } else {
+        // AI: Impossible 
         let coordinates = findBestPlay(grid2D).coordinates;
         gridItems2D[coordinates[0]][coordinates[1]].textContent = currentMark;
         gridItems2D[coordinates[0]][coordinates[1]].classList.toggle('hover');
         turnNo++;
     }
 
-
     createBoardInstance(); // create and save board state in 2D array
     checkDraw(); // check if draw
-    checkWin(grid2D); // check if win        
+    let winStatus = evaluateBoard(grid2D, 0); // check if win (returns + or - number for wins)      
+    if (winStatus !== 0) {endGameOnWin()}; // if win modify game message and win counter        
     switchStates(); // switch states
 
     // if game has ended, disable click events, set max prev/next index, show prev/next buttons, 
@@ -301,9 +304,14 @@ function create2DArray(arr) {
     return newArr;
 }
 
-function checkWin(grid2D) {
-    // checks if win using magic squares algorithm
-    // Establish variables
+function evaluateBoard(board, depth) {
+    // used to check Winner of current board state
+    // board requires 2D array of board
+    // depth represents nodeHeight (for minimax function)
+    // checks for victory and 
+    // returns a number that is + (X wins), - (O Wins), or 0 (No Winner Yet)
+
+    // Uses the concept of magic squares to check whether a win has occurred
     let xWinEquivalent = gridSize * xInput.codePointAt(0); // Value of n X's in a row
     let oWinEquivalent = gridSize * oInput.codePointAt(0); // Value of n O's in a row
     let extractedCharacters = 0;
@@ -311,11 +319,12 @@ function checkWin(grid2D) {
     for (let rx = 0; rx < gridSize; rx++) {
         extractedCharacters = 0;
         for (let ry = 0; ry < gridSize; ry++) {
-            extractedCharacters += grid2D[rx][ry].codePointAt(0);
+            extractedCharacters += board[rx][ry].codePointAt(0);
         }
-        if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
-            endGameOnWin();
-            return true;
+        if (extractedCharacters === xWinEquivalent) {
+            return +100 - depth;
+        } else if (extractedCharacters === oWinEquivalent) {
+            return -100 + depth;
         }
     }
 
@@ -323,33 +332,39 @@ function checkWin(grid2D) {
     for (let cx = 0; cx < gridSize; cx++) {
         extractedCharacters = 0;
         for (let cy = 0; cy < gridSize; cy++) {
-            extractedCharacters += grid2D[cy][cx].codePointAt(0);
+            extractedCharacters += board[cy][cx].codePointAt(0);
         }
-        if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
-            endGameOnWin();
-            return true;
+        if (extractedCharacters === xWinEquivalent) {
+            return +100 - depth;
+        } else if (extractedCharacters === oWinEquivalent) {
+            return -100 + depth;
         }
     }
 
     // check first diag
     extractedCharacters = 0;
     for (let i = 0; i < gridSize; i++) {
-        extractedCharacters += grid2D[i][i].codePointAt(0);
+        extractedCharacters += board[i][i].codePointAt(0);
     }
-    if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
-        endGameOnWin();
-        return true;
+    if (extractedCharacters === xWinEquivalent) {
+        return +100 - depth;
+    } else if (extractedCharacters === oWinEquivalent) {
+        return -100 + depth;
     }
 
     // check second diag
     extractedCharacters = 0;
     for (let j = 0; j < gridSize; j++) {
-        extractedCharacters += grid2D[(gridSize-1)-j][j].codePointAt(0);
+        extractedCharacters += board[(gridSize-1)-j][j].codePointAt(0);
     }
-    if (extractedCharacters === xWinEquivalent || extractedCharacters === oWinEquivalent) {
-        endGameOnWin();
-        return true;
+    if (extractedCharacters === xWinEquivalent) {
+        return +100 - depth;
+    } else if (extractedCharacters === oWinEquivalent) {
+        return -100 + depth;
     }
+
+    // else if no wins, return 0
+    return 0;
 }
 
 function endGameOnWin() {
@@ -444,7 +459,8 @@ function resetPage() {
 }
 
 // MINIMAX ALGORITHM
-// FREECODECAMP VER
+// Reference: https://www.freecodecamp.org/news/minimax-algorithm-guide-how-to-create-an-unbeatable-ai/
+
 function getAllEmptyCellsCoordinates(board) {
     // returns 1D array of coordinates
     let arr = [];
@@ -456,68 +472,6 @@ function getAllEmptyCellsCoordinates(board) {
         }
     }
     return arr;
-}
-
-function evaluateBoard(board, depth) {
-    // board requires 2D array of board
-    // depth represents nodeHeight
-    // similar to checkWin() function
-    // checks for victory and 
-    // returns a number that is +, -, or 0
-
-    let xWinEquivalent = gridSize * xInput.codePointAt(0); // Value of n X's in a row
-    let oWinEquivalent = gridSize * oInput.codePointAt(0); // Value of n O's in a row
-    let extractedCharacters = 0;
-    // check rows
-    for (let rx = 0; rx < gridSize; rx++) {
-        extractedCharacters = 0;
-        for (let ry = 0; ry < gridSize; ry++) {
-            extractedCharacters += board[rx][ry].codePointAt(0);
-        }
-        if (extractedCharacters === xWinEquivalent) {
-            return +100 - depth;
-        } else if (extractedCharacters === oWinEquivalent) {
-            return -100 + depth;
-        }
-    }
-
-    // check cols
-    for (let cx = 0; cx < gridSize; cx++) {
-        extractedCharacters = 0;
-        for (let cy = 0; cy < gridSize; cy++) {
-            extractedCharacters += board[cy][cx].codePointAt(0);
-        }
-        if (extractedCharacters === xWinEquivalent) {
-            return +100 - depth;
-        } else if (extractedCharacters === oWinEquivalent) {
-            return -100 + depth;
-        }
-    }
-
-    // check first diag
-    extractedCharacters = 0;
-    for (let i = 0; i < gridSize; i++) {
-        extractedCharacters += board[i][i].codePointAt(0);
-    }
-    if (extractedCharacters === xWinEquivalent) {
-        return +100 - depth;
-    } else if (extractedCharacters === oWinEquivalent) {
-        return -100 + depth;
-    }
-
-    // check second diag
-    extractedCharacters = 0;
-    for (let j = 0; j < gridSize; j++) {
-        extractedCharacters += board[(gridSize-1)-j][j].codePointAt(0);
-    }
-    if (extractedCharacters === xWinEquivalent) {
-        return +100 - depth;
-    } else if (extractedCharacters === oWinEquivalent) {
-        return -100 + depth;
-    }
-
-    // else if no wins, return 0
-    return 0;
 }
 
 // return an object containing coordinates and score properties
