@@ -33,6 +33,7 @@ signupBtn.addEventListener('click', function() {
 const loginSubmit = document.querySelector('#login-submit');
 const loginUsername = document.querySelector('#login-username');
 const loginPassword = document.querySelector('#login-password');
+const linkSignup = document.querySelector('#link-sign-up');
 
 loginUsername.addEventListener('keydown', function(e) {
     if (e.key === "Enter") {
@@ -66,6 +67,10 @@ loginSubmit.addEventListener('click', function() {
             window.location.href = "user-dashboard.html"; 
         }
     }
+});
+
+linkSignup.addEventListener('click', function() {
+    signupBtn.click();
 });
 
 // ===================================
