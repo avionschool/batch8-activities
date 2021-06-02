@@ -39,20 +39,21 @@ function validateCharOrEmoji(node) {
     }
 }
 
+// Re-allowed Impossible AI. Made faster by alpha-beta pruning and limited node depth search
 // ComputerDifficulty: Impossible only available on 3x3 grid
 // Disables opponent selection if gridSize larger than 3 (selectedIndex 0) is selected
-formGridSize.addEventListener('change', function() {
-    if (this.selectedIndex !==0) {
-        formOpponentSelection.selectedIndex = 0;
-        formOpponentSelection[2].disabled = true;
-        formOpponentSelection[2].title = "Disabled due to slow computation";
-        formOpponentSelection.classList.add('pointer-events');
-    } else {
-        formOpponentSelection[2].disabled = false;
-        formOpponentSelection.classList.remove('pointer-events');
-        formOpponentSelection[2].title = "";
-    }
-})
+// formGridSize.addEventListener('change', function() {
+//     if (this.selectedIndex !==0) {
+//         formOpponentSelection.selectedIndex = 0;
+//         formOpponentSelection[2].disabled = true;
+//         formOpponentSelection[2].title = "Disabled due to slow computation";
+//         formOpponentSelection.classList.add('pointer-events');
+//     } else {
+//         formOpponentSelection[2].disabled = false;
+//         formOpponentSelection.classList.remove('pointer-events');
+//         formOpponentSelection[2].title = "";
+//     }
+// })
 
 // Button on submit
 formSubmitBtn.addEventListener('click', function(e) {
@@ -486,6 +487,12 @@ function minimax(board, depth, currentMark, alpha, beta) {
         return {score: 0}; // draws
     }
 
+    // stop search at node depth for bigger grid Sizes
+    // for a 5x5 grid; It will take 25*24*23*22*21 game combinations (depth up to 5)
+    // for a 7x7 grid it will take 49*48*47*46*45 game combinations (depth up to 5)
+    if (gridSize == 5 && depth == 4) return {score};
+    if (gridSize == 7 && depth == 4) return {score};
+
     // testing grid states
     let allTestPlayInfos = []; // will contain object prodiving coordinates of best play and its score
 
@@ -506,22 +513,22 @@ function minimax(board, depth, currentMark, alpha, beta) {
             // alpha = best score that X(maximizer) can achieve, i.e. the MINIMUM score they are assured of
             // beta = best score that O(minimizer) can achieve, i.e. the MINIMUM score they are assured of
             alpha = Math.max(alpha, result);
-            if (beta <= alpha) 
-                break;
         } else {
             let result = minimax(board, depth+1, oInput, alpha, beta);
             currentTestPlayInfo.score = result.score;
-            // alpha-beta pruning
             beta = Math.min(beta, result);
-            if (beta <= alpha)
-                break;
         }
 
         // reset board 
         board[xCoordinate][yCoordinate] = "";
+
+        // stop current looping of empty cells and not push score
+        if (beta <= alpha) 
+            break;
         allTestPlayInfos.push(currentTestPlayInfo);
     }
 
+    // go through all scores and find the best
     let bestScoreIndex = null;
     if (currentMark === xInput) { // X the maximizer
         let bestScore = -Infinity;
