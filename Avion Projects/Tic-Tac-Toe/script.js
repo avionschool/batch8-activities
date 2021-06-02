@@ -475,7 +475,7 @@ function getAllEmptyCellsCoordinates(board) {
 }
 
 // return an object containing coordinates and score properties
-function minimax(board, depth, currentMark) {
+function minimax(board, depth, currentMark, alpha, beta) {
     let emptyCells = getAllEmptyCellsCoordinates(board);
 
     // check terminal state
@@ -500,11 +500,21 @@ function minimax(board, depth, currentMark) {
 
         // recursively run minimax with the new board and saves score
         if (currentMark === oInput) {
-            let result = minimax(board, depth+1, xInput);
+            let result = minimax(board, depth+1, xInput, alpha, beta);
             currentTestPlayInfo.score = result.score;
+            // alpha-beta pruning; discontinue search after current node has been evaluated
+            // alpha = best score that X(maximizer) can achieve, i.e. the MINIMUM score they are assured of
+            // beta = best score that O(minimizer) can achieve, i.e. the MINIMUM score they are assured of
+            alpha = Math.max(alpha, result);
+            if (beta <= alpha) 
+                break;
         } else {
-            let result = minimax(board, depth+1, oInput);
+            let result = minimax(board, depth+1, oInput, alpha, beta);
             currentTestPlayInfo.score = result.score;
+            // alpha-beta pruning
+            beta = Math.min(beta, result);
+            if (beta <= alpha)
+                break;
         }
 
         // reset board 
@@ -536,5 +546,5 @@ function minimax(board, depth, currentMark) {
 }
 
 function findBestPlay(board) {
-    return minimax(board, 0, currentMark);
+    return minimax(board, 0, currentMark, -Infinity, +Infinity);
 }
