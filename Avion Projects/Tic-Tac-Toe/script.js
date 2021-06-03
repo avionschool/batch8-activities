@@ -9,6 +9,7 @@ const formOpponentSelection = document.querySelector('#form-opponent-selection')
 const playersMarks = document.querySelector('#form-players-marks');
 const opponentsMarks = document.querySelector('#form-opponents-marks');
 const formSubmitBtn = document.querySelector('.form-submit');
+const disclaimerOpponentSelection = document.querySelector('#opponent-disclaimer');
 
 // Emoji Buttons
 const emojiBtns = [...document.querySelectorAll('.emoji-btn')];
@@ -39,21 +40,24 @@ function validateCharOrEmoji(node) {
     }
 }
 
-// Re-allowed Impossible AI. Made faster by limited node depth search
-// ComputerDifficulty: Impossible only available on 3x3 grid
-// Disables opponent selection if gridSize larger than 3 (selectedIndex 0) is selected
-// formGridSize.addEventListener('change', function() {
-//     if (this.selectedIndex !==0) {
-//         formOpponentSelection.selectedIndex = 0;
-//         formOpponentSelection[2].disabled = true;
-//         formOpponentSelection[2].title = "Disabled due to slow computation";
-//         formOpponentSelection.classList.add('pointer-events');
-//     } else {
-//         formOpponentSelection[2].disabled = false;
-//         formOpponentSelection.classList.remove('pointer-events');
-//         formOpponentSelection[2].title = "";
-//     }
-// })
+// On Mobile Devices:
+// Disables Opponent: Impossible if gridSize is 7 is selected
+if( /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    formGridSize.addEventListener('change', function() {
+        disclaimerOpponentSelection.innerHTML = `*Disabled Computer (Impossible) on a 7x7 grid for mobile devices due to slow computation times.`;
+
+        if (this.selectedIndex == 2) {
+            formOpponentSelection.selectedIndex = 0;
+            formOpponentSelection[2].disabled = true;
+            formOpponentSelection[2].title = "Disabled due to slow computation";
+            formOpponentSelection.classList.add('pointer-events');
+        } else {
+            formOpponentSelection[2].disabled = false;
+            formOpponentSelection.classList.remove('pointer-events');
+            formOpponentSelection[2].title = "";
+        }
+    })
+   }
 
 // Button on submit
 formSubmitBtn.addEventListener('click', function(e) {
