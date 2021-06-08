@@ -1,0 +1,143 @@
+/* general styles */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+/* styling */
+.flexStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexStyleTwo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.flexStyleThree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* body */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 80%;
+    padding: 0px 20px 0px 20px;
+    background-color: #FFFF66;
+    border: 1px solid #FFFF66;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    font-weight: bold;
+}
+
+.subHeaderOne {
+    height: 50px;
+    width: 500px;
+}
+
+.subHeaderTwo {
+    height: 40px;
+    width: 250px;
+}
+
+/* weather update */
+.weather {
+    height: 180px;
+    width: 600px;
+    margin-top: 50px;
+    background-color: white;
+    border: 3px solid #FFFF66;
+    border-radius: 25px;
+    font-size: 28px;
+}
+
+/* what we do */
+.whatWeDo {
+    height: 200px;
+    width: 700px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* testimonials */
+.testimonials {
+    height: 150px;
+    width: 800px;
+    margin-top: 50px;
+}
+
+.feedback {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* last section */
+.lastSection {
+    margin: 40px 0px 10px 0px;
+}
+
+/* contact us */
+.contactUs {
+    flex-direction: column;
+    height: 170px;
+    width: 520px;
+    background-color: white;
+    border: 3px solid #FFFF66;
+    border-radius: 25px;
+}
+
+.adjust {
+    margin-right: 50px;
+}
+
+/* social media */
+.socialMedia {
+    flex-direction: column;
+    height: 120px;
+    width: 350px;
+}
+
+.icons {
+    height: 50px;
+    width: 300px;
+}
+
+.logoCon {
+    height: 45px;
+    width: 60px;
+}
+
+/* footer */
+.footer {
+    height: 100px;
+    width: 100%;
+    background-color: #FFFF66;
+}

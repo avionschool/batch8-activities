@@ -1,3 +1,9 @@
+//logout function
+let logout = document.getElementById('logout');
+logout.addEventListener('click', function() {
+    return window.location.replace('loginPage.html');
+});
+
 //displaying functions
 //popup IDs
 let initialPopup = document.getElementById('initialPopup');
@@ -5,11 +11,13 @@ let createPopup = document.getElementById('createPopup');
 let depositPopup = document.getElementById('depositPopup');
 let withdrawPopup = document.getElementById('withdrawPopup');
 let transferPopup = document.getElementById('transferPopup');
+let budgetPopup = document.getElementById('budgetPopup');
 //addEventListener targets
 let goToCreatePopup = document.getElementById('goToCreatePopup');
 let goToDepositPopup = document.getElementById('goToDepositPopup');
 let goToWithdrawPopup = document.getElementById('goToWithdrawPopup');
 let goToTransferPopup = document.getElementById('goToTransferPopup');
+let goToBudgetPopup = document.getElementById('goToBudgetPopup');
 //addEventListener functions
 goToCreatePopup.addEventListener('click', function() {
     initialPopup.classList.add('hidden');
@@ -17,13 +25,15 @@ goToCreatePopup.addEventListener('click', function() {
     depositPopup.classList.add('hidden');
     withdrawPopup.classList.add('hidden');
     transferPopup.classList.add('hidden');
+    budgetPopup.classList.add('hidden');
 });
 goToDepositPopup.addEventListener('click', function() {
     initialPopup.classList.add('hidden');
     createPopup.classList.add('hidden');
     depositPopup.classList.remove('hidden');
     withdrawPopup.classList.add('hidden');
-    transferPopup.classList.add('hidden'); 
+    transferPopup.classList.add('hidden');
+    budgetPopup.classList.add('hidden');
 });
 goToWithdrawPopup.addEventListener('click', function() {
     initialPopup.classList.add('hidden');
@@ -31,6 +41,7 @@ goToWithdrawPopup.addEventListener('click', function() {
     depositPopup.classList.add('hidden');
     withdrawPopup.classList.remove('hidden');
     transferPopup .classList.add('hidden');
+    budgetPopup.classList.add('hidden');
 });
 goToTransferPopup.addEventListener('click', function() {
     initialPopup.classList.add('hidden');
@@ -38,6 +49,15 @@ goToTransferPopup.addEventListener('click', function() {
     depositPopup.classList.add('hidden');
     withdrawPopup.classList.add('hidden');
     transferPopup.classList.remove('hidden');
+    budgetPopup.classList.add('hidden');
+});
+goToBudgetPopup.addEventListener('click', function() {
+    initialPopup.classList.add('hidden');
+    createPopup.classList.add('hidden');
+    depositPopup.classList.add('hidden');
+    withdrawPopup.classList.add('hidden');
+    transferPopup.classList.add('hidden');
+    budgetPopup.classList.remove('hidden');
 });
 
 //global variables

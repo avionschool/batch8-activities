@@ -43,7 +43,7 @@ function checkData() {
         } else if (username == userList[i].username && password == userList[i].password) {
             console.log ('test 4');
             alert ('Success: You have logged in!');
-            return window.location.replace('bankingBudgetApp_dashboardPage.html');
+            return window.location.replace('dashboardPage.html');
         }
     }
 }

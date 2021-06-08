@@ -49,6 +49,11 @@ input {
     align-items: center;
     justify-content: center;
 }
+.flexStyleRowTwo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
 .flexStyleColumn {
     display: flex;
     flex-direction: column;
@@ -61,11 +66,23 @@ input {
     align-items: center;
     justify-content: space-evenly;
 }
+.flexStyleColumnThree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
 
 .borderStyle {
     border: 3px solid #7700b3;
     border-radius: 25px;
     background-color: white;
+}
+.borderStyleTwo {
+    border: 2px solid #7700b3;
+    border-radius: 25px;
+    background-color: #7700b3;
+    color: white;
 }
 
 /*container designs*/
@@ -82,14 +99,14 @@ input {
     height: 80px;
     width: 400px;
     position: absolute;
-    margin: 0px 800px 400px 0px;
+    margin: 0px 800px 750px 0px;
     font-size: 40px;
 }
 
 .dashboardContainer {
-    height: 500px;
-    width: 800px;
-    margin-top: 50px;
+    height: 800px;
+    width: 850px;
+    margin: 30px 0px 0px 400px;
 }
 
 .functionContainer {
@@ -114,25 +131,43 @@ input {
     align-items: flex-start;
     justify-content: space-evenly;
     padding-top: 10px;
+    height: 350px;
+    width: 550px;
 }
 .displayTitle {
     height: 50px;
     width: 130px;
-    color: black;
     font-size: 25px;   
+}
+.displayTitleTwo {
+    height: 50px;
+    width: 200px;
+    font-size: 25px;
 }
 
 .popupContainerDesign {
     height: 220px;
     width: 400px;
     position: absolute;
-    margin: 0px 0px 50px 160px;
+    margin: 0px 0px 250px 580px;
 }
 .popupContainerDesignTwo {
-    height: 220px;
-    width: 600px;
+    height: 200px;
+    width: 550px;
     position: absolute;
-    margin: 0px 0px 50px 150px;
+    margin: 0px 0px 250px 565px;
+}
+.popupContainerDesignThree {
+    height: 370px;
+    width: 550px;
+    position: absolute;
+    margin: 0px 0px 300px 565px;
+}
+
+.expenseTitle {
+    height: 40px;
+    width: 500px;
+    font-size: 15px;
 }
 
 /*selective design*/
@@ -140,6 +175,35 @@ input {
     visibility: hidden;
 }
 
+.logout {
+    height: 40px;
+    width: 100px;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0px 20px 0px;
+}
+.logout:hover {
+    color:white;
+    background-color: #7700b3;
+}
+
 .inputMargin {
     margin-right: 5px;
+}
+
+.initialPopupDesign {
+    text-align: center;
+    width: 250px;
+}
+
+.marginTop {
+    margin-top: 15px;
+}
+
+.kangaroo {
+    height: 400px;
+    width: 450px;
+    position: absolute;
+    margin: 150px 930px 0px 0px;
 }

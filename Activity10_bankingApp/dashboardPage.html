@@ -3,8 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>KangarooMoney.com/dashboardPage</title>
-        <link rel="stylesheet" href="bankingBudgetApp_dashboardPage.css">
-        <script src="bankingBudgetApp_dashboardPage.js" defer></script>
+        <link rel="stylesheet" href="dashboardPage.css">
+        <script src="dashboardPage.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     </head>
 <body>
@@ -33,26 +33,36 @@
                     <img class="logoContainer" src="pictures/functions/transfer.png" alt="transfer">
                     <h1 id="goToTransferPopup">TRANSFER</h1>
                 </div>
+                <!--budget icon-->
+                <div class="flexStyleColumn">
+                    <img class="logoContainer" src="pictures/functions/budget.png" alt="budget">
+                    <h1 id="goToBudgetPopup">BUDGET</h1>
+                </div>
             </div>
             <div class="displayContainer">
                 <!--initial popup display-->
-                <div class="displayHeightWidth flexStyleRow borderStyle" id="initialPopup">
-                    <h1>BUSY DAY? START NOW!</h1>
-                </div>
-                <div class="displayHeightWidth displaySubCon">
-                    <!--account name display-->
-                    <div>
-                        <div class="displayTitle flexStyleRow borderStyle">ACCOUNT NAME</div>
-                        <div id="RegisteredAccountName"></div>
+                <div class="displayHeightWidth flexStyleRow" id="initialPopup">
+                    <div class="borderStyleTwo initialPopupDesign">  
+                        <h1>BUSY DAY? START NOW!</h1>
                     </div>
-                    <!--balance display-->
-                    <div>
-                        <div class="displayTitle flexStyleRow borderStyle">BALANCE</div>
-                        <div id="balance"></div>
+                </div>
+                <div class="displayHeightWidth flexStyleRow">
+                    <div class="displaySubCon borderStyle">
+                        <!--account name display-->
+                        <div>
+                            <div class="displayTitle flexStyleRow borderStyleTwo">ACCOUNT NAME</div>
+                            <div id="RegisteredAccountName"></div>
+                        </div>
+                        <!--balance display-->
+                        <div>
+                            <div class="displayTitle flexStyleRow borderStyleTwo">BALANCE</div>
+                            <div id="balance"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="logout borderStyle" id="logout">LOGOUT</div>
     <!--hidden popups-->
     <!--create function popup-->
     <div class="popupContainerDesign flexStyleColumnTwo borderStyle hidden" id="createPopup">
@@ -86,6 +96,30 @@
             <input id="sendAmount" type="number" placeholder="amount">
         </div>
         <button onclick="transfer()">Transfer</button>
+    </div>
+    <!--expense tracking-->
+    <div class="popupContainerDesignThree flexStyleColumnThree borderStyle hidden" id="budgetPopup">
+        <!--section one-->
+        <div class="expenseTitle flexStyleRowTwo marginTop">
+            <h1 class="displayTitleTwo flexStyleRow borderStyleTwo">EXPENSE TRACKING</h1>
+            <h1 class="displayTitle flexStyleRow borderStyleTwo">ADD EXPENSE</h1>
+        </div>
+        <!--section two-->
+        <div class="expenseTitle flexStyleRowTwo marginTop">
+            <h1>EXPENSE NAME</h1>
+            <h1>COST</h1>
+            <h1>ACTIONS</h1>
+        </div>
+        <!--section three-->
+        <div class="expenseTitle flexStyleRowTwo marginTop">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--kangaroo-->
+    <div class="kangaroo">
+        <img src="pictures/kangaroo.png" alt="logo" height="100%" width="100%">
     </div>
     </main>
 </body>
