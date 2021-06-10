@@ -23,6 +23,8 @@ html {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--main-color-1);
     color: var(--main-color-5);
+    --lh: 1.25rem;
+    line-height: var(--lh);
 }
 
 body {
@@ -38,6 +40,7 @@ header {
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
+    text-align: center;
 }
 
     .header-logo {
@@ -65,6 +68,21 @@ input {
     font-size: 1.5rem;
     border: 5px solid var(--main-color-3);
     margin: 1vh 0;
+    background-image: url(assets/feathericons/search.svg);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: 2.55%;
+    padding-left: 90px;
+    padding-right: 10px;
+}
+
+a {
+    color: var(--main-color-5);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* GLOBAL CLASS STYLES */
@@ -73,6 +91,31 @@ input {
     width: 0;
     display: none;
     visibility: hidden;
+}
+
+.truncate-overflow {
+    --max-lines: 3;
+    position: relative;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    padding-right: 1rem; /* space for ellipsis */
+    cursor: pointer;
+}
+
+.truncate-overflow::before {
+    position: absolute;
+    content: "...";
+    inset-block-end: 0; /* "bottom" */
+    inset-inline-end: 0; /* "right" */
+}
+
+.truncate-overflow::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 0; /* "right" */
+    width: 1rem;
+    height: 1rem;
+    background: white;
 }
 
 /* SECTION STYLES */
@@ -94,15 +137,56 @@ input {
     }
 
 /* RESULTS SECTION */
-.results-section {
+/* .results-section {
     margin-left: 5vw;
-}
+    margin-right: 5vw;
+} */
 
     .results-message {
         font-size: 1.3rem;
+        margin-left: 5vw;
+        margin-bottom: -2vw;
     }
 
     .results-container {
+        border-radius: 25px;
+        box-shadow: 0 0 1px 2px var(--main-color-4);
+        margin: 5vw;
+        height: 54vh;
+        /* overflow: hidden;
+        text-overflow: ellipsis; */
         display: flex;
         flex-direction: column;
+        align-items: center;
+        background-color: var(--main-color-2);
     }
+
+        .results-name {
+            font-size: 1.5rem;
+            margin: 1vh 0;
+        }
+
+        .results-video-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 75%; /* 4:3 Aspect Ratio */
+        }
+
+        .results-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .results-snippet {
+            margin: 1vh 1vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: justify;
+            text-justify: inter-word;
+        }

@@ -15,12 +15,31 @@ let requestURL_Ukulele = `https://ukulele-chords.com/get?ak=${UKULELE_CHORDS_API
 //     console.log(chordInfo[3]); // gets the mini chord diagram?
 // }
 
-async function getChords() {
+// MAIN UKULELE
+async function getUkuleleChords() {
     let response = await fetch(requestURL_Ukulele, {mode: 'cors'});
     if (response.ok) {
-        var responseBody = await response.json;
+        var responseBody = await response.json();
         console.log(responseBody[0]);
         console.log(responseBody[0][3]); // gets URL of mini?
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
+} // DOESN'T WORK; CORS POLICY
+
+// ANOTHER TEST
+fetch(requestURL_Ukulele)
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+
+// TEST URL : WORKS
+async function testing() {
+    let response = await fetch(requestURL_test);
+    if (response.ok) {
+        var responseBody = await response.json();
+        console.log(responseBody);
+        console.log(responseBody.activity);
     } else {
         alert("HTTP-Error: " + response.status);
     }
@@ -35,11 +54,3 @@ async function getChords() {
 const chordsSection = document.querySelector('#chords-section');
 const chordsList = document.querySelector('#chords-list');
 const chordsBtn = document.querySelector('#chords-btn');
-
-
-
-// chordsBtn.addEventListener('click', function() {
-//     rootChord = chordsList.value;
-
-//     }
-// })
