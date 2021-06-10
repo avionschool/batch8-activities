@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>だれか PANTRY/dashboard</title>
+        <link rel="stylesheet" href="inventoryPage.css">
+        <script src="inventoryPage.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <main class="container">
+        <!-- header -->
+        <section class="header flexStyleSpaceBetween">
+            <h1>だれか PANTRY Dashboard</h1>
+            <div class="subHeader flexStyleEvenly">
+                <p class="linkHover">Locations</p>
+                <p class="linkHover">Donor List</p>
+                <p class="linkHover">Logout</p>
+            </div>
+        </section>
+
+        <!-- dashboard -->
+        <section class="dashboard flexStyleRow">
+            <!-- sidebar -->
+            <div class="sideBar">
+                <h1>MENU</h1>
+                <div class="functionsCon flexStyleEvenly">
+                    <div class="functions linkHover">在庫 Inventory</div>
+                    <div class="functions linkHover">お店 Store</div>
+                    <div class="functions linkHover">寄付 Donate</div>
+                    <div class="functions linkHover">歴史<br>Transaction History</div>
+                    <div class="functions linkHover">ドナー Add Donor</div>
+                    <div class="functions linkHover">ロケーション<br>Add Location</div>
+                </div>
+            </div>
+            <!-- display -->
+            <div class="display">
+                <!-- inventory -->
+                <div class="inventoryCon flexStyleSpaceBetween">
+                    <div class="inventoryHeader flexStyleEvenly">
+                        <h1 class="title">在庫 INVENTORY MANAGER</h1>
+                        <h1 class="currentCash">Balance: 0.00</h1>
+                    </div>
+                    <div class="tableCon">
+                        <table class="tableStyle">
+                            <thead>
+                                <tr>
+                                    <th>Donated By</th>
+                                    <th>Product Code</th>
+                                    <th>Date Aquired</th>
+                                    <th>Item Description</th>
+                                    <th>In Stock</th>
+                                    <th>Donated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jan</td>
+                                    <td>001</td>
+                                    <td>June 7, 2021</td>
+                                    <td>Apple</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>Jeff</td>
+                                    <td>002</td>
+                                    <td>June 8, 2021</td>
+                                    <td>Orange</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>Joana</td>
+                                    <td>003</td>
+                                    <td>June 9, 2021</td>
+                                    <td>Mango</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>Jetson</td>
+                                    <td>004</td>
+                                    <td>June 10, 2021</td>
+                                    <td>Bananna</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>Janelle</td>
+                                    <td>005</td>
+                                    <td>June 11, 2021</td>
+                                    <td>Grapes</td>
+                                    <td>9</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>Jan</td>
+                                    <td>001</td>
+                                    <td>June 7, 2021</td>
+                                    <td>Apple</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>Jeff</td>
+                                    <td>002</td>
+                                    <td>June 8, 2021</td>
+                                    <td>Orange</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>Joana</td>
+                                    <td>003</td>
+                                    <td>June 9, 2021</td>
+                                    <td>Mango</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>Jetson</td>
+                                    <td>004</td>
+                                    <td>June 10, 2021</td>
+                                    <td>Bananna</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>Janelle</td>
+                                    <td>005</td>
+                                    <td>June 11, 2021</td>
+                                    <td>Grapes</td>
+                                    <td>9</td>
+                                    <td>10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="reminder">Please keep this dashboard clean and updated at all times!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <section class="footer flexStyleColumn">
+            <h1>ありがとうございました</h1>
+            <h2>Thank you for your service!</h2>
+        </section>
+
+        <!-- popups -->
+        <main class="store">
+            <section class="storeHeader flexStyleSpaceBetween">
+                <h1>お店 Store</h1>
+                <h2>&#10006;</h2>
+            </section>
+            <!-- <section class="storeOptions flexStyleEvenly">
+                <p>Cash Deposit</p>
+                <p>Store Product</p>
+            </section> -->
+            <section>
+                <div>
+                    <label>Donor</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label>Date</label>
+                    <input type="date">
+                </div>
+                <div>
+                    <label>Item Description</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label>Quantity</label>
+                    <input type="number">
+                </div>
+                <p>Store</p>
+            </section>
+        </main>
+
+    </main>
+</body>
+</html>
+
+<!-- 1st -->
+
+
+<!-- 2nd -->
+<!-- <div>
+
+</div> -->
+
+
+
+
+
+
+<!--2nd.2-->
+<!-- <div>
+    <label>Currency</label>
+    <input type="text" placeholder="currency">
+
+    <label>Amount</label>
+    <input type="number" placeholder="amount">
+
+    <button>変換する Convert</button>
+</div> -->
+
+
+
+
+<!-- 2nd.2.1 -->
+<!-- <div>
+    <p>Converted amout is ... Do you want to deposit?</p>
+    <button>保証金 Deposit</button>
+</div> -->
+
+<!--2nd.2.2-->
+<!-- <div>
+    <h1>Donation Successful!</h1>
+    <p>ありがとうございました</p>
+</div> -->
+
+
+
+
+
+
+<!-- <div>
+    <label>Amount</label>
+    <input type="number" placeholder="amount in pesos">
+
+    <button>変換する Convert</button>
+</div> -->
+
+
+<!-- 
+
+<div>
+    <label>Product Code</label>
+    <input type="text">
+
+    <label>Quantity</label>
+    <input type="number">
+
+    <label>Receiver</label>
+    <input type="text">
+    
+    <label>ID Presented</label>
+    <input type="text">
+
+    <button>寄付 Donate</button>
+</div>
+
+<div>
+    <p>Current Cash</p>
+</div>
+ -->

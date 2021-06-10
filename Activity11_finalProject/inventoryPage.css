@@ -1,0 +1,203 @@
+/* general styles */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    cursor: pointer;
+}
+
+/* styling */
+.flexStyleRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexStyleColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexStyleEvenly {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.flexStyleSpaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.linkHover:hover {
+    color: #A9A9A9;
+}
+
+.title {
+    height: 30px;
+    width: 400px;
+    background-color: #FFFF66;
+    border: 3px solid #FFFF66;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    text-align: center;
+}
+
+/* body */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+/* header */
+.header {
+    height: 80px;
+    width: 70%;
+    background-color: #FFFF66;
+    border: 3px solid #FFFF66;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    font-weight: bold;
+    padding: 0px 0px 0px 50px;
+}
+
+.subHeader {
+    height: 20px;
+    width: 350px;
+}
+
+/* dashboard */
+.dashboard {
+    height: 550px;
+    width: 85%;
+    margin: 20px 0px 20px 0px;
+}
+
+/* sidebar */
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 20%;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.functionsCon {
+    flex-direction: column;
+}
+
+.functions {
+    width: 150px;
+    margin-top: 30px;
+    padding: 5px;
+    border-bottom: 3px solid #FFFF66;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* display */
+.display {
+    height: 100%;
+    width: 80%;
+    /* background-color: red; */
+}
+
+/* inventory manager */
+.inventoryCon {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.inventoryHeader {
+    width: 90%;
+}
+
+.tableCon {
+    height: 480px;
+}
+
+.tableStyle {
+    border-collapse: collapse;
+    /* to remove extra spaces */
+    min-width: 800px;
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.tableStyle thead tr {
+    background-color: #FFFF66;
+}
+
+.tableStyle th,
+.tableStyle td {
+    padding: 8px;
+}
+
+.tableStyle tbody tr:nth-of-type(even){
+    background-color:#FFFFCC;
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    color: #A9A9A9;
+}
+
+.reminder {
+    font-style: italic;
+}
+
+/* footer */
+.footer {
+    height: 130px;
+    width: 100%;
+    background-color: #FFFF66;
+}
+.footer:hover {
+    background-color: black;
+    color: #FFFF66;
+}
+
+/* POPUPS */
+.hidden {
+    visibility: hidden;
+}
+
+/* store */
+.store {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 350px;
+    width: 450px;
+    position: absolute;
+    margin: 200px 0px 0px 0px;
+    padding: 30px;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 25px;
+    color: #FFFF66;
+}
+
+.storeHeader {
+    width: 100%;
+}
+
+.storeOptions {
+    width: 100%;
+    margin-top: 100px;
+    font-style: solid;
+    font-weight: bold;
+    font-size: 23px;
+}

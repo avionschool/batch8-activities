@@ -15,7 +15,7 @@ button {
 button:hover {
     background-color: black;
     border: 3px solid black;
-    color: yellow;
+    color: #FFFF66;
 }
 
 input {
@@ -124,7 +124,7 @@ input:hover {
 .whatWeDo:hover {
     background-color: black;
     border: 3px solid black;
-    color: yellow;
+    color: #FFFF66;
 }
 
 /* testimonials */
@@ -150,7 +150,7 @@ input:hover {
 .feedback:hover {
     background-color: black;
     border: 3px solid black;
-    color: yellow;
+    color: #FFFF66;
 }
 
 /* last section */
