@@ -175,7 +175,7 @@ body {
 
   /* hides expense id  */
   td:nth-child(3) {
-    display: none;
+    /* display: none; */
   }
 
   tr:nth-child(even) {

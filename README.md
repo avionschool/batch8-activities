@@ -10,6 +10,7 @@
 8. [Momentum App](https://lea927.github.io/batch8-activities/8-momentum)
 9. [Tic-Tac-Toe](https://lea927.github.io/batch8-activities/9-tic-tac-toe)
 10. [Banking App with Budget Tracking](https://lea927.github.io/batch8-activities/10-banking-app)
+11. [Web App Using API](https://lea927.github.io/batch8-activities/11-web-app-with-api)
 
 ## Coding Challenges
 
