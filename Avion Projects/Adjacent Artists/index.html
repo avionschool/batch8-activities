@@ -33,15 +33,19 @@
 <body>
     <section class="query-section">
         <div class="query-message">Enter your favorite <span>artist</span>:</div>
-        <input id="search-music" spellcheck="false">
+        <div class="wrap">
+            <input id="search-music" class="search" spellcheck="false">
+            <button id="search-music-btn" class="search-button"><img class="search-logo" src="assets/feathericons/search.svg"></button>
+        </div>
         <div>And get suggestions on similar artists!</div>
     </section>
 
     <section class="results-section">
-        <div class="results-message">You might like:</div>
+        <div class="results-message hide">You might like:</div>
 
         <div class="cards">
-            <div class="results-container">
+            <!-- FOR TESTING -->
+            <!-- <div class="results-container">
                 <div class="results-name"><a href="https://en.wikipedia.org/wiki/All_Time_Low" target="_blank">All Time Low</a></div>
                 <div class="results-video-container">
                     <iframe class="results-video" width="420" height="315"
@@ -59,11 +63,11 @@
                     </iframe>
                 </div>
                 <div class="results-snippet truncate-overflow">Panic! at the Disco is the solo project of American musician Brendon Urie. It was originally a pop rock band from Las Vegas, Nevada, formed in 2004 by childhood friends Brendon Urie, Ryan Ross, Spencer Smith and Brent Wilson. They recorded their first demos while they were in high school. Shortly after, the band recorded and released their debut studio album, A Fever You Can't Sweat Out (2005). Popularized by the second single, \"I Write Sins Not Tragedies\", the album was certified triple platinum in the US. In 2006, founding bassist Brent Wilson was fired from the band during an extensive world tour and subsequently replaced by Jon Walker. The band's second album, Pretty. Odd. (2008), was preceded by the single \"Nine in the Afternoon\". That album marked a significant departure from the sound of the band's debut. Ross and Walker, who favored the band's new direction, departed because Urie and Smith wanted to make further changes to the band's style. Ross and Walker subsequently formed a new band, the Young Veins, leaving Urie and Smith as the sole remaining members of Panic! at the Disco."</div>
-            </div>
+            </div> -->
         </div>
     </section>
 
-    <div id="demo"></div>
+    <div class="modal-loading hide"></div>
     <script src="script.js"></script>
 </body>
 </html>

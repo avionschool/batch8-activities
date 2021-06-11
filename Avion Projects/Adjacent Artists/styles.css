@@ -33,8 +33,8 @@ body {
 }
 
 header {
-    height: 20vh;
-    width: 100vw;
+    height: 25vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -61,19 +61,6 @@ button {
 
 button:hover {
     opacity: 0.85;
-}
-
-input {
-    font-family: inherit;
-    font-size: 1.5rem;
-    border: 5px solid var(--main-color-3);
-    margin: 1vh 0;
-    background-image: url(assets/feathericons/search.svg);
-    background-size: 50px 50px;
-    background-repeat: no-repeat;
-    background-position: 2.55%;
-    padding-left: 90px;
-    padding-right: 10px;
 }
 
 a {
@@ -126,7 +113,10 @@ a:hover {
 
 /* QUERY SECTION */
 .query-section {
+    height: 500px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     padding-bottom: 3vh;
@@ -136,12 +126,49 @@ a:hover {
         font-size: 1.5rem;
     }
 
-/* RESULTS SECTION */
-/* .results-section {
-    margin-left: 5vw;
-    margin-right: 5vw;
-} */
 
+    .wrap {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search {
+        color: #063d41;
+        width: 500px;
+        height: 90px;
+        font-family: inherit;
+        font-size: 1.3rem;
+        border: 12px solid var(--main-color-3);
+        border-right: none;
+        border-radius: 5px 0 0 5px;
+        margin: 1vh 0;
+        padding: 10px;
+        outline: none;
+    }
+
+    .search-button {
+        width: 80px;
+        height: 90px;
+        border: 1px solid var(--main-color-3);
+        background: var(--main-color-3);
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        margin: 1vh 0;
+    }
+
+    .search-logo {
+        filter: invert(100%);
+        height: fit-content;
+        width: fit-content;
+        transform: scale(1.75);
+    }
+
+/* RESULTS SECTION */
     .results-message {
         font-size: 1.3rem;
         margin-left: 5vw;
@@ -190,3 +217,18 @@ a:hover {
             text-align: justify;
             text-justify: inter-word;
         }
+
+/* LOADING MODAL */
+.modal-loading {
+    position:   fixed;
+    z-index:    1000;
+    top:        25vh;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: var(--main-color-1)
+                url(assets/images/ajax-loader.gif)
+                50% 20% 
+                no-repeat;
+    background-size: 20vw;
+}
