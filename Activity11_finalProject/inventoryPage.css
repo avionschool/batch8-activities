@@ -182,22 +182,33 @@ tbody tr:hover {
     height: 350px;
     width: 450px;
     position: absolute;
-    margin: 200px 0px 0px 0px;
-    padding: 30px;
-    background-color: black;
-    border: 2px solid black;
-    border-radius: 25px;
-    color: #FFFF66;
+    margin: 180px 0px 0px 0px;
+    background-color: white;
+    border: 2.9px solid black;
+    border-radius: 20px;
 }
 
 .storeHeader {
-    width: 100%;
+    width: 90%;
+    background-color: black;
+    color: #FFFF66;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    font-size: 13px;
+    padding: 5px 0px 5px 0px;
+}
+
+.paddingLeft {
+   padding: 0px 0px 0px 50px;
+}
+
+.paddingRight {
+    padding: 0px 50px 0px 0px;
 }
 
 .storeOptions {
     width: 100%;
-    margin-top: 100px;
-    font-style: solid;
+    margin-top: 120px;
     font-weight: bold;
-    font-size: 23px;
+    font-size: 20px;
 }

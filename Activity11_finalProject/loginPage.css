@@ -7,9 +7,10 @@
 }
 
 button {
-    height: 40px;
-    width: 60px;
+    height: 35px;
+    width: 70px;
     border-radius: 10px;
+    font-size: 15px;
     font-weight: bold;
 }
 button:hover {
@@ -21,7 +22,7 @@ button:hover {
 input {
     height: 30px;
     width: 150px;
-    border: 2px solid black;
+    border: 3px solid yellow;
     border-radius: 10px;
     padding-left: 15px;
     font-weight: bold;
@@ -32,7 +33,7 @@ input:hover {
 }
 
 ::placeholder { 
-    color: #A9A9A9;
+    color: black;
 }
 
 /* styling */
@@ -224,4 +225,12 @@ input:hover {
 }
 .changePopup:hover {
     text-decoration: underline;
+}
+
+#closeLoginPopup:hover {
+    color: grey;
+}
+
+#closeCreateAccountPopup:hover {
+    color: grey;
 }
