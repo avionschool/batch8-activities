@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+
+:root {
+  --modal-duration: 1s;
+  --primary-color: #194286;
+  --secondary-color: #e28631;
+  --thin-outline: solid 1px black;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Baloo Tammudu 2', cursive;
+  transition: transform 0.3s ease;
+}
+
+body.show-nav {
+  /* Width of nav */
+  transform: translateX(200px);
+}
+
+nav {
+  display: block;
+}
+
+nav {
+  background-color: var(--primary-color);
+  border-right: 2px solid rgba(200, 200, 200, 0.1);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  z-index: 100;
+  transform: translateX(-100%);
+}
+
+nav .logo {
+  padding: 30px 0;
+  text-align: center;
+}
+
+nav .logo img {
+  height: 75px;
+  width: 75px;
+  /* border-radius: 50%; */
+}
+
+nav .logo img:hover {
+  cursor: pointer;
+}
+
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+nav ul li {
+  border-bottom: 2px solid rgba(200, 200, 200, 0.1);
+  padding: 20px;
+}
+
+nav ul li:first-of-type {
+  border-top: 2px solid rgba(200, 200, 200, 0.1);
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 130%;
+  position: relative;
+  padding: 40px 15px;
+  text-align: center;
+}
+
+button:focus {
+  outline: none;
+}
+.toggle {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.fa,
+.fas {
+  font-weight: 900;
+  font-family: 'Font Awesome 5 Free';
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-bars::before {
+  content: '\f0c9';
+}
+
+.container {
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 800px;
+}
+
+/* ==========================================
+          --LAYOUT
+========================================== */
+/* .conversation-wrapper {
+  display: flex;
+  flex-direction: column;
+} */
+
+#unsplash-img {
+  display: block;
+}
+/* ==========================================
+          --COMPONENTS
+========================================== */
+/* ? image holder for unsplash API */
+#unsplash-img {
+  outline: var(--thin-outline);
+  opacity: 0.1;
+  /* border-radius: 50%; */
+}
+
+button,
+input[type='submit'] {
+  background-color: var(--secondary-color);
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+/* classlist */
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
