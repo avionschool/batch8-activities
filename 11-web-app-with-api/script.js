@@ -10,8 +10,7 @@ let talk = document.querySelector('#talk');
 let button = document.querySelector('#play');
 let text = document.querySelector('#text');
 
-//unsplash
-const unsplashURL = 'https://api.unsplash.com/photos/random?client_id=64opOkeU6MywZlGJ_lWS643OKA_VEQ5ZhFEHnVF5_nM';
+// unsplash
 let imgHolder = document.querySelector('#unsplash-img');
 
 // JS SDK
@@ -90,7 +89,7 @@ const VoiceRSS = {
 };
 
 // TEST IF API IS WORKING
-// fetch('http://api.voicerss.org/?key=3b34ee60c393405985cc968b8110ba78&hl=en-us&src=Hello, world!')
+// fetch('https://api.fungenerators.com/fact/random')
 //   .then((response) => response.status)
 //   .then((data) => console.log(data));
 
@@ -123,8 +122,6 @@ class Conversation {
   }
 }
 
-// console.log(Conversation.generateQuestion(questArr.length));
-
 // ==========================================
 //            EVENT LISTENERS
 // ==========================================
@@ -134,7 +131,7 @@ document.querySelector('#unsplash-btn').addEventListener('click', () => {
   document.querySelector('#questions').innerHTML = Conversation.generateQuestion(questArr.length);
 
   // fetch API
-  fetch(unsplashURL)
+  fetch('https://api.unsplash.com/photos/random?client_id=64opOkeU6MywZlGJ_lWS643OKA_VEQ5ZhFEHnVF5_nM')
     .then((response) => response.json())
     .then((data) => {
       let img = data.urls.regular;
@@ -187,3 +184,12 @@ document.querySelector('#talk-link').addEventListener('click', () => {
   conversation.classList.add('hide');
   conversation.classList.remove('show');
 });
+
+document.querySelector('#read').addEventListener('click', () => {
+  fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+});
+// .then((data) => console.log(data));
