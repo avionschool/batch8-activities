@@ -6,6 +6,45 @@
     cursor: pointer;
 }
 
+label {
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+input {
+    height: 20px;
+    width: 120px;
+    margin-bottom: 12px;
+    border: 2.5px solid black;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-weight: bold;
+    outline: none;
+    }
+input:hover {
+    border-color: #FFFF66;
+}
+
+::placeholder { 
+    color: black;
+}
+
+button {
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    background-color: white;
+    border: 2.5px solid black;
+    font-size: 15px;
+    font-weight: bold;
+}
+button:hover {
+    border-color: black;
+    background-color: black;
+    color: #FFFF66;
+}
+
 /* styling */
 .flexStyleRow {
     display: flex;
@@ -17,6 +56,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+.flexStyleColumnStart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -36,7 +82,11 @@
     color: #A9A9A9;
 }
 
-.title {
+.displayHeader {
+    width: 90%;
+}
+
+.displayTitle {
     height: 30px;
     width: 400px;
     background-color: #FFFF66;
@@ -44,6 +94,47 @@
     border-bottom-left-radius: 60px;
     border-bottom-right-radius: 60px;
     text-align: center;
+}
+
+.popupCon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 350px;
+    width: 330px;
+    position: absolute;
+    margin: 180px 0px 0px 0px;
+    background-color: white;
+    border: 2.9px solid black;
+    border-radius: 25px;
+}
+
+.popUpHeader {
+    width: 80%;
+    padding: 5px 0px 5px 0px;
+    background-color: #FFFF66;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.popupFooter {
+    width: 20%;
+    padding: 3px 0px 3px 0px;
+    background-color: black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;    
+    font-size: 12px;
+    color: #FFFF66;
+    text-align: center;
+}
+.popupFooter:hover {
+    background-color: #FFFF66;
+    color: black;
 }
 
 /* body */
@@ -109,7 +200,6 @@
 .display {
     height: 100%;
     width: 80%;
-    /* background-color: red; */
 }
 
 /* inventory manager */
@@ -117,10 +207,6 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
-}
-
-.inventoryHeader {
-    width: 90%;
 }
 
 .tableCon {
@@ -174,41 +260,151 @@ tbody tr:hover {
 }
 
 /* store */
-.store {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 350px;
-    width: 450px;
-    position: absolute;
-    margin: 180px 0px 0px 0px;
-    background-color: white;
-    border: 2.9px solid black;
-    border-radius: 20px;
-}
-
-.storeHeader {
-    width: 90%;
-    background-color: black;
-    color: #FFFF66;
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
-    font-size: 13px;
-    padding: 5px 0px 5px 0px;
-}
-
-.paddingLeft {
-   padding: 0px 0px 0px 50px;
-}
-
-.paddingRight {
-    padding: 0px 50px 0px 0px;
-}
-
 .storeOptions {
     width: 100%;
-    margin-top: 120px;
+    margin-bottom: 30px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
+}
+
+/* store product */
+.storeProductForm {
+    width: 100%;
+}
+
+/* cash deposit */
+.cashDepositForm {
+    width: 100%;
+}
+
+.cashDepositFormCon {
+    height: 110px;
+    width: 100%;
+}
+
+.convertedAmount {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.coverButton {
+    margin-bottom: 10px;
+}
+
+/* donate */
+.donateForm {
+    flex-direction: column;
+    height: 190px;
+    width: 100%;
+}
+
+.donateFormCon {
+    width: 85%;
+}
+
+/* transaction history */
+.transactionHistoryCon {
+    flex-direction: column;
+    height: 550px;
+    width: 853px;
+    position: absolute;
+    margin: 105px 0px 0px 213px;
+    background: white;
+    border-style: solid;
+    border-color: red;
+}
+
+.transactionHistoryHeader {
+    width: 40%;
+    border: 3px solid #FFFF66;
+    background-color: #FFFF66;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* background design */
+.styleOne {
+    height: 60px;
+    width: 60px;
+    transform: rotate(30deg);
+    position: absolute;
+    margin-right: 1200px;
+}
+
+.styleTwo {
+    height: 60px;
+    width: 60px;
+    transform: rotate(-30deg);
+    position: absolute;
+    margin-right: 1200px;
+}
+
+.groceryOne {
+    margin-top: 190px;
+}
+
+.groceryTwo {
+    margin-top: 258px;
+}
+
+.groceryThree {
+    margin-top: 325px;
+}
+
+.groceryFour {
+    margin-top: 410px;
+}
+
+.groceryFive {
+    margin-top: 485px;
+}
+
+.grocerySix {
+    height: 65px;
+    width: 65px;
+    transform: rotate(-30deg);
+    position: absolute;
+    margin: 560px 1210px 0px 0px;
+}
+
+.apple {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    margin: 240px 0px 0px 220px;
+    transform: rotate(-30deg);
+}
+
+.mango {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    margin: 250px 0px 0px 220px;
+    transform: rotate(10deg);
+}
+
+.grapes {
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    margin: 250px 0px 0px 220px;
+    transform: rotate(5deg);
+}
+
+.orange {
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    margin: 250px 0px 0px 220px;
+    transform: rotate(30deg);
+}
+
+.carrot {
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    margin: 250px 0px 0px 220px;
+    transform: rotate(0deg);
 }

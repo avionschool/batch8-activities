@@ -37,9 +37,9 @@
             <div class="display">
                 <!-- inventory -->
                 <div class="inventoryCon flexStyleSpaceBetween">
-                    <div class="inventoryHeader flexStyleEvenly">
-                        <h1 class="title">在庫 INVENTORY MANAGER</h1>
-                        <h1 class="currentCash">Balance: 0.00</h1>
+                    <div class="displayHeader flexStyleEvenly">
+                        <h1 class="displayTitle">在庫 INVENTORY MANAGER</h1>
+                        <h1>Balance: 0.00</h1>
                     </div>
                     <div class="tableCon">
                         <table class="tableStyle">
@@ -137,7 +137,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <p class="reminder">Please keep this dashboard clean and updated at all times!</p>
+                    <section class="reminder">Please keep this dashboard clean and updated at all times!</section>
                 </div>
             </div>
         </section>
@@ -149,111 +149,253 @@
         </section>
 
         <!-- popups -->
-        <main class="store">
-            <section class="storeHeader flexStyleSpaceBetween">
-                <h1 class="paddingLeft">お店 Store</h1>
-                <h1 class="paddingRight">&#10006;</h1>
-            </section>
+        <!-- store -->
+        <main class="popupCon hidden">
+            <section class="popUpHeader">お店 Store</section>
             <section class="storeOptions flexStyleEvenly">
-                <p class="linkHover">Cash Deposit</p>
-                <p class="linkHover">Store Product</p>
+                <div class="flexStyleColumn linkHover">    
+                    <p>現金預金</p>
+                    <p>Cash Deposit</p>
+                </div>
+                <div class="flexStyleColumn linkHover">
+                    <p>お店</p>
+                    <p>Store Product</p>
+                </div>
             </section>
-            <!-- <section>
-                <div>
-                    <label>Donor</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label>Date</label>
-                    <input type="date">
-                </div>
-                <div>
-                    <label>Item Description</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label>Quantity</label>
-                    <input type="number">
-                </div>
-                <p>Store</p>
-            </section> -->
+            <section class="popupFooter">&#10006;</section>
+            <div class="apple">
+                <img src="pictures/design/apple.png" alt="apple" height="100%" width="100%">
+            </div>
         </main>
+
+        <!-- store-cash deposit -->
+        <main class="popupCon hidden">
+            <section class="popUpHeader">現金預金 Cash Deposit</section>
+            <section class="cashDepositForm flexStyleColumn">
+                <div class="cashDepositFormCon flexStyleEvenly">
+                    <div class="flexStyleColumnStart">
+                        <label>Donor</label>
+                        <label>Currency</label>
+                        <label>Amount</label>
+                    </div>
+                    <div class="flexStyleColumnStart">
+                        <input type="text" placeholder="donor">
+                        <input type="text" placeholder="currency">
+                        <input type="number" placeholder="amount">
+                    </div>
+                    <button class="coverButton">Convert</button>
+                </div>
+                <div class="cashDepositFormCon flexStyleEvenly">
+                    <p class="convertedAmount">Converted amout is 0.00.<br>Do you want to deposit?</p>
+                    <button>Deposit</button>
+                </div>
+            </section>
+            <section class="popupFooter">&#10006;</section>
+            <div class="mango">
+                <img src="pictures/design/mango.png" alt="mango" height="100%" width="100%">
+            </div>
+        </main>
+
+        <!-- store-store product -->
+        <main class="popupCon hidden">
+            <section class="popUpHeader">お店 Store Product</section>    
+            <section class="storeProductForm flexStyleColumn">
+                <div class="storeProductForm flexStyleEvenly">
+                    <div class="flexStyleColumnStart">
+                        <label>Donor</label>
+                        <label>Date</label>
+                        <label>Item Description</label>
+                        <label>Quantity</label>
+                    </div>
+                    <div class="flexStyleColumn">
+                        <input type="text" placeholder="donor">
+                        <input type="date">
+                        <input type="text" placeholder="description">
+                        <input type="number" placeholder="quantity">
+                    </div>
+                </div>
+                <button>Store</button>
+            </section>
+            <section class="popupFooter">&#10006;</section>
+            <div class="grapes">
+                <img src="pictures/design/grapes.png" alt="grapes" height="100%" width="100%">
+            </div>
+        </main>
+
+        <!-- donate -->
+        <main class="popupCon hidden">
+            <section class="popUpHeader">寄付 Donate</section>
+            <section class="donateForm flexStyleSpaceBetween">
+                <div class="donateFormCon flexStyleSpaceBetween">
+                    <div class="flexStyleColumnStart">
+                        <label>Product Code</label>
+                        <label>Quantity</label>
+                        <label>Receiver</label>
+                        <label>ID Presented</label>
+                    </div>
+                    <div class="flexStyleColumnStart">
+                        <input type="number">
+                        <input type="number">
+                        <input type="text">
+                        <input type="text">
+                    </div>
+                </div>
+                <button>Finish</button>
+            </section>
+            <section class="popupFooter">&#10006;</section>
+            <div class="orange">
+                <img src="pictures/design/orange.png" alt="orange" height="100%" width="100%">
+            </div>
+        </main>
+
+        <!-- transaction history -->
+        <main class="transactionHistoryCon flexStyleSpaceBetween hidden">
+            <section class="displayHeader flexStyleEvenly">
+                <h1 class="displayTitle">歴史 TRANSACTION HISTORY</h1>
+                <h1>Balance: 0.00</h1>
+            </section>
+            <section class="tableCon">
+                <table class="tableStyle">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Product Code</th>
+                            <th>Item Description</th>
+                            <th>Quantity</th>
+                            <th>Receiver/Donor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Store</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>10</td>
+                            <td>Jan</td>
+                        </tr>
+                        <tr>
+                            <td>Donate</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>5</td>
+                            <td>Nikka</td>
+                        </tr>
+                        <tr>
+                            <td>Store</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>10</td>
+                            <td>Jan</td>
+                        </tr>
+                        <tr>
+                            <td>Donate</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>5</td>
+                            <td>Nikka</td>
+                        </tr>
+                        <tr>
+                            <td>Store</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>10</td>
+                            <td>Jan</td>
+                        </tr>
+                        <tr>
+                            <td>Donate</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>5</td>
+                            <td>Nikka</td>
+                        </tr>
+                        <tr>
+                            <td>Store</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>10</td>
+                            <td>Jan</td>
+                        </tr>
+                        <tr>
+                            <td>Donate</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>5</td>
+                            <td>Nikka</td>
+                        </tr>
+                        <tr>
+                            <td>Store</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>10</td>
+                            <td>Jan</td>
+                        </tr>
+                        <tr>
+                            <td>Donate</td>
+                            <td>June 12, 2021</td>
+                            <td>001</td>
+                            <td>Hotdog</td>
+                            <td>5</td>
+                            <td>Nikka</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="reminder">Please make sure all transactions are logged here.</section>
+        </main>
+
+        <!-- add donor -->
+        <main class="popupCon hidden">
+            <section class="popUpHeader">加える Add Donor/location</section>
+            <section class="flexStyleColumn">
+                <div>
+                    <label>Donor Name</label>
+                    <input type="text" placeholder="name">
+                </div>
+                <button>Add</button>
+            </section>
+            <section class="flexStyleColumn">
+                <div>
+                    <label>Location</label>
+                    <input type="text" placeholder="location">
+                </div>
+                <button>Add</button>    
+            </section>
+            <section class="popupFooter">&#10006;</section>
+            <div class="carrot">
+                <img src="pictures/design/carrot.png" alt="carrot" height="100%" width="100%">
+            </div>
+        </main>
+
+        <!-- background design -->
+        <div class="styleOne groceryOne">
+            <img src="pictures/design/groceryOne.png" alt="groceryOne" height="100%" width="100%">
+        </div>
+        <div class="styleTwo groceryTwo">
+            <img src="pictures/design/groceryTwo.png" alt="groceryTwo" height="100%" width="100%">
+        </div>
+        <div class="styleOne groceryThree">
+            <img src="pictures/design/groceryThree.png" alt="groceryThree" height="100%" width="100%">
+        </div>
+        <div class="styleTwo groceryFour">
+            <img src="pictures/design/groceryFour.png" alt="groceryFour" height="100%" width="100%">
+        </div>
+        <div class="styleOne groceryFive">
+            <img src="pictures/design/groceryFive.png" alt="groceryFive" height="100%" width="100%">
+        </div>
+        <div class="grocerySix">
+            <img src="pictures/design/grocerySix.png" alt="grocerySix" height="100%" width="100%">
+        </div>
 
     </main>
 </body>
 </html>
-
-<!-- 1st -->
-
-
-<!-- 2nd -->
-<!-- <div>
-
-</div> -->
-
-
-
-
-
-
-<!--2nd.2-->
-<!-- <div>
-    <label>Currency</label>
-    <input type="text" placeholder="currency">
-
-    <label>Amount</label>
-    <input type="number" placeholder="amount">
-
-    <button>変換する Convert</button>
-</div> -->
-
-
-
-
-<!-- 2nd.2.1 -->
-<!-- <div>
-    <p>Converted amout is ... Do you want to deposit?</p>
-    <button>保証金 Deposit</button>
-</div> -->
-
-<!--2nd.2.2-->
-<!-- <div>
-    <h1>Donation Successful!</h1>
-    <p>ありがとうございました</p>
-</div> -->
-
-
-
-
-
-
-<!-- <div>
-    <label>Amount</label>
-    <input type="number" placeholder="amount in pesos">
-
-    <button>変換する Convert</button>
-</div> -->
-
-
-<!-- 
-
-<div>
-    <label>Product Code</label>
-    <input type="text">
-
-    <label>Quantity</label>
-    <input type="number">
-
-    <label>Receiver</label>
-    <input type="text">
-    
-    <label>ID Presented</label>
-    <input type="text">
-
-    <button>寄付 Donate</button>
-</div>
-
-<div>
-    <p>Current Cash</p>
-</div>
- -->
