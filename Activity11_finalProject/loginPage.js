@@ -38,3 +38,11 @@ document.getElementById('closeLoginPopup').addEventListener('click', function() 
 document.getElementById('closeCreateAccountPopup').addEventListener('click', function() {
     createAccountPopup.classList.add('hidden');
 });
+
+function exit() {
+    storePopup.classList.add('hidden');
+    cashDepositPopup.classList.add('hidden');
+    storeProductPopup.classList.add('hidden');
+    donatePopup.classList.add('hidden');
+    addDonorLocationPopup.classList.add('hidden');
+};

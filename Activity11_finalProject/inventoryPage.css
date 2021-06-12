@@ -310,8 +310,6 @@ tbody tr:hover {
     position: absolute;
     margin: 105px 0px 0px 213px;
     background: white;
-    border-style: solid;
-    border-color: red;
 }
 
 .transactionHistoryHeader {

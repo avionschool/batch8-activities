@@ -25,18 +25,18 @@
             <div class="sideBar">
                 <h1>MENU</h1>
                 <div class="functionsCon flexStyleEvenly">
-                    <div class="functions linkHover">在庫 Inventory</div>
-                    <div class="functions linkHover">お店 Store</div>
-                    <div class="functions linkHover">寄付 Donate</div>
-                    <div class="functions linkHover">歴史<br>Transaction History</div>
-                    <div class="functions linkHover">ドナー Add Donor</div>
-                    <div class="functions linkHover">ロケーション<br>Add Location</div>
+                    <div class="functions linkHover" id="inventoryLink">在庫 Inventory</div>
+                    <div class="functions linkHover" id="storeLink">お店 Store</div>
+                    <div class="functions linkHover" id="donateLink">寄付 Donate</div>
+                    <div class="functions linkHover" id="transactionHistoryLink">歴史<br>Transaction History</div>
+                    <div class="functions linkHover" id="addDonorLink">ドナー Add Donor</div>
+                    <div class="functions linkHover" id="addLocationLink">ロケーション<br>Add Location</div>
                 </div>
             </div>
             <!-- display -->
             <div class="display">
                 <!-- inventory -->
-                <div class="inventoryCon flexStyleSpaceBetween">
+                <div class="inventoryCon flexStyleSpaceBetween" id="inventoryPopup">
                     <div class="displayHeader flexStyleEvenly">
                         <h1 class="displayTitle">在庫 INVENTORY MANAGER</h1>
                         <h1>Balance: 0.00</h1>
@@ -147,29 +147,29 @@
             <h1>ありがとうございました</h1>
             <h2>Thank you for your service!</h2>
         </section>
-
+    
         <!-- popups -->
         <!-- store -->
-        <main class="popupCon hidden">
+        <main class="popupCon hidden" id="storePopup">
             <section class="popUpHeader">お店 Store</section>
             <section class="storeOptions flexStyleEvenly">
-                <div class="flexStyleColumn linkHover">    
+                <div class="flexStyleColumn linkHover" id="cashDepositLink">    
                     <p>現金預金</p>
                     <p>Cash Deposit</p>
                 </div>
-                <div class="flexStyleColumn linkHover">
+                <div class="flexStyleColumn linkHover" id="storeProductLink">
                     <p>お店</p>
                     <p>Store Product</p>
                 </div>
             </section>
-            <section class="popupFooter">&#10006;</section>
+            <section class="popupFooter" onclick="exit()">&#10006;</section>
             <div class="apple">
                 <img src="pictures/design/apple.png" alt="apple" height="100%" width="100%">
             </div>
         </main>
 
         <!-- store-cash deposit -->
-        <main class="popupCon hidden">
+        <main class="popupCon hidden" id="CashDepositPopup">
             <section class="popUpHeader">現金預金 Cash Deposit</section>
             <section class="cashDepositForm flexStyleColumn">
                 <div class="cashDepositFormCon flexStyleEvenly">
@@ -190,14 +190,14 @@
                     <button>Deposit</button>
                 </div>
             </section>
-            <section class="popupFooter">&#10006;</section>
+            <section class="popupFooter" onclick="exit()">&#10006;</section>
             <div class="mango">
                 <img src="pictures/design/mango.png" alt="mango" height="100%" width="100%">
             </div>
         </main>
 
         <!-- store-store product -->
-        <main class="popupCon hidden">
+        <main class="popupCon hidden" id="storeProductPopup">
             <section class="popUpHeader">お店 Store Product</section>    
             <section class="storeProductForm flexStyleColumn">
                 <div class="storeProductForm flexStyleEvenly">
@@ -216,14 +216,14 @@
                 </div>
                 <button>Store</button>
             </section>
-            <section class="popupFooter">&#10006;</section>
+            <section class="popupFooter" onclick="exit()">&#10006;</section>
             <div class="grapes">
                 <img src="pictures/design/grapes.png" alt="grapes" height="100%" width="100%">
             </div>
         </main>
 
         <!-- donate -->
-        <main class="popupCon hidden">
+        <main class="popupCon hidden" id="donatePopup">
             <section class="popUpHeader">寄付 Donate</section>
             <section class="donateForm flexStyleSpaceBetween">
                 <div class="donateFormCon flexStyleSpaceBetween">
@@ -242,14 +242,14 @@
                 </div>
                 <button>Finish</button>
             </section>
-            <section class="popupFooter">&#10006;</section>
+            <section class="popupFooter" onclick="exit()">&#10006;</section>
             <div class="orange">
                 <img src="pictures/design/orange.png" alt="orange" height="100%" width="100%">
             </div>
         </main>
 
         <!-- transaction history -->
-        <main class="transactionHistoryCon flexStyleSpaceBetween hidden">
+        <main class="transactionHistoryCon flexStyleSpaceBetween hidden" id="transactionHistoryPopup">
             <section class="displayHeader flexStyleEvenly">
                 <h1 class="displayTitle">歴史 TRANSACTION HISTORY</h1>
                 <h1>Balance: 0.00</h1>
@@ -353,8 +353,8 @@
             <section class="reminder">Please make sure all transactions are logged here.</section>
         </main>
 
-        <!-- add donor -->
-        <main class="popupCon hidden">
+        <!-- add donor & location -->
+        <main class="popupCon hidden" id="addDonorLocationPopup">
             <section class="popUpHeader">加える Add Donor/location</section>
             <section class="flexStyleColumn">
                 <div>
@@ -370,7 +370,7 @@
                 </div>
                 <button>Add</button>    
             </section>
-            <section class="popupFooter">&#10006;</section>
+            <section class="popupFooter" onclick="exit()">&#10006;</section>
             <div class="carrot">
                 <img src="pictures/design/carrot.png" alt="carrot" height="100%" width="100%">
             </div>
@@ -395,7 +395,7 @@
         <div class="grocerySix">
             <img src="pictures/design/grocerySix.png" alt="grocerySix" height="100%" width="100%">
         </div>
-
+        
     </main>
 </body>
 </html>
