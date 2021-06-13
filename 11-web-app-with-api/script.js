@@ -110,9 +110,13 @@ button.addEventListener('click', (e) => {
 // ==========================================
 
 async function getNewImage() {
+  document.querySelector('#image').classList.add('loader');
+  document.querySelector('#image').style.backgroundImage = 'none';
+
   return fetch('https://api.unsplash.com/photos/random?client_id=64opOkeU6MywZlGJ_lWS643OKA_VEQ5ZhFEHnVF5_nM')
     .then((response) => response.json())
     .then((data) => {
+      document.querySelector('#image').classList.remove('loader');
       return data.urls.regular;
     });
 }
@@ -230,7 +234,7 @@ document.querySelector('#unsplash-btn').addEventListener('click', async () => {
   document.querySelector('#questions').innerHTML = Conversation.generateQuestion(questArr.length);
 
   let img = await getNewImage();
-  document.getElementById('unsplash-img').src = img;
+  document.querySelector('#image').style.backgroundImage = `url('${img}')`;
 });
 
 window.onload = () => {
