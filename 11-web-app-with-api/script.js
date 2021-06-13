@@ -130,7 +130,15 @@ class Settings {
 
   static saveLanguage(language) {
     const languages = Settings.getLanguagesKey();
+
+    // will delete value of languages key first
+    if (languages.length > 0) {
+      languages.splice(0, 1);
+    }
+
     languages.push(language);
+
+    // languages.push(language);
     localStorage.setItem('languages', JSON.stringify(languages));
   }
 }
