@@ -98,13 +98,22 @@ button:focus {
 /* ==========================================
           --LAYOUT
 ========================================== */
-/* .conversation-wrapper {
+.conversation-wrapper {
   display: flex;
   flex-direction: column;
-} */
+  justify-content: center;
+  align-items: center;
+}
 
-#unsplash-img {
-  /* display: none; */
+#unsplash-btn {
+  position: absolute;
+  right: 1em;
+  top: 60%;
+  background-image: url(assets/arrow-right-solid.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: none;
+  width: 2em;
 }
 
 .button-wrapper input {
@@ -117,6 +126,10 @@ button:focus {
 
 .modal-content p {
   text-align: center;
+}
+
+.image-wrapper {
+  position: relative;
 }
 /* ==========================================
           --COMPONENTS
@@ -137,12 +150,9 @@ button:focus {
   right: 20px;
 }
 
-.fa-tools::before {
-  content: '\f7d9';
-}
-
-.fa-bars::before {
-  content: '\f0c9';
+.info {
+  top: 20px;
+  right: 20px;
 }
 
 .fa,
@@ -275,12 +285,14 @@ label {
 }
 
 .image {
-  height: 350px;
-  width: 350px;
+  height: 25em;
+  width: 25em;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
-  /* outline: 1px solid rgb(214, 211, 211); */
+  outline: 1px solid rgb(214, 211, 211);
+  /* for testing */
+  background-image: url(assets/image-regular.svg);
 }
 
 /* ==========================================

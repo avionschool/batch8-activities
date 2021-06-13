@@ -109,7 +109,7 @@ button.addEventListener('click', (e) => {
 //            FUNCTIONS
 // ==========================================
 
-async function getNewImage() {
+async function callUnsplashAPI() {
   document.querySelector('#image').classList.add('loader');
   document.querySelector('#image').style.backgroundImage = 'none';
 
@@ -117,7 +117,8 @@ async function getNewImage() {
     .then((response) => response.json())
     .then((data) => {
       document.querySelector('#image').classList.remove('loader');
-      return data.urls.regular;
+      // return data.urls.regular;
+      return data;
     });
 }
 // ==========================================
@@ -233,7 +234,9 @@ document.querySelector('#unsplash-btn').addEventListener('click', async () => {
   // displays random question
   document.querySelector('#questions').innerHTML = Conversation.generateQuestion(questArr.length);
 
-  let img = await getNewImage();
+  let data = await callUnsplashAPI();
+  let img = data.urls.regular;
+  // let info = data.urls
   document.querySelector('#image').style.backgroundImage = `url('${img}')`;
 });
 
