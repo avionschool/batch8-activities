@@ -108,7 +108,7 @@ button.addEventListener('click', (e) => {
 });
 
 // ==========================================
-//            FUNCTIONS
+//            CLASSES
 // ==========================================
 let questArr = ['What can you see in the photo?', 'How does picture make you feel?', "What's the first thing that comes to your mind when you see this?", 'What colors can you see?'];
 
@@ -122,9 +122,29 @@ class Conversation {
   }
 }
 
+class Settings {
+  static getLanguagesKey() {
+    let langKey;
+    return (langKey = localStorage.getItem('languages') === null ? [] : JSON.parse(localStorage.getItem('languages')));
+  }
+
+  static saveLanguage(language) {
+    const languages = Settings.getLanguagesKey();
+    languages.push(language);
+    localStorage.setItem('languages', JSON.stringify(languages));
+  }
+}
+
 // ==========================================
 //            EVENT LISTENERS
 // ==========================================
+
+document.querySelector('#save').addEventListener('click', (e) => {
+  e.preventDefault();
+  const dropdown = document.querySelector('#language');
+  const selectedLanguage = dropdown.options[dropdown.selectedIndex].value;
+  Settings.saveLanguage(selectedLanguage);
+});
 
 document.querySelector('#unsplash-btn').addEventListener('click', () => {
   // displays random question
@@ -192,4 +212,3 @@ document.querySelector('#read').addEventListener('click', () => {
       console.log(data);
     });
 });
-// .then((data) => console.log(data));

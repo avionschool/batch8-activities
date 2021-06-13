@@ -171,13 +171,18 @@ input[type='submit'] {
 }
 
 /* non CTA button */
-#cancel {
-  border: 1px solid black;
+#close {
+  border: 1px solid rgb(128, 128, 128);
   border-radius: 5px;
   cursor: pointer;
   padding: 8px 12px;
   background-color: var(--non-CTA-color);
-  color: rgb(0, 0, 0);
+  color: var(--secondary-color);
+}
+
+#close:hover,
+input[type='submit']:hover {
+  opacity: 0.5;
 }
 
 .modal {
