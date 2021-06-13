@@ -4,6 +4,7 @@
   --modal-duration: 1s;
   --primary-color: #194286;
   --secondary-color: #e28631;
+  --non-CTA-color: #ffffff;
   --thin-outline: solid 1px black;
 }
 
@@ -28,9 +29,7 @@ nav {
 }
 
 nav {
-  background-color: var(--primary-color);
   border-right: 2px solid rgba(200, 200, 200, 0.1);
-  color: #fff;
   position: fixed;
   top: 0;
   left: 0;
@@ -71,7 +70,6 @@ nav ul li:first-of-type {
 }
 
 nav ul li a {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -80,8 +78,6 @@ nav ul li a:hover {
 }
 
 header {
-  background-color: var(--primary-color);
-  color: #fff;
   font-size: 130%;
   position: relative;
   padding: 40px 15px;
@@ -131,10 +127,34 @@ button:focus {
 #unsplash-img {
   display: block;
 }
+
+.button-wrapper input {
+  float: right;
+  margin: 0 1em 1em;
+}
+
+.modal-content h3 {
+  text-align: center;
+}
 /* ==========================================
           --COMPONENTS
 ========================================== */
-/* ? image holder for unsplash API */
+
+nav,
+header,
+nav ul li a,
+button,
+input[type='submit'],
+.modal-content h3 {
+  color: #ffffff;
+}
+
+nav,
+header,
+.modal-content h3 {
+  background-color: var(--primary-color);
+}
+
 #unsplash-img {
   outline: var(--thin-outline);
   opacity: 0.1;
@@ -146,9 +166,71 @@ input[type='submit'] {
   background-color: var(--secondary-color);
   border: 0;
   border-radius: 5px;
-  color: #fff;
   cursor: pointer;
   padding: 8px 12px;
+}
+
+/* non CTA button */
+#cancel {
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: var(--non-CTA-color);
+  color: rgb(0, 0, 0);
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0 2.2em 0 2.2em;
+}
+
+.modal-content {
+  background-color: white;
+  margin: auto;
+  border: 1px solid #888;
+  width: 40%;
+  height: auto;
+  position: fixed;
+  top: 200px;
+  animation-name: animatemodal;
+  animation-duration: 0.5s;
+  /* border-radius: 1em; */
+}
+
+.form-field,
+label {
+  display: block;
+}
+
+.form-field {
+  margin: 0 1em 0 1em;
+}
+
+.button-wrapper {
+  padding: 1em;
+}
+
+/* ==========================================
+          --KEYFRAMES
+========================================== */
+@keyframes animatemodal {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 200px;
+    opacity: 1;
+  }
 }
 
 /* classlist */
