@@ -198,8 +198,6 @@ header,
 
 #unsplash-img {
   outline: var(--thin-outline);
-  opacity: 0.1;
-  /* border-radius: 50%; */
 }
 
 button,

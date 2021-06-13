@@ -11,9 +11,6 @@ let settings = document.querySelector('#settings-modal');
 let button = document.querySelector('#play');
 let text = document.querySelector('#text');
 
-// unsplash
-let imgHolder = document.querySelector('#unsplash-img');
-
 // Speech to text API
 const VoiceRSS = {
   speech: function (e) {
@@ -108,6 +105,17 @@ button.addEventListener('click', (e) => {
   });
 });
 
+// ==========================================
+//            FUNCTIONS
+// ==========================================
+
+async function getNewImage() {
+  return fetch('https://api.unsplash.com/photos/random?client_id=64opOkeU6MywZlGJ_lWS643OKA_VEQ5ZhFEHnVF5_nM')
+    .then((response) => response.json())
+    .then((data) => {
+      return data.urls.regular;
+    });
+}
 // ==========================================
 //            CLASSES
 // ==========================================
@@ -217,17 +225,12 @@ document.querySelector('#close').addEventListener('click', () => {
 });
 
 // ! CONVERSATION THERAPY
-document.querySelector('#unsplash-btn').addEventListener('click', () => {
+document.querySelector('#unsplash-btn').addEventListener('click', async () => {
   // displays random question
   document.querySelector('#questions').innerHTML = Conversation.generateQuestion(questArr.length);
 
-  fetch('https://api.unsplash.com/photos/random?client_id=64opOkeU6MywZlGJ_lWS643OKA_VEQ5ZhFEHnVF5_nM')
-    .then((response) => response.json())
-    .then((data) => {
-      let img = data.urls.regular;
-      imgHolder.style.opacity = '1.0';
-      document.getElementById('unsplash-img').src = img;
-    });
+  let img = await getNewImage();
+  document.getElementById('unsplash-img').src = img;
 });
 
 window.onload = () => {
