@@ -130,10 +130,13 @@ button:focus {
 
 .button-wrapper input {
   float: right;
-  margin: 0 1em 1em;
 }
 
 .modal-content h3 {
+  text-align: center;
+}
+
+.modal-content p {
   text-align: center;
 }
 /* ==========================================
@@ -153,6 +156,27 @@ nav,
 header,
 .modal-content h3 {
   background-color: var(--primary-color);
+}
+
+/* alert message */
+
+.alert {
+  /* padding: 15px; */
+  /* margin-bottom: 20px; */
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.alert-success {
+  color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
 }
 
 #unsplash-img {
@@ -224,6 +248,10 @@ label {
   padding: 1em;
 }
 
+.button-wrapper input {
+  margin: 0 1em 1em;
+}
+
 /* ==========================================
           --KEYFRAMES
 ========================================== */
@@ -236,6 +264,15 @@ label {
     top: 200px;
     opacity: 1;
   }
+}
+
+/* @keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  } */
 }
 
 /* classlist */

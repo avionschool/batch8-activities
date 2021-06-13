@@ -75,20 +75,32 @@
   <div id="settings-modal" class="modal">
     <div class="modal-content">
       <h3>Settings</h3>
+      <div class="alert">
+        <p id="error"></p>
+      </div>
       <form>
         <div class="form-field">
           <label for="language">Language and voice</label>
           <select name="select" id="language" class="select">
-            <option value="">---Select language and voice---</option>
+            <option value="0">---Select language and voice---</option>
             <optgroup class="lang-group" label="Arabic (Egypt)">
               <option value="ar-eg:Oda">Oda (Female)</option>
             </optgroup>
             <optgroup class="lang-group" label="Arabic (Saudi Arabia)">
               <option value="ar-sa:Salim">Salim (Male)</option>
             </optgroup>
-            <optgroup class="lang-group" label="Bulgarian"></optgroup>
-            <optgroup class="lang-group" label="Catalan"></optgroup>
-            <optgroup class="lang-group" label="Chinese (China)"></optgroup>
+            <optgroup class="lang-group" label="Bulgarian">
+              <option value="bg-bg:Dimo">Dimo (Male)</option>
+            </optgroup>
+            <optgroup class="lang-group" label="Catalan">
+              <option value="ca-es:Rut">Rut (Female)</option>
+            </optgroup>
+            <optgroup class="lang-group" label="Chinese (China)">
+              <option value="zh-cn:Luli">Luli (Female)</option>
+              <option value="zh-cn:Shu">Shu (Female)</option>
+              <option value="zh-cn:Chow">Chow (Female)</option>
+              <option value="zh-cn:Wang">Wang (Male)</option>
+            </optgroup>
             <optgroup class="lang-group" label="Chinese (Hong Kong)"></optgroup>
             <optgroup class="lang-group" label="Chinese (Taiwan)"></optgroup>
             <optgroup class="lang-group" label="Croatian"></optgroup>

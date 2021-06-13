@@ -137,9 +137,23 @@ class Settings {
     }
 
     languages.push(language);
-
-    // languages.push(language);
     localStorage.setItem('languages', JSON.stringify(languages));
+  }
+
+  static displayError(type) {
+    let msg;
+    switch (type) {
+      case 'languageError':
+        msg = 'Please select a language first.';
+        break;
+      case 'sucess':
+        msg = 'Sucess. Changes saved.';
+        break;
+      default:
+        break;
+    }
+
+    return msg;
   }
 }
 
@@ -151,14 +165,27 @@ document.querySelector('#save').addEventListener('click', (e) => {
   e.preventDefault();
   const dropdown = document.querySelector('#language');
   const selectedLanguage = dropdown.options[dropdown.selectedIndex].value;
-  Settings.saveLanguage(selectedLanguage);
+
+  let msg = document.querySelector('#error');
+
+  // if there's no language selected
+  if (selectedLanguage === '0') {
+    // error msg codes here
+    msg.classList.add('alert-danger');
+    msg.innerHTML = Settings.displayError('languageError');
+    return;
+  } else {
+    msg.classList.remove('alert-danger');
+    msg.classList.add('alert-success');
+    msg.innerHTML = Settings.displayError('sucess');
+    Settings.saveLanguage(selectedLanguage);
+  }
 });
 
 document.querySelector('#unsplash-btn').addEventListener('click', () => {
   // displays random question
   document.querySelector('#questions').innerHTML = Conversation.generateQuestion(questArr.length);
 
-  // fetch API
   fetch('https://api.unsplash.com/photos/random?client_id=64opOkeU6MywZlGJ_lWS643OKA_VEQ5ZhFEHnVF5_nM')
     .then((response) => response.json())
     .then((data) => {
