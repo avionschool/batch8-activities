@@ -6,6 +6,7 @@
 let home = document.querySelector('#home');
 let conversation = document.querySelector('#conversation');
 let talk = document.querySelector('#talk');
+let settings = document.querySelector('#settings-modal');
 
 let button = document.querySelector('#play');
 let text = document.querySelector('#text');
@@ -13,7 +14,7 @@ let text = document.querySelector('#text');
 // unsplash
 let imgHolder = document.querySelector('#unsplash-img');
 
-// JS SDK
+// Speech to text API
 const VoiceRSS = {
   speech: function (e) {
     this._validate(e), this._request(e);
@@ -88,7 +89,7 @@ const VoiceRSS = {
   },
 };
 
-// TEST IF API IS WORKING
+// For testing purposes only
 // fetch('https://api.fungenerators.com/fact/random')
 //   .then((response) => response.status)
 //   .then((data) => console.log(data));
@@ -98,8 +99,8 @@ button.addEventListener('click', (e) => {
   VoiceRSS.speech({
     key: '3b34ee60c393405985cc968b8110ba78',
     src: text.value,
-    hl: 'en-us',
-    v: 'Linda',
+    hl: Conversation.getLanguage(),
+    v: Conversation.getVoice(),
     r: 0,
     c: 'mp3',
     f: '44khz_16bit_stereo',
@@ -120,6 +121,28 @@ class Conversation {
   static randomNum(num) {
     return Math.floor(Math.random() * num);
   }
+
+  static getLanguage() {
+    const languages = Settings.getLanguagesKey();
+
+    // if there's no value will default to english (US)
+    if (languages.length === 0) {
+      return 'en-us';
+    } else {
+      // splits value by colon and stores into an array
+      return languages[0].split(':')[0];
+    }
+  }
+
+  static getVoice() {
+    const languages = Settings.getLanguagesKey();
+    // if there's no value will default to Linda
+    if (languages.length === 0) {
+      return 'Linda';
+    } else {
+      return languages[0].split(':')[1];
+    }
+  }
 }
 
 class Settings {
@@ -131,8 +154,8 @@ class Settings {
   static saveLanguage(language) {
     const languages = Settings.getLanguagesKey();
 
-    // will delete value of languages key first
     if (languages.length > 0) {
+      // delete value to overwrite later
       languages.splice(0, 1);
     }
 
@@ -146,8 +169,8 @@ class Settings {
       case 'languageError':
         msg = 'Please select a language first.';
         break;
-      case 'sucess':
-        msg = 'Sucess. Changes saved.';
+      case 'success':
+        msg = 'Success. Changes saved.';
         break;
       default:
         break;
@@ -156,10 +179,15 @@ class Settings {
     return msg;
   }
 }
-
 // ==========================================
 //            EVENT LISTENERS
 // ==========================================
+
+// ! SETTINGS
+document.querySelector('#settings').addEventListener('click', () => {
+  settings.classList.add('show');
+  settings.classList.remove('hide');
+});
 
 document.querySelector('#save').addEventListener('click', (e) => {
   e.preventDefault();
@@ -177,11 +205,18 @@ document.querySelector('#save').addEventListener('click', (e) => {
   } else {
     msg.classList.remove('alert-danger');
     msg.classList.add('alert-success');
-    msg.innerHTML = Settings.displayError('sucess');
+    msg.innerHTML = Settings.displayError('success');
     Settings.saveLanguage(selectedLanguage);
   }
 });
 
+document.querySelector('#close').addEventListener('click', () => {
+  settings.classList.add('hide');
+  settings.classList.remove('show');
+  document.querySelector('#error').innerHTML = '';
+});
+
+// ! CONVERSATION THERAPY
 document.querySelector('#unsplash-btn').addEventListener('click', () => {
   // displays random question
   document.querySelector('#questions').innerHTML = Conversation.generateQuestion(questArr.length);
@@ -201,6 +236,7 @@ window.onload = () => {
   conversation.classList.remove('show');
   talk.classList.add('hide');
   talk.classList.remove('show');
+  settings.classList.add('hide');
 };
 
 document.querySelector('#toggle').addEventListener('click', () => {

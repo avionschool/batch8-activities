@@ -87,27 +87,11 @@ header {
 button:focus {
   outline: none;
 }
-.toggle {
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-}
 
-.fa,
-.fas {
-  font-weight: 900;
-  font-family: 'Font Awesome 5 Free';
-}
 
-.fa-2x {
-  font-size: 2em;
-}
 
-.fa-bars::before {
-  content: '\f0c9';
-}
+
+
 
 .container {
   padding: 15px;
@@ -142,6 +126,39 @@ button:focus {
 /* ==========================================
           --COMPONENTS
 ========================================== */
+.toggle {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  cursor: pointer;
+}
+
+.drawer {
+  top: 20px;
+  left: 20px;
+}
+
+.settings {
+  top: 20px;
+  right: 20px;
+}
+
+.fa-tools::before {
+  content: '\f7d9';
+}
+
+.fa-bars::before {
+  content: '\f0c9';
+}
+
+.fa,
+.fas {
+  font-weight: 900;
+  font-family: 'Font Awesome 5 Free';
+}
+
+.fa-2x {
+  font-size: 2em;
+}
 
 nav,
 header,
@@ -210,7 +227,7 @@ input[type='submit']:hover {
 }
 
 .modal {
-  display: block;
+  /* display: none; */
   position: fixed;
   z-index: 1;
   left: 0;
@@ -230,6 +247,7 @@ input[type='submit']:hover {
   height: auto;
   position: fixed;
   top: 200px;
+  left: 30%;
   animation-name: animatemodal;
   animation-duration: 0.5s;
   /* border-radius: 1em; */
