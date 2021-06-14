@@ -105,6 +105,24 @@ a:hover {
     background: white;
 }
 
+/* font-awesome */
+.fa-wikipedia-w {
+    background-image: url(assets/fontawesome/wikipedia-w-brands.svg);
+}
+.fa-youtube {
+    position: relative;
+}
+.fa-youtube::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url(assets/fontawesome/youtube-brands.svg);
+    background-repeat: no-repeat;
+    background-position: 2%;
+    filter: invert(16%) sepia(98%) saturate(5728%) hue-rotate(4deg) brightness(103%) contrast(126%);
+}
+
 /* SECTION STYLES */
 /* HEADER */
 #header-message {
@@ -137,7 +155,7 @@ a:hover {
 
     .search {
         color: #063d41;
-        width: 500px;
+        width: 80vw;
         height: 90px;
         font-family: inherit;
         font-size: 1.3rem;
@@ -179,9 +197,7 @@ a:hover {
         border-radius: 25px;
         box-shadow: 0 0 1px 2px var(--main-color-4);
         margin: 5vw;
-        height: 54vh;
-        /* overflow: hidden;
-        text-overflow: ellipsis; */
+        height: 60vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -208,6 +224,18 @@ a:hover {
             right: 0;
             width: 100%;
             height: 100%;
+        }
+
+        .result-button {
+            border-radius: 15px;
+            border: 3px solid var(--main-color-4);
+            margin: 1vh 1vw;
+            height: 60px;
+            width: fit-content;
+            padding: 10px;
+            padding-left: 80px;
+            background-repeat: no-repeat;
+            background-position: 2%;
         }
 
         .results-snippet {

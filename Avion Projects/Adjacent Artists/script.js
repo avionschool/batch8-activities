@@ -32,7 +32,6 @@ inputMusicButton.addEventListener('click', function(e) {
 function buildPageMusic() {
     artistString = inputMusic.value; // change query string
     loading();
-    resultsMessage.classList.remove('hide');
     generateSimilarArtistsScript(); // generate script
 }
 
@@ -57,17 +56,22 @@ function createCards(obj) {
 
     for (let i = 0; i < obj.Similar.Results.length; i++) {
         let ARTIST_NAME = obj.Similar.Results[i].Name;
+        let SEARCH_QUERY = ARTIST_NAME.replaceAll(" ", "+");
         let DESCRIPTION = obj.Similar.Results[i].wTeaser;
         let WIKI_LINK = obj.Similar.Results[i].wUrl;
         let YOUTUBE_LINK = obj.Similar.Results[i].yUrl;
 
         section += `        
         <div class="results-container">
-            <div class="results-name"><a href="${WIKI_LINK}" target="_blank">${ARTIST_NAME}</a></div>
+            <div class="results-name">${ARTIST_NAME}</div>
             <div class="results-video-container">
                 <iframe class="results-video" width="420" height="315"
                 src="${YOUTUBE_LINK}" loading="lazy">
                 </iframe>
+            </div>
+            <div class="result-buttons">
+                <a href="${WIKI_LINK}" target="_blank"><button class="result-button fa-wikipedia-w">Wikipedia</button></a>
+                <a href="https://www.youtube.com/results?search_query=${SEARCH_QUERY}" target="_blank"><button class="result-button fa-youtube">YouTube</button></a>
             </div>
             <div class="results-snippet truncate-overflow">${DESCRIPTION}</div>
         </div>`
@@ -75,4 +79,10 @@ function createCards(obj) {
 
     cards.innerHTML = section;
     modalLoading.classList.add('hide'); // remove loading modal
+    resultsMessage.classList.remove('hide'); // display results message
+    if (obj.Similar.Results.length == 0) {
+        resultsMessage.textContent = `No results found for "${obj.Similar.Info[0].Name}":`;
+    } else {
+        resultsMessage.textContent = `Showing results for "${obj.Similar.Info[0].Name}":`;
+    }
 }
