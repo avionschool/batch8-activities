@@ -9,7 +9,6 @@ let talk = document.querySelector('#talk');
 let settings = document.querySelector('#settings-modal');
 
 let button = document.querySelector('#play');
-let text = document.querySelector('#text');
 
 // Speech to text API
 const VoiceRSS = {
@@ -95,7 +94,7 @@ button.addEventListener('click', (e) => {
   e.preventDefault();
   VoiceRSS.speech({
     key: '3b34ee60c393405985cc968b8110ba78',
-    src: text.value,
+    src: document.querySelector('#text').value,
     hl: Conversation.getLanguage(),
     v: Conversation.getVoice(),
     r: 0,
@@ -286,10 +285,11 @@ document.querySelector('#talk-link').addEventListener('click', () => {
   conversation.classList.remove('show');
 });
 
-document.querySelector('#read').addEventListener('click', () => {
-  fetch('https://uselessfacts.jsph.pl/random.json?language=en')
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    });
-});
+// random facts API
+// document.querySelector('#read').addEventListener('click', () => {
+//   fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
+//     });
+// });

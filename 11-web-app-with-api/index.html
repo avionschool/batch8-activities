@@ -21,7 +21,7 @@
           <a href="#" id="conversation-link">Conversation Therapy</a>
         </li>
         <li>
-          <a href="#" id="talk-link">Type to talk</a>
+          <a href="#" id="talk-link">Text to Speech</a>
         </li>
         <li>
           <a href="#">Hear yourself</a>
@@ -38,7 +38,7 @@
       <button id="settings" class="toggle settings">
         <i class="fas fa-tools fa-2x"></i>
       </button>
-      <h1>Ütterr</h1>
+      <h1>Speech Buddy</h1>
       <p>is a web app which can help people in overcoming communication problems and disorders. This web app supports 49 languages with 100 voices.</p>
     </header>
     <div class="container" id="home">
@@ -47,7 +47,7 @@
         Allows the person to freely describe what they can see by browsing different photos from the stock photography website Unsplash. No matter how short or long the description that was provided, the main purpose of this activity is to improve how the person expresses what they feel with the
         help of a visual tool. Along with this, there will be random questions that will flashed on the screen.
       </p>
-      <h2>Type to talk</h2>
+      <h2>Text to Speech</h2>
       <p>A fun activity which gives freedom to the person to type in words, phrases or sentences and the app will say it back to them.</p>
       <h2>Hear yourself</h2>
       <p></p>
@@ -62,15 +62,20 @@
           </button>
           <div class="image" id="image"></div>
         </div>
-        <h3 id="questions">Sample question</h3>
+        <h3 id="questions">You'll see the questions here</h3>
       </div>
       <input type="submit" value="" id="unsplash-btn" />
     </div>
 
     <div class="container" id="talk">
-      <input type="text" name="text" id="text" placeholder="Enter text to read" />
-      <input type="submit" value="Play" id="play" />
-      <input type="submit" value="Read something to me" id="read" />
+      <div class="text-wrapper">
+        <h2>Text to Speech</h2>
+
+        <!-- <input type="text" name="text" id="text" placeholder="Enter text to read" /> -->
+        <textarea wrap="off" name="text" id="text" cols="70" rows="12" placeholder="Enter text to read..."></textarea>
+        <input type="submit" value="" id="play" />
+        <!-- <input type="submit" value="Read something to me" id="read" /> -->
+      </div>
     </div>
   </body>
 

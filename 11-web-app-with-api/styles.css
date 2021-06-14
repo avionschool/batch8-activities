@@ -8,14 +8,7 @@
   --thin-outline: solid 1px black;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 body {
-  font-family: 'Baloo Tammudu 2', cursive;
   transition: transform 0.3s ease;
 }
 
@@ -96,24 +89,29 @@ button:focus {
 }
 
 /* ==========================================
+          --TYPOGRAPHY
+========================================== */
+
+textarea,
+body {
+  font-family: 'Baloo Tammudu 2', cursive;
+}
+
+/* ==========================================
           --LAYOUT
 ========================================== */
-.conversation-wrapper {
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.conversation-wrapper,
+.text-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#unsplash-btn {
-  position: absolute;
-  right: 1em;
-  top: 60%;
-  background-image: url(assets/arrow-right-solid.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: none;
-  width: 2em;
 }
 
 .button-wrapper input {
@@ -131,15 +129,6 @@ button:focus {
 .image-wrapper {
   position: relative;
 }
-/* ==========================================
-          --COMPONENTS
-========================================== */
-.toggle {
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  cursor: pointer;
-}
-
 .drawer {
   top: 20px;
   left: 20px;
@@ -153,6 +142,36 @@ button:focus {
 .info {
   top: 20px;
   right: 20px;
+}
+/* ==========================================
+          --COMPONENTS
+========================================== */
+.toggle {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  cursor: pointer;
+}
+
+#unsplash-btn,
+#play {
+  background-color: transparent;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#unsplash-btn {
+  width: 2.5em;
+  height: 2em;
+  margin: auto;
+  position: absolute;
+  right: 1em;
+  top: 37em;
+  background-image: url(assets/arrow-right-solid.svg);
+}
+
+#play {
+  background-image: url(assets/play-solid.svg);
 }
 
 .fa,
@@ -170,7 +189,8 @@ header,
 nav ul li a,
 button,
 input[type='submit'],
-.modal-content h3 {
+.modal-content h3,
+.conversation-wrapper h3 {
   color: #ffffff;
 }
 
@@ -202,7 +222,7 @@ header,
 }
 
 #unsplash-img {
-  outline: var(--thin-outline);
+  /* outline: var(--thin-outline); */
 }
 
 button,
@@ -285,16 +305,34 @@ label {
 }
 
 .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 25em;
   width: 25em;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
-  outline: 1px solid rgb(214, 211, 211);
+  /* outline: 1px solid rgb(214, 211, 211); */
   /* for testing */
   background-image: url(assets/image-regular.svg);
 }
 
+textarea {
+  padding: 1em;
+  resize: none;
+}
+
+.conversation-wrapper h3 {
+  background-color: var(--secondary-color);
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+#play,
+.conversation-wrapper h3 {
+  margin-top: 1em;
+}
 /* ==========================================
           --KEYFRAMES
 ========================================== */
