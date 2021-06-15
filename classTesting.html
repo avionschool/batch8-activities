@@ -5,7 +5,47 @@
     </head>
 <body>
     <h1>JavaScript Class</h1>
-    <script>
+
+<script>
+
+class User {
+    constructor(tempUsername, tempEmail, tempPassword) {
+        this.username = tempUsername;
+        this.email = tempEmail;
+        this.password = tempPassword;
+    }
+    login(){
+        console.log(this.username, 'just logged in');
+    }
+}
+var userOne = new User('jan', 'jan@gmail.com', '105994');
+userOne.login();
+console.log(userOne);
+
+
+class Product {
+    constructor(tempDonatedBy, tempProductCode, tempDateAcquired, tempItemDescription, tempQuantity) {
+        this.donatedBy = tempDonatedBy;
+        this.productCode = tempProductCode;
+        this.dateAcquired = tempDateAcquired;
+        this.itemDescription = tempItemDescription;
+        this.quantity = tempQuantity;
+    }
+}
+var productOne = new Product('AvionSchool', '123', 'today', 'Apple', 1);
+console.log(productOne);
+</script>
+
+
+
+//     donatedBy
+//     productCode
+//     dateAquired
+//     itemDescription
+//     quantity
+
+
+    <!-- <script>
         class Player {
         //class doesn't have a ()parameter
             constructor(tempName, team){
@@ -49,6 +89,6 @@
         console.log(inducteeThree.team);
         console.log(playerOne);
         console.log(playerOne.displayNumCareerScore());
-    </script>
+    </script> -->
 </body>
 </html>

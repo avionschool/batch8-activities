@@ -323,86 +323,94 @@ tbody tr:hover {
 }
 
 /* background design */
-.styleOne {
-    height: 60px;
-    width: 60px;
-    transform: rotate(30deg);
+.rotatePositive {
     position: absolute;
-    margin-right: 1200px;
+    transform: rotate(30deg);
 }
 
-.styleTwo {
-    height: 60px;
-    width: 60px;
-    transform: rotate(-30deg);
+.rotateNegative {
     position: absolute;
-    margin-right: 1200px;
+    transform: rotate(-30deg);
 }
 
 .groceryOne {
-    margin-top: 190px;
+    height: 60px;
+    width: 70px;
+    margin-bottom: 370px;
+    margin-right: 250px;
 }
 
 .groceryTwo {
-    margin-top: 258px;
+    height: 58px;
+    width: 68px;
+    margin-bottom: 230px;
+    margin-right: 250px;
 }
 
 .groceryThree {
-    margin-top: 325px;
+    height: 60px;
+    width: 70px;
+    margin-bottom: 90px;
+    margin-right: 250px;
 }
 
 .groceryFour {
-    margin-top: 410px;
+    height: 60px;
+    width: 70px;
+    margin-bottom: -90px;
+    margin-right: 260px;
 }
 
 .groceryFive {
-    margin-top: 485px;
+    height: 60px;
+    width: 70px;
+    margin-bottom: -250px;
+    margin-right: 260px;
 }
 
 .grocerySix {
-    height: 65px;
-    width: 65px;
-    transform: rotate(-30deg);
-    position: absolute;
-    margin: 560px 1210px 0px 0px;
+    height: 68px;
+    width: 78px;
+    margin-bottom: -410px;
+    margin-right: 260px;
 }
 
 .apple {
-    height: 100px;
-    width: 100px;
+    height: 45px;
+    width: 45px;
     position: absolute;
-    margin: 240px 0px 0px 220px;
+    margin: 295px 0px 0px 270px;
     transform: rotate(-30deg);
 }
 
 .mango {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     position: absolute;
-    margin: 250px 0px 0px 220px;
+    margin: 295px 0px 0px 270px;
     transform: rotate(10deg);
 }
 
 .grapes {
-    height: 90px;
-    width: 90px;
+    height: 50px;
+    width: 50px;
     position: absolute;
-    margin: 250px 0px 0px 220px;
+    margin: 295px 0px 0px 260px;
     transform: rotate(5deg);
 }
 
 .orange {
-    height: 90px;
-    width: 90px;
+    height: 50px;
+    width: 50px;
     position: absolute;
-    margin: 250px 0px 0px 220px;
+    margin: 295px 0px 0px 265px;
     transform: rotate(30deg);
 }
 
 .carrot {
-    height: 90px;
-    width: 90px;
+    height: 50px;
+    width: 50px;
     position: absolute;
-    margin: 250px 0px 0px 220px;
+    margin: 290px 0px 0px 265px;
     transform: rotate(0deg);
 }

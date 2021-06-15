@@ -1,18 +1,20 @@
 let inventoryLink = document.getElementById('inventoryLink');
+let transactionHistoryLink = document.getElementById('transactionHistoryLink');
+
 let storeLink = document.getElementById('storeLink');
     let cashDepositLink = document.getElementById('cashDepositLink');
     let storeProductLink = document.getElementById('storeProductLink');
 let donateLink = document.getElementById('donateLink');
-let transactionHistoryLink = document.getElementById('transactionHistoryLink');
 let addDonorLink = document.getElementById('addDonorLink');
 let addLocationLink = document.getElementById('addLocationLink');
 
 let inventoryPopup = document.getElementById('inventoryPopup');
+let transactionHistoryPopup = document.getElementById('transactionHistoryPopup');
+
 let storePopup = document.getElementById('storePopup');
     let cashDepositPopup = document.getElementById('CashDepositPopup');
     let storeProductPopup = document.getElementById('storeProductPopup');
 let donatePopup = document.getElementById('donatePopup');
-let transactionHistoryPopup = document.getElementById('transactionHistoryPopup');
 let addDonorLocationPopup = document.getElementById('addDonorLocationPopup');
 
 document.getElementById('inventoryLink').addEventListener('click', function() {
