@@ -9,7 +9,9 @@ const inputMusicButton = document.querySelector('#search-music-btn');
 const cards = document.querySelector('.cards');
 const resultsMessage = document.querySelector('.results-message');
 const modalLoading = document.querySelector('.modal-loading');
+const scrollTopButton = document.querySelector('.scroll-top');
 
+// Query Functionality
 inputMusic.addEventListener('keydown', function(e) {
     if (e.key === "Enter") {
         if (inputMusic.value === "") {
@@ -27,6 +29,10 @@ inputMusicButton.addEventListener('click', function(e) {
         buildPageMusic();
     }
 });
+
+// Scroll to Top functionality
+window.onscroll = function () {toggleScrollTop()};
+scrollTopButton.onclick = function () {scrollToTop()};
 
 // Functions
 function buildPageMusic() {
@@ -86,3 +92,26 @@ function createCards(obj) {
         resultsMessage.textContent = `Showing results for "${obj.Similar.Info[0].Name}":`;
     }
 }
+
+function scrollToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+function toggleScrollTop() {
+    // when user scrolls down 20px from document, show button
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        scrollTopButton.classList.add('showBtn');
+    } else {
+        scrollTopButton.classList.remove('showBtn');
+    }
+}
+
+// function addWikiLink() {
+//     let ele = [...document.querySelectorAll('.results-snippet')];
+//     ele.forEach(function(item) {
+//         item.addEventListener('click', function() {
+//             item.previousElementSibling.children[0].click();
+//         })
+//     })
+// }

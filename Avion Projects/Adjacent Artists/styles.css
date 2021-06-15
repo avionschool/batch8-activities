@@ -26,6 +26,7 @@ html {
     color: var(--main-color-5);
     --lh: 1.25rem;
     line-height: var(--lh);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -86,6 +87,7 @@ footer {
 }
 
 /* GLOBAL CLASS STYLES */
+/* hide uses display none */
 .hide {
     height: 0;
     width: 0;
@@ -94,7 +96,7 @@ footer {
 }
 
 .truncate-overflow {
-    --max-lines: 3;
+    --max-lines: 6;
     position: relative;
     max-height: calc(var(--lh) * var(--max-lines));
     overflow: hidden;
@@ -291,6 +293,37 @@ footer {
                 50% 20% 
                 no-repeat;
     background-size: 20vw;
+}
+
+/* SCROLL TO TOP BUTTTON */
+.scroll-top { 
+    position: fixed; 
+    bottom: 20px;
+    right: 30px;
+    z-index: 100; 
+    border: none;
+    outline: none;
+    background-color: var(--main-color-5); 
+    cursor: pointer; 
+    padding: 30px;
+    border-radius: 15px;
+    background-image: url(assets/feathericons/arrow-up.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: translateY(100px);
+    visibility: hidden;
+    transition: all .5s ease;
+}
+
+.scroll-top:hover {
+    background-color: var(--main-color-4);
+}
+
+.showBtn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 /* MEDIA QUERY */
