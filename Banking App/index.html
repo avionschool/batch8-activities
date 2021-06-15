@@ -12,13 +12,7 @@
 	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
 </head>
 <body>
-	<!-- <div id="loginDiv">
-		<form id="loginForm">
-
-		</form>
-	</div> -->
-
-	<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+<div id="loginDiv" class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
 		<div class="card card0 border-0">
 			<div class="row d-flex">
 				<div class="col-lg-6">
@@ -46,16 +40,16 @@
 							<div class="line"></div>
 						</div>
 						<div class="row px-3"> <label class="mb-1">
-								<h6 class="mb-0 text-sm">Email Address</h6>
-							</label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> </div>
+								<h6 class="mb-0 text-sm">User ID</h6>
+							</label> <input id="userID" class="mb-4" type="text" name="userID" placeholder="Enter your User ID"> </div>
 						<div class="row px-3"> <label class="mb-1">
 								<h6 class="mb-0 text-sm">Password</h6>
-							</label> <input type="password" name="password" placeholder="Enter password"> </div>
+							</label> <input id="password" type="password" name="password" placeholder="Enter password"> </div>
 						<div class="row px-3 mb-4">
 							<div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Remember me</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
 						</div>
-						<div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Login</button> </div>
-						<div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div>
+						<div class="row mb-3 px-3"> <button id="loginBtn" type="submit" class="btn btn-blue text-center">Login</button> </div>
+						<div class="row mb-4 px-3"> <small id="registerLink" class="font-weight-bold" onclick="">Don't have an account? <a class="text-danger ">Register</a></small> </div>
 					</div>
 				</div>
 			</div>
@@ -65,7 +59,40 @@
 				</div>
 			</div>
 		</div>
+</div>
+
+<!-- modals -->
+<div class="modal fade bd-example-modal-sm mt-5" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
+	<div class="modal-dialog modal-sm">
+	  <div class="modal-content" style="border-bottom: 0.5rem solid #007bff !important;">
+		<div class="iconpopup " style="margin: 0 auto; width: 27%;height: 100%; margin-top: 20%;">
+			<img id="notick" src="tick.png" width="100%" >
+			<img id="errortick" src="ticknot.png" width="100%" style="display: none;" >
+			<img id="changeimg" src="defender.png" width="100%" style="display: none;">
+		</div>
+		<div id="no" class=" iconpopup mt-4" style="margin: 0 auto; width: 80%;margin-bottom: 10%;">
+			<p class="text-center" style="font-weight: bold;margin-bottom: 2%">NOTIFICATION</p>
+			<p class="text-center" id="notification"></p>
+  
+		</div>
+		<div id="changepass" class=" iconpopup mt-4" style="margin: 0 auto; width: 80%;margin-bottom: 10%;display: none">
+			<p class="text-center" style="font-weight: bold;margin-bottom: 2%">CHANGE PASSWORD</p>
+			<p class="mt-3" style="margin-bottom: 2%;">Enter current password</p>
+			<input type="password" name="pass" id="passcurrent" class="form-control " >
+			<p class="mt-1" style="margin-bottom: 2%;">Enter new password</p>
+			<input type="password" name="pass" id="passnew" class="form-control " >
+			<p class="mt-1" style="margin-bottom: 2%;">Enter repeat new password</p>
+			<input type="password" name="pass" id="passnewrepeat" class="form-control " >
+			<button class="btn btn-primary float-right mt-3" onclick="Changepassword()">Change</button>
+		</div>
+	  </div>
 	</div>
+  </div>
+
+  <script>
+
+  </script>
+
 
 	
 <!-- Optional JavaScript -->
