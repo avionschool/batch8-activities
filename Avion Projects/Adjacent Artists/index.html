@@ -20,67 +20,77 @@
     <div class="header-left"><img class="header-logo" src="assets/images/logo2.png" alt="Adjacent Artists Logo"></div>
     
     <div class="header-right">
-        <div id="header-message">Discover new <span id="message-type">Music</span></div>
-        <div class="header-nav hide">
-            <button>Music</button>
-            <button>Movies</button>
-            <button>TV Shows</button>
-            <button>Books</button>
-            <button>Games</button>
+        <div class="burger" onclick="toggleBurgerMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div class="burger-nav">
+            <button class="burger-nav-item active">Music</button>
+            <button class="burger-nav-item">Movies</button>
+            <button class="burger-nav-item">TV Shows</button>
+            <button class="burger-nav-item">Books</button>
+            <button class="burger-nav-item">Games</button>
         </div>
     </div>
 </header>
 
 <body>
-    <section class="query-section">
-        <div class="query-message">Enter your favorite <span>artist</span>:</div>
-        <div class="wrap">
-            <input id="search-music" class="search" spellcheck="false">
-            <button id="search-music-btn" class="search-button"><img class="search-logo" src="assets/feathericons/search.svg"></button>
-        </div>
-        <div>And get suggestions on similar artists!</div>
-    </section>
-
-    <section class="results-section">
-        <div class="results-message hide">Showing results for ARTIST:</div>
-
-        <div class="cards">
-            <!-- FOR TESTING -->
-            <!-- <div class="results-container">
-                <div class="results-name">Alt-J</div>
-                <div class="results-video-container">
-                    <iframe class="results-video" width="420" height="315" src="https://www.youtube-nocookie.com/embed/rVeMiVU77wo" loading="lazy">
-                    </iframe>
-                </div>
-                <div class="result-buttons">
-                    <a href="http://en.wikipedia.org/wiki/Alt-J_(%E2%88%86)" target="_blank"><button class="result-button fa-wikipedia-w">Wikipedia</button></a>
-                    <a href="https://www.youtube.com/results?search_query=Alt-J" target="_blank"><button class="result-button fa-youtube">YouTube</button></a>
-                </div>
-                <div class="results-snippet truncate-overflow">Alt-J (stylised as alt-J, real name Δ) are an English indie rock band formed in 2007 in Leeds, by Joe Newman (guitar/lead vocals), Thom Sonny Green (drums), Gus Unger-Hamilton (keyboards/vocals) and Gwilym Sainsbury (guitar/bass). Their debut album An Awesome Wave was released in May 2012 in Europe, and in September 2012 in the United States, and won the 2012 British Mercury Prize. Sainsbury left the band in early 2014. Their second album, This Is All Yours, was released on 22 September 2014 and went straight to UK number one. As a replacement for Sainsbury, Cameron Knight became a supporting member for alt-J's live shows, playing guitar, bass and sampler. In 2017, the band released their third studio album, Relaxer, and are currently playing as a trio.</div>
-            </div>
+    <div id="page-container">
+        <div id="content-wrap">
+            <div id="header-message">Discover new <span id="message-type">Music</span></div>
             
-            <div class="results-container">
-                <div class="results-name">London Grammar</div>
-                <div class="results-video-container">
-                    <iframe class="results-video" width="420" height="315" src="https://www.youtube-nocookie.com/embed/6drfp_3823I" loading="lazy">
-                    </iframe>
+            <section class="query-section">
+                <div class="query-message">Enter your favorite <span>artist</span>:</div>
+                <div class="wrap">
+                    <input id="search-music" class="search" spellcheck="false">
+                    <button id="search-music-btn" class="search-button"><img class="search-logo" src="assets/feathericons/search.svg"></button>
                 </div>
-                <div class="result-buttons">
-                    <a href="http://en.wikipedia.org/wiki/London_Grammar" target="_blank"><button class="result-button fa-wikipedia-w">Wikipedia</button></a>
-                    <a href="https://www.youtube.com/results?search_query=London+Grammar" target="_blank"><button class="result-button fa-youtube">YouTube</button></a>
-                </div>
-                <div class="results-snippet truncate-overflow">London Grammar are an English indie pop band formed in Nottingham in 2009. The band consists of Hannah Reid, Dan Rothman and Dominic 'Dot' Major. Their debut extended play, Metal &amp; Dust, was released in February 2013 by Metal &amp; Dust Recordings, while their debut album, If You Wait, was released in September 2013. The album reached number two on the UK Albums Chart and was certified double platinum by the British Phonographic Industry (BPI). The band's second studio album, Truth Is a Beautiful Thing, was released in June 2017, peaking at number one on the UK Albums Chart.Vocalist Hannah Reid and guitarist Dan Rothman are originally from London and met in the Ancaster Hall of residence at the University of Nottingham during their first year in 2009. Rothman saw that Reid played the guitar and contacted her to see if she wanted to collaborate. They were joined by Northampton native Dominic 'Dot' Major (keyboard, djembe, drums) a year later, after he began playing music together with Rothman. They chose the name as "not only was it where we're from, but London is also so international and multicultural that it actually felt like quite a universal name in a way."</div>
-            </div> -->
+                <div>And get suggestions on similar artists!</div>
+            </section>
 
+            <section class="results-section">
+                <div class="results-message hide">Showing results for ARTIST:</div>
+                <div class="cards">
+                    <!-- FOR TESTING -->
+                    <div class="results-container">
+                        <div class="results-name">Alt-J</div>
+                        <div class="results-video-container">
+                            <iframe class="results-video" width="420" height="315" src="https://www.youtube-nocookie.com/embed/rVeMiVU77wo" loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="result-buttons">
+                            <a href="http://en.wikipedia.org/wiki/Alt-J_(%E2%88%86)" target="_blank"><button class="result-button fa-wikipedia-w">Wikipedia</button></a>
+                            <a href="https://www.youtube.com/results?search_query=Alt-J" target="_blank"><button class="result-button fa-youtube">YouTube</button></a>
+                        </div>
+                        <div class="results-snippet truncate-overflow">Alt-J (stylised as alt-J, real name Δ) are an English indie rock band formed in 2007 in Leeds, by Joe Newman (guitar/lead vocals), Thom Sonny Green (drums), Gus Unger-Hamilton (keyboards/vocals) and Gwilym Sainsbury (guitar/bass). Their debut album An Awesome Wave was released in May 2012 in Europe, and in September 2012 in the United States, and won the 2012 British Mercury Prize. Sainsbury left the band in early 2014. Their second album, This Is All Yours, was released on 22 September 2014 and went straight to UK number one. As a replacement for Sainsbury, Cameron Knight became a supporting member for alt-J's live shows, playing guitar, bass and sampler. In 2017, the band released their third studio album, Relaxer, and are currently playing as a trio.</div>
+                    </div>
+            
+                    <div class="results-container">
+                        <div class="results-name">London Grammar</div>
+                        <div class="results-video-container">
+                            <iframe class="results-video" width="420" height="315" src="https://www.youtube-nocookie.com/embed/6drfp_3823I" loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="result-buttons">
+                            <a href="http://en.wikipedia.org/wiki/London_Grammar" target="_blank"><button class="result-button fa-wikipedia-w">Wikipedia</button></a>
+                            <a href="https://www.youtube.com/results?search_query=London+Grammar" target="_blank"><button class="result-button fa-youtube">YouTube</button></a>
+                        </div>
+                        <div class="results-snippet truncate-overflow">London Grammar are an English indie pop band formed in Nottingham in 2009. The band consists of Hannah Reid, Dan Rothman and Dominic 'Dot' Major. Their debut extended play, Metal &amp; Dust, was released in February 2013 by Metal &amp; Dust Recordings, while their debut album, If You Wait, was released in September 2013. The album reached number two on the UK Albums Chart and was certified double platinum by the British Phonographic Industry (BPI). The band's second studio album, Truth Is a Beautiful Thing, was released in June 2017, peaking at number one on the UK Albums Chart.Vocalist Hannah Reid and guitarist Dan Rothman are originally from London and met in the Ancaster Hall of residence at the University of Nottingham during their first year in 2009. Rothman saw that Reid played the guitar and contacted her to see if she wanted to collaborate. They were joined by Northampton native Dominic 'Dot' Major (keyboard, djembe, drums) a year later, after he began playing music together with Rothman. They chose the name as "not only was it where we're from, but London is also so international and multicultural that it actually felt like quite a universal name in a way."</div>
+                    </div>
+
+                </div>
+            </section>
         </div>
-    </section>
+
+        <footer>
+            <div>Powered by <a href="https://tastedive.com/read/api" target="_blank">Tastedive API</a></div>
+        </footer>
+
+    </div>
 
     <div class="modal-loading hide"></div>
     <button class="scroll-top" title="Back to top"></button>
     <script src="script.js"></script>
 </body>
-
-<footer>
-    <div>Powered by <a href="https://tastedive.com/read/api" target="_blank">Tastedive API</a></div>
-</footer>
 </html>

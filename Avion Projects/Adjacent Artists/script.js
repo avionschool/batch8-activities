@@ -4,6 +4,8 @@ var artistString = "";
 var results; // initialize variable to contain JSON objects
 
 // MUSIC DOM
+const burgerMenu = document.querySelector('.burger');
+const burgerNav = document.querySelector('.burger-nav');
 const inputMusic = document.querySelector('#search-music'); 
 const inputMusicButton = document.querySelector('#search-music-btn');
 const cards = document.querySelector('.cards');
@@ -115,3 +117,8 @@ function toggleScrollTop() {
 //         })
 //     })
 // }
+
+function toggleBurgerMenu() {
+    burgerMenu.classList.toggle('change');
+    burgerNav.classList.toggle('burger-nav-shown');
+}
