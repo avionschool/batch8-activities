@@ -16,6 +16,7 @@
     --main-color-5: #e6edf0;
     --menu-color: #333;
     --font-size: 20px;
+    --max-lines: 6; /* For snippets in results container */
 }
 
 /* GLOBAL ELEMENT STYLES */
@@ -71,7 +72,7 @@ button {
 }
 
 button:hover {
-    opacity: 0.85;
+    opacity: 0.80;
 }
 
 a {
@@ -117,7 +118,6 @@ footer {
 }
 
 .truncate-overflow {
-    --max-lines: 6;
     position: relative;
     max-height: calc(var(--lh) * var(--max-lines));
     overflow: hidden;
@@ -140,6 +140,11 @@ footer {
     background: white;
 }
 
+.unavailable {
+    min-height: calc(var(--lh) * var(--max-lines));
+    /* width: calc(100% + 2vw + 1rem + 1rem); Width not expanding in mobile*/
+}
+
 /* font-awesome */
 .fa-wikipedia-w {
     background-image: url(assets/fontawesome/wikipedia-w-brands.svg);
@@ -156,6 +161,11 @@ footer {
     background-repeat: no-repeat;
     background-position: 2%;
     filter: invert(16%) sepia(98%) saturate(5728%) hue-rotate(4deg) brightness(103%) contrast(126%);
+}
+.fa-exclamation-triangle-solid {
+    filter: invert(16%) sepia(98%) saturate(5728%) hue-rotate(4deg) brightness(103%) contrast(126%);
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 /* SECTION STYLES */
@@ -207,7 +217,7 @@ footer {
     background-color: var(--menu-color);
     overflow-x: hidden; /* No horizontal scroll */
     padding-top: 25vh;
-    transition: width 0.5s;
+    transition: width 0.5s ease-in-out;
 }
 
 .burger-nav-shown {
@@ -318,8 +328,12 @@ footer {
     }
 
         .results-name {
+            display: flex;
+            align-items: center;
+            height: 2rem;
             font-size: clamp(1rem, 1.3rem, 1.5rem);
             margin: 1vh 0;
+            text-align: center;
         }
 
         .results-video-container {
@@ -327,6 +341,22 @@ footer {
             overflow: hidden;
             width: 100%;
             padding-top: 75%; /* 4:3 Aspect Ratio */ 
+        }
+
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .results-error-header {
+            font-size: 1rem;
+            color: red;
+        }
+        
+        .results-error-message {
+            font-size: 0.85rem;
         }
 
         .results-video {
@@ -436,7 +466,7 @@ footer {
     .results-container {
         width: 39vw;
     }
-
+    
     .result-button {
         height: 35px;
         padding-left: 40px;

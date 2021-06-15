@@ -4,31 +4,87 @@ var artistString = "";
 var results; // initialize variable to contain JSON objects
 
 // MUSIC DOM
+// Create reference object
+// key (Music, Movies, TV Shows, Podcasts, Games) returns an object with values for editing the webpage
+let referenceObject = {
+    "Music": {
+        "name": "Music",
+        "type": "music",
+        "typeComparison": "music",
+        "message": "Artist",
+        "subMessage": "artists"
+    },
+    "Movies": {
+        "name": "Movies",
+        "type": "movies",
+        "typeComparison": "movie",
+        "message": "Movie",
+        "subMessage": "movies"
+    },
+    "TV Shows": {
+        "name": "TV Shows",
+        "type": "shows",
+        "typeComparison": "show",
+        "message": "TV show",
+        "subMessage": "TV shows"
+    },
+    "Podcasts": {
+        "name": "Podcasts",
+        "type": "podcasts",
+        "typeComparison": "podcast",
+        "message": "Podcast",
+        "subMessage": "podcast"
+    },
+    "Games": {
+        "name": "Games",
+        "type": "games",
+        "typeComparison": "game",
+        "message": "Game",
+        "subMessage": "games"
+    }
+}
+let currentSessionSearch = {}; // store recent search calls for each section
+let currentSelection = "Music"; // track which section to show user
+
 const burgerMenu = document.querySelector('.burger');
 const burgerNav = document.querySelector('.burger-nav');
-const inputMusic = document.querySelector('#search-music'); 
-const inputMusicButton = document.querySelector('#search-music-btn');
+const burgerNavItems = [...burgerNav.children];
+const spanMessage = document.querySelector('#message-type');
+const spanMainMessage = document.querySelector('#span-main');
+const spanSubMessage = document.querySelector('#span-sub'); 
+const inputQuery = document.querySelector('#search-query'); 
+const inputQueryButton = document.querySelector('#search-query-btn');
 const cards = document.querySelector('.cards');
 const resultsMessage = document.querySelector('.results-message');
 const modalLoading = document.querySelector('.modal-loading');
 const scrollTopButton = document.querySelector('.scroll-top');
 
+// Burger Nav Item Functionality
+burgerNavItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+        burgerNavItems.forEach(function(item) {item.classList.remove('active')});
+        item.classList.add('active');
+        currentSelection = item.textContent; // store current selection
+        switchSections(currentSelection); // and build page
+    })
+});
+
 // Query Functionality
-inputMusic.addEventListener('keydown', function(e) {
+inputQuery.addEventListener('keydown', function(e) {
     if (e.key === "Enter") {
-        if (inputMusic.value === "") {
+        if (inputQuery.value === "") {
             e.preventDefault();
         } else {
-            buildPageMusic();
+            buildPageFromQuery();
         }
     }
 });
 
-inputMusicButton.addEventListener('click', function(e) {
-    if (inputMusic.value === "") {
+inputQueryButton.addEventListener('click', function(e) {
+    if (inputQuery.value === "") {
         e.preventDefault();
     } else {
-        buildPageMusic();
+        buildPageFromQuery();
     }
 });
 
@@ -37,8 +93,33 @@ window.onscroll = function () {toggleScrollTop()};
 scrollTopButton.onclick = function () {scrollToTop()};
 
 // Functions
-function buildPageMusic() {
-    artistString = inputMusic.value; // change query string
+function switchSections(sectionName) {
+    // Edit span messages
+    let table = referenceObject[sectionName]; // acquire key value reference table
+    let typeComparison = table.typeComparison; // acquire type for comparison
+    let storedJSONObject = currentSessionSearch[typeComparison]; // acquire stored JSON object
+    let storedType;
+    if (storedJSONObject !== undefined) {
+        storedType = storedJSONObject.Similar.Info[0].Type;
+    }
+    spanMessage.textContent = table.name;
+    spanMainMessage.textContent = table.message; 
+    spanSubMessage.textContent = table.subMessage;
+
+    // Build cards, if saved object matches with section name
+    // else reset cards
+    if (storedType === typeComparison) {
+        createCards(storedJSONObject);
+    } else {
+        cards.innerHTML = "";
+        resultsMessage.classList.add('hide'); // hide results message
+    }
+    inputQuery.value = ""; // reset query bar
+    toggleBurgerMenu(); // close side bar
+}
+
+function buildPageFromQuery() {
+    artistString = inputQuery.value; // change query string
     loading();
     generateSimilarArtistsScript(); // generate script
 }
@@ -49,12 +130,13 @@ function loading() {
 
 async function generateSimilarArtistsScript() {
     let s = document.createElement("script");
-    s.src = `https://tastedive.com/api/similar?q=${artistString}&k=${TASTEDIVE_KEY}&limit=10&type=music&verbose=1&callback=getSimilarArtists`;
+    s.src = `https://tastedive.com/api/similar?q=${artistString}&k=${TASTEDIVE_KEY}&limit=10&type=${referenceObject[currentSelection].type}&verbose=1&callback=getSimilarArtists`;
     document.body.appendChild(s);
 }
 
 function getSimilarArtists(responseObject) {
     results = responseObject; // store in global
+    currentSessionSearch[responseObject.Similar.Info[0].Type] = responseObject; // save object
     createCards(results);
 } 
 
@@ -63,31 +145,68 @@ function createCards(obj) {
     let section = "";
 
     for (let i = 0; i < obj.Similar.Results.length; i++) {
-        let ARTIST_NAME = obj.Similar.Results[i].Name;
-        let SEARCH_QUERY = ARTIST_NAME.replaceAll(" ", "+");
+        let QUERIED_NAME = obj.Similar.Results[i].Name;
+        let VALID_SEARCH = QUERIED_NAME.replaceAll(" ", "+");
         let DESCRIPTION = obj.Similar.Results[i].wTeaser;
         let WIKI_LINK = obj.Similar.Results[i].wUrl;
         let YOUTUBE_LINK = obj.Similar.Results[i].yUrl;
 
+        // Start Creation
         section += `        
         <div class="results-container">
-            <div class="results-name">${ARTIST_NAME}</div>
-            <div class="results-video-container">
-                <iframe class="results-video" width="420" height="315"
-                src="${YOUTUBE_LINK}" loading="lazy">
-                </iframe>
-            </div>
-            <div class="result-buttons">
-                <a href="${WIKI_LINK}" target="_blank"><button class="result-button fa-wikipedia-w">Wikipedia</button></a>
-                <a href="https://www.youtube.com/results?search_query=${SEARCH_QUERY}" target="_blank"><button class="result-button fa-youtube">YouTube</button></a>
-            </div>
-            <div class="results-snippet truncate-overflow">${DESCRIPTION}</div>
-        </div>`
+            <div class="results-name">${QUERIED_NAME}</div>
+            <div class="results-video-container">`;
+
+        // If invalid youtube link, add error div, otherwise add iframe
+        if (YOUTUBE_LINK == "" || YOUTUBE_LINK == null) {
+            section += `
+            <div class="results-video error-container">
+                <img class="fa-exclamation-triangle-solid" src="assets/fontawesome/exclamation-triangle-solid.svg">
+                <div class="results-error-header">Content not available</div>
+                <div class="results-error-message">The requested data does not exist.</div>
+            </div>`;
+        } else {
+            section += `
+            <iframe class="results-video"
+            src="${YOUTUBE_LINK}" loading="lazy">
+            </iframe>`;
+        }
+
+        section += `
+        </div>
+        <div class="result-buttons">`;
+
+        // If invalid wiki link, do not append wiki button
+        if (WIKI_LINK == "" || WIKI_LINK == null) {
+            section += ``;
+        } else {
+            section += `<a href="${WIKI_LINK}" target="_blank"><button class="result-button fa-wikipedia-w">Wikipedia</button></a>`;
+        }
+
+        // Add youtube search button and description
+        section += `
+                <a href="https://www.youtube.com/results?search_query=${VALID_SEARCH}" target="_blank"><button class="result-button fa-youtube">YouTube</button></a>
+            </div>`;
+
+        // Add description
+        if (DESCRIPTION == null || DESCRIPTION == "") {
+            section += `
+                <div class="results-snippet unavailable">No Description available.</div>
+            </div>`;
+        } else {
+            section += 
+                `<div class="results-snippet truncate-overflow">${DESCRIPTION}</div>
+            </div>`;
+        }
     }
 
     cards.innerHTML = section;
     modalLoading.classList.add('hide'); // remove loading modal
     resultsMessage.classList.remove('hide'); // display results message
+    modifyResultsMessage(obj);
+}
+
+function modifyResultsMessage(obj) {
     if (obj.Similar.Results.length == 0) {
         resultsMessage.textContent = `No results found for "${obj.Similar.Info[0].Name}":`;
     } else {
@@ -108,15 +227,6 @@ function toggleScrollTop() {
         scrollTopButton.classList.remove('showBtn');
     }
 }
-
-// function addWikiLink() {
-//     let ele = [...document.querySelectorAll('.results-snippet')];
-//     ele.forEach(function(item) {
-//         item.addEventListener('click', function() {
-//             item.previousElementSibling.children[0].click();
-//         })
-//     })
-// }
 
 function toggleBurgerMenu() {
     burgerMenu.classList.toggle('change');
