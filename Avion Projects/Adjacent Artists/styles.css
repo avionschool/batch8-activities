@@ -22,7 +22,7 @@
 /* GLOBAL ELEMENT STYLES */
 html {
     font-size: var(--font-size);
-    font-family: 'Open Sans', sans-serif;
+    font-family: Helvetica, sans-serif;
     background-color: var(--main-color-1);
     color: var(--main-color-5);
     --lh: 1.25rem;
@@ -157,9 +157,10 @@ footer {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
+    padding: 10px;
     background-image: url(assets/fontawesome/youtube-brands.svg);
     background-repeat: no-repeat;
-    background-position: 2%;
+    background-position: center;
     filter: invert(16%) sepia(98%) saturate(5728%) hue-rotate(4deg) brightness(103%) contrast(126%);
 }
 .fa-exclamation-triangle-solid {
@@ -210,6 +211,7 @@ footer {
     flex-direction: column;
     height: 100%;
     width: 0;
+    font-size: 0.1rem;
     position: fixed;
     z-index: 1; 
     top: 0; 
@@ -217,11 +219,13 @@ footer {
     background-color: var(--menu-color);
     overflow-x: hidden; /* No horizontal scroll */
     padding-top: 25vh;
-    transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out, font-size 0.5s ease-in-out;
 }
 
 .burger-nav-shown {
     width: 150px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
 }
 
 .burger-nav-item {
@@ -233,8 +237,29 @@ footer {
     cursor: pointer;
 }
 
+.web-nav {
+    display: none;
+    font-family: 'Lato', sans-serif;
+}
+
+.web-nav-item {
+    padding: 7px;
+    margin: 0 8px;
+    color: var(--main-color-0);
+    background-color: var(--main-color-1);
+}
+
+.line {
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 0 0 0;
+    background: #FF1847;
+}
+
 .active {
     text-decoration: underline;
+    text-underline-offset: 5px; /* IE not supported */
 }
 
 /* QUERY SECTION */
@@ -246,6 +271,7 @@ footer {
     flex-direction: column;
     align-items: center;
     padding-bottom: 3vh;
+    text-align: center;
 }
 
     .query-message {
@@ -313,7 +339,8 @@ footer {
 
     .results-container {
         border-radius: 25px;
-        box-shadow: 0 0 1px 2px var(--main-color-4);
+        border: 5px solid var(--main-color-4);
+        /* box-shadow: 0 0 1px 2px var(--main-color-4); */
         margin: 3vw;
         height: max-content;
         display: flex;
@@ -348,6 +375,7 @@ footer {
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
         }
 
         .results-error-header {
@@ -379,20 +407,18 @@ footer {
         .result-button {
             border-radius: 15px;
             border: 3px solid var(--main-color-4);
-            margin: 1vh 1.5vw;
+            margin: 1vh 0.75vw;
             height: 30px;
             width: fit-content;
-            padding: 3px;
-            padding-left: 40px;
-            padding-right: 8px;
+            padding: 20px 15px;
             background-repeat: no-repeat;
-            background-position: 2%;
+            background-position: center;
             cursor: pointer;
         }
 
         .results-snippet {
             font-size: 18px;
-            margin: 1vh 1vw;
+            margin: 2vh 2vw;
             overflow: hidden;
             text-overflow: ellipsis;
             text-align: justify;
@@ -470,5 +496,15 @@ footer {
     .result-button {
         height: 35px;
         padding-left: 40px;
+    }
+
+    /* Hide burger */
+    .burger, .burger-nav {
+        display: none;
+    }
+
+    /* Unhide web nav */
+    .web-nav {
+        display: initial;
     }
 }
