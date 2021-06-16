@@ -61,7 +61,7 @@
                         <h1>Balance: 0.00</h1>
                     </div>
                     <div class="tableCon">
-                        <table class="tableStyle">
+                        <table id="inventoryTable" class="tableStyle">
                             <thead>
                                 <tr>
                                     <th>Donated By</th>
@@ -74,84 +74,20 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Jan</td>
-                                    <td>001</td>
-                                    <td>June 7, 2021</td>
-                                    <td>Apple</td>
-                                    <td>1</td>
-                                    <td>2</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                                 <tr>
-                                    <td>Jeff</td>
-                                    <td>002</td>
-                                    <td>June 8, 2021</td>
-                                    <td>Orange</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                </tr>
-                                <tr>
-                                    <td>Joana</td>
-                                    <td>003</td>
-                                    <td>June 9, 2021</td>
-                                    <td>Mango</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>Jetson</td>
-                                    <td>004</td>
-                                    <td>June 10, 2021</td>
-                                    <td>Bananna</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                </tr>
-                                <tr>
-                                    <td>Janelle</td>
-                                    <td>005</td>
-                                    <td>June 11, 2021</td>
-                                    <td>Grapes</td>
-                                    <td>9</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>Jan</td>
-                                    <td>001</td>
-                                    <td>June 7, 2021</td>
-                                    <td>Apple</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <td>Jeff</td>
-                                    <td>002</td>
-                                    <td>June 8, 2021</td>
-                                    <td>Orange</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                </tr>
-                                <tr>
-                                    <td>Joana</td>
-                                    <td>003</td>
-                                    <td>June 9, 2021</td>
-                                    <td>Mango</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>Jetson</td>
-                                    <td>004</td>
-                                    <td>June 10, 2021</td>
-                                    <td>Bananna</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                </tr>
-                                <tr>
-                                    <td>Janelle</td>
-                                    <td>005</td>
-                                    <td>June 11, 2021</td>
-                                    <td>Grapes</td>
-                                    <td>9</td>
-                                    <td>10</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -222,18 +158,20 @@
                 <div class="storeProductForm flexStyleEvenly">
                     <div class="flexStyleColumnStart">
                         <label>Donor</label>
+                        <!-- <label>Product Code</label> -->
                         <label>Date</label>
                         <label>Item Description</label>
                         <label>Quantity</label>
                     </div>
                     <div class="flexStyleColumn">
-                        <input type="text" placeholder="donor">
-                        <input type="date">
-                        <input type="text" placeholder="description">
-                        <input type="number" placeholder="quantity">
+                        <input id="donor" type="text" placeholder="donor">
+                        <!-- <input id="productCode" type="text" placeholder="advisedProdCode"> -->
+                        <input id="date" type="date">
+                        <input id="itemDescription" type="text" placeholder="description">
+                        <input id="quantity" type="number" placeholder="quantity">
                     </div>
                 </div>
-                <button>Store</button>
+                <button id="storeButton">Store</button>
             </section>
             <section class="popupFooter" onclick="exit()">&#10006;</section>
             <div class="grapes">
@@ -253,13 +191,13 @@
                         <label>ID Presented</label>
                     </div>
                     <div class="flexStyleColumnStart">
-                        <input type="number">
-                        <input type="number">
-                        <input type="text">
-                        <input type="text">
+                        <input id="productCode" type="number">
+                        <input id="amount" type="number">
+                        <input id="receiver" type="text">
+                        <input id="idType" type="text">
                     </div>
                 </div>
-                <button>Finish</button>
+                <button id="donateButton">Donate</button>
             </section>
             <section class="popupFooter" onclick="exit()">&#10006;</section>
             <div class="orange">

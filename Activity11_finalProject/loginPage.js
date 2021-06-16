@@ -47,32 +47,125 @@ function exit() {
     addDonorLocationPopup.classList.add('hidden');
 };
 
-//creating users
+let userTrackNum = 100;
+
+//Creating users
 class User {
     constructor(tempUsername, tempEmail, tempPassword) {
         this.username = tempUsername;
         this.email = tempEmail;
         this.password = tempPassword;
-        console.log(this.username, this.email, this.password);
     }
-    storeData(){
-        let userObj = {
+    createUser() {
+        let userObject = {
             username: this.username,
             email: this.email,
             password: this.password
         };
-        console.log(userObj);
-        localStorage.setItem('users', JSON.stringify(userObj));
-        alert ('Success');
+
+        if (this.username.length == 0 || this.email.length == 0 || this.password == 0) {
+            console.log('Error caught: Input empty.');
+            return alert ('Error: Please fill out the details required.');
+        }
+
+        let userList = JSON.parse(localStorage.getItem('users'));
+        //if there's no data yet in localstorage, create an empty arr[]=userList and add the 'userObject' inside
+        //if there is, just push the new 'userObject' inside the arr[]=userList
+        if (!userList) {
+            userList = [userObject];
+        } else {
+            userList.push(userObject);
+        }
+        console.log(userList);
+        //always check if userList-arr[] is updated
+        localStorage.setItem('users', JSON.stringify(userList));
     }
 }
 
-let newUsername = document.getElementById('newUsername').value;
-let newEmail = document.getElementById('newEmail').value;
-let newPassword = document.getElementById('newPassword').value;
-let newUser = new User(newUsername, newEmail, newPassword);
-
 let createButton = document.getElementById('createButton');
-createButton.addEventListener('click', function () {
-    newUser.storeData()
+
+createButton.addEventListener('click', function() {
+    let newUsername = document.getElementById('newUsername').value;
+    let newEmail = document.getElementById('newEmail').value;
+    let newPassword = document.getElementById('newPassword').value;
+    let newUser = new User(newUsername, newEmail, newPassword);
+    
+    newUser.createUser();
 });
+
+
+
+
+// let userList = JSON.parse(localStorage.getItem('userDetails')) || []; 
+
+// let alreadyExist = userList.some(function(user) {
+//     return user.username == userObject.username || user.email == userObject.email;
+// });
+
+// if (alreadyExist) {
+//     return alert ("Username/Email already exists!");
+// };
+
+// userList.push(userObject);
+
+// localStorage.setItem('userDetails', JSON.stringify(userList));
+// console.log(userList);
+
+
+
+            // target = userList.filter( ({username}) => username == this.username);
+
+                // console.log('Error caught: Existing username.');
+                // return alert ('Error: Username already existing.');
+            //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //Creating Users
+// class User {
+//     constructor(tempUsername, tempEmail, tempPassword) {
+//         this.username = tempUsername;
+//         this.email = tempEmail;
+//         this.password = tempPassword;
+//     }
+//     createUser() {
+//         let userObject = {
+//             username: this.username,
+//             email: this.email,
+//             password: this.password
+//         };
+//         let userList = JSON.parse(localStorage.getItem('users'));
+
+//         //if there's no data yet in localstorage, create an empty arr[]=userList and add the 'userObject' inside
+//         //if there is, just push the new 'userObject' inside the arr[]=userList
+//         if (!userList) {
+//             userList = [userObject];
+//         } else {
+//             userList.push(userObject);
+//         }
+//         console.log(userList);
+//         //always check if userList-arr[] is updated
+//         localStorage.setItem('users', JSON.stringify(userList));
+//     }
+// }
+
+// let createButton = document.getElementById('createButton');
+
+// createButton.addEventListener('click', function() {
+//     let newUsername = document.getElementById('newUsername').value;
+//     let newEmail = document.getElementById('newEmail').value;
+//     let newPassword = document.getElementById('newPassword').value;
+//     let newUser = new User(newUsername, newEmail, newPassword);
+    
+//     newUser.createUser();
+// });
