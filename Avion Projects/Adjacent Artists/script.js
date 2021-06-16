@@ -200,12 +200,12 @@ function createCards(obj) {
         if (WIKI_LINK == "" || WIKI_LINK == null) {
             section += ``;
         } else {
-            section += `<a href="${WIKI_LINK}" target="_blank"><button class="result-button fa-wikipedia-w"></button></a>`;
+            section += `<a href="${WIKI_LINK}" target="_blank"><button class="result-button fa-wikipedia-w" title="Wikipedia Page"></button></a>`;
         }
 
         // Add youtube search button and description
         section += `
-                <a href="https://www.youtube.com/results?search_query=${VALID_SEARCH}" target="_blank"><button class="result-button fa-youtube"></button></a>
+                <a href="https://www.youtube.com/results?search_query=${VALID_SEARCH}" target="_blank"><button class="result-button fa-youtube" title="Search YouTube"></button></a>
             </div>`;
 
         // Add description
@@ -252,101 +252,3 @@ function toggleBurgerMenu() {
     burgerMenu.classList.toggle('change');
     burgerNav.classList.toggle('burger-nav-shown');
 }
-
-let podcastJSON = {
-    "Similar": {
-        "Info": [
-            {
-                "Name": "Call Her Daddy",
-                "Type": "podcast",
-                "wTeaser": "Andrew Santino (born October 16, 1983) is an American stand-up comedian, actor and podcaster known for television series and films such as Sin City Saints, The Disaster Artist, Mixology, and I'm Dying Up Here.On I'm Dying Up Here, he played one of the main roles, Bill Hobbs, a talented, popular comedian who sabotages himself with a bitter attitude and negative outlook on life. Currently he stars in the series Dave, which tells the fictionalized story of rapper Lil Dicky. Santino portrays Dave's roommate and manager. In 2017, he released 'Home Field Advantage' a Showtime special. He also played a recurring character in the NBC drama This Is Us, a producer of the fictional sitcom The Manny. Santino produces and hosts a podcast, Whiskey Ginger, where he interviews friends in the entertainment industry as they reflect on their past while sipping whiskey. Santino attended Arizona State University. In 2020, Santino began co-hosting the Bad Friends podcast with Bobby Lee and Bad Friend Rudy.",
-                "wUrl": "https://en.wikipedia.org/wiki/Andrew_Santino",
-                "yUrl": "https://www.youtube-nocookie.com/embed/tCZO9QXvBRg",
-                "yID": "tCZO9QXvBRg"
-            }
-        ],
-        "Results": [
-            {
-                "Name": "Chicks In The Office",
-                "Type": "podcast",
-                "wTeaser": "The 2018 People's Choice Awards, officially the 2018 E! People's Choice Awards, were held on November 11, 2018, to honor the best in pop culture for 2018.This ceremony, the 44th edition of the People's Choice Awards, marked a change of network from CBS to E!, after E!'s acquisition of the awards from Procter & Gamble, and the ceremony's move from January to November.The first round of nominees was announced on September 5, 2018, with the finalists named on September 24. Winners are listed first and in boldface.",
-                "wUrl": "https://en.wikipedia.org/wiki/44th_People%27s_Choice_Awards",
-                "yUrl": "https://www.youtube-nocookie.com/embed/-yk6Mupqqr0",
-                "yID": "-yk6Mupqqr0"
-            },
-            {
-                "Name": "Girls Gotta Eat",
-                "Type": "podcast",
-                "wTeaser": "Internet culture, or cyberculture, is a culture that describes the many manifestations of the use of computer networks for communication, entertainment, and business, and recreation. Some features of Internet culture include online communities, gaming, social media, and more, as well as topics related to identity and privacy. Due to the internet’s large scale use and adoption, the impacts of internet culture on society and non-digital cultures have been widespread. Additionally, because of the all encompassing nature of the internet and internet culture, different facets of internet culture are often studied individually rather than holistically, such as social media, gaming, specific communities, and more.",
-                "wUrl": "https://en.wikipedia.org/wiki/Wikipedia:AfC_sorting/Culture/Internet_culture",
-                "yUrl": "https://www.youtube-nocookie.com/embed/IIv1GkcqakQ",
-                "yID": "IIv1GkcqakQ"
-            },
-            {
-                "Name": "Too Tired To Be Crazy With Violet Benson",
-                "Type": "podcast",
-                "wTeaser": "",
-                "wUrl": null,
-                "yUrl": null,
-                "yID": null
-            },
-            {
-                "Name": "Schnitt Talk",
-                "Type": "podcast",
-                "wTeaser": "\"S.L.U.T.\" (an acronym for \"sweet, little, unforgettable thing\") is a song by American singer Bea Miller. Hollywood Records released it on October 6, 2017 as a single for her third extended play (EP) Chapter Three: Yellow (2017). It also serves as the second single for her second studio album Aurora (2018).\"S.L.U.T.\" was included in the song list of the video game Just Dance 2019 (2018). The song's title was expanded to \"Sweet Little Unforgettable Thing\" in the game, likely to be more kid-friendly.“S.L.U.T.” is used as the outro song for the Barstool Sports podcast Schnitt Talk.\"S.L.U.T.\" is a song about female empowerment. In an interview with Teen Vogue, Miller said that she was inspired to write the song when someone commented on a picture she posted of herself to slut-shame her. \nMiller's co-writer looked up the word 'slut' on the Urban Dictionary and one of the definitions defined it as an acronym for \"Sweet, little, unforgettable thing\". Miller thought that women feel better hearing this and said that \"when women are called a slut for absolutely no reason\", the song will make them feel better about themselves.",
-                "wUrl": "https://en.wikipedia.org/wiki/S.L.U.T._(song)",
-                "yUrl": "https://www.youtube-nocookie.com/embed/zQUVuGWt0sA",
-                "yID": "zQUVuGWt0sA"
-            },
-            {
-                "Name": "U Up?",
-                "Type": "podcast",
-                "wTeaser": "Emily Axford is an American actress, writer and producer. She is best known for her various roles in CollegeHumor videos, her role as Emily on the truTV comedy, Adam Ruins Everything, based on the CollegeHumor series of the same name, and for her role on the Pop TV original Hot Date, co-starring with her husband, Brian Murphy. Axford and Murphy co-wrote HEY, U UP? (For a Serious Relationship): How to Turn Your Booty Call into Your Emergency Contact, a satirical relationship advice book that was published in 2018.Axford grew up in the suburbs of Albany, New York. She went on to study at George Washington University, where she studied Religion and graduated in 2007. At George Washington University, she was a part of the co-ed improv troupe, ReceSs. After college, Axford studied at Upright Citizens Brigade in New York City and then Los Angeles.",
-                "wUrl": "https://en.wikipedia.org/wiki/Emily_Axford",
-                "yUrl": "https://www.youtube-nocookie.com/embed/wx6Y3eTjKtc",
-                "yID": "wx6Y3eTjKtc"
-            },
-            {
-                "Name": "Fantasy Football Factory",
-                "Type": "podcast",
-                "wTeaser": "",
-                "wUrl": null,
-                "yUrl": "https://www.youtube-nocookie.com/embed/ukBG5O3UOYU",
-                "yID": "ukBG5O3UOYU"
-            },
-            {
-                "Name": "Comments By Celebs",
-                "Type": "podcast",
-                "wTeaser": "Comments by Celebs, or CBC, is a brand consisting of several social media accounts and a weekly podcast created by Emma Diamond and Julie Kramer that focuses on pop culture and entertainment news. The brand curates a collection of social media interactions between celebrities, emphasizing lighthearted interactions while trying to humanize celebrities. The account gained popularity through Instagram, although they also have Twitter, and Facebook accounts.Comments by Celebs was co-founded by Diamond and Kramer in April 2017. At the time, Instagram had recently changed its algorithm so that comments from verified accounts were visible first. This led Kramer and Diamond to create an Instagram account featuring a variety of comments and social media interactions between celebrities. Comments by Celebs' popularity grew after Kelly Ripa mentioned the account on the air on her show Live with Kelly and Ryan. In early 2018, they also added a watermark to their posts, which they claim helped to grow the account. The company is based in New York City and Kramer and Diamond work out of the WeWork spaces in the city.",
-                "wUrl": "https://en.wikipedia.org/wiki/Comments_by_Celebs",
-                "yUrl": "https://www.youtube-nocookie.com/embed/OR2wjOWdQZk",
-                "yID": "OR2wjOWdQZk"
-            },
-            {
-                "Name": "Hard Factor",
-                "Type": "podcast",
-                "wTeaser": "The following is a list of daily news podcasts, organized by type (original podcast or repackaged media) and then by country. It represents a small subset of news podcasts that release an episode every day, sometimes with the exception of weekends or holidays.",
-                "wUrl": "https://en.wikipedia.org/wiki/List_of_daily_news_podcasts",
-                "yUrl": "https://www.youtube-nocookie.com/embed/44noEyvb5Rg",
-                "yID": "44noEyvb5Rg"
-            },
-            {
-                "Name": "Crime Junkie",
-                "Type": "podcast",
-                "wTeaser": "Crime Junkie is a true crime podcast hosted by Ashley Flowers and Brit Prawat, based in Indianapolis, Indiana. As of September 15, 2020, the show has released 153 episodes.In a Q&A with Inside Radio, Flowers said that she and Prawat, her co-host, have been friends since birth. Flowers and Prawat, born on the same day, became friends through their mothers and grew up together; both became interested in true crime. Flowers said, \"[You] can probably thank my mom for that, because I grew up reading Nancy Drew [and] Agatha Christie.\"After joining the board of directors for Crime Stoppers of Central Indiana, Flowers hosted Murder Monday, a 20-minute show on RadioNOW 100.9 in Indianapolis. The show lasted a year, and was intended as promotion for Crime Stoppers to \"improve the organization’s standing with a younger audience.\" According to Flowers on WTHR, the name Crime Junkie came to her when she started working at Crime Stoppers. She felt that there weren't enough podcasts and decided to create one that she herself would enjoy.",
-                "wUrl": "https://en.wikipedia.org/wiki/Crime_Junkie_Podcast",
-                "yUrl": "https://www.youtube-nocookie.com/embed/UDlc3p-KI1c",
-                "yID": "UDlc3p-KI1c"
-            },
-            {
-                "Name": "The Corp",
-                "Type": "podcast",
-                "wTeaser": "2006 (MMVI) was a common year starting on Sunday of the Gregorian calendar, the 2006th year of the Common Era (CE) and Anno Domini (AD) designations, the 6th  year of the 3rd millennium, the 6th  year of the 21st century, and the  7th   year of the 2000s decade. 2006 was designated as the International Year of Deserts and Desertification and the International Asperger's Year. ",
-                "wUrl": "https://en.wikipedia.org/wiki/Wikipedia:Stub_types_for_deletion/Log/Deleted/February_2006",
-                "yUrl": "https://www.youtube-nocookie.com/embed/LMx1IUnOt70",
-                "yID": "LMx1IUnOt70"
-            }
-        ]
-    }
-}
-createCards(podcastJSON);
