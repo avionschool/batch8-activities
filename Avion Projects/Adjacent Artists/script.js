@@ -68,7 +68,8 @@ burgerNavItems.forEach(function(item, index) {
         webNavItems.forEach(function(item) {item.classList.remove('active')});
         item.classList.add('active');
         webNavItems[index].classList.add('active');
-        switchSections(item.textContent); // build page
+        currentSelection = item.textContent; // update global var
+        switchSections(currentSelection); // build page
     })
 });
 
@@ -79,7 +80,8 @@ webNavItems.forEach(function(item, index) {
         webNavItems.forEach(function(item) {item.classList.remove('active')});
         item.classList.add('active');
         burgerNavItems[index].classList.add('active');
-        switchSections(item.textContent);
+        currentSelection = item.textContent; // update global var
+        switchSections(currentSelection);
     })
 });
 
@@ -228,7 +230,8 @@ function createCards(obj) {
 
 function modifyResultsMessage(obj) {
     if (obj.Similar.Results.length == 0) {
-        resultsMessage.textContent = `No results found for "${obj.Similar.Info[0].Name}":`;
+        resultsMessage.innerHTML = `No results found for "${obj.Similar.Info[0].Name}":<br>
+        <div class="error-disclaimer">(Note: Search is case-sensitive)</div>`;
     } else {
         resultsMessage.textContent = `Showing results for "${obj.Similar.Info[0].Name}":`;
     }

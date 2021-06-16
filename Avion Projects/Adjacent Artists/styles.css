@@ -342,6 +342,10 @@ footer {
         margin-bottom: 1vw;
     }
 
+    .error-disclaimer {
+        font-size: 0.8rem;
+    }
+
     .results-container {
         border-radius: 25px;
         border: 15px solid var(--main-color-2);
