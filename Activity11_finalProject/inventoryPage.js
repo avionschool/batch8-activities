@@ -106,7 +106,7 @@ class Create {
             itemDescription: this.itemDescription,
             quantity: this.quantity
         };
-
+                
         if (this.donor.length == 0 ||  
             this.date.length == 0 || 
             this.itemDescription == 0 ||
@@ -123,18 +123,18 @@ class Create {
                 return alert ('Error: Duplicate entry found.');
             }
         }
-    
+        
         // create a key-itemTrackingNumber and store it in the database
         itemTrackingNumber += 1;
-        console.log("itemTrackingNumber = " + itemTrackingNumber);
+        // console.log("itemTrackingNumber = " + itemTrackingNumber);
         
         localStorage.setItem(itemTrackingNumber, JSON.stringify(itemObject));
         let getItems = JSON.parse(localStorage.getItem(itemTrackingNumber));
-            console.log(getItems);
+            // console.log(getItems);
 
         itemArr.push(getItems);
-            console.log(itemArr);
-
+            // console.log(itemArr);
+            
         // adding a row to the table to the table
         let inventoryTable = document.getElementById('inventoryTable');
         let donated = 0;
@@ -143,13 +143,13 @@ class Create {
         // ` translates the value literally to the HTML
         // ${} placeholder to display values of variables
         let rowTemplate = 
-            `<tr>
-                <td>${this.donor}</td>
-                <td>${newProductCode}</td>
-                <td>${this.date}</td>
-                <td>${this.itemDescription}</td>
-                <td>${this.quantity}</td>
-                <td>${donated}</td>
+            `<tr id="product-${newProductCode}">
+                <td class="product_donor">${this.donor}</td>
+                <td class="product_code">${newProductCode}</td>
+                <td class="product_date">${this.date}</td>
+                <td class="product_itemdes">${this.itemDescription}</td>
+                <td class="product_quantity">${this.quantity}</td>
+                <td class="product_donated">${donated}</td>
             </tr>`;
 
         inventoryTable.innerHTML = inventoryTable.innerHTML + rowTemplate;
@@ -173,6 +173,7 @@ storeButton.addEventListener('click', function() {
 });
 
 
+// .values > object > localstorage > arr > display
 
 class Donate {
     constructor(tempProductCode, tempAmount, tempReceiver, tempidType) {
@@ -189,6 +190,56 @@ class Donate {
         console.log('Error caught: Input empty.');
         return alert ('Error: Please fill out the details required.');
         }
+        
+        // console.log(this.productCode);
+        // should be = to productCode.value
+
+        //1
+       
+        let getObj = JSON.parse(localStorage.getItem(this.productCode));
+            // console.log(getObj);
+            // should return the object of this.productCode key
+
+            //1 object
+
+        let difference = getObj.quantity - this.amount;
+            // console.log(getObj.quantity);
+            // should be the quantity of the object
+            // console.log(this.amount);
+            // should be = to amount.value
+            // console.log(difference);
+            // should be the result
+
+            //3 quantity - 1 amount
+            //2 quantuty
+
+        getObj.quantity = difference;
+            // console.log(getObj.quantity)
+            // double check if results are copied
+
+            //2 quantity = 2 quantity
+
+        localStorage.setItem(this.productCode, JSON.stringify(getObj));
+            // push to localstorage
+
+        let targetQuantity = document.querySelector(`#product-${this.productCode} .product_quantity`);
+            // console.log(targetQuantity.innerHTML);
+            // targeted the id="product-this.productCode" .product_quantity
+            targetQuantity.innerHTML = getObj.quantity ;
+            // console.log(targetQuantity.innerHTML);
+            // replace with updated
+        
+        let targetDonated = document.querySelector(`#product-${this.productCode} .product_donated`);
+        console.log(targetDonated.innerHTML);
+        console.log(this.amount);
+        
+        targetDonated.innerHTML = Number(targetDonated.innerHTML) + Number(this.amount);
+
+        //id 1 class donated
+        //0
+
+        donatePopup.classList.add('hidden');
+        alert('Successful: Donation made.');
     }
 }
 
