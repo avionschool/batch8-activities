@@ -99,12 +99,25 @@ async function callUnsplashAPI() {
     });
 }
 
-async function getFacts() {
+async function callFactsAPI() {
   const response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
   if (!response.ok) {
     throw new Error(`Error with Random Facts API. status: ${response.statusText}`);
   }
   return await response.json();
+}
+
+function textToSpeech(text) {
+  VoiceRSS.speech({
+    key: '3b34ee60c393405985cc968b8110ba78',
+    src: text,
+    hl: Conversation.getLanguage(),
+    v: Conversation.getVoice(),
+    r: 0,
+    c: 'mp3',
+    f: '44khz_16bit_stereo',
+    ssml: false,
+  });
 }
 
 // ==========================================
@@ -185,16 +198,7 @@ class Settings {
 // ! TEXT-TO-SPEECH
 document.querySelector('#play').addEventListener('click', (e) => {
   e.preventDefault();
-  VoiceRSS.speech({
-    key: '3b34ee60c393405985cc968b8110ba78',
-    src: document.querySelector('#text').value,
-    hl: Conversation.getLanguage(),
-    v: Conversation.getVoice(),
-    r: 0,
-    c: 'mp3',
-    f: '44khz_16bit_stereo',
-    ssml: false,
-  });
+  textToSpeech(document.querySelector('#text').value);
 });
 
 // ! SETTINGS
@@ -243,11 +247,14 @@ document.querySelector('#unsplash-btn').addEventListener('click', async () => {
 
 // ! RANDOM FACTS
 document.querySelector('#facts-btn').addEventListener('click', () => {
-  getFacts()
+  callFactsAPI()
     .then((data) => {
       // return data;
       let randomFact = data.text;
       document.querySelector('#facts-text').innerHTML = randomFact;
+      setTimeout(function () {
+        textToSpeech(randomFact);
+      }, 1000);
     })
     .catch((error) => {
       console.log(error);
