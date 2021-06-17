@@ -107,7 +107,8 @@ body {
   margin: 0;
 }
 .conversation-wrapper,
-.text-wrapper {
+.text-wrapper,
+.facts-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -313,8 +314,6 @@ label {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
-  /* outline: 1px solid rgb(214, 211, 211); */
-  /* for testing */
   background-image: url(assets/image-regular.svg);
 }
 

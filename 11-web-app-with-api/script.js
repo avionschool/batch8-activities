@@ -7,8 +7,9 @@ let home = document.querySelector('#home');
 let conversation = document.querySelector('#conversation');
 let talk = document.querySelector('#talk');
 let settings = document.querySelector('#settings-modal');
+let facts = document.querySelector('#facts');
 
-let button = document.querySelector('#play');
+// let button = document.querySelector('#play');
 
 // Speech to text API
 const VoiceRSS = {
@@ -90,7 +91,7 @@ const VoiceRSS = {
 //   .then((response) => response.status)
 //   .then((data) => console.log(data));
 
-button.addEventListener('click', (e) => {
+document.querySelector('#play').addEventListener('click', (e) => {
   e.preventDefault();
   VoiceRSS.speech({
     key: '3b34ee60c393405985cc968b8110ba78',
@@ -116,7 +117,6 @@ async function callUnsplashAPI() {
     .then((response) => response.json())
     .then((data) => {
       document.querySelector('#image').classList.remove('loader');
-      // return data.urls.regular;
       return data;
     });
 }
@@ -246,6 +246,9 @@ window.onload = () => {
   talk.classList.add('hide');
   talk.classList.remove('show');
   settings.classList.add('hide');
+  settings.classList.remove('show');
+  facts.classList.add('hide');
+  facts.classList.remove('show');
 };
 
 document.querySelector('#toggle').addEventListener('click', () => {
@@ -272,6 +275,8 @@ document.querySelector('#conversation-link').addEventListener('click', () => {
   home.classList.add('hide');
   talk.classList.add('hide');
   talk.classList.remove('show');
+  facts.classList.remove('show');
+  facts.classList.add('hide');
 });
 
 document.querySelector('#talk-link').addEventListener('click', () => {
@@ -283,13 +288,31 @@ document.querySelector('#talk-link').addEventListener('click', () => {
   home.classList.add('hide');
   conversation.classList.add('hide');
   conversation.classList.remove('show');
+  facts.classList.remove('show');
+  facts.classList.add('hide');
 });
 
-// random facts API
-// document.querySelector('#read').addEventListener('click', () => {
-//   fetch('https://uselessfacts.jsph.pl/random.json?language=en')
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log(data);
-//     });
-// });
+document.querySelector('#facts-link').addEventListener('click', () => {
+  facts.classList.add('show');
+  facts.classList.remove('hide');
+
+  home.classList.remove('hide');
+  home.classList.add('hide');
+  conversation.classList.add('hide');
+  conversation.classList.remove('show');
+  facts.classList.remove('show');
+  talk.classList.remove('show');
+  talk.classList.add('hide');
+});
+
+document.querySelector('#facts-btn').addEventListener('click', () => {
+  // fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //   });
+
+  async function getFacts() {
+    const response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
+  }
+});

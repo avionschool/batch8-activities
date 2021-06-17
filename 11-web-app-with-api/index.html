@@ -24,7 +24,7 @@
           <a href="#" id="talk-link">Text to Speech</a>
         </li>
         <li>
-          <a href="#">Hear yourself</a>
+          <a id="facts-link">Random Facts</a>
         </li>
         <li>
           <a href="#">References</a>
@@ -49,10 +49,11 @@
       </p>
       <h2>Text to Speech</h2>
       <p>A fun activity which gives freedom to the person to type in words, phrases or sentences and the app will say it back to them.</p>
-      <h2>Hear yourself</h2>
-      <p></p>
+      <h2>Random Facts to Speech</h2>
+      <p>Will display random facts which can also be played in audio format.</p>
     </div>
 
+    <!-- Conversation Therapy -->
     <div class="container" id="conversation">
       <div class="conversation-wrapper">
         <h2>Conversation Therapy</h2>
@@ -67,17 +68,27 @@
       <input type="submit" value="" id="unsplash-btn" />
     </div>
 
+    <!-- Text to Speech -->
     <div class="container" id="talk">
       <div class="text-wrapper">
         <h2>Text to Speech</h2>
-
-        <!-- <input type="text" name="text" id="text" placeholder="Enter text to read" /> -->
-        <textarea wrap="off" name="text" id="text" cols="70" rows="12" placeholder="Enter text to read..."></textarea>
+        <form>
+          <textarea wrap="off" name="text" id="text" cols="70" rows="12" placeholder="Enter text to read..." required></textarea>
+        </form>
         <input type="submit" value="" id="play" />
-        <!-- <input type="submit" value="Read something to me" id="read" /> -->
       </div>
     </div>
   </body>
+
+  <!-- Random Facts to Speech-->
+  <div class="container" id="facts">
+    <div class="facts-wrapper">
+      <h2>Random Facts to Speech</h2>
+      <!-- text to display -->
+      <h3 id="facts-text">Sample facts.</h3>
+      <input type="submit" value="Play some facts!" id="facts-btn" />
+    </div>
+  </div>
 
   <!-- modal for Settings -->
   <div id="settings-modal" class="modal">
