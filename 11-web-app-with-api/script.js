@@ -7,6 +7,7 @@ let conversation = document.querySelector('#conversation');
 let talk = document.querySelector('#talk');
 let settings = document.querySelector('#settings-modal');
 let facts = document.querySelector('#facts');
+let references = document.querySelector('#references');
 
 // Speech to text API
 const VoiceRSS = {
@@ -249,9 +250,9 @@ document.querySelector('#unsplash-btn').addEventListener('click', async () => {
 document.querySelector('#facts-btn').addEventListener('click', () => {
   callFactsAPI()
     .then((data) => {
-      // return data;
       let randomFact = data.text;
       document.querySelector('#facts-text').innerHTML = randomFact;
+      // plays audio after 1 second
       setTimeout(function () {
         textToSpeech(randomFact);
       }, 1000);
@@ -276,6 +277,8 @@ window.onload = () => {
   settings.classList.remove('show');
   facts.classList.add('hide');
   facts.classList.remove('show');
+  references.classList.add('hide');
+  references.classList.remove('show');
 };
 
 // ! NAV LINKS
@@ -288,6 +291,10 @@ document.querySelector('#home-link').addEventListener('click', () => {
   conversation.classList.add('hide');
   talk.classList.add('hide');
   talk.classList.remove('show');
+  facts.classList.remove('show');
+  facts.classList.add('hide');
+  referencs.classList.add('hide');
+  referencs.classList.remove('show');
 });
 
 document.querySelector('#conversation-link').addEventListener('click', () => {
@@ -301,10 +308,12 @@ document.querySelector('#conversation-link').addEventListener('click', () => {
   talk.classList.remove('show');
   facts.classList.remove('show');
   facts.classList.add('hide');
+  references.classList.add('hide');
+  references.classList.remove('show');
 });
 
 document.querySelector('#talk-link').addEventListener('click', () => {
-  //hide elements except talk
+  //hide elements except talk to speech
   talk.classList.add('show');
   talk.classList.remove('hide');
 
@@ -314,9 +323,12 @@ document.querySelector('#talk-link').addEventListener('click', () => {
   conversation.classList.remove('show');
   facts.classList.remove('show');
   facts.classList.add('hide');
+  references.classList.add('hide');
+  references.classList.remove('show');
 });
 
 document.querySelector('#facts-link').addEventListener('click', () => {
+  //hide elements except facts
   facts.classList.add('show');
   facts.classList.remove('hide');
 
@@ -327,4 +339,22 @@ document.querySelector('#facts-link').addEventListener('click', () => {
   facts.classList.remove('show');
   talk.classList.remove('show');
   talk.classList.add('hide');
+  references.classList.add('hide');
+  references.classList.remove('show');
+});
+
+document.querySelector('#references-link').addEventListener('click', () => {
+  //hide elements except references
+  references.classList.add('show');
+  references.classList.remove('hide');
+
+  home.classList.remove('hide');
+  home.classList.add('hide');
+  conversation.classList.add('hide');
+  conversation.classList.remove('show');
+  facts.classList.remove('show');
+  talk.classList.remove('show');
+  talk.classList.add('hide');
+  facts.classList.add('hide');
+  facts.classList.remove('show');
 });
