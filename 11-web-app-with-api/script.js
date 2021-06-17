@@ -2,14 +2,11 @@
 //            GLOBAL VARIABLES
 // ==========================================
 
-// container classes
 let home = document.querySelector('#home');
 let conversation = document.querySelector('#conversation');
 let talk = document.querySelector('#talk');
 let settings = document.querySelector('#settings-modal');
 let facts = document.querySelector('#facts');
-
-// let button = document.querySelector('#play');
 
 // Speech to text API
 const VoiceRSS = {
@@ -86,27 +83,8 @@ const VoiceRSS = {
   },
 };
 
-// For testing purposes only
-// fetch('https://api.fungenerators.com/fact/random')
-//   .then((response) => response.status)
-//   .then((data) => console.log(data));
-
-document.querySelector('#play').addEventListener('click', (e) => {
-  e.preventDefault();
-  VoiceRSS.speech({
-    key: '3b34ee60c393405985cc968b8110ba78',
-    src: document.querySelector('#text').value,
-    hl: Conversation.getLanguage(),
-    v: Conversation.getVoice(),
-    r: 0,
-    c: 'mp3',
-    f: '44khz_16bit_stereo',
-    ssml: false,
-  });
-});
-
 // ==========================================
-//            FUNCTIONS
+//            --FUNCTIONS
 // ==========================================
 
 async function callUnsplashAPI() {
@@ -120,8 +98,17 @@ async function callUnsplashAPI() {
       return data;
     });
 }
+
+async function getFacts() {
+  const response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
+  if (!response.ok) {
+    throw new Error(`Error with Random Facts API. status: ${response.statusText}`);
+  }
+  return await response.json();
+}
+
 // ==========================================
-//            CLASSES
+//            --CLASSES
 // ==========================================
 let questArr = ['What can you see in the photo?', 'How does picture make you feel?', "What's the first thing that comes to your mind when you see this?", 'What colors can you see?'];
 
@@ -195,6 +182,21 @@ class Settings {
 //            EVENT LISTENERS
 // ==========================================
 
+// ! TEXT-TO-SPEECH
+document.querySelector('#play').addEventListener('click', (e) => {
+  e.preventDefault();
+  VoiceRSS.speech({
+    key: '3b34ee60c393405985cc968b8110ba78',
+    src: document.querySelector('#text').value,
+    hl: Conversation.getLanguage(),
+    v: Conversation.getVoice(),
+    r: 0,
+    c: 'mp3',
+    f: '44khz_16bit_stereo',
+    ssml: false,
+  });
+});
+
 // ! SETTINGS
 document.querySelector('#settings').addEventListener('click', () => {
   settings.classList.add('show');
@@ -239,6 +241,24 @@ document.querySelector('#unsplash-btn').addEventListener('click', async () => {
   document.querySelector('#image').style.backgroundImage = `url('${img}')`;
 });
 
+// ! RANDOM FACTS
+document.querySelector('#facts-btn').addEventListener('click', () => {
+  getFacts()
+    .then((data) => {
+      // return data;
+      let randomFact = data.text;
+      document.querySelector('#facts-text').innerHTML = randomFact;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+// ! MISC
+document.querySelector('#toggle').addEventListener('click', () => {
+  document.body.classList.toggle('show-nav');
+});
+
 window.onload = () => {
   // hide elements
   conversation.classList.add('hide');
@@ -251,10 +271,7 @@ window.onload = () => {
   facts.classList.remove('show');
 };
 
-document.querySelector('#toggle').addEventListener('click', () => {
-  document.body.classList.toggle('show-nav');
-});
-
+// ! NAV LINKS
 document.querySelector('#home-link').addEventListener('click', () => {
   // hide other elements except home
   home.classList.add('show');
@@ -303,16 +320,4 @@ document.querySelector('#facts-link').addEventListener('click', () => {
   facts.classList.remove('show');
   talk.classList.remove('show');
   talk.classList.add('hide');
-});
-
-document.querySelector('#facts-btn').addEventListener('click', () => {
-  // fetch('https://uselessfacts.jsph.pl/random.json?language=en')
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //   });
-
-  async function getFacts() {
-    const response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
-  }
 });
