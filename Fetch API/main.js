@@ -30,7 +30,7 @@ function getData(q) {
             const height = obj.images.fixed_width.height;
             const title = obj.title;
 
-            imagesResults += `<img src="${url}" width="${width}" height="${height}" alt="${title}">`
+            imagesResults += `<img class="image-styles" src="${url}" width="${width}" height="${height}" alt="${title}">`
         })
         getImages.innerHTML = imagesResults;
     }).catch(function(err) {
