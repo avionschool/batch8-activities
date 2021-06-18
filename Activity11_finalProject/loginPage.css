@@ -109,7 +109,7 @@ input:hover {
     width: 250px;
 }
 
-/* weather update */
+/* time date weather */
 .timeDateWeather {
     height: 250px;
     width: 650px;
@@ -126,10 +126,12 @@ input:hover {
     font-size: 40px;
     margin-right: 130px;
 }
+
 #dateDisplay {
     font-size: 30px;
     margin: 5px 0px 10px 55px;
 }
+
 #timeDisplay {
     font-size: 35px;
     margin-right: 26px;

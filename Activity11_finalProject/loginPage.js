@@ -1,3 +1,4 @@
+// onload clock
 window.onload = realTime();
 
 function realTime() {
@@ -43,6 +44,7 @@ function realTime() {
         "November",
         "December"
     ];
+
     let dayList = [
         "SUNDAY",
         "MONDAY",
@@ -66,7 +68,7 @@ function realTime() {
     year;
 
     dayDisplay.innerHTML = updatedDay;
-}
+};
 
 // to see documentation, visit "https://openweathermap.org/"
 // used '&units=metric' to change to celsius
@@ -83,6 +85,7 @@ let weatherDes = document.getElementById('weatherDes');
 checkWeatherButton.addEventListener('click', function(name) {
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&units=metric&appid=e9fda0468ea526972a52690dd74ea091')
     // fetch('https://api.openweathermap.org/data/2.5/weather?q=Pasig&units=metric&appid=e9fda0468ea526972a52690dd74ea091')
+    // if you want to focus on onload Pasig
     .then(response => response.json())
     .then(data => {
     let cityValue = data['name'];
@@ -90,16 +93,14 @@ checkWeatherButton.addEventListener('click', function(name) {
     let minTempValue = data['main']['temp_min'];
     let maxTempValue = data['main']['temp_max'];
     let weatherDesValue = data['weather'][0]['description'];
-    let icon = data['weather'][0]['icon'];
-
-    let iconValue = ('http://openweathermap.org/img/wn/icon@2x.png');
+    // let icon = data['weather'][0]['icon'];
+    // let iconValue = ('http://openweathermap.org/img/wn/icon@2x.png');
 
     city.innerHTML = cityValue;
     temperature.innerHTML = "temperature outside is " + tempValue + "&#176";
     tempMinMax.innerHTML = "(" + minTempValue + "&#176" + " - " + maxTempValue + "&#176" + ")";
     // weatherDes.innerHTML = weatherDesValue + iconValue;
     weatherDes.innerHTML = weatherDesValue;
-    inputValue.value = "";
 
     let enterBranchPopup = document.getElementById('enterBranchPopup');
     enterBranchPopup.classList.add('hidden');
@@ -122,7 +123,7 @@ checkWeatherButton.addEventListener('click', function(name) {
 })
 
 .catch(err => alert("Error: City name does not exist."));
-})
+});
 
 //fetch('https://api.openweathermap.org/data/2.5/weather?q=Pasig&appid=e9fda0468ea526972a52690dd74ea091')
 // {
@@ -181,33 +182,30 @@ checkWeatherButton.addEventListener('click', function(name) {
 //     "cod":200
 // }
 
-//LOGIN PAGE
 // login and create account popup
-
-
 let loginPopup = document.getElementById('loginPopup');
 let createAccountPopup = document.getElementById('createAccountPopup');
 
-document.getElementById('login').addEventListener('click', function () {
+document.getElementById('login').addEventListener('click', function() {
     loginPopup.classList.remove('hidden');
     createAccountPopup.classList.add('hidden');
 });
 
-document.getElementById('createAccount').addEventListener('click', function () {
+document.getElementById('createAccount').addEventListener('click', function() {
     loginPopup.classList.add('hidden');
     createAccountPopup.classList.remove('hidden');
 });
 
-// function of link
+// login and create account link
 let createAccountLink = document.getElementById('createAccountLink');
 let loginLink = document.getElementById('loginLink');
 
-document.getElementById('createAccountLink').addEventListener('click', function () {
+document.getElementById('createAccountLink').addEventListener('click', function() {
     loginPopup.classList.add('hidden');
     createAccountPopup.classList.remove('hidden');
 });
 
-document.getElementById('loginLink').addEventListener('click', function () {
+document.getElementById('loginLink').addEventListener('click', function() {
     loginPopup.classList.remove('hidden');
     createAccountPopup.classList.add('hidden');
 });
@@ -216,25 +214,15 @@ document.getElementById('loginLink').addEventListener('click', function () {
 let closeLoginPopup = document.getElementById('closeLoginPopup');
 let closeCreateAccountPopup = document.getElementById('closeCreateAccountPopup');
 
-document.getElementById('closeLoginPopup').addEventListener('click', function () {
+document.getElementById('closeLoginPopup').addEventListener('click', function() {
     loginPopup.classList.add('hidden');
 });
 
-document.getElementById('closeCreateAccountPopup').addEventListener('click', function () {
+document.getElementById('closeCreateAccountPopup').addEventListener('click', function() {
     createAccountPopup.classList.add('hidden');
 });
 
-function exit() {
-    storePopup.classList.add('hidden');
-    cashDepositPopup.classList.add('hidden');
-    storeProductPopup.classList.add('hidden');
-    donatePopup.classList.add('hidden');
-    addDonorLocationPopup.classList.add('hidden');
-};
-
-let userTrackNum = 100;
-
-//Creating users
+// class for creating users
 class User {
     constructor(tempNewUsername, tempNewEmail, tempNewPassword) {
         this.newUsername = tempNewUsername;
@@ -249,10 +237,12 @@ class User {
             password: this.newPassword
         };
 
-        if (this.newUsername.length == 0 || this.newEmail.length == 0 || this.newPassword == 0) {
+        if (this.newUsername.length == 0 || 
+            this.newEmail.length == 0 || 
+            this.newPassword == 0) {
             console.log('Error caught: Input empty.');
             return alert ('Error: Please fill out the details required.');
-        }
+        };
 
         let userList = JSON.parse(localStorage.getItem('users'));
         //if there's no data yet in localstorage, create an empty arr[]=userList and add the 'userObject' inside
@@ -261,16 +251,17 @@ class User {
             userList = [userObject];
         } else {
             userList.push(userObject);
-        }
-        console.log(userList);
-        //always check if userList-arr[] is updated
+        };
+            console.log(userList);
+            //always check if userList-arr[] is updated
+
         localStorage.setItem('users', JSON.stringify(userList));
         
-        alert ("Success: Account created.")
+        alert ("Success: Account created.");
         createAccountPopup.classList.add('hidden');
         loginPopup.classList.remove('hidden');
-    }
-}
+    };
+};
 
 let createButton = document.getElementById('createButton');
 
@@ -284,7 +275,7 @@ createButton.addEventListener('click', function() {
     newUser.createUser();
 });
 
-
+// class for checking credentials
 class Credentials {
     constructor(tempUsername, tempPassword) {
         this.username = tempUsername;
@@ -294,7 +285,7 @@ class Credentials {
         if (this.username.length == 0 || this.password.length == 0) {
             console.log('Error caught: Input empty.');
             return alert ('Error: Please fill out the details required.');
-        }
+        };
 
         let userList = JSON.parse(localStorage.getItem('users'));
 
@@ -305,10 +296,10 @@ class Credentials {
             } else {
                 alert ("Success: Login successful.");
                 return window.location.replace('inventoryPage.html');
-            }
-        }
-    }
-}
+            };
+        };
+    };
+};
 
 let loginButton = document.getElementById('loginButton');
 
@@ -320,7 +311,6 @@ loginButton.addEventListener('click', function() {
 
     loggedCredentials.login();
 })
-
 
 // let userList = JSON.parse(localStorage.getItem('userDetails')) || []; 
 
@@ -336,11 +326,3 @@ loginButton.addEventListener('click', function() {
 
 // localStorage.setItem('userDetails', JSON.stringify(userList));
 // console.log(userList);
-
-
-
-//             target = userList.filter( ({username}) => username == this.username);
-
-//                 console.log('Error caught: Existing username.');
-//                 return alert ('Error: Username already existing.');
-//             }

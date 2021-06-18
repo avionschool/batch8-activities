@@ -14,7 +14,7 @@
             <h1>だれか PANTRY Dashboard</h1>
             <div class="subHeader flexStyleEvenly">
                 <p class="linkHover" id="locationLink">Locations</p>
-                <p class="linkHover"id="donorLink">Donor List</p>
+                <p class="linkHover" id="donorLink">Donor List</p>
                 <p class="linkHover" id="logout">Logout</p>
             </div>
         </section>
@@ -52,15 +52,16 @@
                     </div>
                 </div>
             </div>
+
             <!-- display -->
             <div class="display">
                 <!-- inventory -->
-                <div class="inventoryCon flexStyleSpaceBetween" id="inventoryPopup">
-                    <div class="displayHeader flexStyleEvenly">
+                <main class="inventoryCon flexStyleSpaceBetween" id="inventoryPopup">
+                    <section class="displayHeader flexStyleEvenly">
                         <h1 class="displayTitle">在庫 INVENTORY MANAGER</h1>
                         <h1>Balance: <span id="balance">0.00</span></h1>
-                    </div>
-                    <div class="tableCon">
+                    </section>
+                    <section class="tableCon">
                         <table class="tableStyle" id="inventoryTable">
                             <thead>
                                 <tr>
@@ -107,9 +108,9 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </section>
                     <section class="reminder">Please keep this dashboard clean and updated at all times!</section>
-                </div>
+                </main>
             </div>
         </section>
 
@@ -119,8 +120,7 @@
             <h2>Thank you for your service!</h2>
         </section>
     
-        <!-- popups -->
-        <!-- store -->
+        <!-- store popup -->
         <main class="popupCon hidden" id="storePopup">
             <section class="popUpHeader">お店 Store</section>
             <section class="storeOptions flexStyleEvenly">
@@ -139,8 +139,8 @@
             </div>
         </main>
 
-        <!-- store-cash deposit -->
-        <main class="popupCon hidden" id="CashDepositPopup">
+        <!-- store-cash deposit popup -->
+        <main class="popupCon hidden" id="cashDepositPopup">
             <section class="popUpHeader">現金預金 Cash Deposit</section>
             <section class="cashDepositForm flexStyleColumn">
                 <div class="cashDepositFormCon flexStyleEvenly">
@@ -166,21 +166,19 @@
             </div>
         </main>
 
-        <!-- store-store product -->
+        <!-- store-store product popup -->
         <main class="popupCon hidden" id="storeProductPopup">
             <section class="popUpHeader">お店 Store Product</section>    
             <section class="storeProductForm flexStyleColumn">
                 <div class="storeProductForm flexStyleEvenly">
                     <div class="flexStyleColumnStart">
                         <label>Donor</label>
-                        <!-- <label>Product Code</label> -->
                         <label>Date</label>
                         <label>Item Description</label>
                         <label>Quantity</label>
                     </div>
                     <div class="flexStyleColumn">
                         <input id="donor" type="text" placeholder="donor">
-                        <!-- <input id="productCode" type="text" placeholder="advisedProdCode"> -->
                         <input id="date" type="date">
                         <input id="itemDescription" type="text" placeholder="description">
                         <input id="quantity" type="number" placeholder="quantity">
@@ -194,7 +192,7 @@
             </div>
         </main>
 
-        <!-- donate -->
+        <!-- donate popup -->
         <main class="popupCon hidden" id="donatePopup">
             <section class="popUpHeader">寄付 Donate</section>
             <section class="donateForm flexStyleSpaceBetween">
@@ -220,7 +218,7 @@
             </div>
         </main>
 
-        <!-- transaction history -->
+        <!-- transaction history popup -->
         <main class="transactionHistoryCon flexStyleSpaceBetween hidden" id="transactionHistoryPopup">
             <section class="displayHeader flexStyleEvenly">
                 <h1 class="displayTitle">歴史 TRANSACTION HISTORY</h1>
@@ -259,7 +257,7 @@
             <section class="reminder">Please make sure all transactions are logged here.</section>
         </main>
 
-        <!-- add donor -->
+        <!-- add donor popup -->
         <main class="popupConTwo hidden" id="addDonorPopup">
             <section class="popUpHeader">加える Add Donor</section>
             <section class="flexStyleColumn">
@@ -278,7 +276,7 @@
             </div>
         </main>
 
-        <!-- add location -->
+        <!-- add location popup -->
         <main class="popupConTwo hidden" id="addLocationPopup">
             <section class="popUpHeader">加える Add Location</section>
             <section class="flexStyleColumn">
@@ -297,7 +295,7 @@
             </div>
         </main>
 
-        <!-- list -->
+        <!-- list popup -->
         <main class="listCon flexStyleSpaceBetween hidden" id="listPopup">
             <section class="displayHeader flexStyleRow">
                 <h1 class="displayTitle">リスト Locations & Donors</h1>

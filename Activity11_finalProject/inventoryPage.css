@@ -110,6 +110,24 @@ button:hover {
     border-radius: 25px;
 }
 
+.popupConTwo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 220px;
+    width: 400px;
+    position: absolute;
+    margin: 180px 0px 0px 0px;
+    background-color: white;
+    border: 2.9px solid black;
+    border-radius: 25px;
+}
+
+.popupConTwoSub {
+    width: 230px;
+}
+
 .popUpHeader {
     width: 80%;
     padding: 5px 0px 5px 0px;
@@ -137,30 +155,9 @@ button:hover {
     color: black;
 }
 
-.popupConTwo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 220px;
-    width: 400px;
-    position: absolute;
-    margin: 180px 0px 0px 0px;
-    background-color: white;
-    border: 2.9px solid black;
-    border-radius: 25px;
-}
-
-.popupConTwoSub {
-    width: 230px;
-    /* border-style: solid;
-    border-color: red; */
-}
-
 .opacity {
     opacity: 0.5;
 }
-
 
 /* body */
 .container {
@@ -233,8 +230,6 @@ button:hover {
     height: 100%;
     width: 100%;
     flex-direction: column;
-    /* border: 3.5px solid #FFFF66;
-    border-radius: 25px; */
 }
 
 .tableCon {
@@ -338,9 +333,6 @@ tbody tr:hover {
     position: absolute;
     margin: 105px 0px 0px 213px;
     background: white;
-        /* border: 3.5px solid #FFFF66;
-    border-radius: 25px; */
-
 }
 
 .transactionHistoryHeader {
@@ -361,8 +353,6 @@ tbody tr:hover {
     position: absolute;
     margin: 105px 0px 0px 220px;
     background-color: white;
-    /* border: 3.5px solid #FFFF66;
-    border-radius: 25px; */
 }
 
 .listBody{
@@ -371,7 +361,6 @@ tbody tr:hover {
 }
 
 .donorList {
-    /* background-color: gold; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -381,7 +370,6 @@ tbody tr:hover {
 }
 
 .locationList {
-    /* background-color: silver; */
     display: flex;
     flex-direction: column;
     align-items: center;

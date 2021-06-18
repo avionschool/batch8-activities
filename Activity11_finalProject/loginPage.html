@@ -23,7 +23,7 @@
             </div>
         </section>
 
-        <!-- weatherTime -->
+        <!-- time date weather -->
         <section class="timeDateWeather flexStyleSpaceBetween">
             <div class="timeDate flexStyleColumn">
                 <div id="dayDisplay"></div>
@@ -39,6 +39,7 @@
                 </div>
             </div>
         </section>
+
         <!-- what we do -->
         <section class="whatWeDo flexStyleColumn borderBackground">            
             <h2>WHAT WE DO..</h2><br>
@@ -69,6 +70,7 @@
             </div>
         </section>
 
+        <!-- last section -->
         <section class="lastSection flexStyleSpaceBetween">
             <!-- contact us -->
             <form class="contactUs flexStyleColumn">
@@ -118,7 +120,7 @@
         <input id="password" type="text" placeholder="password">
         <button id="loginButton" type="submit">LOGIN</button>
         <p class="changePopup linkHover" id="createAccountLink">Don't have an account? Create one now.</p>
-        <p id="closeLoginPopup" onclick="exit()">&#10006;</p>
+        <p id="closeLoginPopup">&#10006;</p>
         <div class="apple">
             <img src="pictures/design/apple.png" alt="apple" height="100%" width="100%">
         </div>
@@ -132,13 +134,14 @@
         <input id="newPassword" type="text" placeholder="new password">
         <button id="createButton" type="submit">CREATE</button>
         <p class="changePopup linkHover" id="loginLink">Already have an account? Sign in here.</p>
-        <p id="closeCreateAccountPopup" onclick="exit()">&#10006;</p>
+        <p id="closeCreateAccountPopup">&#10006;</p>
         <div class="broccoli">
             <img src="pictures/design/broccoli.png" alt="broccoli" height="100%" width="100%">
         </div>
     </div>
 
-    <div class="enterBranchPopup flexStyleEvenly" id="enterBranchPopup">
+    <!-- branch popup -->
+    <div class="enterBranchPopup flexStyleEvenly hidden" id="enterBranchPopup">
         <h2>ENTER BRANCH LOCATION</h2>
         <div class="enterBranchSub flexStyleEvenly">
             <input type="text" placeholder="enter city" id="inputValue">
@@ -168,6 +171,5 @@
     <div class="grocerySix opacity" id="grocerySix">
         <img src="pictures/design/grocerySix.png" alt="grocerySix" height="100%" width="100%">
     </div>
-    
 </body>
 </html>
