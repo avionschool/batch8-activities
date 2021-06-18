@@ -94,7 +94,7 @@ checkWeatherButton.addEventListener('click', function(name) {
 
     let iconValue = ('http://openweathermap.org/img/wn/icon@2x.png');
 
-    city.innerHTML = cityValue + " City";
+    city.innerHTML = cityValue;
     temperature.innerHTML = "temperature outside is " + tempValue + "&#176";
     tempMinMax.innerHTML = "(" + minTempValue + "&#176" + " - " + maxTempValue + "&#176" + ")";
     // weatherDes.innerHTML = weatherDesValue + iconValue;

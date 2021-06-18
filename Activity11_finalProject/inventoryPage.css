@@ -83,7 +83,7 @@ button:hover {
 }
 
 .displayHeader {
-    width: 90%;
+    width: 100%;
 }
 
 .displayTitle {
@@ -157,6 +157,11 @@ button:hover {
     border-color: red; */
 }
 
+.opacity {
+    opacity: 0.5;
+}
+
+
 /* body */
 .container {
     display: flex;
@@ -220,6 +225,7 @@ button:hover {
 .display {
     height: 100%;
     width: 80%;
+    background-color: white;
 }
 
 /* inventory manager */
@@ -227,6 +233,8 @@ button:hover {
     height: 100%;
     width: 100%;
     flex-direction: column;
+    /* border: 3.5px solid #FFFF66;
+    border-radius: 25px; */
 }
 
 .tableCon {
@@ -330,6 +338,9 @@ tbody tr:hover {
     position: absolute;
     margin: 105px 0px 0px 213px;
     background: white;
+        /* border: 3.5px solid #FFFF66;
+    border-radius: 25px; */
+
 }
 
 .transactionHistoryHeader {
@@ -340,6 +351,64 @@ tbody tr:hover {
     border-bottom-right-radius: 60px;
     font-weight: bold;
     text-align: center;
+}
+
+/* list */
+.listCon {
+    flex-direction: column;
+    height: 550px;
+    width: 853px;
+    position: absolute;
+    margin: 105px 0px 0px 220px;
+    background-color: white;
+    /* border: 3.5px solid #FFFF66;
+    border-radius: 25px; */
+}
+
+.listBody{
+    height: 90%;
+    width: 100%;
+}
+
+.donorList {
+    /* background-color: gold; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 50%;
+}
+
+.locationList {
+    /* background-color: silver; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 50%;
+}
+
+.tableStyleTwo {
+    border-collapse: collapse;
+    min-width: 300px;
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.tableStyleTwo thead tr {
+    background-color: #FFFF66;
+}
+
+.tableStyleTwo th,
+.tableStyleTwo td {
+    padding: 8px;
+}
+
+.tableStyleTwo tbody tr:nth-of-type(even){
+    background-color:#FFFFCC;
+    border-bottom: none;
 }
 
 /* background design */

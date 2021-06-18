@@ -10,17 +10,17 @@
 <body>
     <main class="container">
         <!-- header -->
-        <section class="header flexStyleSpaceBetween">
+        <section class="header flexStyleSpaceBetween" id="header">
             <h1>だれか PANTRY Dashboard</h1>
             <div class="subHeader flexStyleEvenly">
-                <p class="linkHover">Locations</p>
-                <p class="linkHover">Donor List</p>
+                <p class="linkHover" id="locationLink">Locations</p>
+                <p class="linkHover"id="donorLink">Donor List</p>
                 <p class="linkHover" id="logout">Logout</p>
             </div>
         </section>
 
         <!-- dashboard -->
-        <section class="dashboard flexStyleRow">
+        <section class="dashboard flexStyleRow" id="dashboard">
             <!-- sidebar -->
             <div class="sideBar">
                 <h1>MENU</h1>
@@ -58,10 +58,10 @@
                 <div class="inventoryCon flexStyleSpaceBetween" id="inventoryPopup">
                     <div class="displayHeader flexStyleEvenly">
                         <h1 class="displayTitle">在庫 INVENTORY MANAGER</h1>
-                        <h1>Balance: 0.00</h1>
+                        <h1>Balance: <span id="balance">0.00</span></h1>
                     </div>
                     <div class="tableCon">
-                        <table id="inventoryTable" class="tableStyle">
+                        <table class="tableStyle" id="inventoryTable">
                             <thead>
                                 <tr>
                                     <th>Donated By</th>
@@ -73,22 +73,38 @@
                                 </tr>
                             </thead>
                             <tbody id="tableBodyInventory">
-                                <!-- <tr>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
+                                <tr>
+                                    <td>Bruce Wayne</td>
+                                    <td>-4</td>
+                                    <td>2021-06-14</td>
+                                    <td>Green Apple</td>
+                                    <td>10</td>
+                                    <td>94</td>
                                 </tr>
                                 <tr>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr> -->
+                                    <td>Clark Kent</td>
+                                    <td>-3</td>
+                                    <td>2021-06-14</td>
+                                    <td>Dragon Fruit</td>
+                                    <td>5</td>
+                                    <td>19</td>
+                                </tr>
+                                <tr>
+                                    <td>Tony Stark</td>
+                                    <td>-2</td>
+                                    <td>2021-06-14</td>
+                                    <td>Blood Orange</td>
+                                    <td>19</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>Steve Rogers</td>
+                                    <td>-1</td>
+                                    <td>2021-06-14</td>
+                                    <td>Pomelo</td>
+                                    <td>94</td>
+                                    <td>10</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -98,7 +114,7 @@
         </section>
 
         <!-- footer -->
-        <section class="footer flexStyleColumn">
+        <section class="footer flexStyleColumn" id="footer">
             <h1>ありがとうございました</h1>
             <h2>Thank you for your service!</h2>
         </section>
@@ -130,19 +146,18 @@
                 <div class="cashDepositFormCon flexStyleEvenly">
                     <div class="flexStyleColumnStart">
                         <label>Donor</label>
-                        <label>Currency</label>
                         <label>Amount</label>
                     </div>
                     <div class="flexStyleColumnStart">
-                        <input type="text" placeholder="donor">
-                        <input type="text" placeholder="currency">
-                        <input type="number" placeholder="amount">
+                        <input type="text" placeholder="donor" id="cashDonor">
+                        <input type="number" placeholder="0.00" id="cashValue">
+                        <input type="date" id="depositDate">
                     </div>
-                    <button class="coverButton">Convert</button>
                 </div>
                 <div class="cashDepositFormCon flexStyleEvenly">
-                    <p class="convertedAmount">Converted amout is 0.00.<br>Do you want to deposit?</p>
-                    <button>Deposit</button>
+                    <p class="convertedAmount">Are you sure you want<br>to deposit?<br>
+                        <br>You can't revoke this.</p>
+                    <button id="depositButton">Deposit</button>
                 </div>
             </section>
             <section class="popupFooter" onclick="exit()">&#10006;</section>
@@ -209,7 +224,6 @@
         <main class="transactionHistoryCon flexStyleSpaceBetween hidden" id="transactionHistoryPopup">
             <section class="displayHeader flexStyleEvenly">
                 <h1 class="displayTitle">歴史 TRANSACTION HISTORY</h1>
-                <h1>Balance: 0.00</h1>
             </section>
             <section class="tableCon">
                 <table class="tableStyle">
@@ -219,6 +233,26 @@
                         </tr>
                     </thead>
                     <tbody id="tableBodyHistory">
+                        <tr>
+                            <td>
+                                Type: Store/Donor: Bruce Wayne/ProdCode: -4/Date: 2021-06-14/ItemDes: Green Apple/Quantity: 104
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Type: Donate/ProdCode: -3/Quantity: 19/Receiver: Clark Kent/ID Presented: Passport
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Type: Store/Donor: Tony Stark/ProdCode: -2/Date: 2021-06-14/ItemDes: Blood Orange/Quantity: 24
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Type: Donate/ProdCode: -1/Quantity: 10/Receiver: Steve Rogers/ID Presented: Driver's License
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -232,10 +266,10 @@
                 <label>DONOR NAME</label>
                 <div class="flexStyleSpaceBetween popupConTwoSub">
                     <div class="flexStyleColumn">
-                        <input type="text" placeholder="name">
-                        <input type="date">
+                        <input id="addDonorDate" type="date">
+                        <input id="addDonorName" type="text" placeholder="name">
                     </div>
-                    <button>Add</button>
+                    <button id="addDonorButton">Add</button>
                 </div>
             </section>
             <section class="popupFooter" onclick="exit()">&#10006;</section>
@@ -251,10 +285,10 @@
                 <label>BRANCH NAME</label>
                 <div class="flexStyleSpaceBetween popupConTwoSub">
                     <div class="flexStyleColumn">
-                        <input type="text" placeholder="name">
-                        <input type="date">
+                        <input id="addLocationDate" type="date">
+                        <input id="addLocationName" type="text" placeholder="name">
                     </div>
-                    <button>Add</button>
+                    <button id="addLocationButton">Add</button>
                 </div>
             </section>
             <section class="popupFooter" onclick="exit()">&#10006;</section>
@@ -263,16 +297,58 @@
             </div>
         </main>
 
+        <!-- list -->
+        <main class="listCon flexStyleSpaceBetween hidden" id="listPopup">
+            <section class="displayHeader flexStyleRow">
+                <h1 class="displayTitle">リスト Locations & Donors</h1>
+            </section>
+            <section class="listBody flexStyleSpaceBetween">
+                <div class="donorList">
+                    <h1>ドナー Donor List</h1>
+                    <table class="tableStyleTwo" id="tableBodyAddDonor">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Donor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBodyDonor">
+                            <tr>
+                                <td>2021-06-15</td>
+                                <td>Foodpanda</td>
+                            </tr>
+                            <tr>
+                                <td>2021-06-16</td>
+                                <td>GrabFood</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="locationList">
+                    <h1>ロケーション Locations</h1>
+                    <table class="tableStyleTwo" id="tableBodyAddLocation">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBodyLocation">
+                            <tr>
+                                <td>2021-06-15</td>
+                                <td>Baguio City</td>
+                            </tr>
+                            <tr>
+                                <td>2021-06-16</td>
+                                <td>Eastwood city</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
     </main>
 </body>
 </html>
-
-
-
-<!-- <section class="flexStyleColumn">
-    <div>
-        <label>Location</label>
-        <input type="text" placeholder="location">
-    </div>
-    <button>Add</button>    
-</section> -->

@@ -1,6 +1,4 @@
-let inventoryLink = document.getElementById('inventoryLink');
-let transactionHistoryLink = document.getElementById('transactionHistoryLink');
-
+// sidebar id links
 let storeLink = document.getElementById('storeLink');
     let cashDepositLink = document.getElementById('cashDepositLink');
     let storeProductLink = document.getElementById('storeProductLink');
@@ -8,9 +6,12 @@ let donateLink = document.getElementById('donateLink');
 let addDonorLink = document.getElementById('addDonorLink');
 let addLocationLink = document.getElementById('addLocationLink');
 
-let inventoryPopup = document.getElementById('inventoryPopup');
-let transactionHistoryPopup = document.getElementById('transactionHistoryPopup');
+let inventoryLink = document.getElementById('inventoryLink');
+let transactionHistoryLink = document.getElementById('transactionHistoryLink');
+let locationLink = document.getElementById('locationLink');
+let donorLink = document.getElementById('donorLink');
 
+// sidebar popup ids
 let storePopup = document.getElementById('storePopup');
     let cashDepositPopup = document.getElementById('CashDepositPopup');
     let storeProductPopup = document.getElementById('storeProductPopup');
@@ -18,6 +19,29 @@ let donatePopup = document.getElementById('donatePopup');
 let addDonorPopup = document.getElementById('addDonorPopup');
 let addLocationPopup = document.getElementById('addLocationPopup');
 
+let inventoryPopup = document.getElementById('inventoryPopup');
+let transactionHistoryPopup = document.getElementById('transactionHistoryPopup');
+let listPopup = document.getElementById('listPopup');
+
+// opacity ids
+let header = document.getElementById('header');
+let dashboard = document.getElementById('dashboard');
+let footer = document.getElementById('footer');
+
+// opacity functions
+function removeOpacity() {
+    header.classList.remove('opacity');
+    dashboard.classList.remove('opacity');
+    footer.classList.remove('opacity');
+};
+
+function addOpacity() {
+    header.classList.add('opacity');
+    dashboard.classList.add('opacity');
+    footer.classList.add('opacity');
+};
+
+//sidebar functions
 document.getElementById('inventoryLink').addEventListener('click', function() {
     inventoryPopup.classList.remove('hidden');
     storePopup.classList.add('hidden');
@@ -27,6 +51,8 @@ document.getElementById('inventoryLink').addEventListener('click', function() {
     transactionHistoryPopup.classList.add('hidden');
     addDonorPopup.classList.add('hidden');
     addLocationPopup.classList.add('hidden');
+    listPopup.classList.add('hidden');
+    removeOpacity();
 })
 
 document.getElementById('storeLink').addEventListener('click', function() {
@@ -36,17 +62,18 @@ document.getElementById('storeLink').addEventListener('click', function() {
     donatePopup.classList.add('hidden');
     addDonorPopup.classList.add('hidden');
     addLocationPopup.classList.add('hidden');
+    addOpacity();
 })
-document.getElementById('cashDepositLink').addEventListener('click', function() {
-    storePopup.classList.add('hidden');
-    cashDepositPopup.classList.remove('hidden');
-    storeProductPopup.classList.add('hidden');
-})
-document.getElementById('storeProductLink').addEventListener('click', function() {
-    storePopup.classList.add('hidden');
-    cashDepositPopup.classList.add('hidden');
-    storeProductPopup.classList.remove('hidden');
-})
+    document.getElementById('cashDepositLink').addEventListener('click', function() {
+        storePopup.classList.add('hidden');
+        cashDepositPopup.classList.remove('hidden');
+        storeProductPopup.classList.add('hidden');
+    })
+    document.getElementById('storeProductLink').addEventListener('click', function() {
+        storePopup.classList.add('hidden');
+        cashDepositPopup.classList.add('hidden');
+        storeProductPopup.classList.remove('hidden');
+    })
 
 document.getElementById('donateLink').addEventListener('click', function() {
     storePopup.classList.add('hidden');
@@ -55,6 +82,7 @@ document.getElementById('donateLink').addEventListener('click', function() {
     donatePopup.classList.remove('hidden');
     addDonorPopup.classList.add('hidden');
     addLocationPopup.classList.add('hidden');
+    addOpacity();
 })
 
 document.getElementById('transactionHistoryLink').addEventListener('click', function() {
@@ -66,6 +94,8 @@ document.getElementById('transactionHistoryLink').addEventListener('click', func
     transactionHistoryPopup.classList.remove('hidden');
     addDonorPopup.classList.add('hidden');
     addLocationPopup.classList.add('hidden');
+    listPopup.classList.add('hidden');
+    removeOpacity();
 })
 
 document.getElementById('addDonorLink').addEventListener('click', function() {
@@ -75,6 +105,7 @@ document.getElementById('addDonorLink').addEventListener('click', function() {
     donatePopup.classList.add('hidden');
     addDonorPopup.classList.remove('hidden');
     addLocationPopup.classList.add('hidden');
+    addOpacity();
 })
 
 document.getElementById('addLocationLink').addEventListener('click', function() {
@@ -84,14 +115,43 @@ document.getElementById('addLocationLink').addEventListener('click', function() 
     donatePopup.classList.add('hidden');
     addDonorPopup.classList.add('hidden');
     addLocationPopup.classList.remove('hidden');
+    addOpacity();
+})
+
+document.getElementById('locationLink').addEventListener('click', function() {
+    inventoryPopup.classList.add('hidden');
+    storePopup.classList.add('hidden');
+        cashDepositPopup.classList.add('hidden');
+        storeProductPopup.classList.add('hidden');
+    donatePopup.classList.add('hidden');
+    transactionHistoryPopup.classList.add('hidden');
+    addDonorPopup.classList.add('hidden');
+    addLocationPopup.classList.add('hidden');
+    listPopup.classList.remove('hidden');
+    removeOpacity();
+})
+
+document.getElementById('donorLink').addEventListener('click', function() {
+    inventoryPopup.classList.add('hidden');
+    storePopup.classList.add('hidden');
+        cashDepositPopup.classList.add('hidden');
+        storeProductPopup.classList.add('hidden');
+    donatePopup.classList.add('hidden');
+    transactionHistoryPopup.classList.add('hidden');
+    addDonorPopup.classList.add('hidden');
+    addLocationPopup.classList.add('hidden');
+    listPopup.classList.remove('hidden');
+    removeOpacity();
 })
 
 function exit() {
     storePopup.classList.add('hidden');
-    cashDepositPopup.classList.add('hidden');
-    storeProductPopup.classList.add('hidden');
+        cashDepositPopup.classList.add('hidden');
+        storeProductPopup.classList.add('hidden');
     donatePopup.classList.add('hidden');
     addDonorPopup.classList.add('hidden');
+    addLocationPopup.classList.add('hidden');
+    removeOpacity();    
 };
 
 let itemTrackingNumber = 0;
@@ -116,8 +176,8 @@ class Create {
                 
         if (this.donor.length == 0 ||  
             this.date.length == 0 || 
-            this.itemDescription == 0 ||
-            this.quantity == 0) {
+            this.itemDescription.length == 0 ||
+            this.quantity.length == 0) {
             console.log('Error caught: Input empty.');
             return alert ('Error: Please fill out the details required.');
         }
@@ -176,6 +236,7 @@ class Create {
         let tableBodyHistory = document.getElementById('tableBodyHistory');
         tableBodyHistory.innerHTML = tableBodyHistory.innerHTML + rowTemplateHistory;
 
+        removeOpacity();
         storeProductPopup.classList.add('hidden');
         alert('Successful: Item stored.')
     }
@@ -194,9 +255,6 @@ storeButton.addEventListener('click', function() {
     
     newItem.storeItem();
 });
-
-
-// .values > object > localstorage > arr > display
 
 class Donate {
     constructor(tempProductCode, tempAmount, tempReceiver, tempidType) {
@@ -275,7 +333,7 @@ class Donate {
         let tableBodyHistory = document.getElementById('tableBodyHistory');
         tableBodyHistory.innerHTML = tableBodyHistory.innerHTML + rowTemplateHistory;
 
-
+        removeOpacity();
         donatePopup.classList.add('hidden');
         alert('Successful: Donation made.');
     }
@@ -293,6 +351,130 @@ donateButton.addEventListener('click', function() {
     let donateDetails = new Donate (productCode, amount, receiver, idType);
 
     donateDetails.donateItem();
+});
+
+class Deposit {
+    constructor(TempCashDonor, TempCashValue, TempDepositDate) {
+        this.cashDonor = TempCashDonor;
+        this.cashValue = TempCashValue;
+        this.depositDate = TempDepositDate;
+    }
+    deposit() {
+        if (this.cashDonor.length == 0 ||  
+            this.cashValue.length == 0 || 
+            this.depositDate.length) {
+            console.log('Error caught: Input empty.');
+            return alert ('Error: Please fill out the details required.');
+        }
+
+        let balance = document.getElementById('balance');
+
+        balance.innerHTML = Number(balance.innerHTML) + Number(this.cashValue);
+
+        let record = 
+        "Type: cashDeposit/" + 
+        "Date: " + this.depositDate + "/" +
+        "Donor: " + this.cashDonor + "/" +  
+        "Amount: " + this.cashValue;
+        
+        let rowTemplateHistory = 
+        `<tr>
+            <td>${record}</td>
+        </tr>`;
+
+        let tableBodyHistory = document.getElementById('tableBodyHistory');
+        tableBodyHistory.innerHTML = tableBodyHistory.innerHTML + rowTemplateHistory;
+
+        removeOpacity();
+        CashDepositPopup.classList.add('hidden');
+        alert('Successful: Deposit made.');
+    }
+}
+
+let depositButton = document.getElementById('depositButton');
+
+depositButton.addEventListener('click', function() {
+    let cashDonor = document.getElementById('cashDonor').value;
+    let cashValue = document.getElementById('cashValue').value;
+    let depositDate = document.getElementById('depositDate').value;
+
+    let depositDetails = new Deposit (cashDonor, cashValue, depositDate);
+
+    depositDetails.deposit();
+});
+
+class DonorLocation {
+    constructor(TempAddDonorDate, TempAddDonorName, TempAddLocationDate, TempAddLocationName) {
+        this.addDonorDate = TempAddDonorDate;
+        this.addDonorName = TempAddDonorName;
+        this.addLocationDate = TempAddLocationDate;
+        this.addLocationName = TempAddLocationName;
+    }
+    storeDonorDetails() {
+        if (this.addDonorDate.length == 0 ||  
+            this.addDonorName.length == 0) {
+            console.log('Error caught: Input empty.');
+            return alert ('Error: Please fill out the details required.');
+        }
+
+        let rowTemplateAddDonor = 
+        `<tr>
+            <td>${this.addDonorDate}</td>
+            <td>${this.addDonorName}</td>
+        </tr>`;
+
+        let tableBodyDonor = document.getElementById('tableBodyDonor');
+        tableBodyDonor.innerHTML = tableBodyDonor.innerHTML + rowTemplateAddDonor;
+
+        removeOpacity();
+        addDonorPopup.classList.add('hidden');
+        alert('Successful: Added to list.');
+    }
+    storeLocationDetails() {
+        if (this.addLocationDate.length == 0 ||  
+            this.addLocationName.length == 0) {
+            console.log('Error caught: Input empty.');
+            return alert ('Error: Please fill out the details required.');
+        }
+
+        let rowTemplateAddLocation = 
+        `<tr>
+            <td>${this.addLocationDate}</td>
+            <td>${this.addLocationName}</td>
+        </tr>`;
+
+        let tableBodyLocation = document.getElementById('tableBodyLocation');
+        tableBodyLocation.innerHTML = tableBodyLocation.innerHTML + rowTemplateAddLocation;
+
+        removeOpacity();
+        addLocationPopup.classList.add('hidden');
+        alert('Successful: Added to list.');
+    }
+}
+
+let addDonorButton = document.getElementById('addDonorButton');
+let addLocationButton = document.getElementById('addLocationButton');
+
+addDonorButton.addEventListener('click', function() {
+    let addDonorDate = document.getElementById('addDonorDate').value;
+    let addDonorName = document.getElementById('addDonorName').value;
+    let addLocationDate = document.getElementById('addLocationDate').value;
+    let addLocationName = document.getElementById('addLocationName').value;
+
+    let donorLocationDetails = new DonorLocation (addDonorDate, addDonorName, addLocationDate, addLocationName);
+
+    donorLocationDetails.storeDonorDetails() ;
+});
+
+addLocationButton.addEventListener('click', function() {
+    let addDonorDate = document.getElementById('addDonorDate').value;
+    let addDonorName = document.getElementById('addDonorName').value;
+    let addLocationDate = document.getElementById('addLocationDate').value;
+    let addLocationName = document.getElementById('addLocationName').value;
+
+    let donorLocationDetails = new DonorLocation (addDonorDate, addDonorName, addLocationDate, addLocationName);
+
+    donorLocationDetails.storeLocationDetails();
 });
 
 let logout = document.getElementById('logout');
