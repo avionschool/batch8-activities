@@ -93,14 +93,14 @@ checkWeatherButton.addEventListener('click', function(name) {
     let minTempValue = data['main']['temp_min'];
     let maxTempValue = data['main']['temp_max'];
     let weatherDesValue = data['weather'][0]['description'];
-    // let icon = data['weather'][0]['icon'];
-    // let iconValue = ('http://openweathermap.org/img/wn/icon@2x.png');
+    // let iconData = data['weather'][0]['icon'];
+    // let iconValue = 'http://openweathermap.org/img/wn/iconData.png';
 
     city.innerHTML = cityValue;
     temperature.innerHTML = "temperature outside is " + tempValue + "&#176";
     tempMinMax.innerHTML = "(" + minTempValue + "&#176" + " - " + maxTempValue + "&#176" + ")";
-    // weatherDes.innerHTML = weatherDesValue + iconValue;
     weatherDes.innerHTML = weatherDesValue;
+    // weatherDes.innerHTML = weatherDesValue + iconValue;
 
     let enterBranchPopup = document.getElementById('enterBranchPopup');
     enterBranchPopup.classList.add('hidden');
@@ -189,6 +189,8 @@ let createAccountPopup = document.getElementById('createAccountPopup');
 document.getElementById('login').addEventListener('click', function() {
     loginPopup.classList.remove('hidden');
     createAccountPopup.classList.add('hidden');
+    createAccountLink.classList.remove('hidden');
+    error.classList.add('hidden');
 });
 
 document.getElementById('createAccount').addEventListener('click', function() {
@@ -208,6 +210,8 @@ document.getElementById('createAccountLink').addEventListener('click', function(
 document.getElementById('loginLink').addEventListener('click', function() {
     loginPopup.classList.remove('hidden');
     createAccountPopup.classList.add('hidden');
+    createAccountLink.classList.remove('hidden');
+    error.classList.add('hidden');
 });
 
 // closing popups
@@ -216,6 +220,8 @@ let closeCreateAccountPopup = document.getElementById('closeCreateAccountPopup')
 
 document.getElementById('closeLoginPopup').addEventListener('click', function() {
     loginPopup.classList.add('hidden');
+    error.classList.add('hidden');
+    createAccountLink.classList.remove('hidden');
 });
 
 document.getElementById('closeCreateAccountPopup').addEventListener('click', function() {
@@ -287,15 +293,27 @@ class Credentials {
             return alert ('Error: Please fill out the details required.');
         };
 
+        // let admin = "admin";
+
+        // if (this.username == admin || this.password == admin) {
+        //     alert ("Success: Login successful.");
+        //     return window.location.replace('inventoryPage.html');
+        // };
+
         let userList = JSON.parse(localStorage.getItem('users'));
+        let error = document.getElementById('error');
+        let createAccountLink = document.getElementById('createAccountLink');
 
         for (let i = 0; i < userList.length; i++) {
-            if (userList[i].username == this.username || userList[i].password != this.password) {
-                console.log(this.username);
-                alert ("Error: Username/password mismatch.");
-            } else {
+            if (userList[i].username == this.username || userList[i].password == this.password) {
+                console.log(userList[i].username);
+                console.log(userList[i].username);
+                window.location.replace('inventoryPage.html');
                 alert ("Success: Login successful.");
-                return window.location.replace('inventoryPage.html');
+            } else {
+                // alert ("Error: Username/password mismatch.");
+                createAccountLink.classList.add('hidden');
+                error.classList.remove('hidden');
             };
         };
     };

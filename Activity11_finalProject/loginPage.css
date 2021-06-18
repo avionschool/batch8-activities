@@ -287,6 +287,12 @@ input:hover {
     color: grey;
 }
 
+.error {
+    color: red;
+    position: absolute;
+    margin: 190px 0px 0px 0px;
+}
+
 /* background design */
 .groceryOne {
     height: 250px;
