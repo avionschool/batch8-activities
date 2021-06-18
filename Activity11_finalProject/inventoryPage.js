@@ -15,7 +15,8 @@ let storePopup = document.getElementById('storePopup');
     let cashDepositPopup = document.getElementById('CashDepositPopup');
     let storeProductPopup = document.getElementById('storeProductPopup');
 let donatePopup = document.getElementById('donatePopup');
-let addDonorLocationPopup = document.getElementById('addDonorLocationPopup');
+let addDonorPopup = document.getElementById('addDonorPopup');
+let addLocationPopup = document.getElementById('addLocationPopup');
 
 document.getElementById('inventoryLink').addEventListener('click', function() {
     inventoryPopup.classList.remove('hidden');
@@ -24,7 +25,8 @@ document.getElementById('inventoryLink').addEventListener('click', function() {
         storeProductPopup.classList.add('hidden');
     donatePopup.classList.add('hidden');
     transactionHistoryPopup.classList.add('hidden');
-    addDonorLocationPopup.classList.add('hidden');
+    addDonorPopup.classList.add('hidden');
+    addLocationPopup.classList.add('hidden');
 })
 
 document.getElementById('storeLink').addEventListener('click', function() {
@@ -32,7 +34,8 @@ document.getElementById('storeLink').addEventListener('click', function() {
         cashDepositPopup.classList.add('hidden');
         storeProductPopup.classList.add('hidden');
     donatePopup.classList.add('hidden');
-    addDonorLocationPopup.classList.add('hidden');
+    addDonorPopup.classList.add('hidden');
+    addLocationPopup.classList.add('hidden');
 })
 document.getElementById('cashDepositLink').addEventListener('click', function() {
     storePopup.classList.add('hidden');
@@ -50,7 +53,8 @@ document.getElementById('donateLink').addEventListener('click', function() {
         cashDepositPopup.classList.add('hidden');
         storeProductPopup.classList.add('hidden');
     donatePopup.classList.remove('hidden');
-    addDonorLocationPopup.classList.add('hidden');
+    addDonorPopup.classList.add('hidden');
+    addLocationPopup.classList.add('hidden');
 })
 
 document.getElementById('transactionHistoryLink').addEventListener('click', function() {
@@ -60,23 +64,26 @@ document.getElementById('transactionHistoryLink').addEventListener('click', func
         storeProductPopup.classList.add('hidden');
     donatePopup.classList.add('hidden');
     transactionHistoryPopup.classList.remove('hidden');
-    addDonorLocationPopup.classList.add('hidden');
+    addDonorPopup.classList.add('hidden');
+    addLocationPopup.classList.add('hidden');
 })
 
 document.getElementById('addDonorLink').addEventListener('click', function() {
     storePopup.classList.add('hidden');
         CashDepositPopup.classList.add('hidden');
         storeProductPopup.classList.add('hidden');
-    donatePopup.classList.remove('hidden');
-    addDonorLocationPopup.classList.remove('hidden');
+    donatePopup.classList.add('hidden');
+    addDonorPopup.classList.remove('hidden');
+    addLocationPopup.classList.add('hidden');
 })
 
 document.getElementById('addLocationLink').addEventListener('click', function() {
     storePopup.classList.add('hidden');
         CashDepositPopup.classList.add('hidden');
         storeProductPopup.classList.add('hidden');
-    donatePopup.classList.remove('hidden');
-    addDonorLocationPopup.classList.remove('hidden');
+    donatePopup.classList.add('hidden');
+    addDonorPopup.classList.add('hidden');
+    addLocationPopup.classList.remove('hidden');
 })
 
 function exit() {
@@ -84,7 +91,7 @@ function exit() {
     cashDepositPopup.classList.add('hidden');
     storeProductPopup.classList.add('hidden');
     donatePopup.classList.add('hidden');
-    addDonorLocationPopup.classList.add('hidden');
+    addDonorPopup.classList.add('hidden');
 };
 
 let itemTrackingNumber = 0;
@@ -136,14 +143,14 @@ class Create {
             // console.log(itemArr);
             
         // adding a row to the table to the table
-        let inventoryTable = document.getElementById('inventoryTable');
+        let tableBodyInventory = document.getElementById('tableBodyInventory');
         let donated = 0;
         
         //template literals
         // ` translates the value literally to the HTML
         // ${} placeholder to display values of variables
-        let rowTemplate = 
-            `<tr id="product-${newProductCode}">
+        let rowTemplateInventory = 
+            `<tr id="product-${newProductCode}" class="tableStyle">
                 <td class="product_donor">${this.donor}</td>
                 <td class="product_code">${newProductCode}</td>
                 <td class="product_date">${this.date}</td>
@@ -152,8 +159,24 @@ class Create {
                 <td class="product_donated">${donated}</td>
             </tr>`;
 
-        inventoryTable.innerHTML = inventoryTable.innerHTML + rowTemplate;
+        tableBodyInventory.innerHTML = tableBodyInventory.innerHTML + rowTemplateInventory;
 
+        let record = "Type: Store/" + 
+        "Donor: " + this.donor + "/" + 
+        "ProdCode: " + newProductCode + "/" +  
+        "Date: " + this.date + "/" + 
+        "ItemDes: " + this.itemDescription + "/" +  
+        "Quantity: " + this.quantity;
+
+        let rowTemplateHistory = 
+        `<tr>
+            <td>${record}</td>
+        </tr>`;
+
+        let tableBodyHistory = document.getElementById('tableBodyHistory');
+        tableBodyHistory.innerHTML = tableBodyHistory.innerHTML + rowTemplateHistory;
+
+        storeProductPopup.classList.add('hidden');
         alert('Successful: Item stored.')
     }
 }
@@ -238,6 +261,21 @@ class Donate {
         //id 1 class donated
         //0
 
+        let record = "Type: Donate/" + 
+        "ProdCode: " + newProductCode + "/" +  
+        "Quantity: " + this.amount + "/" + 
+        "Receiver: " + this.receiver + "/" +
+        "ID Presented: " + this.idType;
+     
+        let rowTemplateHistory = 
+        `<tr>
+            <td>${record}</td>
+        </tr>`;
+
+        let tableBodyHistory = document.getElementById('tableBodyHistory');
+        tableBodyHistory.innerHTML = tableBodyHistory.innerHTML + rowTemplateHistory;
+
+
         donatePopup.classList.add('hidden');
         alert('Successful: Donation made.');
     }
@@ -255,4 +293,11 @@ donateButton.addEventListener('click', function() {
     let donateDetails = new Donate (productCode, amount, receiver, idType);
 
     donateDetails.donateItem();
+});
+
+let logout = document.getElementById('logout');
+
+logout.addEventListener('click', function() {
+    alert ("Success: Logged out.");
+    return window.location.replace('loginPage.html');
 });

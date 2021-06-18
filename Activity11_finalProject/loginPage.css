@@ -75,6 +75,10 @@ input:hover {
     color: #A9A9A9;
 }
 
+.opacity {
+    opacity: 0.5;
+}
+
 /* body */
 .container {
     display: flex;
@@ -106,12 +110,39 @@ input:hover {
 }
 
 /* weather update */
+.timeDateWeather {
+    height: 250px;
+    width: 650px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.timeDate {
+    height: 100%;
+    width: 40%;
+}
+
+#dayDisplay {
+    font-size: 40px;
+    margin-right: 130px;
+}
+#dateDisplay {
+    font-size: 30px;
+    margin: 5px 0px 10px 55px;
+}
+#timeDisplay {
+    font-size: 35px;
+    margin-right: 26px;
+}
+
 .weather {
     flex-direction: column;
-    height: 180px;
-    width: 600px;
-    margin-top: 30px;
-    font-size: 28px;
+    height: 70%;
+    width: 50%;
+}
+
+.title {
+    font-size: 40px;
 }
 
 /* what we do */
@@ -208,6 +239,22 @@ input:hover {
     visibility: hidden;
 }
 
+.enterBranchPopup {
+    flex-direction: column;
+    height: 150px;
+    width: 400px;
+    position: absolute;
+    margin: 0px 0px 550px 0px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.enterBranchSub {
+    width: 70%;
+}
+
 .popup {
     display: flex;
     flex-direction: column;
@@ -275,7 +322,7 @@ input:hover {
     height: 100px;
     width: 100px;
     position: absolute;
-    margin: 730px 900px 0px 0px;
+    margin: 790px 900px 0px 0px;
     transform: rotate(0deg);
 }
 
@@ -301,4 +348,12 @@ input:hover {
     position: absolute;
     margin: 290px 0px 0px 280px;
     transform: rotate(30deg);
+}
+
+.carrot {
+    height: 45px;
+    width: 45px;
+    position: absolute;
+    margin: 80px 0px 0px 340px;
+    transform: rotate(0deg);
 }

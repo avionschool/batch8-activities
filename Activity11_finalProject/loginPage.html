@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     </head>
 <body class="flexStyleColumn">
-    <main class="container">
+    <main class="container opacity" id="container">
         <!-- header -->
         <section class="header flexStyleSpaceBetween borderBackground">
             <div class="subHeaderOne flexStyleEvenly">
@@ -23,14 +23,22 @@
             </div>
         </section>
 
-        <!-- weather -->
-        <section class="weather flexStyleEvenly">
-            <h1>Uh-oh, bring an umbrella!</h1>
-            <p>60% Chance of Rain &#127783;</p>
-            <!-- <h2>Good day to setup the pantry!</h2>
-            <p>33&#176; &#127780;</p> -->
+        <!-- weatherTime -->
+        <section class="timeDateWeather flexStyleSpaceBetween">
+            <div class="timeDate flexStyleColumn">
+                <div id="dayDisplay"></div>
+                <div id="dateDisplay"></div>
+                <div id="timeDisplay"></div>
+            </div>
+            <div class="weather flexStyleEvenly">
+                <h1 class="title" id="city">Pasig City</h1>
+                <div class="flexStyleColumn">
+                    <p id="temperature">Temperature outside is 31.78°</p>
+                    <p id="tempMinMax">(30.84° - 33.23°)</p>
+                    <p id="weatherDes">few clouds</p>
+                </div>
+            </div>
         </section>
-
         <!-- what we do -->
         <section class="whatWeDo flexStyleColumn borderBackground">            
             <h2>WHAT WE DO..</h2><br>
@@ -106,9 +114,9 @@
     <!-- login popup -->
     <div class="popup hidden" id="loginPopup">
         <h1>だれか PANTRY</h1>
-        <input type="text" placeholder="username">
-        <input type="text" placeholder="password">
-        <button type="submit">LOGIN</button>
+        <input id="username" type="text" placeholder="username">
+        <input id="password" type="text" placeholder="password">
+        <button id="loginButton" type="submit">LOGIN</button>
         <p class="changePopup linkHover" id="createAccountLink">Don't have an account? Create one now.</p>
         <p id="closeLoginPopup" onclick="exit()">&#10006;</p>
         <div class="apple">
@@ -130,24 +138,36 @@
         </div>
     </div>
 
+    <div class="enterBranchPopup flexStyleEvenly" id="enterBranchPopup">
+        <h2>ENTER BRANCH LOCATION</h2>
+        <div class="enterBranchSub flexStyleEvenly">
+            <input type="text" placeholder="enter city" id="inputValue">
+            <button id="checkWeatherButton">SELECT</button>
+        </div>
+        <div class="carrot">
+            <img src="pictures/design/carrot.png" alt="carrot" height="100%" width="100%">
+        </div>
+    </div>
+
     <!-- background design -->
-    <div class="groceryOne">
+    <div class="groceryOne opacity" id="groceryOne">
         <img src="pictures/design/groceryOne.png" alt="groceryOne" height="100%" width="100%">
     </div>
-    <div class="groceryTwo">
+    <div class="groceryTwo opacity" id="groceryTwo">
         <img src="pictures/design/groceryTwo.png" alt="groceryTwo" height="100%" width="100%">
     </div>
-    <div class="groceryThree">
+    <div class="groceryThree opacity" id="groceryThree">
         <img src="pictures/design/groceryThree.png" alt="groceryThree" height="100%" width="100%">
     </div>
-    <div class="groceryFour">
+    <div class="groceryFour opacity" id="groceryFour">
         <img src="pictures/design/groceryFour.png" alt="groceryFour" height="100%" width="100%">
     </div>
-    <div class="groceryFive">
+    <div class="groceryFive opacity" id="groceryFive">
         <img src="pictures/design/groceryFive.png" alt="groceryFive" height="100%" width="100%">
     </div>
-    <div class="grocerySix">
+    <div class="grocerySix opacity" id="grocerySix">
         <img src="pictures/design/grocerySix.png" alt="grocerySix" height="100%" width="100%">
     </div>
+    
 </body>
 </html>

@@ -15,7 +15,7 @@
             <div class="subHeader flexStyleEvenly">
                 <p class="linkHover">Locations</p>
                 <p class="linkHover">Donor List</p>
-                <p class="linkHover">Logout</p>
+                <p class="linkHover" id="logout">Logout</p>
             </div>
         </section>
 
@@ -72,8 +72,8 @@
                                     <th>Donated</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody id="tableBodyInventory">
+                                <!-- <tr>
                                     <td>-</td>
                                     <td>-</td>
                                     <td>-</td>
@@ -88,7 +88,7 @@
                                     <td>-</td>
                                     <td>-</td>
                                     <td>-</td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -215,123 +215,64 @@
                 <table class="tableStyle">
                     <thead>
                         <tr>
-                            <th>Type</th>
-                            <th>Date</th>
-                            <th>Product Code</th>
-                            <th>Item Description</th>
-                            <th>Quantity</th>
-                            <th>Receiver/Donor</th>
+                            <th>RECORDS</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Store</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>10</td>
-                            <td>Jan</td>
-                        </tr>
-                        <tr>
-                            <td>Donate</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>5</td>
-                            <td>Nikka</td>
-                        </tr>
-                        <tr>
-                            <td>Store</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>10</td>
-                            <td>Jan</td>
-                        </tr>
-                        <tr>
-                            <td>Donate</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>5</td>
-                            <td>Nikka</td>
-                        </tr>
-                        <tr>
-                            <td>Store</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>10</td>
-                            <td>Jan</td>
-                        </tr>
-                        <tr>
-                            <td>Donate</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>5</td>
-                            <td>Nikka</td>
-                        </tr>
-                        <tr>
-                            <td>Store</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>10</td>
-                            <td>Jan</td>
-                        </tr>
-                        <tr>
-                            <td>Donate</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>5</td>
-                            <td>Nikka</td>
-                        </tr>
-                        <tr>
-                            <td>Store</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>10</td>
-                            <td>Jan</td>
-                        </tr>
-                        <tr>
-                            <td>Donate</td>
-                            <td>June 12, 2021</td>
-                            <td>001</td>
-                            <td>Hotdog</td>
-                            <td>5</td>
-                            <td>Nikka</td>
-                        </tr>
+                    <tbody id="tableBodyHistory">
                     </tbody>
                 </table>
             </section>
             <section class="reminder">Please make sure all transactions are logged here.</section>
         </main>
 
-        <!-- add donor & location -->
-        <main class="popupCon hidden" id="addDonorLocationPopup">
-            <section class="popUpHeader">加える Add Donor/location</section>
+        <!-- add donor -->
+        <main class="popupConTwo hidden" id="addDonorPopup">
+            <section class="popUpHeader">加える Add Donor</section>
             <section class="flexStyleColumn">
-                <div>
-                    <label>Donor Name</label>
-                    <input type="text" placeholder="name">
+                <label>DONOR NAME</label>
+                <div class="flexStyleSpaceBetween popupConTwoSub">
+                    <div class="flexStyleColumn">
+                        <input type="text" placeholder="name">
+                        <input type="date">
+                    </div>
+                    <button>Add</button>
                 </div>
-                <button>Add</button>
-            </section>
-            <section class="flexStyleColumn">
-                <div>
-                    <label>Location</label>
-                    <input type="text" placeholder="location">
-                </div>
-                <button>Add</button>    
             </section>
             <section class="popupFooter" onclick="exit()">&#10006;</section>
             <div class="carrot">
                 <img src="pictures/design/carrot.png" alt="carrot" height="100%" width="100%">
             </div>
         </main>
+
+        <!-- add location -->
+        <main class="popupConTwo hidden" id="addLocationPopup">
+            <section class="popUpHeader">加える Add Location</section>
+            <section class="flexStyleColumn">
+                <label>BRANCH NAME</label>
+                <div class="flexStyleSpaceBetween popupConTwoSub">
+                    <div class="flexStyleColumn">
+                        <input type="text" placeholder="name">
+                        <input type="date">
+                    </div>
+                    <button>Add</button>
+                </div>
+            </section>
+            <section class="popupFooter" onclick="exit()">&#10006;</section>
+            <div class="potato">
+                <img src="pictures/design/potato.png" alt="carrot" height="100%" width="100%">
+            </div>
+        </main>
+
     </main>
 </body>
 </html>
+
+
+
+<!-- <section class="flexStyleColumn">
+    <div>
+        <label>Location</label>
+        <input type="text" placeholder="location">
+    </div>
+    <button>Add</button>    
+</section> -->
