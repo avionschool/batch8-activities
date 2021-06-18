@@ -282,79 +282,15 @@ window.onload = () => {
 };
 
 // ! NAV LINKS
-document.querySelector('#home-link').addEventListener('click', () => {
-  // hide other elements except home
-  home.classList.add('show');
-  home.classList.remove('hide');
 
-  conversation.classList.remove('show');
-  conversation.classList.add('hide');
-  talk.classList.add('hide');
-  talk.classList.remove('show');
-  facts.classList.remove('show');
-  facts.classList.add('hide');
-  referencs.classList.add('hide');
-  referencs.classList.remove('show');
-});
+document.querySelectorAll('.nav-links').forEach((navLink, index) => {
+  let containers = document.querySelectorAll('.container');
 
-document.querySelector('#conversation-link').addEventListener('click', () => {
-  // hide other elements except conversation
-  conversation.classList.add('show');
-  conversation.classList.remove('hide');
-
-  home.classList.remove('hide');
-  home.classList.add('hide');
-  talk.classList.add('hide');
-  talk.classList.remove('show');
-  facts.classList.remove('show');
-  facts.classList.add('hide');
-  references.classList.add('hide');
-  references.classList.remove('show');
-});
-
-document.querySelector('#talk-link').addEventListener('click', () => {
-  //hide elements except talk to speech
-  talk.classList.add('show');
-  talk.classList.remove('hide');
-
-  home.classList.remove('hide');
-  home.classList.add('hide');
-  conversation.classList.add('hide');
-  conversation.classList.remove('show');
-  facts.classList.remove('show');
-  facts.classList.add('hide');
-  references.classList.add('hide');
-  references.classList.remove('show');
-});
-
-document.querySelector('#facts-link').addEventListener('click', () => {
-  //hide elements except facts
-  facts.classList.add('show');
-  facts.classList.remove('hide');
-
-  home.classList.remove('hide');
-  home.classList.add('hide');
-  conversation.classList.add('hide');
-  conversation.classList.remove('show');
-  facts.classList.remove('show');
-  talk.classList.remove('show');
-  talk.classList.add('hide');
-  references.classList.add('hide');
-  references.classList.remove('show');
-});
-
-document.querySelector('#references-link').addEventListener('click', () => {
-  //hide elements except references
-  references.classList.add('show');
-  references.classList.remove('hide');
-
-  home.classList.remove('hide');
-  home.classList.add('hide');
-  conversation.classList.add('hide');
-  conversation.classList.remove('show');
-  facts.classList.remove('show');
-  talk.classList.remove('show');
-  talk.classList.add('hide');
-  facts.classList.add('hide');
-  facts.classList.remove('show');
+  navLink.addEventListener('click', () => {
+    // hide containers
+    containers.forEach((container) => container.classList.add('hide'));
+    // show container
+    containers[index].classList.remove('hide');
+    containers[index].classList.add('show');
+  });
 });
