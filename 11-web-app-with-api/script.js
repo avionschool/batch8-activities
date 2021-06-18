@@ -4,6 +4,7 @@
 
 let containers = document.querySelectorAll('.container');
 let settings = document.querySelector('#settings-modal');
+let questArr = ['What can you see in the photo?', 'How does picture make you feel?', "What's the first thing that comes to your mind when you see this?", 'What colors can you see?'];
 
 // Speech to text API
 const VoiceRSS = {
@@ -120,7 +121,6 @@ function textToSpeech(text) {
 // ==========================================
 //            --CLASSES
 // ==========================================
-let questArr = ['What can you see in the photo?', 'How does picture make you feel?', "What's the first thing that comes to your mind when you see this?", 'What colors can you see?'];
 
 class Conversation {
   static generateQuestion(randNum) {
@@ -225,10 +225,13 @@ document.querySelector('#save').addEventListener('click', (e) => {
   }
 });
 
-document.querySelector('#close').addEventListener('click', () => {
-  settings.classList.add('hide');
-  settings.classList.remove('show');
-  document.querySelector('#error').innerHTML = '';
+window.addEventListener('click', (e) => {
+  if (e.target === settings) {
+    settings.classList.add('hide');
+    document.querySelector('#error').innerHTML = '';
+  } else {
+    false;
+  }
 });
 
 // ! CONVERSATION THERAPY
