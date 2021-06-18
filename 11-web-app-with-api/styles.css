@@ -108,7 +108,8 @@ body {
 }
 .conversation-wrapper,
 .text-wrapper,
-.facts-wrapper {
+.facts-wrapper,
+.ref-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;

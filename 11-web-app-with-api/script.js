@@ -2,12 +2,8 @@
 //            GLOBAL VARIABLES
 // ==========================================
 
-let home = document.querySelector('#home');
-let conversation = document.querySelector('#conversation');
-let talk = document.querySelector('#talk');
+let containers = document.querySelectorAll('.container');
 let settings = document.querySelector('#settings-modal');
-let facts = document.querySelector('#facts');
-let references = document.querySelector('#references');
 
 // Speech to text API
 const VoiceRSS = {
@@ -268,24 +264,17 @@ document.querySelector('#toggle').addEventListener('click', () => {
 });
 
 window.onload = () => {
-  // hide elements
-  conversation.classList.add('hide');
-  conversation.classList.remove('show');
-  talk.classList.add('hide');
-  talk.classList.remove('show');
   settings.classList.add('hide');
   settings.classList.remove('show');
-  facts.classList.add('hide');
-  facts.classList.remove('show');
-  references.classList.add('hide');
-  references.classList.remove('show');
+  // hide containers except home
+  containers.forEach((container) => container.classList.add('hide'));
+  containers[0].classList.remove('hide');
+  containers[0].classList.add('show');
 };
 
 // ! NAV LINKS
 
 document.querySelectorAll('.nav-links').forEach((navLink, index) => {
-  let containers = document.querySelectorAll('.container');
-
   navLink.addEventListener('click', () => {
     // hide containers
     containers.forEach((container) => container.classList.add('hide'));
