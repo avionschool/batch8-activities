@@ -1,109 +1,99 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-body{
-  background-color: #030321;
-  font-family: 'Montserrat';
-  color: rgb(255, 255, 255);
+body {
+  background: #030321;
+  font-family: 'Montserrat';
+  color: rgb((255), 255, 255);
 }
-
 svg {
-    display: block;
-    font: 7em 'Montserrat';
-    width: 960px;
-    height: 300px;
-    margin: 0 auto;
+display: block;
+font: 7em 'Montserrat';
+width: 960px;
+height: 300px;
+margin: 0 auto;
 }
 .text-copy {
-    fill: none;
-    stroke: white;
-    stroke-dasharray: 6% 29%;
-    stroke-width: 5px;
-    stroke-dashoffset: 0%;
-    animation: stroke-offset 5.5s infinite linear;
+fill: none;
+stroke: white;
+stroke-dasharray: 6% 29%;
+stroke-width: 5px;
+stroke-dashoffset: 0%;
+animation: stroke-offset 5.5s infinite linear;
 }
-
 .text-copy:nth-child(1){
-        stroke: #4D163D;
-        animation-delay: -1;
+stroke: #4D163D;
+ animation-delay: -1;
 }
-
 .text-copy:nth-child(2){
-        stroke: #840037;
-        animation-delay: -2s;
+stroke: #840037;
+animation-delay: -2s;
 }
-
 .text-copy:nth-child(3){
-        stroke: #BD0034;
-        animation-delay: -3s;
+stroke: #BD0034;
+animation-delay: -3s;
 }
-
 .text-copy:nth-child(4){
-        stroke: #BD0034;
-        animation-delay: -4s;
+stroke: #BD0034;
+animation-delay: -4s;
 }
-
 .text-copy:nth-child(5){
-        stroke: #FDB731;
-        animation-delay: -5s;
+stroke: #FDB731;
+animation-delay: -5s;
 }
-
 @keyframes stroke-offset{
-        100% {stroke-dashoffset: -35%;}
+100% {stroke-dashoffset: -35%;}
 }
-
 .container {
-  width: calc(200px * 4 + 3em);
-  margin: auto;
+ width: calc(200px * 4 + 3em);
+ margin: auto;
 }
 .images-results {
-  columns: 4;
-  column-gap: 1em;
+ columns: 4;
+ column-gap: 1em;
 }
 .image-styles {
-  margin-bottom: 1em;
+ margin-bottom: 1em;
 }
 input[type=text] {
-    width: 93%;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-  }
-  .btnSearch {
-    display: inline-block;
-    padding: 6px 15px;
-    font-size: 25px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: rgb(5, 5, 5);
-
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 2px #999;
-  }
-  .btnSearch:hover {background-color: #bbbdbb}
-  .btnSearch:active {
-    background-color: whitesmoke;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
-
-  .btn-grad {background-image: linear-gradient(to right, #780206 0%, #061161  51%, #780206  100%)}
-  .btn-grad {
-     margin: 0;
-     padding: 5px;
-     transition: 0.5s;
-     background-size: 200% auto;
-     color: white;           
-     box-shadow: 0 0 10px #eee;
-     border-radius: 10px;
-   }
-
- .btn-grad:hover {
-     background-position: right center; /* change the direction of the change here */
-     color: #fff;
-     text-decoration: none;
-   }
+  width: 93%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+ }
+ .btnSearch {
+  display: inline-block;
+  padding: 6px 15px;
+  font-size: 25px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: rgb(5, 5, 5);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px #999;
+ }
+ .btnSearch:hover {background-color: #bbbdbb}
+ .btnSearch:active {
+  background-color: whitesmoke;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+ }
+ 
+ .btn-grad {background-image: linear-gradient(to right, #780206 0%, #061161 51%, #780206 100%);}
+ .btn-grad {
+ margin: 0;
+ padding: 5px;
+ transition: 0.5s;
+ background-size: 200% auto;
+ color: white;      
+ box-shadow: 0 0 10px #eee;
+ border-radius: 10px;
+ }
+.btn-grad:hover {
+background-position: right center; /* change the direction of the change here */
+color: #fff;
+text-decoration: none;
+ }
