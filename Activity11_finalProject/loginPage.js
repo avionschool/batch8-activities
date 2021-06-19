@@ -137,10 +137,10 @@ function manilaWeather() {
     //promise response - await
 
     .then(data => {
-        let windSpeed = data.wind.speed;
-        console.log(`'windSpeed :` ,windSpeed);
-        let pressure = data.main.pressure;
-        console.log(`'pressure :` ,pressure);
+        let windSpeed = data['wind']['speed'];
+        console.log(`windSpeed :` ,windSpeed);
+        let pressure = data['main']['pressure'];
+        console.log(`pressure :` ,pressure);
 
         if(pressure > 1009 && windSpeed < 11) {
             document.getElementById('manila').innerHTML = "Let's setup!";
@@ -156,10 +156,10 @@ function quezonWeather() {
     .then(Response=>Response.json())
 
     .then(data => {
-        let windSpeed = data.wind.speed;
-        console.log(`'windSpeed :` ,windSpeed);
-        let pressure = data.main.pressure;
-        console.log(`'pressure :` ,pressure);
+        let windSpeed = data['wind']['speed'];
+        console.log(`windSpeed :` ,windSpeed);
+        let pressure = data['main']['pressure'];
+        console.log(`pressure :` ,pressure);
 
         if(pressure > 1009 && windSpeed < 11) {
             document.getElementById('quezon').innerHTML = "Let's setup!";
@@ -175,10 +175,10 @@ function pasigWeather() {
     .then(Response=>Response.json())
 
     .then(data => {
-        let windSpeed = data.wind.speed;
-        console.log(`'windSpeed :` ,windSpeed);
-        let pressure = data.main.pressure;
-        console.log(`'pressure :` ,pressure);
+        let windSpeed = data['wind']['speed'];
+        console.log(`windSpeed :` ,windSpeed);
+        let pressure = data['main']['pressure'];
+        console.log(`pressure :` ,pressure);
 
         if(pressure > 1009 && windSpeed < 11) {
             document.getElementById('pasig').innerHTML = "Let's setup!";

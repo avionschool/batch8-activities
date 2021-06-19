@@ -113,7 +113,7 @@ input:hover {
 .timeDateWeather {
     height: 250px;
     width: 650px;
-    margin-top: 30px;
+    margin-top: 10px;
     font-weight: bold;
 }
 
@@ -343,7 +343,7 @@ input:hover {
     height: 100px;
     width: 100px;
     position: absolute;
-    margin: 1000px 900px 0px 0px;
+    margin: 880px 900px 0px 0px;
     transform: rotate(0deg);
 }
 
@@ -351,7 +351,7 @@ input:hover {
     height: 150px;
     width: 150px;
     position: absolute;
-    margin: 450px 0px 0px 1000px;
+    margin: 450px 0px 0px 1100px;
     transform: rotate(30deg);
 }
 
