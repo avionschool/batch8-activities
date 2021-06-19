@@ -3,6 +3,8 @@ window.onload = realTime();
 window.onload = manilaWeather();
 window.onload = quezonWeather();
 window.onload = pasigWeather();
+window.onload = makatiWeather();
+window.onload = pasayWeather();
 
 function realTime() {
     let dateTime = new Date();
@@ -143,9 +145,9 @@ function manilaWeather() {
         console.log(`pressure :` ,pressure);
 
         if(pressure > 1009 && windSpeed < 11) {
-            document.getElementById('manila').innerHTML = "Let's setup!";
+            document.getElementById('manila').innerHTML = "&#10004;&#65039;";
         } else {
-            document.getElementById('manila').innerHTML = "hmm.. check weather?";
+            document.getElementById('manila').innerHTML = "&#10060;";
         };
     })
 };
@@ -162,9 +164,9 @@ function quezonWeather() {
         console.log(`pressure :` ,pressure);
 
         if(pressure > 1009 && windSpeed < 11) {
-            document.getElementById('quezon').innerHTML = "Let's setup!";
+            document.getElementById('quezon').innerHTML = "&#10004;&#65039;";
         } else {
-            document.getElementById('quezon').innerHTML = "hmm.. check weather?";
+            document.getElementById('quezon').innerHTML = "&#10060;";
         };
     })
 };
@@ -181,9 +183,47 @@ function pasigWeather() {
         console.log(`pressure :` ,pressure);
 
         if(pressure > 1009 && windSpeed < 11) {
-            document.getElementById('pasig').innerHTML = "Let's setup!";
+            document.getElementById('pasig').innerHTML = "&#10004;&#65039;";
         } else {
-            document.getElementById('pasig').innerHTML = "hmm.. check weather?";
+            document.getElementById('pasig').innerHTML = "&#10060;";
+        };
+    })
+};
+
+function makatiWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=makati&units=metric&appid=e9fda0468ea526972a52690dd74ea091`)
+
+    .then(Response=>Response.json())
+
+    .then(data => {
+        let windSpeed = data['wind']['speed'];
+        console.log(`windSpeed :` ,windSpeed);
+        let pressure = data['main']['pressure'];
+        console.log(`pressure :` ,pressure);
+
+        if(pressure > 1009 && windSpeed < 11) {
+            document.getElementById('makati').innerHTML = "&#10004;&#65039;";
+        } else {
+            document.getElementById('makati').innerHTML = "&#10060;";
+        };
+    })
+};
+
+function pasayWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=pasay&units=metric&appid=e9fda0468ea526972a52690dd74ea091`)
+
+    .then(Response=>Response.json())
+
+    .then(data => {
+        let windSpeed = data['wind']['speed'];
+        console.log(`windSpeed :` ,windSpeed);
+        let pressure = data['main']['pressure'];
+        console.log(`pressure :` ,pressure);
+
+        if(pressure > 1009 && windSpeed < 11) {
+            document.getElementById('pasay').innerHTML = "&#10004;&#65039;";
+        } else {
+            document.getElementById('pasay').innerHTML = "&#10060;";
         };
     })
 };
@@ -334,19 +374,4 @@ loginButton.addEventListener('click', function() {
     let loggedCredentials = new Credentials(username, password);
 
     loggedCredentials.login();
-})
-
-// let userList = JSON.parse(localStorage.getItem('userDetails')) || []; 
-
-// let alreadyExist = userList.some(function(user) {
-//     return user.username == userObject.username || user.email == userObject.email;
-// });
-
-// if (alreadyExist) {
-//     return alert ("Username/Email already exists!");
-// };
-
-// userList.push(userObject);
-
-// localStorage.setItem('userDetails', JSON.stringify(userList));
-// console.log(userList);
+});

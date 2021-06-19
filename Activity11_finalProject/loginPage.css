@@ -150,14 +150,22 @@ input:hover {
 /* forecast */
 .forecastCon {
     height: 100px;
-    width: 700px;
+    width: 620px;
 }
 
 .forecastSub {
     height: 95%;
-    width: 210px;
+    width: 100px;
     border: 3px solid #FFFF66;
     border-radius: 50px;
+    transition: transform 1s;
+}
+.forecastSub:hover {
+    transform: rotateZ(360deg);
+}
+
+.city {
+    font-size: 20px;
 }
 
 /* what we do */
