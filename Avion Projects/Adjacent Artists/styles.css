@@ -350,6 +350,7 @@ footer {
         border-radius: 25px;
         border: 15px solid var(--main-color-2);
         margin: 3vw;
+        padding-bottom: 3vh;
         height: max-content;
         display: flex;
         flex-direction: column;
@@ -424,6 +425,7 @@ footer {
             width: fit-content;
             padding: 20px 15px;
             padding-left: 30px;
+            background-color: white;
             background-repeat: no-repeat;
             background-position: center;
             background-size: 60%;
@@ -432,7 +434,7 @@ footer {
 
         .results-snippet {
             font-size: 18px;
-            margin: 0.5vh 2vw 2vh 2vw;
+            margin: 0.5vh 2vw 0 2vw;
             overflow: hidden;
             text-overflow: ellipsis;
             text-align: justify;

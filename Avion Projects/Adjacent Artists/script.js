@@ -230,7 +230,7 @@ function switchSections(sectionName) {
 function modifyResultsMessage(obj) {
     if (obj.Similar.Results.length == 0) {
         resultsMessage.innerHTML = `No results found for "${obj.Similar.Info[0].Name}":<br>
-        <div class="error-disclaimer">(Note: Search is case-sensitive)</div>`;
+        <div class="error-disclaimer">(Note: Search requires exact title and proper spelling.)</div>`;
     } else {
         resultsMessage.textContent = `Showing results for "${obj.Similar.Info[0].Name}":`;
     }
