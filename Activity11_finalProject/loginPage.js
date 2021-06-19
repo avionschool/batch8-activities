@@ -1,5 +1,8 @@
 // onload clock
 window.onload = realTime();
+window.onload = manilaWeather();
+window.onload = quezonWeather();
+window.onload = pasigWeather();
 
 function realTime() {
     let dateTime = new Date();
@@ -125,64 +128,67 @@ checkWeatherButton.addEventListener('click', function(name) {
 .catch(err => alert("Error: City name does not exist."));
 });
 
-//fetch('https://api.openweathermap.org/data/2.5/weather?q=Pasig&appid=e9fda0468ea526972a52690dd74ea091')
-// {
-//     "coord": {
-//         "lon":121.065,
-//         "lat":14.587
-//     },
+// weather display pop up
+function manilaWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=manila&units=metric&appid=e9fda0468ea526972a52690dd74ea091`)
+    //request
 
-//     "weather": [
-//         {
-//             "id":802,
-//             "main":"Clouds",
-//             "description":"scattered clouds",
-//             "icon":"03d"
-//         }
-//     ],
+    .then(Response=>Response.json())
+    //promise response - await
 
-//     "base": "stations",
+    .then(data => {
+        let windSpeed = data.wind.speed;
+        console.log(`'windSpeed :` ,windSpeed);
+        let pressure = data.main.pressure;
+        console.log(`'pressure :` ,pressure);
 
-//     "main": {
-//         "temp":306.47,
-//         "feels_like":312.75,
-//         "temp_min":305.99,
-//         "temp_max":307.37,
-//         "pressure":1010,
-//         "humidity":58
-//     },
+        if(pressure > 1009 && windSpeed < 11) {
+            document.getElementById('manila').innerHTML = "Let's setup!";
+        } else {
+            document.getElementById('manila').innerHTML = "hmm.. check weather?";
+        };
+    })
+};
 
-//     "visibility": 10000,
-    
-//     "wind": {
-//         "speed":5.14,
-//         "deg":270
-//     },
+function quezonWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=quezon&units=metric&appid=e9fda0468ea526972a52690dd74ea091`)
 
-//     "clouds": {
-//         "all":40
-//     },
+    .then(Response=>Response.json())
 
-//     "dt": 1623904625,
+    .then(data => {
+        let windSpeed = data.wind.speed;
+        console.log(`'windSpeed :` ,windSpeed);
+        let pressure = data.main.pressure;
+        console.log(`'pressure :` ,pressure);
 
-//     "sys": {
-//         "type":1,
-//         "id":8160,
-//         "country":"PH",
-//         "sunrise":1623878822,
-//         "sunset":1623925574
-//     },
+        if(pressure > 1009 && windSpeed < 11) {
+            document.getElementById('quezon').innerHTML = "Let's setup!";
+        } else {
+            document.getElementById('quezon').innerHTML = "hmm.. check weather?";
+        };
+    })
+};
 
-//     "timezone" :28800,
+function pasigWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=pasig&units=metric&appid=e9fda0468ea526972a52690dd74ea091`)
 
-//     "id":1694579,
-    
-//     "name":"Pasig",
+    .then(Response=>Response.json())
 
-//     "cod":200
-// }
+    .then(data => {
+        let windSpeed = data.wind.speed;
+        console.log(`'windSpeed :` ,windSpeed);
+        let pressure = data.main.pressure;
+        console.log(`'pressure :` ,pressure);
 
-// login and create account popup
+        if(pressure > 1009 && windSpeed < 11) {
+            document.getElementById('pasig').innerHTML = "Let's setup!";
+        } else {
+            document.getElementById('pasig').innerHTML = "hmm.. check weather?";
+        };
+    })
+};
+
+//login and create accout popups
 let loginPopup = document.getElementById('loginPopup');
 let createAccountPopup = document.getElementById('createAccountPopup');
 

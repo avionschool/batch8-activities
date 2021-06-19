@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+<script>
+
+// nested promise
+// let tank = function() {
+//     return new Promise(function(resolve, reject) {
+//         resolve('-No fuel');
+//     });
+// };
+
+// let engine = function(message) {
+//     return new Promise(function(resolve, reject) {
+//         resolve(message + '-overheating');
+//     });
+// };
+
+// let status = function(message) {
+//     return new Promise(function(resolve, reject) {
+//         resolve(message + '-car broken');
+//     });
+// };
+
+// tank().then(function(result){
+//     return engine(result);
+// }).then(function(result){
+//     return status(result);
+// }).then(function(result){
+//     console.log("Success" + result);
+// });
+
+
+// // basic
+// let car = new Promise(function(resolve, reject) {
+//     fullTank = true;
+//     if(fullTank) {
+//         resolve();
+//     } else {
+//         reject();
+//     }
+// });
+
+// car.then(function() {
+//     console.log('full tank');
+// }).catch(function() {
+//     console.log('tank empty');
+// });
+
+// console.log(car);
+
+let pressureValue = 1200;
+let windValue = 9;
+
+let pressure = function() {
+    return new Promise(function(resolve, reject) {
+        if(pressureValue > 1009) {
+            resolve('-good pressure');
+        };
+    });
+};
+let wind = function() {
+    return new Promise(function(resolve, reject) {
+        if(windValue < 11) {
+            resolve('-good wind');
+        };
+    });
+};
+let status = function() {
+    return new Promise(function(resolve, reject) {
+        resolve('-good weather');
+    });
+};
+pressure().then(function(){
+    return wind();
+}).then(function(){
+    return status();
+}).then(function(){
+    console.log('Fine');
+});
+
+</script>
+</body>
+</html>
+
+
+
+
+// // basic promise
+// let car = new Promise(function(resolve, reject) {
+//     fullTank = true;
+//     if(fullTank) {
+//         resolve();
+//     } else {
+//         reject();
+//     }
+// });
+
+// car.then(function() {
+//     console.log('full tank');
+// }).catch(function() {
+//     console.log('tank empty');
+// });
+
+// console.log(car);
+
+// // nested promise
+// let tank = function() {
+//     return new Promise(function(resolve, reject) {
+//         resolve('-No fuel');
+//     });
+// };
+
+// let engine = function(message) {
+//     return new Promise(function(resolve, reject) {
+//         resolve(message + '-overheating');
+//     });
+// };
+
+// let status = function(message) {
+//     return new Promise(function(resolve, reject) {
+//         resolve(message + '-car broken');
+//     });
+// };
+
+// tank().then(function(result){
+//     return engine(result);
+// }).then(function(result){
+//     return status(result);
+// }).then(function(result){
+//     console.log("Success" + result);
+// });
+
+
+// async programming
+// let result = function(score) {
+//     return new Promise(function(resolve, reject) {
+//         console.log('calculating results');
+//         if (score > 75) {
+//             resolve('You passed');
+//         } else {
+//             reject("You failed");
+//         };
+//     });
+// };
+
+// let grade = function(response) {
+//     return new Promise(function(resolve, reject){
+//     console.log('Calculating');
+//     resolve('Your grade is A' + response);
+// });
+// };
+
+// result(80).then(function response() {
+//     console.log("results received");
+//     return grade(response);
+// }).then(function finalgrade() {
+//     console.log(finalgrade);
+// }).catch(function error() {
+//     console.log('Error');
+// });
+</script>

@@ -147,6 +147,19 @@ input:hover {
     font-size: 40px;
 }
 
+/* forecast */
+.forecastCon {
+    height: 100px;
+    width: 700px;
+}
+
+.forecastSub {
+    height: 95%;
+    width: 210px;
+    border: 3px solid #FFFF66;
+    border-radius: 50px;
+}
+
 /* what we do */
 .whatWeDo {
     height: 280px;
@@ -246,7 +259,7 @@ input:hover {
     height: 150px;
     width: 400px;
     position: absolute;
-    margin: 0px 0px 550px 0px;
+    margin: 0px 0px 720px 0px;
     background-color: white;
     border: 3px solid black;
     border-radius: 25px;
@@ -265,7 +278,7 @@ input:hover {
     height: 350px;
     width: 350px;
     position: absolute;
-    margin: 0px 0px 550px 0px;
+    margin: 0px 0px 650px 0px;
     background-color: white;
     border: 3px solid black;
     border-radius: 25px;
@@ -330,7 +343,7 @@ input:hover {
     height: 100px;
     width: 100px;
     position: absolute;
-    margin: 790px 900px 0px 0px;
+    margin: 1000px 900px 0px 0px;
     transform: rotate(0deg);
 }
 
@@ -338,7 +351,7 @@ input:hover {
     height: 150px;
     width: 150px;
     position: absolute;
-    margin: 550px 0px 0px 1200px;
+    margin: 450px 0px 0px 1000px;
     transform: rotate(30deg);
 }
 

@@ -1,22 +1,77 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="api.js" defer></script>
-        <link rel="stylesheet" href="api.css">
-        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-    </head>
 <body>
-    <input type="text" placeholder="enter city" id="inputValue">
-    <button id="checkWeatherButton">Check Weather</button>
-    <h1 id="city">city</h1>
-    <p id="temperature">temp</p>
-    <p id="tempMinMax">min max temp</p>
-    <p id="weatherDes">description</p>
+
+    <p id="manila"></p>
+    <button onclick="manilaWeather()">Manila</button>
+
+    <p id="quezon"></p>
+    <button onclick="quezonWeather()">Quezon</button>
+
+    <p id="pasig"></p>
+    <button onclick="pasigWeather()">Pasig</button>
+
+<script>
+
+function manilaWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=manila&units=metric&appid=e9fda0468ea526972a52690dd74ea091`)
+    //request
+
+    .then(Response=>Response.json())
+    //promise response - await
+
+    .then(data => {
+        let windSpeed = data.wind.speed;
+        console.log(`'windSpeed :` ,windSpeed);
+        let pressure = data.main.pressure;
+        console.log(`'pressure :` ,pressure);
+
+        if(pressure > 1009 && windSpeed < 11) {
+            document.getElementById('manila').innerHTML = "Let's setup!";
+        } else {
+            document.getElementById('manila').innerHTML = "Might want to check outside first.";
+        };
+    })
+};
+
+function quezonWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=quezon&units=metric&appid=e9fda0468ea526972a52690dd74ea091`)
+
+    .then(Response=>Response.json())
+
+    .then(data => {
+        let windSpeed = data.wind.speed;
+        console.log(`'windSpeed :` ,windSpeed);
+        let pressure = data.main.pressure;
+        console.log(`'pressure :` ,pressure);
+
+        if(pressure > 1009 && windSpeed < 11) {
+            document.getElementById('quezon').innerHTML = "Let's setup!";
+        } else {
+            document.getElementById('quezon').innerHTML = "Might want to check outside first.";
+        };
+    })
+};
+
+function pasigWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=pasig&units=metric&appid=e9fda0468ea526972a52690dd74ea091`)
+
+    .then(Response=>Response.json())
+
+    .then(data => {
+        let windSpeed = data.wind.speed;
+        console.log(`'windSpeed :` ,windSpeed);
+        let pressure = data.main.pressure;
+        console.log(`'pressure :` ,pressure);
+
+        if(pressure > 1009 && windSpeed < 11) {
+            document.getElementById('pasig').innerHTML = "Let's setup!";
+        } else {
+            document.getElementById('pasig').innerHTML = "Might want to check outside first.";
+        };
+    })
+};
+
+</script>
 </body>
 </html>
-
-
-
-
-
-
