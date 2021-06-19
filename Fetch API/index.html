@@ -1,27 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" text="text/css" href="styles.css">
-   
-    <title>Fetch GIPHY API</title>
-    <!-- JS scripts -->
-    <script type="text/javascript" src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" text="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Fetch GIPHY API</title>
+    <!-- JS scripts -->
+    <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-<div class="container">
-    <header>
-        <form id="search-form">
-            <input id="input-search" type="text" placeholder="Search GIF">
-            <button type="submit">Search</button>
-        </form>
-    </header>
+<svg viewBox="0 0 960 300">
+    <symbol id="s-text">
+        <text text-anchor="middle" x="50%" y="80%">GIF Search</text>
+    </symbol>
 
-    <div id="images-results" class="images-results">
+    <g class = "g-ants">
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+    </g>
+</svg>
+<center><h4>Powered By: Giphy.com</h4></center>
+<div class="container">
+    <header>
+        <br><br>
+        <form id="search-form">
+            <input id="input-search" type="text" placeholder="Search all the GIFs">
+            <button class="btnSearch type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </header>
+<br>
+<center>
+<button onclick="getKeywords()" class="btn-grad" id="btnKeyword" style="vertical-align:middle" value="laugh"><span>laugh </span></button>
+<button onclick="getKeywords()" class="btn-grad" id="btnKeyword1" style="vertical-align:middle" value="movies"><span>movies </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="actions"><span>actions </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="foods"><span>foods </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="gaming"><span>gaming </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="natures"><span>natures </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="anime"><span>anime </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="holidays"><span>holidays </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="clips"><span>clips </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="greetings"><span>greetings </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="reactions"><span>reactions </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="drinks"><span>drinks </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="emotions"><span>emotions </span></button>
+<button class="btn-grad" style="vertical-align:middle" value="social"><span>social </span></button>
+<br><br>
+</center>
+
+<div id="images-results" class="images-results">
 <!-- GIF images results -->
-    </div>
+    </div>
 </div>
+<script>
+var keywordsList = [];
+keywordsList[0] = document.getElementById('btnKeyword').value;
+keywordsList[1] = document.getElementById('btnKeyword1').value;
+console.log(keywordsList);
+
+if (keywordsList == "laugh") {
+    getKeywords();
+}else if (keywordsList == "movies") {
+    getKeywords();
+}
+</script>
+
+
 </body>
 </html>
