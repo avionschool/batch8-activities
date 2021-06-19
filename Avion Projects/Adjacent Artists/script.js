@@ -91,7 +91,7 @@ inputQuery.addEventListener('keydown', function(e) {
         if (inputQuery.value === "") {
             e.preventDefault();
         } else {
-            buildPageFromQuery();
+            generateSimilarArtistsScript();
         }
     }
 });
@@ -100,7 +100,7 @@ inputQueryButton.addEventListener('click', function(e) {
     if (inputQuery.value === "") {
         e.preventDefault();
     } else {
-        buildPageFromQuery();
+        generateSimilarArtistsScript();
     }
 });
 
@@ -109,39 +109,10 @@ window.onscroll = function () {toggleScrollTop()};
 scrollTopButton.onclick = function () {scrollToTop()};
 
 // Functions
-function switchSections(sectionName) {
-    // Edit span messages
-    let table = referenceObject[sectionName]; // acquire key value reference table
-    let typeComparison = table.typeComparison; // acquire type for comparison
-    let storedJSONObject = currentSessionSearch[typeComparison]; // acquire stored JSON object
-    let storedType;
-    if (storedJSONObject !== undefined) {
-        storedType = storedJSONObject.Similar.Info[0].Type;
-    }
-    spanMessage.textContent = table.name;
-    spanMainMessage.textContent = table.message; 
-    spanSubMessage.textContent = table.subMessage;
-
-    // Build cards, if saved object matches with section name
-    // else reset cards
-    if (storedType === typeComparison) {
-        createCards(storedJSONObject);
-    } else {
-        cards.innerHTML = "";
-        resultsMessage.classList.add('hide'); // hide results message
-    }
-
-    inputQuery.value = ""; // reset query bar
-    toggleBurgerMenu(); // close side bar
-}
-
-function buildPageFromQuery() {
+function generateSimilarArtistsScript() {
     searchQuery = inputQuery.value; // change query string
     modalLoading.classList.remove('hide');
-    generateSimilarArtistsScript(); // generate script
-}
 
-function generateSimilarArtistsScript() {
     // Using JSONP to use the API to avoid CORS header errors
     // Uses a callback function to obtain JSON
     // Limitation: No way to get HTTP error codes
@@ -157,6 +128,7 @@ function generateSimilarArtistsScript() {
 }
 
 function getSimilarArtists(responseObject) {
+    // callback function for JSONP
     results = responseObject; // store in global
     currentSessionSearch[responseObject.Similar.Info[0].Type] = responseObject; // save object
     createCards(results);
@@ -166,6 +138,7 @@ function createCards(obj) {
     cards.innerHTML = ""; // Reset
     let section = "";
 
+    // Create HTML for each element in JSON's Result Array
     for (let i = 0; i < obj.Similar.Results.length; i++) {
         let QUERIED_NAME = obj.Similar.Results[i].Name;
         let VALID_SEARCH = QUERIED_NAME.replaceAll(" ", "+");
@@ -226,6 +199,32 @@ function createCards(obj) {
     modalLoading.classList.add('hide'); // remove loading modal
     resultsMessage.classList.remove('hide'); // display results message
     modifyResultsMessage(obj);
+}
+
+function switchSections(sectionName) {
+    // Edit span messages
+    let table = referenceObject[sectionName]; // acquire key value reference table
+    let typeComparison = table.typeComparison; // acquire type for comparison
+    let storedJSONObject = currentSessionSearch[typeComparison]; // acquire stored JSON object
+    let storedType;
+    if (storedJSONObject !== undefined) {
+        storedType = storedJSONObject.Similar.Info[0].Type;
+    }
+    spanMessage.textContent = table.name;
+    spanMainMessage.textContent = table.message; 
+    spanSubMessage.textContent = table.subMessage;
+
+    // Build cards, if saved object matches with section name
+    // else reset cards
+    if (storedType === typeComparison) {
+        createCards(storedJSONObject);
+    } else {
+        cards.innerHTML = "";
+        resultsMessage.classList.add('hide'); // hide results message
+    }
+
+    inputQuery.value = ""; // reset query bar
+    toggleBurgerMenu(); // close side bar
 }
 
 function modifyResultsMessage(obj) {
