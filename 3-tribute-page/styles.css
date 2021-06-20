@@ -38,6 +38,10 @@ a:hover {
   font-size: 2em;
 }
 
+footer p {
+  font-size: 0.8rem;
+}
+
 /* ==========================================
           --LAYOUT
 ========================================== */
@@ -104,7 +108,7 @@ a:hover {
   flex-direction: column;
 }
 
-section {
+#home {
   height: 100vh;
 }
 
@@ -124,7 +128,8 @@ section:nth-child(odd) {
 
 body,
 .bio-wrapper,
-.trademark-wrapper {
+.trademark-wrapper,
+footer {
   background-color: #f0efea;
 }
 
@@ -147,18 +152,19 @@ body,
   height: 30vh;
 }
 
-#bio-text {
-  margin: 2em 0 1em 0;
+.bio-wrapper p {
+  margin-bottom: 0.5em;
 }
 
-.bio-wrapper p {
-  margin-bottom: 1em;
+#bio-main-header {
+  margin-bottom: 0.5em;
 }
 
 .bio-headers {
-  margin: 1em 0 1em 0;
+  margin: 0.5em 0 0.5em 0;
 }
 
-.trademark-wrapper ul {
+.trademark-wrapper ul,
+footer p {
   margin-left: 1em;
 }
