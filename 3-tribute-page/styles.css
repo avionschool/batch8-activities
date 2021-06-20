@@ -23,15 +23,19 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
-#home h1,
-p {
-  font-size: 7em;
+a:hover {
+  color: coral;
+}
+
+#home h1 {
+  font-size: 4rem;
 }
 
 #home p {
-  font-size: 3em;
+  font-size: 2em;
 }
 
 /* ==========================================
@@ -77,35 +81,31 @@ p {
   align-items: center;
 }
 
-#home {
-  position: relative;
+#home,
+.image-wrapper,
+.text-wrapper,
+#bio {
+  display: flex;
 }
 
-#home img {
-  position: absolute;
-  bottom: 10%;
-  left: 25%;
+.image-wrapper,
+.text-wrapper {
+  width: 50%;
 }
 
-#home h1,
-p {
-  position: absolute;
-  bottom: 15%;
-  left: 55%;
+.image-wrapper,
+.text-wrapper {
+  justify-content: center;
+  align-items: center;
 }
 
-#home p {
-  position: absolute;
-  bottom: 12%;
-  left: 55%;
+.text-wrapper,
+#bio {
+  flex-direction: column;
 }
+
 section {
   height: 100vh;
-  width: 100%;
-}
-
-#home img {
-  width: 27%;
 }
 
 /* ==========================================
@@ -122,6 +122,43 @@ section:nth-child(odd) {
   background-color: white;
 }
 
-body {
+body,
+.bio-wrapper,
+.trademark-wrapper {
   background-color: #f0efea;
+}
+
+.image-wrapper img {
+  width: 50%;
+}
+
+.bio-wrapper,
+.trademark-wrapper {
+  border-radius: 1em;
+}
+
+#bio,
+.bio-wrapper,
+.trademark-wrapper {
+  padding: 1em;
+}
+
+.bio-wrapper {
+  height: 30vh;
+}
+
+#bio-text {
+  margin: 2em 0 1em 0;
+}
+
+.bio-wrapper p {
+  margin-bottom: 1em;
+}
+
+.bio-headers {
+  margin: 1em 0 1em 0;
+}
+
+.trademark-wrapper ul {
+  margin-left: 1em;
 }
