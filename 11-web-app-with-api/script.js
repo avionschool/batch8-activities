@@ -276,7 +276,6 @@ window.onload = () => {
 };
 
 // ! NAV LINKS
-
 document.querySelectorAll('.nav-links').forEach((navLink, index) => {
   navLink.addEventListener('click', () => {
     // hide containers
