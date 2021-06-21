@@ -1,0 +1,29 @@
+/* ==========================================
+          --MISC
+========================================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+          --LAYOUT
+========================================== */
+body {
+  display: flex;
+}
+
+/* ==========================================
+          --COMPONENTS
+========================================== */
+section {
+  height: 100vh;
+}
+
+#picture {
+  width: 35%;
+  background-image: url(assets/amy-shamblen-xwM61TPMlYk-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
