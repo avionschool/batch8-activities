@@ -3,7 +3,7 @@
 1. [Web Dev Best Practice](https://lea927.github.io/batch8-activities/1-web-dev-best-practice)
 2. [HTML E-mail](https://lea927.github.io/batch8-activities/2-html-email)
 3. [Tribute Page](https://lea927.github.io/batch8-activities/3-tribute-page)
-4. [Survey Form](https://lea927.github.io/batch8-activities/4-survey-from)
+4. [Survey Form](https://lea927.github.io/batch8-activities/4-survey-form)
 5. [Chessboard Flex](https://lea927.github.io/batch8-activities/5-chessboard-flexbox)
 6. [Chessboard CSS Grid](https://lea927.github.io/batch8-activities/6-chessboard-css-grid)
 7. [Product Landing Page](https://lea927.github.io/batch8-activities/7-product-landing-page)
