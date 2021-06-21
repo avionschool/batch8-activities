@@ -13,13 +13,27 @@
 ========================================== */
 body {
   font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+}
+.form-header {
+  text-align: center;
 }
 
 /* ==========================================
           --LAYOUT
 ========================================== */
-body {
+body,
+#form {
   display: flex;
+}
+
+#form {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-header {
+  margin-bottom: 3em;
 }
 
 /* ==========================================
@@ -36,6 +50,29 @@ section {
   background-size: cover;
 }
 
-.form-field {
+.form-field,
+.main-labels {
   display: block;
+}
+
+/* input[type='radio'] */
+form {
+  /* outline: 1px solid black; */
+  padding: 1em;
+}
+
+.form-field {
+  margin-bottom: 0.5em;
+}
+
+.button {
+  padding: 1em 2em;
+  background-color: #f7a579;
+  border-radius: 1em;
+  border-style: none;
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.5;
 }
