@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="assets/venus-solid.svg" type="image/x-icon" />
     <title>Survey Form</title>
   </head>
   <body>
@@ -12,7 +13,76 @@
       <div class="picture-wrapper"></div>
     </section>
     <section id="form">
-      <div class="form-wrapper"></div>
+      <div class="form-wrapper">
+        <form>
+          <h1>ABC Product</h1>
+          <h2>Satisfaction Survey</h2>
+          <div class="form-field">
+            <label for="email">
+              E-mail:
+              <input type="email" name="email" id="email" placeholder="name@mail.com" />
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="name">
+              Product name:
+              <input type="text" name="name" id="name" />
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="shop">
+              Purchased from:
+              <input type="text" name="shop" id="shop" />
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="period">
+              How long have you had the product?
+              <input type="radio" name="period" id="period-1" value="period-1" />
+              <label for="period-1">Less than a week.</label>
+              <input type="radio" name="period" id="period-2" value="period-2" />
+              <label for="period-2">A week to a month.</label>
+              <input type="radio" name="period" id="period-3" value="period-3" />
+              <label for="period-3">A month to six months.</label>
+              <input type="radio" name="period" id="period-4" value="period-4" />
+              <label for="period-4">Six months to a year.</label>
+              <input type="radio" name="period" id="period-5" value="period-5" />
+              <label for="period-5">Over a year.</label>
+            </label>
+          </div>
+          <div class="div-form-field">
+            <label for="warranty">
+              Have you registered the product warranty?
+              <input type="radio" name="warranty" id="yes" value="yes" />
+              <label for="yes">Yes</label>
+              <input type="radio" name="warranty" id="no" value="no" />
+              <label for="no">No</label>
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="impression">
+              What was your initial impression of the product?
+              <input type="radio" name="impression" id="unsatisfactory" value="unsatisfactory" />
+              <label for="unsatisfactory">Unsatisfactory</label>
+              <input type="radio" name="impression" id="poor" value="poor" />
+              <label for="poor">Poor</label>
+              <input type="radio" name="impression" id="fair" value="fair" />
+              <label for="fair">Fair</label>
+              <input type="radio" name="impression" id="good" value="good" />
+              <label for="good">Good</label>
+              <input type="radio" name="impression" id="excellent" value="excellent" />
+              <label for="excellent">Excellent</label>
+            </label>
+          </div>
+          <div class="form-field">
+            <label for="comments">
+              Any comments you want to add? (Optional):
+              <input type="text" name="comments" id="comments" />
+            </label>
+          </div>
+          <input type="submit" value="Submit response" />
+        </form>
+      </div>
     </section>
   </body>
 </html>

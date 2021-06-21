@@ -1,10 +1,18 @@
 /* ==========================================
           --MISC
 ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+/* ==========================================
+          --TYPOGRAPHY
+========================================== */
+body {
+  font-family: 'Rubik', sans-serif;
 }
 
 /* ==========================================
@@ -22,8 +30,12 @@ section {
 }
 
 #picture {
-  width: 35%;
+  width: 40%;
   background-image: url(assets/amy-shamblen-xwM61TPMlYk-unsplash.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.form-field {
+  display: block;
 }
