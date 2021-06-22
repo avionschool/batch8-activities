@@ -1,20 +1,32 @@
-body {
-  background: rgb(133, 111, 173);
-  background: radial-gradient(
-    circle,
-    rgba(133, 111, 173, 1) 0%,
-    rgba(64, 37, 119, 1) 66%,
-    rgba(64, 37, 119, 1) 100%
-    
-    
-  );
-  /*background-repeat: no-repeat;*/
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+body {
+  font-family: 'Righteous', cursive;
+  background: rgb(133, 111, 173);
+  background: radial-gradient(circle, rgba(133, 111, 173, 1) 0%, rgba(64, 37, 119, 1) 66%, rgba(64, 37, 119, 1) 100%);
+  /*background-repeat: no-repeat;*/
+}
+
+h1,
+h2 {
+  color: white;
+}
+
+.header {
+  text-align: center;
+  line-height: 80%;
+}
+.chessboard-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .chessboard-border {
-  height: 820px;
-  width: 805px;
+  height: 590px;
+  width: 576px;
   background: rgb(255, 255, 255);
   padding: 10px;
 }
@@ -30,8 +42,8 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  height: 100px;
-  width: 800px;
+  height: 72px;
+  width: 576px;
   border: 1px solid #333;
 }
 
@@ -43,8 +55,8 @@ body {
 .flexbox-item-6th-row,
 .flexbox-item-7th-row,
 .flexbox-item-8th-row {
-  width: 100px;
-  height: 100px;
+  width: 72px;
+  height: 72px;
 }
 
 .flexbox-item-1,
@@ -79,9 +91,11 @@ body {
 .flexbox-item-60,
 .flexbox-item-62,
 .flexbox-item-64 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: white;
-  background-image: url("../images/soil.png");
- 
+  background-image: url('../images/soil.png');
 }
 
 .flexbox-item-2,
@@ -116,14 +130,17 @@ body {
 .flexbox-item-59,
 .flexbox-item-61,
 .flexbox-item-63 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: black;
-  background-image: url("../images/grass.jpeg");
+  background-image: url('../images/grass.jpeg');
   /*Added home on file path*/
 }
 
 img {
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
 }
 
 /* mobile phones - less than 450px width*/
@@ -174,7 +191,6 @@ img {
     width: 320px;
     background: rgb(255, 255, 255);
   }
-
 }
 
 /* mobile phones - less than 400px width */
@@ -200,8 +216,6 @@ img {
     width: 240px;
     border: 1px solid #333;
   }
-
-
 
   .flexbox-item-1st-row,
   .flexbox-item-2nd-row,
