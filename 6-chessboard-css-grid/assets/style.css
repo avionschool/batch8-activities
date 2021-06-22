@@ -1,3 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+/* MISC  */
+* {
+  padding: 0;
+  margin: 0;
+  /* box-sizing: border-box; */
+}
+
+body {
+  font-family: 'Carter One', cursive;
+}
+
+.header {
+  color: aliceblue;
+  text-align: center;
+  line-height: 150%;
+  margin-bottom: 1em;
+}
+
+/* LAYOUT */
+
+.content-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* justify-items: center; */
+  flex-direction: column;
+  background-color: #123262;
+  z-index: -1;
+}
+
+#wave {
+  /* width: 100%; */
+  width: auto;
+  height: auto;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+}
 
 /* chesspieces animation */
 
@@ -8,7 +49,9 @@
 }
 
 @keyframes darkrookMove1 {
-  0%,50%,100% {
+  0%,
+  50%,
+  100% {
     transform: translate(0, 0);
   }
   25% {
@@ -25,7 +68,9 @@
 }
 
 @keyframes darkrookMove2 {
-  0%,50%,100% {
+  0%,
+  50%,
+  100% {
     transform: translate(0, 0);
   }
   25% {
@@ -49,7 +94,7 @@
     transform: translateY(10vmin);
   }
   100% {
-    transform: translate(5vmin,10vmin);
+    transform: translate(5vmin, 10vmin);
   }
 }
 
@@ -66,7 +111,7 @@
     transform: translateY(10vmin);
   }
   100% {
-    transform: translate(-5vmin,10vmin);
+    transform: translate(-5vmin, 10vmin);
   }
 }
 
@@ -76,42 +121,51 @@
 }
 
 @keyframes darkbishopMove1 {
-  0%,60%,100% {
-    transform: translate(0,0);
+  0%,
+  60%,
+  100% {
+    transform: translate(0, 0);
   }
   40% {
-    transform: translate(25vmin,25vmin);
+    transform: translate(25vmin, 25vmin);
   }
   85% {
-    transform: translate(-10vmin,10vmin);
+    transform: translate(-10vmin, 10vmin);
   }
 }
 
-#dark-bishop-f8:hover{
+#dark-bishop-f8:hover {
   animation-name: darkbishopMove2;
   animation-duration: 3s;
 }
 
 @keyframes darkbishopMove2 {
-  0%,45%,100% {
-    transform: translate(0,0);
+  0%,
+  45%,
+  100% {
+    transform: translate(0, 0);
   }
   25% {
-    transform: translate(10vmin,10vmin);
+    transform: translate(10vmin, 10vmin);
   }
   80% {
-    transform: translate(-25vmin,25vmin);
+    transform: translate(-25vmin, 25vmin);
   }
 }
 
-#dark-queen-d8:hover{
+#dark-queen-d8:hover {
   animation-name: darkqueenMove;
   animation-duration: 10s;
 }
 
 @keyframes darkqueenMove {
-  0%,20%,40%,60%,80%,100% {
-    transform: translate(0,0);
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    transform: translate(0, 0);
   }
   10% {
     transform: translateX(-15vmin);
@@ -123,21 +177,26 @@
     transform: translateY(35vmin);
   }
   70% {
-    transform: translate(-15vmin,15vmin);
+    transform: translate(-15vmin, 15vmin);
   }
   90% {
-    transform: translate(20vmin,20vmin);
+    transform: translate(20vmin, 20vmin);
   }
 }
 
-#dark-king:hover{
+#dark-king:hover {
   animation-name: darkkingMove;
   animation-duration: 8s;
 }
 
 @keyframes darkkingMove {
-  0%,20%,40%,60%,80%,100% {
-    transform: translate(0,0);
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    transform: translate(0, 0);
   }
   10% {
     transform: translateX(-5vmin);
@@ -149,10 +208,10 @@
     transform: translateY(5vmin);
   }
   70% {
-    transform: translate(-5vmin,5vmin);
+    transform: translate(-5vmin, 5vmin);
   }
   90% {
-    transform: translate(5vmin,5vmin);
+    transform: translate(5vmin, 5vmin);
   }
 }
 
@@ -164,8 +223,9 @@
 }
 
 @keyframes darkpawnMove {
-  0%,100% {
-    transform: translate(0,0);
+  0%,
+  100% {
+    transform: translate(0, 0);
   }
   50% {
     transform: translateY(5vmin);
@@ -180,8 +240,9 @@
 }
 
 @keyframes lightpawnMove {
-  0%,100% {
-    transform: translate(0,0);
+  0%,
+  100% {
+    transform: translate(0, 0);
   }
   50% {
     transform: translateY(-5vmin);
@@ -190,13 +251,15 @@
 
 /* eight row - light chess pieces */
 
-#light-rook-a1:hover{
+#light-rook-a1:hover {
   animation-name: lightrookMove1;
   animation-duration: 4s;
 }
 
 @keyframes lightrookMove1 {
-  0%,50%,100% {
+  0%,
+  50%,
+  100% {
     transform: translate(0, 0);
   }
   25% {
@@ -207,13 +270,15 @@
   }
 }
 
-#light-rook-h1:hover{
+#light-rook-h1:hover {
   animation-name: lightrookMove2;
   animation-duration: 4s;
 }
 
 @keyframes lightrookMove2 {
-  0%,50%,100% {
+  0%,
+  50%,
+  100% {
     transform: translate(0, 0);
   }
   25% {
@@ -224,7 +289,7 @@
   }
 }
 
-#light-horse-b1:hover{
+#light-horse-b1:hover {
   animation-name: lighthorseMove1;
   animation-duration: 1.5s;
 }
@@ -237,7 +302,7 @@
     transform: translateY(-10vmin);
   }
   100% {
-    transform: translate(5vmin,-10vmin);
+    transform: translate(5vmin, -10vmin);
   }
 }
 
@@ -254,52 +319,61 @@
     transform: translateY(-10vmin);
   }
   100% {
-    transform: translate(-5vmin,-10vmin);
+    transform: translate(-5vmin, -10vmin);
   }
 }
 
-#light-bishop-c1:hover{
+#light-bishop-c1:hover {
   animation-name: lightbishopMove1;
   animation-duration: 4s;
 }
 
 @keyframes lightbishopMove1 {
-  0%,40%,100% {
-    transform: translate(0,0);
+  0%,
+  40%,
+  100% {
+    transform: translate(0, 0);
   }
   20% {
-    transform: translate(-10vmin,-10vmin);
+    transform: translate(-10vmin, -10vmin);
   }
   70% {
-    transform: translate(25vmin,-25vmin);
+    transform: translate(25vmin, -25vmin);
   }
 }
 
-#light-bishop-f1:hover{
+#light-bishop-f1:hover {
   animation-name: lightbishopMove2;
   animation-duration: 4s;
 }
 
 @keyframes lightbishopMove2 {
-  0%,45%,100% {
-    transform: translate(0,0);
+  0%,
+  45%,
+  100% {
+    transform: translate(0, 0);
   }
   25% {
-    transform: translate(10vmin,-10vmin);
+    transform: translate(10vmin, -10vmin);
   }
   80% {
-    transform: translate(-25vmin,-25vmin);
+    transform: translate(-25vmin, -25vmin);
   }
 }
 
-#light-king:hover{
+#light-king:hover {
   animation-name: lightkingMove;
   animation-duration: 8s;
 }
 
 @keyframes lightkingMove {
-  0%,20%,40%,60%,80%,100% {
-    transform: translate(0,0);
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    transform: translate(0, 0);
   }
   10% {
     transform: translateX(-5vmin);
@@ -311,21 +385,26 @@
     transform: translateY(-5vmin);
   }
   70% {
-    transform: translate(-5vmin,-5vmin);
+    transform: translate(-5vmin, -5vmin);
   }
   90% {
-    transform: translate(5vmin,-5vmin);
+    transform: translate(5vmin, -5vmin);
   }
 }
 
-#light-queen:hover{
+#light-queen:hover {
   animation-name: lightqueenMove;
   animation-duration: 10s;
 }
 
 @keyframes lightqueenMove {
-  0%,20%,40%,60%,80%,100% {
-    transform: translate(0,0);
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    transform: translate(0, 0);
   }
   10% {
     transform: translateX(-15vmin);
@@ -337,13 +416,12 @@
     transform: translateY(-35vmin);
   }
   70% {
-    transform: translate(-15vmin,-15vmin);
+    transform: translate(-15vmin, -15vmin);
   }
   90% {
-    transform: translate(20vmin,-20vmin);
+    transform: translate(20vmin, -20vmin);
   }
 }
-
 
 /* main design */
 
@@ -355,23 +433,19 @@ p {
   text-shadow: -0.5vmin 0 white, 0 0.5vmin white, 0.5vmin 0 white, 0 -0.5vmin white;
 }
 
-h1 {
-  font: 3vmin Work Sans, Helvetica, sans-serif;
-}
-
 dt,
 dd {
   font: 1.5vmin Work Sans, Helvetica, sans-serif;
 }
 
-
 #chess-board-main-border {
-  border: 3vmin solid #595b65;
+  z-index: 2;
+  /* border: 3vmin solid #595b65; */
   border-radius: 2vmin;
-  margin: auto;
+  /* margin: auto; */
   width: 40vmin;
-  position: relative;
-  top: 10vmin;
+  /* position: relative; */
+  /* top: 10vmin; */
   box-shadow: 1.7vmin 2.5vmin 4.5vmin rgb(15, 15, 15);
 }
 
@@ -421,10 +495,4 @@ dd {
 img {
   height: 5vmin;
   width: 5vmin;
-}
-
-body {
-  /* background: rgb(109,194,242); */
-  background: linear-gradient(315deg, rgba(109,194,242,1) 1%, rgba(66,148,194,1) 37%, rgba(56,126,178,1) 100%);
- 
 }
