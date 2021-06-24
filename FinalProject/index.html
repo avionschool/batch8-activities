@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avions Gamers Hub</title>
+    <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/everyday-objects-line-art-2/128/directional-pad-ol-512.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+            <li onclick="home()">Home</li>
+            <li onclick="streamerGuide()">Streamer's Guide</li>
+            <li>Gallery</li>
+            <li id="icon">Dark Mode <img src="img/moon.png" id="logo"></li>
+        </ul>
+    </div>
+
+    <div class="guide" id="guide">
+        <div>
+            <h1>How to Get Started in Game Streaming: The Ultimate Guide</h1> <br>
+            <p>Want to join the legions of gamers streaming and commenting on video games for a live audience? Here's all the gear you'll need to get started with game streaming from a PC, plus plenty of helpful tips for setting it all up.</p> <br>
+
+            <p>Ever had an interest in streaming your PC gameplay live, but don’t know where to start? We’re here to help. Live streaming has exploded in the last few years, and while not everyone can expect to become the next Ninja, Dr. Lupo, or Shroud, it’s a fun hobby that can be rewarding on its own. And, if you work at it, you may just find an audience.</p> <br>
+
+            <img src="https://store.hp.com/app/assets/images/uploads/prod/10-best-gaming-computer-desks-2020-hero1586461083252213.jpg" alt=""> <br>
+
+            <p>Whether you want to stream gameplay just to friends, or to try your hand at building a community of your own, this guide will outline everything you need to get started and, hopefully, succeed. (We can't make you a better shot, or wittier, though. That's on you.)</p> <br>
+
+            <h2>First Off, What Is Game Streaming?</h2> <br>
+
+            <p>If you’re reading this, you probably understand what streaming is, or at least the basic idea. In case you’re coming in blind, though, here's the short version.</p> <br>
+
+            <p>In recent years, many thousands of people have taken to broadcasting their video-game gameplay live for millions of online viewers. Only a handful of streamers find huge regular audiences, with many more of them populating a middle tier with modest audiences, and an even greater number scrapping it out to build small communities. You can do this on a PC, or with one of the modern gaming consoles. The more streamlined, plug-and-play nature of the latter, however, means this guide will focus on PC-based streaming. </p> <br>
+
+            <img src="https://cdn.vox-cdn.com/thumbor/iaRO8ZRmYP7vNgG5yPiBME1G1Wg=/0x0:3011x1447/1200x675/filters:focal(1123x329:1603x809)/cdn.vox-cdn.com/uploads/chorus_image/image/66954486/VALORANT_Jett_Red_crop.0.jpg" alt=""> <br> <br>
+
+
+            <p>You have many options for where and how to stream, which I’ll be breaking down below. In terms of the tools and services, you’ve likely heard of Twitch, the largest such service, but you have some other alternatives for broadcasting, though a combination of other software and hardware is required. To stream PC games, the key things you need in addition to a Twitch (or other streaming service) account: a good gaming computer, some accessories, and certain software. <br> <br>
+
+                We’ll break that all down, but first you'll want to take a hard look at what you're trying to achieve by streaming. Fun and profit? Just fun? That will dictate what you really need.</p> <br>
+
+            <h2>How to Set a Realistic Goal for Your Streaming</h2> <br>
+
+            <p>I can think of a host of reasons you might want to stream yourself playing video games. At its core, it’s fun to do, and the appeal of an audience watching you play games is enough to motivate many people to try. You may want to do it purely for fun, and for yourself—and if you happen to get consistent viewers, great! If that's you, you’ll probably lean toward the more casual suggestions in this guide. </p> <br>
+
+            <p>Others want to create a community, even if it’s small, of dedicated viewers. And still others hope to make a profit from streaming via advertisements, partnerships, or viewer donations (or some combination of those). In an ideal world, your streaming could even be your full-time job.</p> <br>
+        </div>
+        <div>
+            <h2>Gamer's Thread</h2>
+            <div class="thread-box" id="thread-box">
+                <div>
+                    <h3 class="thread-name">Doe</h3>
+                    <p class="thread-message">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis suscipit recusandae totam architecto tempora rem. Dolore ea enim cum hic!</p>
+                </div>
+            </div>
+            <form action="" class="thread-form" id="clearForm">
+                <input type="text" placeholder="Name / Alias" class="thread-name-input" id="name-input" value=""> <br>
+                <input type="text" class="message-input" id="message-input" value=""> <br>
+            </form>
+            <button id="thread-btn">Submit</button>
+        </div>
+    </div>
+
+
+
+    <div class="container" id="gameHub">
+        <div class="game-wrapper">
+            <div class="game-search">
+                <h2 class="title">The Gamers Hub</h2>
+                <div class="game-search-box">
+                    <input type="text" class="search-control" onfocus="this.value=''" id="search-input" placeholder="Search your game here...">
+                    <button class="search-btn" id="search-btn"> <i class= 'fas fa-search'></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="game-result">
+                <h2 class="title-result" id="title-result">Your Search Results:</h2>
+                <div id="game" >
+                    <!-- game item -->
+                    <!-- <div class="game-item">
+                        <div class="game-img">
+                            <img src="img/psIcon.png" alt="">
+                        </div>
+                        <div class="game-name">
+                            <h3>Game Name</h3>
+                            <a href="#" class="game-btn">Details</a>
+                        </div>
+                    </div> -->
+                    <!-- end of item -->
+                </div>
+            </div>
+
+            <div class="game-details">
+                <!-- close button -->
+                <button type="button" class="btn game-close-btn" id="game-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <!-- game content -->
+                <div class="game-details-content">
+                    <!-- <h2 class="game-title">Game Name in Here</h2>
+                    <p class="game-category">Category name</p>
+                    <div class="game-preview">
+                        <h3>Preview</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit officia voluptatem ab blanditiis commodi nostrum, adipisci in ut dolor quas ad exercitationem doloremque libero cupiditate hic incidunt autem eaque. Porro.</p>
+                    </div>
+                    <div class="game-preview-img">
+                        <img src="img/psIcon.png" alt="">
+                    </div>
+                    <div class="game-link">
+                        <a href="#" target="_blank">See full details.</a>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- pagination -->
+            <div class="pagination">
+                <!-- <div id="listingTable"></div> -->
+                <!-- <div class="btn_style"> -->
+                    <a href="javascript:prevPage()" id="btn_prev">Prev</a>
+                    <a href="javascript:nextPage()" id="btn_next">Next</a>
+                <!-- </div> -->
+
+                <span style="color: #d65108">page: </span><span id="page" style="color: #d65108"></span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Game Topup</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Online Shop</h4>
+                    <ul>
+                        <li><a href="#">Game Purchase</a></li>
+                        <li><a href="#">Discounts</a></li>
+                        <li><a href="#">Game coupons</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us:</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="main.js"></script>
+    <!-- <script src="store.js"></script> -->
+</body>
+</html>
