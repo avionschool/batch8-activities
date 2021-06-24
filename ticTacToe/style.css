@@ -31,13 +31,15 @@ body {
   align-content: center;
   justify-items: center;
   align-items: center;
-  margin-top: 20px;
+  padding-top: 20px;
   margin-bottom: 0;
   font-family: "Times New Roman", Times, serif;
-  font-size: 50px;
+  font-size: 70px;
+  margin-top: 2%;
 }
 
 .board {
+  margin-top: 5%;
   width: 100vw;
   height: 40vh;
   display: grid;

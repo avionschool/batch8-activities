@@ -29,6 +29,9 @@ const myHistory = [
     ['', '', '']
 ];
 
+const myHistoryTry1 = [];
+const myHistoryTry2 = [];
+
 //next and previous buttons
 const prev = document.getElementById('prevButton');
 const next = document.getElementById('nextButton');
@@ -37,7 +40,6 @@ const storeNext = [];
 const movePrev = [];
 const moveNext = [];
 // const getCellLoc = 
-
 
 
 
@@ -56,6 +58,7 @@ function startGame() {
         cell.addEventListener('click', handleClick, { once: true})
     })
     setBoardHoverClass()
+    turnMessage.innerText = `${"X's"} turn`; 
     winningMessageElement.classList.remove('show')
 }
 
@@ -75,7 +78,16 @@ function handleClick (e) {
     swapTurns();
     setBoardHoverClass();
     storePrev.push(getNode); // to store variable same check
-    movePrev.push(classList[2])
+    movePrev.push(classList[2]);
+
+    myHistoryTry1.push(getNode);
+    myHistoryTry2.push(classList[2]);
+
+
+    const objHistory = {
+        clickedHistory: classList[2]
+    }
+    console.log(objHistory)
 
 }
 
@@ -86,7 +98,7 @@ function endGame(draw) {
     } else {
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
     }
-    turnMessage.removeAttribute('innerText'); // need to work on
+    // turnMessage.removeAttribute('innerText'); // need to work on
     winningMessageElement.classList.add('show');
 }
 
@@ -103,11 +115,7 @@ function placeMark (cell, currentClass) {
 
 function swapTurns () {
     circleTurn = !circleTurn;
-    if (circleTurn) {
-        turnMessage.innerText = 'o turn'; 
-    } else {
-        turnMessage.innerText = 'x turn';
-    }
+        turnMessage.innerText = `${circleTurn? "O's" : "X's"} turn`; 
 }
 
 function setBoardHoverClass () {
