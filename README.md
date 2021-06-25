@@ -1,10 +1,7 @@
-<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="Profile/Display.css">
   </head>
-  <body>
-    <h1>Batch 8 Activities<h1>
         <div class="mainCon">
           <p><a href="https://jansonsiy.github.io/batch8-activities/Activity_1/A1.html">Best Practices</a>
         <a href="https://jansonsiy.github.io/batch8-activities/Activity_2/A2.html">Email Page</a>
@@ -16,6 +13,4 @@
         <a href="https://jansonsiy.github.io/batch8-activities/Activity_8/A8P1.html">Momentum App</a>
             <a href="https://jansonsiy.github.io/batch8-activities/Activity_9_Tic_Tac_Toe/A9.html">Momentum App</a>
       </p>
-      </div>  
-  </body>
-</html>
+      </div>
