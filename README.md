@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="Display.css">
+    <link rel="stylesheet" href="Profile/Display.css">
   </head>
   <body>
     <h1>Batch 8 Activities<h1>
