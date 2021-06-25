@@ -5,5 +5,4 @@ arr.each { |num|
     arr_even.push(num)
   end
 }
-
 puts arr_even
