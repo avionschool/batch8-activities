@@ -1,7 +1,6 @@
-<html>
-  <head>
+<head>
     <link rel="stylesheet" href="Profile/Display.css">
-  </head>
+</head>
         <div class="mainCon">
           <p><a href="https://jansonsiy.github.io/batch8-activities/Activity_1/A1.html">Best Practices</a>
         <a href="https://jansonsiy.github.io/batch8-activities/Activity_2/A2.html">Email Page</a>
