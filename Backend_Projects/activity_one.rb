@@ -11,19 +11,17 @@ h.merge!(e: 5, f: 6)
 
 # 3
 contact_data = [["ana@email.com", "123 Main st.", "555-123-4567"], ["avion@email.com", "404 Not Found Dr.", "123-234-3454"]]
+contacts = {"Analyn Cojocson" => {}, "Avion School" => {}}
 
 a = contact_data[0][0]
 b = contact_data[0][1]
 c = contact_data[0][2]
-
 d = contact_data[1][0]
 e = contact_data[1][1]
 f = contact_data[1][2]
 
 x = {email: a, address: b, phone: c}
 y = {email: d, address: e, phone: f}
-
-contacts = {"Analyn Cojocson" => {}, "Avion School" => {}}
 
 contacts["Analyn Cojocson"] = x
 contacts["Avion School"] = y
