@@ -1,5 +1,4 @@
 <head>
-    <link rel="stylesheet" href="Profile/Display.css">
 </head>
         <div class="mainCon">
           <p><a href="https://jansonsiy.github.io/batch8-activities/Activity_1/A1.html">Best Practices</a>
