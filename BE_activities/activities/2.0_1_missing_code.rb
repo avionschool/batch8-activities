@@ -1,6 +1,10 @@
 class Profile
     attr_accessor :full_name, :age, :address, :work
     def initialize(full_name, age, address, work)
+        @full_name = full_name
+        @age = age
+        @address = address
+        @work  = work
     end
   end
   
@@ -15,4 +19,4 @@ class Profile
   puts my_profile.full_name
   puts my_profile.age
   puts my_profile.work
-  puts my_profile.address
+  puts my_profile.addresscd
