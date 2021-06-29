@@ -1,7 +1,7 @@
 array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]
 
 def return_count_of_positive_and_sum_of_negative(arr)
-  if arr == []
+  if arr == [] or arr == nil
     return []
   end
 
@@ -17,5 +17,5 @@ def return_count_of_positive_and_sum_of_negative(arr)
   return [count, sum]
 end
 
-puts return_count_of_positive_and_sum_of_negative(array)
-puts return_count_of_positive_and_sum_of_negative([])
+p return_count_of_positive_and_sum_of_negative(array)
+p return_count_of_positive_and_sum_of_negative([])
