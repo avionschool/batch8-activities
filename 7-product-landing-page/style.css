@@ -1,0 +1,29 @@
+:root {
+  --primary-color: #ead573;
+  --secondary-color: #6da7aa;
+}
+
+/* ======================================= 
+                 --LAYOUT 
+ ======================================= */
+section {
+  height: 100vh;
+}
+
+/* ======================================= 
+                 --COMPONENTS 
+ ======================================= */
+
+/* ======================================= 
+                 --TYPOGRAPHY 
+ ======================================= */
+
+h1 {
+  font-family: 'Playfair Display', Serif;
+  font-size: 48px;
+}
+
+body {
+  font-family: 'Source Sans Pro', Sans-Serif;
+  font-size: 16px;
+}
