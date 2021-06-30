@@ -40,13 +40,6 @@ class Samsung < Phone
   end
 end
 
-class CherryMobile
-
-  def trademark
-    puts "I'm locally made!"
-  end
-end
-
 iphone12 = IPhone.new("iOS","iPhone12",70000)
 iphone12.local_price
 
