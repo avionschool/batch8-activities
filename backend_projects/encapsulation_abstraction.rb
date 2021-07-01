@@ -1,5 +1,5 @@
 # Encapsulation
-class Count
+class Toblerone
     def initialize(pack, pieces)
         @pack = pack
         @pieces = pieces
@@ -9,11 +9,11 @@ class Count
     end
 end
 
-count = Count.new(4, 25)
-puts count.total
+toblerone = Toblerone.new(4, 25)
+puts toblerone.total
 
 # Abstraction
-class Count
+class Toblerone
     def initialize(pack, pieces, price)
         @pack = pack
         @pieces = pieces
@@ -33,6 +33,6 @@ class Count
     end
 end
 
-count = Count.new(2, 25, 200)
-puts count.totalPieces
-puts count.totalPrice
+toblerone = Toblerone.new(2, 25, 200)
+puts toblerone.totalPieces
+puts toblerone.totalPrice
