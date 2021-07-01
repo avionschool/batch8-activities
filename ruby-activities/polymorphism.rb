@@ -8,9 +8,6 @@ class Phone
     @price = price
   end
 
-  def trademark(phone)
-  end
-
   def local_price
     @price - price_diff
   end
