@@ -1,46 +1,3 @@
-# Confection Class
-class Confection
-    def ingredients
-      puts "Flour, Sugar, Baking Powder, Salt, Milk, Vegtable Oil, Eggs, Water"
-    end
-end
-  
-class Cupcake < Confection
-    def bake
-        puts "Baking at 350 degrees for 25 minutes"
-    end
-    def frost
-        puts "Apply frosting"
-    end
-    def success
-        puts "Cupcake made!"
-    end
-end
-  
-class BananaCake < Confection
-    def bake
-        puts "Baking at 350 degrees for 25 minutes."
-    end
-    def success
-        puts "Banana Cake made!"
-    end
-end
-  
-confection = Confection.new()
-confection.ingredients
-
-cupcake = Cupcake.new()
-cupcake.ingredients
-cupcake.bake
-cupcake.frost
-cupcake.success
-
-bananaCake = BananaCake.new()
-bananaCake.ingredients
-bananaCake.bake
-bananaCake.success
-
-# Fix This Code
 module AdminPermisson
     def edit_users_profile
       puts "Admin updated all users profile"
@@ -89,7 +46,6 @@ my_admin.change_password
   
 buyer = Buyer.new('juan', 'password', '127.0.0.1')
 buyer.buyer_login
-include BuyerPermission
 buyer.buy
   
 # buyer.change_password = 'new_password'
