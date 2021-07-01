@@ -10,3 +10,7 @@ while input = gets.chomp.upcase
     puts prompt
   end
 end
+
+def test
+ puts "hello"
+end
