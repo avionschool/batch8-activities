@@ -2,6 +2,7 @@ prompt = "Enter a random word or the word 'stop': "
 puts prompt
 
 while input = gets.chomp.upcase
+  
   case input
   when "STOP"
     puts "Bye! Program will exit now."
@@ -9,8 +10,4 @@ while input = gets.chomp.upcase
   else
     puts prompt
   end
-end
-
-def test
- puts "hello"
 end
